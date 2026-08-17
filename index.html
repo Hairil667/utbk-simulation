@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Simulasi UTBK - SNBT Resmi (Sistem CAT)</title>
+  <meta name="description" content="Web Latihan Soal Simulasi UTBK-SNBT dengan Tampilan CAT Resmi, Timer Real-Time, Skoring, dan Pembahasan Lengkap.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. START / CONFIGURATION SCREEN
+       ========================================================================== -->
+  <div id="start-screen" class="screen active">
+    <div class="start-container">
+      <div class="start-header">
+        <div class="logo-badge">🏛️ Balai Pengelolaan Pengujian Pendidikan (BPPP)</div>
+        <h1 id="start-title">SIMULASI UTBK - SNBT RESMI</h1>
+        <p id="start-subtitle">Ujian Tertulis Berbasis Komputer — Latihan Soal & Evaluasi Mandiri</p>
+      </div>
+
+      <div class="start-card">
+        <div class="config-grid">
+          <!-- User Profile Config -->
+          <div class="form-group">
+            <label for="input-user-name">👤 Nama Lengkap Peserta</label>
+            <input type="text" id="input-user-name" class="form-control" value="PESERTA UTBK 2025" placeholder="Masukkan nama Anda">
+          </div>
+
+          <div class="form-group">
+            <label for="input-user-id">🔢 Nomor Peserta Simulasi</label>
+            <input type="text" id="input-user-id" class="form-control" value="25-3401-0891" placeholder="Contoh: 25-3401-0891">
+          </div>
+
+          <!-- Subtest Selection -->
+          <div class="form-group">
+            <label for="select-subtest">📚 Pilih Subtes / Paket Soal</label>
+            <select id="select-subtest" class="form-control">
+              <!-- Dynamically populated from JSON -->
+              <option value="all">Semua Subtes (Paket Lengkap)</option>
+            </select>
+            <span class="help-text" id="subtest-count-info">Memuat bank soal...</span>
+          </div>
+
+          <!-- Time Configuration -->
+          <div class="form-group">
+            <label for="input-custom-time">⏱️ Atur Waktu Pengerjaan (Menit)</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="number" id="input-custom-time" class="form-control" min="1" max="180" value="20" placeholder="Menit">
+              <button type="button" id="btn-reset-time" class="btn-secondary" style="padding: 0.65rem 0.8rem; font-size: 0.82rem;" title="Gunakan waktu rekomendasi dari paket soal">Default</button>
+            </div>
+            <span class="help-text">Anda bebas mengatur durasi ujian untuk latihan kecepatan.</span>
+          </div>
+        </div>
+
+        <!-- Custom JSON File Uploader -->
+        <div class="json-upload-box" id="drop-zone" onclick="document.getElementById('file-json-input').click()">
+          <div class="upload-icon">📁</div>
+          <strong style="font-size: 0.95rem; color: var(--utbk-navy);">Gunakan Bank Soal Kustom (Format JSON)</strong>
+          <p style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">
+            Klik di sini untuk unggah file <code style="background:#e2e8f0; padding:2px 5px; border-radius:3px;">.json</code> milik Anda, atau gunakan soal bawaan.
+          </p>
+          <input type="file" id="file-json-input" accept=".json">
+          <div id="loaded-file-status" style="margin-top: 6px; font-size: 0.8rem; font-weight: bold; color: var(--utbk-green-dark); display: none;"></div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="start-instructions">
+          <strong>📌 Petunjuk Pengerjaan CAT UTBK:</strong>
+          <ul>
+            <li>Pilih salah satu jawaban yang Anda anggap paling benar pada opsi (A, B, C, D, E).</li>
+            <li>Gunakan tombol <strong>Ragu-Ragu</strong> jika Anda belum yakin dengan jawaban Anda (nomor akan berwarna kuning).</li>
+            <li>Waktu akan terus berjalan mundur. Pastikan Anda menyelesaikan ujian sebelum timer habis.</li>
+            <li>Setelah selesai, Anda akan langsung melihat <strong>Skor Perolehan</strong> serta <strong>Kunci & Pembahasan</strong> lengkap!</li>
+          </ul>
+        </div>
+
+        <!-- Action Button -->
+        <div class="btn-start-action">
+          <button id="btn-start-exam" class="btn-primary" style="font-size: 1.1rem; padding: 0.9rem 2.5rem;">
+            🚀 MULAI SIMULASI UJIAN
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       2. EXAM ROOM SCREEN (AUTHENTIC CAT INTERFACE)
+       ========================================================================== -->
+  <div id="exam-screen" class="screen">
+    <!-- CAT Header -->
+    <header class="cat-header">
+      <div class="cat-header-left">
+        <div class="cat-logo-icon">UTBK</div>
+        <div class="cat-header-title">
+          <h2 id="exam-header-title">SIMULASI UTBK - SNBT</h2>
+          <span id="exam-header-subtest">Kemampuan Penalaran Umum</span>
+        </div>
+      </div>
+
+      <!-- Center: Timer -->
+      <div class="cat-timer-box" id="timer-box">
+        <span class="cat-timer-label">Sisa Waktu</span>
+        <span class="cat-timer-digits" id="timer-display">00:00:00</span>
+      </div>
+
+      <!-- Right: User Info -->
+      <div class="cat-header-right">
+        <div class="cat-user-badge">
+          <div class="cat-user-photo">
+            <img src="assets/avatar.svg" alt="Foto Peserta">
+          </div>
+          <div class="cat-user-meta">
+            <div class="cat-user-name" id="display-user-name">PESERTA UTBK 2025</div>
+            <div class="cat-user-id" id="display-user-id">25-3401-0891</div>
+            <div class="cat-subtest-name" id="display-subtest-badge">TPS</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CAT Main Workspace -->
+    <main class="cat-main-layout">
+      <!-- Left Column: Soal & Opsi -->
+      <section class="cat-workspace" id="workspace-container">
+        <!-- Top Bar: Nomor Soal & Ukuran Font -->
+        <div class="workspace-topbar">
+          <div class="soal-indicator">
+            <span class="soal-badge" id="current-q-badge">SOAL NO. 1</span>
+            <span class="soal-category" id="current-q-subtest">Kemampuan Penalaran Umum</span>
+          </div>
+
+          <!-- Font Resizer -->
+          <div class="font-size-control">
+            <span class="font-size-label">Ukuran Font:</span>
+            <button class="btn-font-size" id="btn-font-sm" title="Font Kecil">A-</button>
+            <button class="btn-font-size active" id="btn-font-md" title="Font Normal">A</button>
+            <button class="btn-font-size" id="btn-font-lg" title="Font Besar">A+</button>
+          </div>
+        </div>
+
+        <!-- Question Content (Scrollable) -->
+        <div class="workspace-content" id="workspace-content">
+          <div class="question-text" id="question-text">
+            Memuat pertanyaan...
+          </div>
+
+          <!-- Options Container -->
+          <div class="options-list" id="options-container">
+            <!-- Dynamically populated options A-E -->
+          </div>
+        </div>
+
+        <!-- Bottom Action Bar -->
+        <div class="workspace-bottombar">
+          <button id="btn-prev" class="btn-nav-prev">
+            ◀ SOAL SEBELUMNYA
+          </button>
+
+          <div class="ragu-ragu-container">
+            <label class="btn-ragu-ragu" id="label-ragu">
+              <input type="checkbox" id="checkbox-ragu">
+              <span>RAGU - RAGU</span>
+            </label>
+          </div>
+
+          <button id="btn-next" class="btn-nav-next">
+            SOAL BERIKUTNYA ▶
+          </button>
+
+          <button id="btn-finish-trigger" class="btn-nav-finish" style="display: none;">
+            ✓ SELESAI UJIAN
+          </button>
+        </div>
+      </section>
+
+      <!-- Right Column: Daftar Soal (Question Map Grid) -->
+      <aside class="cat-sidebar" id="cat-sidebar">
+        <div class="sidebar-header">
+          <h3>DAFTAR SOAL</h3>
+          <button class="sidebar-close-btn" id="btn-close-sidebar" title="Tutup">✕</button>
+        </div>
+        <div class="sidebar-body">
+          <div class="question-grid" id="question-grid">
+            <!-- 1, 2, 3, ... N grid buttons -->
+          </div>
+
+          <!-- Legend Box -->
+          <div class="legend-box">
+            <div class="legend-title">Keterangan Warna:</div>
+            <div class="legend-item">
+              <span class="legend-color answered"></span>
+              <span>Sudah dijawab</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color doubt"></span>
+              <span>Ragu-ragu</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color unanswered"></span>
+              <span>Belum dijawab</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color current"></span>
+              <span>Soal yang aktif</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Mobile Floating Toggle for Daftar Soal -->
+    <button class="mobile-sidebar-toggle" id="btn-mobile-sidebar-toggle">
+      📋 Daftar Soal (<span id="mobile-answered-count">0</span>/<span id="mobile-total-count">0</span>)
+    </button>
+  </div>
+
+
+  <!-- ==========================================================================
+       3. RESULT & REVIEW SCREEN
+       ========================================================================== -->
+  <div id="result-screen" class="screen">
+    <div class="result-container">
+      <div class="result-hero-card">
+        <h2>🎉 HASIL SIMULASI UTBK - SNBT</h2>
+        <p id="result-user-meta">Peserta: PESERTA UTBK 2025 | No: 25-3401-0891</p>
+
+        <div class="score-badge-circle">
+          <span class="score-number" id="result-score-val">0</span>
+          <span class="score-label">Skor UTBK</span>
+        </div>
+        <p id="result-feedback-text" style="font-size: 0.95rem; color: #f1f5f9; max-width: 600px; margin: 0 auto;">
+          Kerja bagus! Terus asah kemampuan dan perdalam pembahasan soal di bawah ini.
+        </p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-box correct">
+          <div class="stat-val" id="stat-correct-count" style="color: var(--utbk-green);">0</div>
+          <div class="stat-lbl">Jawaban Benar</div>
+        </div>
+        <div class="stat-box wrong">
+          <div class="stat-val" id="stat-wrong-count" style="color: var(--utbk-red);">0</div>
+          <div class="stat-lbl">Jawaban Salah</div>
+        </div>
+        <div class="stat-box empty">
+          <div class="stat-val" id="stat-empty-count" style="color: var(--utbk-yellow);">0</div>
+          <div class="stat-lbl">Dikosongkan</div>
+        </div>
+        <div class="stat-box time">
+          <div class="stat-val" id="stat-time-spent" style="color: var(--utbk-blue); font-size: 1.3rem;">00:00</div>
+          <div class="stat-lbl">Waktu Terpakai</div>
+        </div>
+      </div>
+
+      <!-- Review & Pembahasan Section -->
+      <div class="review-section">
+        <div class="review-header">
+          <h3 style="font-size: 1.15rem; color: var(--utbk-navy);">📖 Pembahasan & Analisis Soal</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button class="review-filter-btn active" data-filter="all">Semua Soal</button>
+            <button class="review-filter-btn" data-filter="wrong">Salah</button>
+            <button class="review-filter-btn" data-filter="correct">Benar</button>
+            <button class="review-filter-btn" data-filter="empty">Kosong</button>
+          </div>
+        </div>
+
+        <div id="review-list-container">
+          <!-- Dynamically populated review cards -->
+        </div>
+      </div>
+
+      <!-- Bottom Action Buttons -->
+      <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap;">
+        <button id="btn-retry-test" class="btn-primary">
+          🔄 Ulangi Simulasi
+        </button>
+        <button id="btn-back-home" class="btn-secondary">
+          🏠 Kembali ke Beranda
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       CONFIRMATION FINISH MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="confirm-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span>⚠️ Konfirmasi Selesai Ujian</span>
+      </div>
+      <div class="modal-body">
+        <p>Apakah Anda yakin ingin mengakhiri ujian ini?</p>
+        <div class="modal-summary-box">
+          <div class="modal-summary-row">
+            <span>Total Soal:</span>
+            <strong id="modal-total-q">0</strong>
+          </div>
+          <div class="modal-summary-row">
+            <span>Sudah Dijawab:</span>
+            <strong id="modal-answered-q" style="color: var(--utbk-green);">0</strong>
+          </div>
+          <div class="modal-summary-row">
+            <span>Masih Ragu-Ragu:</span>
+            <strong id="modal-doubt-q" style="color: var(--utbk-yellow);">0</strong>
+          </div>
+          <div class="modal-summary-row">
+            <span>Belum Dijawab:</span>
+            <strong id="modal-unanswered-q" style="color: var(--utbk-red);">0</strong>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: #64748b;">
+          *Jawaban yang ditandai ragu-ragu tetap akan dinilai jika sudah memilih opsi jawaban.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="btn-modal-cancel">Lanjutkan Ujian</button>
+        <button type="button" class="btn-primary" id="btn-modal-confirm" style="background-color: var(--utbk-red);">Kumpulkan Jawaban</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
