@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>SIMULASI UTBK - SNBT RESMI | BPPP Kemendikbudristek</title>
-  <meta name="description" content="Simulasi Ujian Tertulis Berbasis Komputer (UTBK-SNBT) Resmi Balai Pengelolaan Pengujian Pendidikan (BPPP) Kemendikbudristek.">
-  <link rel="stylesheet" href="style.css?v=2.2">
-  <link rel="icon" href="assets/kemdikbud_logo.svg" type="image/svg+xml">
+  <title>SIMULASI TES HAIRIL | Sistem Ujian CAT Pribadi</title>
+  <meta name="description" content="Simulasi Ujian Berbasis Komputer Pribadi — Tes Hairil dengan Sistem CAT Resmi, Timer, Skoring, dan Pembahasan Lengkap.">
+  <link rel="stylesheet" href="style.css?v=3.0">
+  <link rel="icon" href="assets/hairil_logo.svg" type="image/svg+xml">
   <style>
 /* ==========================================================================
-   OFFICIAL UTBK-SNBT BPPP / PUSMENDIK CAT SYSTEM THEME
-   1:1 Pixel-Perfect Replication of Indonesian National UTBK CBT Interface
+   SIMULASI TES HAIRIL - CBT THEME
+   Accurate CAT Interface (Personal Exam System)
    ========================================================================== */
 :root {
   --bppp-navy-dark: #0a1e32;
@@ -1055,16 +1055,16 @@ body {
 <body>
 
   <!-- ==========================================================================
-       1. SCREEN: KONFIRMASI DATA PESERTA (LOGIN BPPP RESMI)
+       1. SCREEN: KONFIRMASI DATA PESERTA (LOGIN TES HAIRIL)
        ========================================================================== -->
   <div id="start-screen" class="screen active">
     <div class="bppp-login-wrapper">
-      <!-- Banner Header Resmi -->
+      <!-- Banner Header -->
       <div class="bppp-banner-card">
-        <img src="assets/kemdikbud_logo.svg" alt="Logo BPPP Kemdikbud" class="bppp-banner-logo">
+        <img src="assets/hairil_logo.svg" alt="Logo Tes Hairil" class="bppp-banner-logo">
         <div class="bppp-banner-text">
-          <h1 id="start-title">SIMULASI UTBK - SNBT</h1>
-          <p id="start-subtitle">Balai Pengelolaan Pengujian Pendidikan (BPPP) • Kemendikbudristek</p>
+          <h1 id="start-title">SIMULASI TES HAIRIL</h1>
+          <p id="start-subtitle">Platform Evaluasi & Latihan Ujian Mandiri • CBT System</p>
         </div>
       </div>
 
@@ -1078,7 +1078,7 @@ body {
           <!-- Token / Sesi -->
           <div class="bppp-form-group">
             <label for="input-token">🔑 Token / Kode Sesi</label>
-            <input type="text" id="input-token" class="bppp-input" value="UTBK-SNBT-2025" style="font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
+            <input type="text" id="input-token" class="bppp-input" value="HAIRIL-2025" style="font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
           </div>
 
           <!-- Nama Peserta -->
@@ -1087,9 +1087,9 @@ body {
             <input type="text" id="input-user-name" class="bppp-input" value="MUHAMMAD HAIRIL" placeholder="Masukkan nama peserta">
           </div>
 
-          <!-- NISN / No Peserta -->
+          <!-- Nomor Peserta -->
           <div class="bppp-form-group">
-            <label for="input-user-id">🔢 Nomor Peserta / NISN</label>
+            <label for="input-user-id">🔢 Nomor Peserta</label>
             <input type="text" id="input-user-id" class="bppp-input" value="25-3401-0891-01" placeholder="Contoh: 25-3401-0891-01">
           </div>
 
@@ -1101,7 +1101,7 @@ body {
 
           <!-- Pilihan Subtes -->
           <div class="bppp-form-group">
-            <label for="select-subtest">📚 Mata Uji / Subtes</label>
+            <label for="select-subtest">📚 Paket / Subtes Soal</label>
             <select id="select-subtest" class="bppp-input">
               <option value="all">Semua Subtes (Paket Lengkap)</option>
             </select>
@@ -1115,7 +1115,7 @@ body {
               <input type="number" id="input-custom-time" class="bppp-input" min="1" max="180" value="20" placeholder="Menit">
               <button type="button" id="btn-reset-time" class="btn-cat-prev" style="padding: 0.5rem 0.8rem; font-size: 0.8rem;" title="Gunakan waktu rekomendasi standar">Default</button>
             </div>
-            <span class="bppp-help-text">Waktu dapat diatur bebas untuk simulasi cepat.</span>
+            <span class="bppp-help-text">Waktu dapat diatur bebas untuk latihan kecepatan.</span>
           </div>
         </div>
 
@@ -1124,13 +1124,13 @@ body {
           <div style="font-size: 1.5rem; margin-bottom: 4px;">📂</div>
           <strong style="font-size: 0.9rem; color: var(--bppp-navy);">Unggah Bank Soal Kustom (Format .JSON)</strong>
           <p style="font-size: 0.78rem; color: #64748b; margin-top: 2px;">
-            Klik di sini untuk upload file soal buatan sendiri, atau gunakan paket soal resmi bawaan.
+            Klik di sini untuk upload file soal buatan sendiri, atau gunakan paket soal bawaan.
           </p>
           <input type="file" id="file-json-input" accept=".json" style="display: none;">
           <div id="loaded-file-status" style="margin-top: 6px; font-size: 0.82rem; font-weight: bold; color: #166534; display: none;"></div>
         </div>
 
-        <!-- Notice Box BPPP -->
+        <!-- Notice Box -->
         <div class="bppp-notice-box">
           <strong>⚠️ Petunjuk Ujian Berbasis Komputer (CAT):</strong>
           <ol>
@@ -1153,18 +1153,18 @@ body {
 
 
   <!-- ==========================================================================
-       2. SCREEN: RUANG UJIAN CAT BPPP (AUTHENTIC CAT CBT INTERFACE)
+       2. SCREEN: RUANG UJIAN CAT (TES HAIRIL CBT INTERFACE)
        ========================================================================== -->
   <div id="exam-screen" class="screen">
-    <!-- Topbar CAT Resmi -->
+    <!-- Topbar CAT -->
     <header class="cat-topbar">
       <!-- Left: Logo & Exam Meta -->
       <div class="cat-topbar-left">
         <div class="cat-logo-wrapper">
-          <img src="assets/kemdikbud_logo.svg" alt="Logo Kemdikbud" style="width: 100%; height: 100%;">
+          <img src="assets/hairil_logo.svg" alt="Logo Tes Hairil" style="width: 100%; height: 100%;">
         </div>
         <div class="cat-exam-meta">
-          <h2 id="exam-header-title">SIMULASI UTBK - SNBT</h2>
+          <h2 id="exam-header-title">SIMULASI TES HAIRIL</h2>
           <div class="cat-subtest-title" id="exam-header-subtest">Kemampuan Penalaran Umum</div>
         </div>
       </div>
@@ -1225,7 +1225,7 @@ body {
           </div>
         </div>
 
-        <!-- Bottom Action Bar Resmi -->
+        <!-- Bottom Action Bar -->
         <div class="cat-action-bottombar">
           <button id="btn-prev" class="btn-cat-prev">
             ◀ SOAL SEBELUMNYA
@@ -1290,17 +1290,17 @@ body {
   <div id="result-screen" class="screen">
     <div class="cat-result-wrapper">
       <div class="cat-result-header-card">
-        <h2 style="font-size: 1.5rem; text-transform: uppercase;">HASIL EVALUASI SIMULASI UTBK - SNBT</h2>
+        <h2 style="font-size: 1.5rem; text-transform: uppercase;">HASIL EVALUASI SIMULASI TES HAIRIL</h2>
         <p id="result-user-meta" style="color: #cbd5e1; font-size: 0.9rem; margin-top: 4px;">
           Peserta: MUHAMMAD HAIRIL | No: 25-3401-0891-01
         </p>
 
         <div class="cat-score-circle">
           <span class="cat-score-val" id="result-score-val">0</span>
-          <span class="cat-score-label">Skor UTBK</span>
+          <span class="cat-score-label">Skor Akhir</span>
         </div>
         <p id="result-feedback-text" style="font-size: 0.95rem; color: #f8fafc; max-width: 620px; margin: 0 auto; line-height: 1.5;">
-          Hasil simulasi Anda telah dihitung berdasarkan bobot skor standar UTBK.
+          Hasil simulasi Anda telah dihitung berdasarkan bobot skor standar.
         </p>
       </div>
 
@@ -1355,15 +1355,15 @@ body {
 
 
   <!-- ==========================================================================
-       4. MODAL KONFIRMASI SELESAI UJIAN (3-STEP CONFIRMATION)
+       4. MODAL KONFIRMASI SELESAI UJIAN
        ========================================================================== -->
   <div class="cat-modal-backdrop" id="confirm-modal">
     <div class="cat-modal-box">
       <div class="cat-modal-header">
-        ⚠️ Konfirmasi Selesai Subtes
+        ⚠️ Konfirmasi Selesai Ujian
       </div>
       <div class="cat-modal-content">
-        <p>Apakah Anda yakin ingin menyelesaikan dan mengumpulkan jawaban subtes ini?</p>
+        <p>Apakah Anda yakin ingin menyelesaikan dan mengumpulkan jawaban ujian ini?</p>
         
         <div class="cat-modal-stats">
           <div class="cat-modal-row">
@@ -1398,6 +1398,6 @@ body {
     </div>
   </div>
 
-  <script src="app.js?v=2.2"></script>
+  <script src="app.js?v=3.0"></script>
 </body>
 </html>
