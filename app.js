@@ -122,8 +122,8 @@ function loadExamData(data) {
   State.examData = data;
   
   if (data.testInfo) {
-    DOM.startTitle.textContent = data.testInfo.title || 'SIMULASI UTBK - SNBT';
-    DOM.startSubtitle.textContent = `${data.testInfo.subtitle || 'BPPP Kemendikbudristek'} • Tahun ${data.testInfo.year || '2025/2026'}`;
+    DOM.startTitle.textContent = data.testInfo.title || 'SIMULASI TES HAIRIL';
+    DOM.startSubtitle.textContent = `${data.testInfo.subtitle || 'Platform Evaluasi Pribadi'} • Tahun ${data.testInfo.year || '2025/2026'}`;
     if (data.testInfo.defaultTimeMinutes) {
       DOM.inputCustomTime.value = data.testInfo.defaultTimeMinutes;
     }
