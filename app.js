@@ -895,29 +895,55 @@ function escapeHtml(str) {
 function loadFallbackData() {
   const fallback = {
     testInfo: {
-      title: "SIMULASI UTBK - SNBT RESMI",
-      subtitle: "Balai Pengelolaan Pengujian Pendidikan (BPPP)",
+      title: "SIMULASI TES HAIRIL",
+      subtitle: "Pengetahuan Kuantitatif: Operasi Bilangan",
       year: "2025 / 2026",
       defaultTimeMinutes: 20
     },
     subtests: [
       {
-        id: "tps-pu",
-        name: "Kemampuan Penalaran Umum (PU)",
-        timeMinutes: 15,
+        id: "pk-operasi-bilangan",
+        name: "Pengetahuan Kuantitatif - Operasi Bilangan",
+        timeMinutes: 20,
         questions: [
           {
             id: 1,
-            question: "Semua atlet lari maraton memiliki stamina yang kuat. Sebagian orang yang memiliki stamina kuat gemar minum air kelapa muda. Dani adalah seorang atlet lari maraton.\n\nKesimpulan yang paling tepat adalah...",
+            question: "Jika didefinisikan operasi khusus ♠ pada bilangan real sebagai:\na ♠ b = (a × b) / (a + b) + 2a\n\nMaka nilai dari 6 ♠ 3 adalah...",
             options: {
-              A: "Dani pasti gemar minum air kelapa muda.",
-              B: "Dani memiliki stamina yang kuat.",
-              C: "Dani tidak gemar minum air kelapa muda.",
-              D: "Orang yang gemar minum air kelapa muda pasti atlet lari maraton.",
-              E: "Dani tidak memiliki stamina yang kuat."
+              A: "12",
+              B: "14",
+              C: "16",
+              D: "18",
+              E: "20"
             },
             correctAnswer: "B",
-            explanation: "Premis 1: Semua atlet maraton memiliki stamina kuat.\nPremis 2: Dani adalah atlet maraton.\nKesimpulan: Dani memiliki stamina yang kuat."
+            explanation: "a = 6, b = 3\n6 ♠ 3 = (6 × 3) / (6 + 3) + 2(6) = 18 / 9 + 12 = 2 + 12 = 14."
+          },
+          {
+            id: 2,
+            question: "Diberikan operasi bilangan ⊕ dan ⊗ dengan aturan:\nx ⊕ y = 3x - y\na ⊗ b = a² + 2b\n\nNilai dari (2 ⊕ 4) ⊗ 3 adalah...",
+            options: {
+              A: "8",
+              B: "10",
+              C: "12",
+              D: "14",
+              E: "16"
+            },
+            correctAnswer: "B",
+            explanation: "2 ⊕ 4 = 3(2) - 4 = 2.\n2 ⊗ 3 = 2² + 2(3) = 4 + 6 = 10."
+          },
+          {
+            id: 3,
+            question: "Hasil perhitungan dari:\n(1 - 1/2) × (1 - 1/3) × (1 - 1/4) × ... × (1 - 1/50)\n\nadalah...",
+            options: {
+              A: "1/25",
+              B: "1/50",
+              C: "2/50",
+              D: "49/50",
+              E: "1/100"
+            },
+            correctAnswer: "B",
+            explanation: "Pencoretan berantai suku perkalian pecahan menyisakan pembilang suku pertama (1) dan penyebut suku terakhir (50) = 1/50."
           }
         ]
       }
