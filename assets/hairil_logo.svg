@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2942"/>
+      <stop offset="100%" stop-color="#1e4e79"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Circle with Gold Border -->
+  <circle cx="50" cy="50" r="47" fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="3.5"/>
+  
+  <!-- Subtle decorative inner dashed circle -->
+  <circle cx="50" cy="50" r="41" fill="none" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+
+  <!-- Stylized Letter 'H' Emblem -->
+  <path d="M 32 26 L 41 26 L 41 44 L 59 44 L 59 26 L 68 26 L 68 70 L 59 70 L 59 52 L 41 52 L 41 70 L 32 70 Z" fill="url(#goldGrad)"/>
+
+  <!-- Star accent at top -->
+  <polygon points="50,14 52.5,20 58.5,20 53.5,23.5 55.5,29.5 50,26 44.5,29.5 46.5,23.5 41.5,20 47.5,20" fill="#ffffff"/>
+
+  <!-- Banner at bottom: HAIRIL -->
+  <rect x="18" y="74" width="64" height="15" fill="#0b1d30" rx="3" stroke="#f59e0b" stroke-width="1"/>
+  <text x="50" y="85" fill="#ffffff" font-size="8.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" text-anchor="middle" letter-spacing="1.5">TES HAIRIL</text>
+</svg>
