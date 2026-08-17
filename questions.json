@@ -1,18 +1,155 @@
 {
   "testInfo": {
     "title": "SIMULASI TES HAIRIL",
-    "subtitle": "Platform Evaluasi & Latihan Ujian Pribadi",
+    "subtitle": "Pengetahuan Kuantitatif: Operasi Bilangan & Matematika Dasar",
     "year": "2025 / 2026",
     "defaultTimeMinutes": 20
   },
   "subtests": [
     {
-      "id": "tps-pu",
-      "name": "Kemampuan Penalaran Umum (PU)",
-      "timeMinutes": 15,
+      "id": "pk-operasi-bilangan",
+      "name": "Pengetahuan Kuantitatif - Operasi Bilangan (Part 1)",
+      "timeMinutes": 20,
       "questions": [
         {
           "id": 1,
+          "question": "Jika didefinisikan operasi khusus ♠ pada bilangan real sebagai:\na ♠ b = (a × b) / (a + b) + 2a\n\nMaka nilai dari 6 ♠ 3 adalah...",
+          "options": {
+            "A": "12",
+            "B": "14",
+            "C": "16",
+            "D": "18",
+            "E": "20"
+          },
+          "correctAnswer": "B",
+          "explanation": "Gunakan aturan definisi operasi:\na = 6, b = 3\n6 ♠ 3 = (6 × 3) / (6 + 3) + 2(6)\n= 18 / 9 + 12\n= 2 + 12\n= 14.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 2,
+          "question": "Diberikan operasi bilangan ⊕ dan ⊗ dengan aturan:\nx ⊕ y = 3x - y\na ⊗ b = a² + 2b\n\nNilai dari (2 ⊕ 4) ⊗ 3 adalah...",
+          "options": {
+            "A": "8",
+            "B": "10",
+            "C": "12",
+            "D": "14",
+            "E": "16"
+          },
+          "correctAnswer": "B",
+          "explanation": "Langkah 1: Hitung di dalam kurung (2 ⊕ 4)\n2 ⊕ 4 = 3(2) - 4 = 6 - 4 = 2.\n\nLangkah 2: Hitung 2 ⊗ 3\n2 ⊗ 3 = (2)² + 2(3) = 4 + 6 = 10.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 3,
+          "question": "Hasil perhitungan dari:\n(1 - 1/2) × (1 - 1/3) × (1 - 1/4) × ... × (1 - 1/50)\n\nadalah...",
+          "options": {
+            "A": "1/25",
+            "B": "1/50",
+            "C": "2/50",
+            "D": "49/50",
+            "E": "1/100"
+          },
+          "correctAnswer": "B",
+          "explanation": "Ubah setiap suku pecahan:\n(1/2) × (2/3) × (3/4) × ... × (49/50)\n\nTerjadi pencoretan berantai (telescoping product) antara pembilang dan penyebut suku berikutnya.\nYang tersisa hanya pembilang suku pertama (1) dan penyebut suku terakhir (50).\nHasil = 1/50.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 4,
+          "question": "Jika x = 0,333... dan y = 0,666..., maka nilai dari (x + y) / (x × y) adalah...",
+          "options": {
+            "A": "3/2",
+            "B": "9/2",
+            "C": "2/9",
+            "D": "9",
+            "E": "6"
+          },
+          "correctAnswer": "B",
+          "explanation": "Konversi desimal berulang ke pecahan biasa:\nx = 1/3\ny = 2/3\n\nx + y = 1/3 + 2/3 = 1\nx × y = (1/3) × (2/3) = 2/9\n\nMaka:\n(x + y) / (x × y) = 1 / (2/9) = 9/2 = 4,5.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 5,
+          "question": "Diberikan:\nP = 2²⁰²⁴ - 2²⁰²³\nQ = 2²⁰²³\n\nHubungan yang benar antara kuantitas P dan Q adalah...",
+          "options": {
+            "A": "P > Q",
+            "B": "P < Q",
+            "C": "P = Q",
+            "D": "2P = Q",
+            "E": "Informasi tidak cukup untuk menentukan hubungan"
+          },
+          "correctAnswer": "C",
+          "explanation": "Sederhanakan kuantitas P:\nP = 2²⁰²⁴ - 2²⁰²³\nFaktorkan suku dengan pangkat terkecil:\nP = 2²⁰²³ × (2¹ - 1)\nP = 2²⁰²³ × (2 - 1)\nP = 2²⁰²³ × 1 = 2²⁰²³.\n\nKarena Q = 2²⁰²³, maka diperoleh P = Q.\n\nKunci Jawaban: C."
+        },
+        {
+          "id": 6,
+          "question": "Berapakah sisa pembagian 3²⁰²⁵ oleh 5?",
+          "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4",
+            "E": "0"
+          },
+          "correctAnswer": "C",
+          "explanation": "Perhatikan pola sisa pembagian perpangkatan 3 oleh 5 (modulo 5):\n3¹ = 3 ≡ 3 (mod 5)\n3² = 9 ≡ 4 (mod 5)\n3³ = 27 ≡ 2 (mod 5)\n3⁴ = 81 ≡ 1 (mod 5)\nPola berulang setiap 4 periode (3, 4, 2, 1).\n\nBagi pangkat 2025 dengan 4:\n2025 = 4 × 506 + 1 (sisa 1).\nKarena bersisa 1, maka nilai sisa pembagian sama dengan pola ke-1 yaitu 3.\n\nKunci Jawaban: C."
+        },
+        {
+          "id": 7,
+          "question": "Jika a / b = 3/4 dan b / c = 8/9, maka berapakah nilai dari (a + c) / (b + c)?",
+          "options": {
+            "A": "5/6",
+            "B": "15/17",
+            "C": "14/17",
+            "D": "12/17",
+            "E": "17/15"
+          },
+          "correctAnswer": "B",
+          "explanation": "Samakan nilai perbandingan b:\na : b = 3 : 4 = 6 : 8\nb : c = 8 : 9\nMaka perbandingan a : b : c = 6 : 8 : 9.\n\nMisalkan a = 6k, b = 8k, c = 9k.\n(a + c) / (b + c) = (6k + 9k) / (8k + 9k) = 15k / 17k = 15/17.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 8,
+          "question": "Diketahui:\nx = 1/16 + 1/25\ny = √(1/16 + 1/25)\n\nManakah pernyataan yang benar?",
+          "options": {
+            "A": "y = 9/20",
+            "B": "y = 41/20",
+            "C": "y = √41 / 20",
+            "D": "y = 1/20",
+            "E": "y = 1/5"
+          },
+          "correctAnswer": "C",
+          "explanation": "Samakan penyebut di dalam akar:\n1/16 + 1/25 = (25 + 16) / (16 × 25) = 41 / 400.\n\nMaka nilai y:\ny = √(41 / 400) = (√41) / (√400) = √41 / 20.\n(Ingat: √(a + b) ≠ √a + √b).\n\nKunci Jawaban: C."
+        },
+        {
+          "id": 9,
+          "question": "Operasi bilangan bulat dirumuskan sebagai:\nm # n = m² - 2mn + n\n\nJika 3 # p = 4, maka nilai p yang memenuhi adalah...",
+          "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4",
+            "E": "5"
+          },
+          "correctAnswer": "A",
+          "explanation": "Substitusi m = 3 dan n = p ke dalam rumus:\n3 # p = 3² - 2(3)(p) + p\n4 = 9 - 6p + p\n4 = 9 - 5p\n5p = 9 - 4\n5p = 5\np = 1.\n\nKunci Jawaban: A."
+        },
+        {
+          "id": 10,
+          "question": "Jika diketahui bilangan bulat positif k memenuhi:\n(1 + 1/2)(1 + 1/3)(1 + 1/4)...(1 + 1/k) = 11\n\nMaka nilai k adalah...",
+          "options": {
+            "A": "20",
+            "B": "21",
+            "C": "22",
+            "D": "23",
+            "E": "24"
+          },
+          "correctAnswer": "B",
+          "explanation": "Ubah setiap bentuk perkalian penjumlahan:\n(3/2) × (4/3) × (5/4) × ... × ((k+1)/k) = 11\n\nPencoretan berantai terjadi menyisakan penyebut pertama (2) dan pembilang terakhir (k + 1):\n(k + 1) / 2 = 11\nk + 1 = 22\nk = 21.\n\nKunci Jawaban: B."
+        }
+      ]
+    },
+    {
+      "id": "pu-penalaran-umum",
+      "name": "Kemampuan Penalaran Umum",
+      "timeMinutes": 15,
+      "questions": [
+        {
+          "id": 11,
           "question": "Semua atlet lari maraton memiliki stamina yang kuat. Sebagian orang yang memiliki stamina kuat gemar minum air kelapa muda. Dani adalah seorang atlet lari maraton.\n\nKesimpulan yang paling tepat adalah...",
           "options": {
             "A": "Dani pasti gemar minum air kelapa muda.",
@@ -22,10 +159,10 @@
             "E": "Dani tidak memiliki stamina yang kuat."
           },
           "correctAnswer": "B",
-          "explanation": "Premis 1: Semua atlet lari maraton memiliki stamina kuat.\nPremis 2: Dani adalah atlet lari maraton.\nKesimpulan: Dani memiliki stamina yang kuat. Opsi A keliru karena gemar air kelapa hanya berlaku untuk 'sebagian orang berstamina kuat'."
+          "explanation": "Premis 1: Semua atlet maraton memiliki stamina kuat.\nPremis 2: Dani adalah atlet maraton.\nKesimpulan: Dani memiliki stamina yang kuat."
         },
         {
-          "id": 2,
+          "id": 12,
           "question": "Jika harga BBM non-subsidi naik, maka tarif angkutan umum antar kota akan mengalami kenaikan. Jika tarif angkutan umum antar kota naik, maka jumlah penumpang kereta api bertambah.\n\nSaat ini, jumlah penumpang kereta api tidak bertambah. Simpulan yang benar adalah...",
           "options": {
             "A": "Harga BBM non-subsidi naik.",
@@ -35,262 +172,7 @@
             "E": "Kereta api mengalami penurunan tarif tiket."
           },
           "correctAnswer": "C",
-          "explanation": "Gunakan silogisme dan modus tollens:\n(p -> q) dan (q -> r) => (p -> r)\nFakta: ~r (penumpang kereta api tidak bertambah)\nMaka simpulannya: ~p (Harga BBM non-subsidi tidak naik)."
-        },
-        {
-          "id": 3,
-          "question": "Perhatikan deret bilangan berikut:\n3, 6, 12, 15, 30, 33, 66, ...\n\nBilangan selanjutnya untuk melengkapi deret tersebut adalah...",
-          "options": {
-            "A": "69",
-            "B": "70",
-            "C": "99",
-            "D": "132",
-            "E": "135"
-          },
-          "correctAnswer": "A",
-          "explanation": "Pola deret bergantian antara: [+ 3] lalu [x 2]:\n3 (+3) = 6\n6 (x2) = 12\n12 (+3) = 15\n15 (x2) = 30\n30 (+3) = 33\n33 (x2) = 66\n66 (+3) = 69."
-        },
-        {
-          "id": 4,
-          "question": "Sebuah toko pakaian memberikan diskon 20% untuk semua jenis pakaian. Khusus member toko, diberikan diskon tambahan 10% dari harga setelah diskon pertama. Jika seorang member membeli kemeja seharga Rp200.000, berapakah uang yang harus dibayar?",
-          "options": {
-            "A": "Rp140.000",
-            "B": "Rp144.000",
-            "C": "Rp150.000",
-            "D": "Rp160.000",
-            "E": "Rp170.000"
-          },
-          "correctAnswer": "B",
-          "explanation": "Harga awal: Rp200.000\nDiskon 1 (20%): 200.000 x 80% = Rp160.000\nDiskon 2 (10% dari sisa): 160.000 x 90% = Rp144.000."
-        },
-        {
-          "id": 5,
-          "question": "Semua tanaman hidroponik membutuhkan nutrisi cair. Tanaman kaktus milik Budi tidak membutuhkan nutrisi cair.\n\nSimpulan yang sah adalah...",
-          "options": {
-            "A": "Tanaman kaktus milik Budi bukan tanaman hidroponik.",
-            "B": "Sebagian tanaman kaktus adalah tanaman hidroponik.",
-            "C": "Semua tanaman milik Budi adalah tanaman hidroponik.",
-            "D": "Tanaman hidroponik tidak dapat tumbuh tanpa kaktus.",
-            "E": "Tanaman milik Budi membutuhkan nutrisi cair."
-          },
-          "correctAnswer": "A",
-          "explanation": "Semua P adalah Q. Kaktus bukan Q. Maka Kaktus bukan P (Modus Tollens). Kaktus Budi bukan tanaman hidroponik."
-        }
-      ]
-    },
-    {
-      "id": "tps-pk",
-      "name": "Pengetahuan Kuantitatif (PK)",
-      "timeMinutes": 15,
-      "questions": [
-        {
-          "id": 6,
-          "question": "Jika f(x) = 2x - 3 dan g(x) = x² + 1, maka nilai dari (g o f)(2) adalah...",
-          "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4",
-            "E": "5"
-          },
-          "correctAnswer": "B",
-          "explanation": "f(2) = 2(2) - 3 = 1\n(g o f)(2) = g(f(2)) = g(1) = 1² + 1 = 2."
-        },
-        {
-          "id": 7,
-          "question": "Sebuah persegi panjang memiliki panjang (2x + 1) cm dan lebar (x + 2) cm. Jika keliling persegi panjang tersebut adalah 36 cm, berapakah luas persegi panjang tersebut?",
-          "options": {
-            "A": "70 cm²",
-            "B": "77 cm²",
-            "C": "80 cm²",
-            "D": "84 cm²",
-            "E": "88 cm²"
-          },
-          "correctAnswer": "B",
-          "explanation": "Keliling = 2(p + l) = 36 => p + l = 18.\n(2x + 1) + (x + 2) = 18 => 3x + 3 = 18 => 3x = 15 => x = 5.\nPanjang p = 2(5) + 1 = 11 cm.\nLebar l = 5 + 2 = 7 cm.\nLuas = p x l = 11 x 7 = 77 cm²."
-        },
-        {
-          "id": 8,
-          "question": "Rata-rata nilai ujian matematika dari 15 siswa adalah 72. Jika nilai 3 siswa baru digabungkan, nilai rata-ratanya menjadi 75. Berapakah rata-rata nilai dari 3 siswa baru tersebut?",
-          "options": {
-            "A": "85",
-            "B": "88",
-            "C": "90",
-            "D": "92",
-            "E": "95"
-          },
-          "correctAnswer": "C",
-          "explanation": "Jumlah nilai 15 siswa = 15 x 72 = 1080.\nTotal siswa setelah ditambah 3 = 18 siswa.\nJumlah total nilai 18 siswa = 18 x 75 = 1350.\nJumlah nilai 3 siswa baru = 1350 - 1080 = 270.\nRata-rata 3 siswa baru = 270 / 3 = 90."
-        },
-        {
-          "id": 9,
-          "question": "Diketahui sistem persamaan linear:\n2x + 3y = 12\n4x - y = 10\n\nNilai dari x + 2y adalah...",
-          "options": {
-            "A": "5",
-            "B": "6",
-            "C": "7",
-            "D": "8",
-            "E": "9"
-          },
-          "correctAnswer": "C",
-          "explanation": "Kalikan persamaan (2) dengan 3:\n12x - 3y = 30\n2x + 3y = 12 (+)\n14x = 42 => x = 3.\nSubstitusi x = 3: 4(3) - y = 10 => 12 - y = 10 => y = 2.\nMaka nilai x + 2y = 3 + 2(2) = 7."
-        },
-        {
-          "id": 10,
-          "question": "Peluang terpilihnya 2 bola merah secara berturut-turut tanpa pengembalian dari sebuah kotak yang berisi 5 bola merah dan 3 bola biru adalah...",
-          "options": {
-            "A": "5/14",
-            "B": "5/28",
-            "C": "10/56",
-            "D": "15/56",
-            "E": "25/64"
-          },
-          "correctAnswer": "A",
-          "explanation": "Peluang bola 1 merah = 5/8.\nPeluang bola 2 merah = 4/7.\nP(2 merah) = (5/8) x (4/7) = 20/56 = 5/14."
-        }
-      ]
-    },
-    {
-      "id": "literasi-ind",
-      "name": "Literasi dalam Bahasa Indonesia",
-      "timeMinutes": 15,
-      "questions": [
-        {
-          "id": 11,
-          "question": "Bacalah teks berikut dengan cermat:\n\n'Transisi menuju energi terbarukan di Indonesia menghadapi berbagai tantangan, mulai dari ketergantungan pada bahan bakar fosil hingga kesiapan infrastruktur jaringan listrik. Meskipun potensi energi surya dan panas bumi sangat melimpah, investasi awal yang tinggi kerap menjadi kendala bagi pengembang swasta.'\n\nGagasan utama paragraf tersebut adalah...",
-          "options": {
-            "A": "Potensi energi surya dan panas bumi di Indonesia sangat melimpah.",
-            "B": "Tantangan yang dihadapi Indonesia dalam transisi ke energi terbarukan.",
-            "C": "Ketergantungan masyarakat terhadap bahan bakar fosil.",
-            "D": "Peran investor swasta dalam pembangunan jaringan listrik.",
-            "E": "Tingginya biaya investasi pembangkit listrik ramah lingkungan."
-          },
-          "correctAnswer": "B",
-          "explanation": "Kalimat utama terletak pada awal paragraf (deduktif) yang menyatakan bahwa transisi menuju energi terbarukan di Indonesia menghadapi berbagai tantangan. Kalimat selanjutnya merupakan rincian tantangan tersebut."
-        },
-        {
-          "id": 12,
-          "question": "Kata 'kendala' dalam kalimat '...investasi awal yang tinggi kerap menjadi kendala bagi pengembang swasta' memiliki sinonim yang paling tepat yaitu...",
-          "options": {
-            "A": "Peluang",
-            "B": "Hambatan",
-            "C": "Syarat",
-            "D": "Tujuan",
-            "E": "Manfaat"
-          },
-          "correctAnswer": "B",
-          "explanation": "Kata 'kendala' bermakna faktor atau keadaan yang membatasi, menghalangi, atau mencegah pencapaian sasaran (hambatan/rintangan)."
-        },
-        {
-          "id": 13,
-          "question": "Penulisan kalimat berikut yang sesuai dengan Pedoman Umum Ejaan Bahasa Indonesia (PUEBI) adalah...",
-          "options": {
-            "A": "Ibu membeli gula, garam, dan merica di pasar tradisional.",
-            "B": "Ibu membeli gula, garam dan merica di pasar tradisional.",
-            "C": "Ibu membeli: gula, garam, dan merica di pasar tradisional.",
-            "D": "Ibu membeli gula garam, dan merica di pasar tradisional.",
-            "E": "Ibu membeli; gula, garam, dan merica di pasar tradisional."
-          },
-          "correctAnswer": "A",
-          "explanation": "Penggunaan tanda koma (,) sebelum konjungsi 'dan' wajib digunakan pada perincian lebih dari dua unsur (gula, garam, dan merica)."
-        },
-        {
-          "id": 14,
-          "question": "Pernyataan yang bersifat fakta dalam konteks laporan ilmiah adalah...",
-          "options": {
-            "A": "Kualitas udara di perkotaan saat ini terasa sangat menyesakkan dada.",
-            "B": "Pemerintah tampaknya kurang serius menangani polusi udara.",
-            "C": "Kadar polutan PM2.5 di Jakarta mencapai angka 152 µg/m³ pada hari Senin.",
-            "D": "Mungkin polusi udara akan mereda jika hujan turun dengan lebat.",
-            "E": "Sebaiknya warga tidak keluar rumah tanpa masker karena berbahaya."
-          },
-          "correctAnswer": "C",
-          "explanation": "Fakta adalah kenyataan atau kejadian yang telah terbukti kebenarannya secara objektif dengan data atau angka valid (Kadar PM2.5 mencapai 152 µg/m³)."
-        },
-        {
-          "id": 15,
-          "question": "Kalimat yang menggunakan kata berimbuhan secara tidak tepat adalah...",
-          "options": {
-            "A": "Para relawan membagikan makanan kepada korban banjir.",
-            "B": "Guru menugaskan siswa untuk mengkaji fenomena sosial.",
-            "C": "Kita harus mentaati seluruh peraturan yang telah disepakati bersama.",
-            "D": "Pemerintah berupaya memfasilitasi kebutuhan para atlet.",
-            "E": "Teknologi kecerdasan buatan berkembang sangat pesat."
-          },
-          "correctAnswer": "C",
-          "explanation": "Kata dasar 'taat' yang mendapat awalan meN- luluh menjadi 'menaati', bukan 'mentaati' (huruf t luluh pada fonem k, p, t, s)."
-        }
-      ]
-    },
-    {
-      "id": "literasi-eng",
-      "name": "Literasi dalam Bahasa Inggris",
-      "timeMinutes": 15,
-      "questions": [
-        {
-          "id": 16,
-          "question": "Read the following passage:\n\n'Artificial Intelligence (AI) has rapidly transformed various sectors, from healthcare to finance. In education, AI-driven adaptive learning platforms personalize instructional content according to each student's learning pace. However, educators emphasize that technology should complement, rather than replace, human mentorship.'\n\nWhat is the main topic of the passage?",
-          "options": {
-            "A": "The financial cost of implementing AI in schools.",
-            "B": "The replacement of teachers by AI algorithms.",
-            "C": "The positive and balanced application of AI in education.",
-            "D": "The history of adaptive learning development.",
-            "E": "The dangers of relying on technology in daily life."
-          },
-          "correctAnswer": "C",
-          "explanation": "The text discusses how AI personalizes education while emphasizing that human teachers remain essential (complementing rather than replacing)."
-        },
-        {
-          "id": 17,
-          "question": "The word 'complement' in the sentence 'technology should complement, rather than replace...' is closest in meaning to...",
-          "options": {
-            "A": "Enhance and complete",
-            "B": "Criticize and oppose",
-            "C": "Substitute completely",
-            "D": "Ignore and disregard",
-            "E": "Separate and divide"
-          },
-          "correctAnswer": "A",
-          "explanation": "'Complement' means to add to something in a way that enhances or improves it."
-        },
-        {
-          "id": 18,
-          "question": "Choose the sentence with correct grammatical structure:",
-          "options": {
-            "A": "Neither the students nor the teacher were present at the seminar.",
-            "B": "Neither the students nor the teacher was present at the seminar.",
-            "C": "Either the teacher nor the students is happy.",
-            "D": "Neither the students or the teacher was present.",
-            "E": "Neither of the boys have finished their work."
-          },
-          "correctAnswer": "B",
-          "explanation": "With 'neither... nor...', the verb agrees with the subject closest to it. 'The teacher' is singular, so the singular verb 'was' is correct."
-        },
-        {
-          "id": 19,
-          "question": "'If the government had invested more in flood prevention systems last year, the recent disaster _______ avoided.'\n\nThe correct phrase to complete the conditional sentence is...",
-          "options": {
-            "A": "could have been",
-            "B": "can be",
-            "C": "will be",
-            "D": "is being",
-            "E": "would be"
-          },
-          "correctAnswer": "A",
-          "explanation": "This is a Third Conditional sentence (past unreal): If + past perfect, would/could + have + past participle (V3)."
-        },
-        {
-          "id": 20,
-          "question": "What is the tone of an author who presents verifiable data without taking sides or expressing emotional bias?",
-          "options": {
-            "A": "Sarcastic",
-            "B": "Objective",
-            "C": "Pessimistic",
-            "D": "Nostalgic",
-            "E": "Humorous"
-          },
-          "correctAnswer": "B",
-          "explanation": "An 'objective' tone is neutral, fact-based, and free from personal feelings or bias."
+          "explanation": "Modus Tollens dari silogisme: (p -> q) dan (q -> r) => (p -> r). Karena ~r, maka simpulannya ~p (Harga BBM tidak naik)."
         }
       ]
     }
