@@ -1,6 +1,6 @@
 /* ==========================================================================
    OFFICIAL UTBK-SNBT BPPP / PUSMENDIK CAT SYSTEM THEME
-   Accurate 1:1 replication of the Indonesian National UTBK CBT interface
+   1:1 Pixel-Perfect Replication of Indonesian National UTBK CBT Interface
    ========================================================================== */
 
 :root {
@@ -64,7 +64,7 @@ body {
    ========================================================================== */
 .bppp-login-wrapper {
   max-width: 850px;
-  margin: 2.5rem auto;
+  margin: 2rem auto;
   padding: 0 1rem;
   width: 100%;
 }
@@ -89,7 +89,7 @@ body {
 }
 
 .bppp-banner-text h1 {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -243,8 +243,8 @@ body {
 }
 
 .cat-logo-wrapper {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   flex-shrink: 0;
 }
 
@@ -479,7 +479,7 @@ body {
   flex: 1;
   padding: 1.5rem 1.8rem;
   overflow-y: auto;
-  user-select: text; /* Allow reading and selecting text */
+  user-select: text;
 }
 
 /* Font Size Classes */
