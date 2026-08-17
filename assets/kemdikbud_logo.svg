@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <circle cx="50" cy="50" r="48" fill="#1e3a8a" stroke="#f59e0b" stroke-width="3"/>
+  <!-- Wing shape / Garuda style -->
+  <path d="M 50 18 L 62 38 L 78 44 L 64 54 L 68 72 L 50 62 L 32 72 L 36 54 L 22 44 L 38 38 Z" fill="#fbbf24"/>
+  <circle cx="50" cy="46" r="10" fill="#1e3a8a"/>
+  <!-- Flame/torch -->
+  <path d="M 46 48 Q 50 36 54 48 Q 50 44 46 48 Z" fill="#ef4444"/>
+  <text x="50" y="88" fill="#ffffff" font-size="9" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle" letter-spacing="0.5">BPPP - SNPMB</text>
+</svg>
