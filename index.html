@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>SIMULASI TES HAIRIL | Sistem Ujian CAT Pribadi</title>
-  <meta name="description" content="Simulasi Ujian Berbasis Komputer Pribadi — Tes Hairil dengan Sistem CAT Resmi, Timer, Skoring, dan Pembahasan Lengkap.">
+  <meta name="description" content="Simulasi Ujian CAT Berbasis Komputer & HP - Tes Hairil: Operasi Bilangan, Timer, Kalkulator Mini, Fullscreen, Skoring & Pembahasan.">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/hairil_logo.svg" type="image/svg+xml">
   <style>
 /* ==========================================================================
    SIMULASI TES HAIRIL - MOBILE OPTIMIZED CBT SYSTEM THEME
-   1:1 CAT UI + Full Responsive & Ergonomic Layout for HP (Smartphone) & Desktop
+   1:1 CAT UI + Fullscreen Mode + Pop-up Calculator Widget + Responsive HP
    ========================================================================== */
 :root {
   --bppp-navy-dark: #0a1e32;
@@ -233,7 +233,7 @@ body {
   background: #15375c;
   border-bottom: 3px solid #f59e0b;
   color: #ffffff;
-  padding: 0.5rem 1rem;
+  padding: 0.45rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -251,13 +251,13 @@ body {
 }
 
 .cat-logo-wrapper {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   flex-shrink: 0;
 }
 
 .cat-exam-meta h2 {
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.3px;
   text-transform: uppercase;
@@ -265,7 +265,7 @@ body {
 }
 
 .cat-subtest-title {
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   color: #fde047;
   font-weight: 600;
   white-space: nowrap;
@@ -330,7 +330,55 @@ body {
 .cat-topbar-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+}
+
+/* Tools Buttons in Header: Kalkulator & Fullscreen */
+.btn-topbar-tool {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: var(--radius-cat);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 36px;
+  transition: all 0.15s;
+}
+
+.btn-topbar-tool:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #ffffff;
+}
+
+.btn-topbar-tool.btn-calc-active {
+  background: #f59e0b;
+  color: #0f172a;
+  border-color: #d97706;
+}
+
+.btn-topbar-daftar-soal {
+  background: #f59e0b;
+  color: #0f172a;
+  border: 1px solid #d97706;
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-cat);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  transition: all 0.15s;
+}
+
+.btn-topbar-daftar-soal:hover {
+  background: #fbbf24;
 }
 
 .cat-profile-card {
@@ -344,8 +392,8 @@ body {
 }
 
 .cat-photo-box {
-  width: 36px;
-  height: 44px;
+  width: 34px;
+  height: 42px;
   background: #991b1b;
   border-radius: 2px;
   overflow: hidden;
@@ -367,7 +415,7 @@ body {
 .cat-profile-name {
   font-weight: 700;
   color: #ffffff;
-  max-width: 130px;
+  max-width: 120px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -376,26 +424,6 @@ body {
 .cat-profile-nisn {
   color: #cbd5e1;
   font-size: 0.7rem;
-}
-
-.btn-topbar-daftar-soal {
-  background: #f59e0b;
-  color: #0f172a;
-  border: 1px solid #d97706;
-  font-weight: 800;
-  font-size: 0.82rem;
-  padding: 0.5rem 0.85rem;
-  border-radius: var(--radius-cat);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 38px;
-  transition: all 0.15s;
-}
-
-.btn-topbar-daftar-soal:hover {
-  background: #fbbf24;
 }
 
 /* 3. CAT WORKSPACE MAIN LAYOUT */
@@ -409,6 +437,7 @@ body {
   gap: 0.8rem;
   height: calc(100vh - 60px);
   overflow: hidden;
+  position: relative;
 }
 
 .cat-main-card {
@@ -441,6 +470,17 @@ body {
   padding: 4px 12px;
   border-radius: 3px;
   letter-spacing: 0.5px;
+}
+
+.cat-q-category-tag {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-left: 8px;
 }
 
 .cat-font-size-adjuster {
@@ -822,7 +862,165 @@ body {
 .legend-square.unans { background: #ffffff; }
 .legend-square.curr { border: 2.5px solid #2563eb; background: #eff6ff; }
 
-/* 5. RESULT & REVIEW SCREEN */
+/* ==========================================================================
+   🧮 5. FLOATING / POPUP CALCULATOR WIDGET (DESKTOP & HP)
+   ========================================================================== */
+.cat-calc-widget {
+  display: none;
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+  width: 290px;
+  background: #1e293b;
+  border: 2px solid #3b82f6;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  z-index: 1002;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  animation: calc-pop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes calc-pop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.cat-calc-widget.active {
+  display: flex;
+}
+
+.cat-calc-header {
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #334155;
+  cursor: move;
+}
+
+.cat-calc-header span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cat-calc-btn-close {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-calc-btn-close:hover {
+  background: #ef4444;
+}
+
+.cat-calc-screen {
+  background: #090e17;
+  padding: 10px 14px;
+  text-align: right;
+  border-bottom: 1px solid #334155;
+}
+
+.cat-calc-history {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  min-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cat-calc-main-val {
+  font-family: "Consolas", monospace;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #38bdf8;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cat-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 10px;
+  background: #1e293b;
+}
+
+.btn-calc {
+  background: #334155;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.1s;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-calc:hover {
+  background: #475569;
+}
+
+.btn-calc:active {
+  transform: scale(0.95);
+}
+
+.btn-calc.op {
+  background: #1e40af;
+  color: #93c5fd;
+}
+
+.btn-calc.op:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.btn-calc.clear {
+  background: #991b1b;
+  color: #fca5a5;
+}
+
+.btn-calc.clear:hover {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.btn-calc.equal {
+  background: #16a34a;
+  color: #ffffff;
+  grid-column: span 2;
+  font-size: 1.2rem;
+}
+
+.btn-calc.equal:hover {
+  background: #22c55e;
+}
+
+/* 6. RESULT & REVIEW SCREEN */
 .cat-result-wrapper {
   max-width: 960px;
   margin: 1.2rem auto;
@@ -960,7 +1158,7 @@ body {
   line-height: 1.55;
 }
 
-/* 6. MODAL */
+/* 7. MODAL */
 .cat-modal-backdrop {
   display: none;
   position: fixed;
@@ -969,7 +1167,7 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(10, 30, 50, 0.75);
-  z-index: 1000;
+  z-index: 1005;
   align-items: center;
   justify-content: center;
   padding: 1rem;
@@ -1050,8 +1248,8 @@ body {
   }
 
   .cat-topbar {
-    padding: 0.4rem 0.6rem;
-    min-height: 56px;
+    padding: 0.35rem 0.6rem;
+    min-height: 54px;
     flex-wrap: wrap;
     gap: 0.4rem;
   }
@@ -1061,30 +1259,30 @@ body {
   }
 
   .cat-logo-wrapper {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 
   .cat-exam-meta h2 {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
   }
 
   .cat-subtest-title {
     font-size: 0.68rem;
-    max-width: 140px;
+    max-width: 120px;
   }
 
   .cat-timer-panel {
-    padding: 2px 8px;
-    gap: 5px;
+    padding: 2px 7px;
+    gap: 4px;
   }
 
   .cat-timer-panel .timer-icon {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .cat-timer-panel .timer-digits {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     letter-spacing: 1px;
   }
 
@@ -1092,10 +1290,20 @@ body {
     display: none;
   }
 
+  .btn-topbar-tool {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.55rem;
+    min-height: 32px;
+  }
+
+  .btn-topbar-tool span.tool-label {
+    display: none; /* Icon only on small mobile */
+  }
+
   .btn-topbar-daftar-soal {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.65rem;
-    min-height: 34px;
+    font-size: 0.74rem;
+    padding: 0.35rem 0.6rem;
+    min-height: 32px;
   }
 
   .cat-daftar-sidebar {
@@ -1120,6 +1328,7 @@ body {
     display: flex;
   }
 
+  /* Bottom action bar on mobile */
   .cat-action-bottombar {
     position: sticky;
     bottom: 0;
@@ -1146,6 +1355,17 @@ body {
 
   .btn-cat-ragu span {
     font-size: 0.78rem;
+  }
+
+  /* Pop-up calculator on mobile */
+  .cat-calc-widget {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+    border: 2px solid #3b82f6;
+    border-bottom: none;
   }
 }
   </style>
@@ -1210,7 +1430,7 @@ body {
           <div class="bppp-form-group">
             <label for="input-custom-time">⏱️ Alokasi Waktu Pengerjaan (Menit)</label>
             <div style="display: flex; gap: 8px;">
-              <input type="number" id="input-custom-time" class="bppp-input" min="1" max="180" value="20" placeholder="Menit">
+              <input type="number" id="input-custom-time" class="bppp-input" min="1" max="180" value="25" placeholder="Menit">
               <button type="button" id="btn-reset-time" class="btn-cat-prev" style="padding: 0.5rem 0.8rem; font-size: 0.8rem;" title="Gunakan waktu rekomendasi standar">Default</button>
             </div>
             <span class="bppp-help-text">Waktu dapat diatur bebas untuk latihan kecepatan.</span>
@@ -1232,10 +1452,10 @@ body {
         <div class="bppp-notice-box">
           <strong>⚠️ Petunjuk Ujian Berbasis Komputer (CAT):</strong>
           <ol>
+            <li>Tersedia tombol <strong>⛶ Layar Penuh (Fullscreen)</strong> dan <strong>🧮 Kalkulator Mini</strong> di header.</li>
             <li>Klik pada bulatan opsi jawaban <strong>(A, B, C, D, E)</strong> untuk menjawab soal.</li>
             <li>Gunakan tombol <strong>RAGU-RAGU</strong> bila Anda belum yakin dengan jawaban yang dipilih.</li>
             <li>Waktu akan berjalan mundur secara real-time di bagian atas layar.</li>
-            <li>Gunakan tombol <strong>DAFTAR SOAL</strong> untuk melompat langsung ke nomor soal tertentu.</li>
           </ol>
         </div>
 
@@ -1263,7 +1483,7 @@ body {
         </div>
         <div class="cat-exam-meta">
           <h2 id="exam-header-title">SIMULASI TES HAIRIL</h2>
-          <div class="cat-subtest-title" id="exam-header-subtest">Pengetahuan Kuantitatif</div>
+          <div class="cat-subtest-title" id="exam-header-subtest">Operasi Bilangan</div>
         </div>
       </div>
 
@@ -1276,8 +1496,20 @@ body {
         </div>
       </div>
 
-      <!-- Right: Candidate Card & Daftar Soal Toggle -->
+      <!-- Right: Tools, Candidate Card & Daftar Soal Toggle -->
       <div class="cat-topbar-right">
+        <!-- Fullscreen Button -->
+        <button class="btn-topbar-tool" id="btn-fullscreen" title="Mode Layar Penuh (Fullscreen)">
+          <span id="fullscreen-icon">⛶</span>
+          <span class="tool-label" id="fullscreen-text">Layar Penuh</span>
+        </button>
+
+        <!-- Calculator Button -->
+        <button class="btn-topbar-tool" id="btn-toggle-calculator" title="Buka Kalkulator Mini">
+          <span>🧮</span>
+          <span class="tool-label">Kalkulator</span>
+        </button>
+
         <div class="cat-profile-card">
           <div class="cat-photo-box">
             <img src="assets/avatar.svg" alt="Foto Peserta">
@@ -1301,7 +1533,10 @@ body {
       <section class="cat-main-card" id="workspace-container">
         <!-- Toolbar Soal & Ukuran Font -->
         <div class="cat-question-toolbar">
-          <span class="cat-q-number-pill" id="current-q-badge">SOAL NOMOR: 1</span>
+          <div style="display: flex; align-items: center;">
+            <span class="cat-q-number-pill" id="current-q-badge">SOAL NOMOR: 1</span>
+            <span class="cat-q-category-tag" id="current-q-category" style="display: none;">Bilangan Bulat</span>
+          </div>
           
           <div class="cat-font-size-adjuster">
             <span>Ukuran Huruf:</span>
@@ -1379,6 +1614,50 @@ body {
         </div>
       </aside>
     </main>
+
+    <!-- ==========================================================================
+         🧮 FLOATING MINI CALCULATOR WIDGET
+         ========================================================================== -->
+    <div class="cat-calc-widget" id="calc-widget">
+      <div class="cat-calc-header" id="calc-header">
+        <span>🧮 Kalkulator Simulasi</span>
+        <button class="cat-calc-btn-close" id="btn-close-calc" title="Tutup Kalkulator">✕</button>
+      </div>
+      <div class="cat-calc-screen">
+        <div class="cat-calc-history" id="calc-history"></div>
+        <div class="cat-calc-main-val" id="calc-display">0</div>
+      </div>
+      <div class="cat-calc-grid">
+        <button class="btn-calc clear" onclick="Calculator.clearAll()">C</button>
+        <button class="btn-calc clear" onclick="Calculator.backspace()">⌫</button>
+        <button class="btn-calc op" onclick="Calculator.inputOp('%')">%</button>
+        <button class="btn-calc op" onclick="Calculator.inputOp('/')">÷</button>
+
+        <button class="btn-calc" onclick="Calculator.inputDigit('7')">7</button>
+        <button class="btn-calc" onclick="Calculator.inputDigit('8')">8</button>
+        <button class="btn-calc" onclick="Calculator.inputDigit('9')">9</button>
+        <button class="btn-calc op" onclick="Calculator.inputOp('*')">×</button>
+
+        <button class="btn-calc" onclick="Calculator.inputDigit('4')">4</button>
+        <button class="btn-calc" onclick="Calculator.inputDigit('5')">5</button>
+        <button class="btn-calc" onclick="Calculator.inputDigit('6')">6</button>
+        <button class="btn-calc op" onclick="Calculator.inputOp('-')">−</button>
+
+        <button class="btn-calc" onclick="Calculator.inputDigit('1')">1</button>
+        <button class="btn-calc" onclick="Calculator.inputDigit('2')">2</button>
+        <button class="btn-calc" onclick="Calculator.inputDigit('3')">3</button>
+        <button class="btn-calc op" onclick="Calculator.inputOp('+')">+</button>
+
+        <button class="btn-calc" onclick="Calculator.toggleSign()">±</button>
+        <button class="btn-calc" onclick="Calculator.inputDigit('0')">0</button>
+        <button class="btn-calc" onclick="Calculator.inputDot()">.</button>
+        <button class="btn-calc op" onclick="Calculator.sqrt()">√</button>
+
+        <button class="btn-calc op" onclick="Calculator.inputDigit('(')">(</button>
+        <button class="btn-calc op" onclick="Calculator.inputDigit(')')">)</button>
+        <button class="btn-calc equal" onclick="Calculator.calculate()">=</button>
+      </div>
+    </div>
   </div>
 
 
@@ -1496,6 +1775,6 @@ body {
     </div>
   </div>
 
-  <script src="app.js?v=3.5"></script>
+  <script src="app.js?v=4.0"></script>
 </body>
 </html>
