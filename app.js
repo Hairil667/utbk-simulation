@@ -1,8 +1,9 @@
 /**
  * SIMULASI TES HAIRIL - CBT APPLICATION ENGINE
- * 1:1 CAT UI + Fullscreen Mode + Floating Calculator + Mobile Ergonomics
+ * 1:1 CAT UI + Fullscreen Mode + Robust Floating Calculator + Mobile Ergonomics
  */
 
+// Global State
 const State = {
   examData: null,
   activeSubtest: null,
@@ -27,6 +28,313 @@ const State = {
 
 const DOM = {};
 
+/* ==========================================================================
+   🧮 CALCULATOR MODULE (DEFINED GLOBALLY FIRST)
+   ========================================================================== */
+const Calculator = {
+  displayEl: null,
+  historyEl: null,
+  currentExpr: '0',
+  historyText: '',
+  isCalculated: false,
+
+  init() {
+    this.displayEl = document.getElementById('calc-display');
+    this.historyEl = document.getElementById('calc-history');
+
+    // Toggle button in header
+    if (DOM.btnToggleCalculator) {
+      DOM.btnToggleCalculator.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggle();
+      });
+    }
+
+    // Close button in calculator header
+    if (DOM.btnCloseCalc) {
+      DOM.btnCloseCalc.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.close();
+      });
+    }
+
+    // Grid button click delegation
+    const grid = document.getElementById('calc-grid');
+    if (grid) {
+      grid.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-calc');
+        if (!btn) return;
+        e.stopPropagation();
+
+        const act = btn.dataset.act;
+        const val = btn.dataset.val;
+
+        switch (act) {
+          case 'digit':
+            this.inputDigit(val);
+            break;
+          case 'dot':
+            this.inputDot();
+            break;
+          case 'op':
+            this.inputOp(val);
+            break;
+          case 'sign':
+            this.toggleSign();
+            break;
+          case 'sqrt':
+            this.sqrt();
+            break;
+          case 'clear':
+            this.clearAll();
+            break;
+          case 'backspace':
+            this.backspace();
+            break;
+          case 'equal':
+            this.calculate();
+            break;
+        }
+      });
+    }
+
+    // Desktop dragging
+    this.initDrag();
+
+    // Global keyboard numpad support
+    document.addEventListener('keydown', (e) => {
+      if (!DOM.calcWidget || !DOM.calcWidget.classList.contains('active')) return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+      if (e.key >= '0' && e.key <= '9') {
+        this.inputDigit(e.key);
+      } else if (e.key === '.') {
+        this.inputDot();
+      } else if (['+', '-', '*', '/'].includes(e.key)) {
+        this.inputOp(e.key);
+      } else if (e.key === 'Enter' || e.key === '=') {
+        e.preventDefault();
+        this.calculate();
+      } else if (e.key === 'Backspace') {
+        this.backspace();
+      } else if (e.key === 'Escape') {
+        this.close();
+      }
+    });
+
+    this.updateDisplay();
+  },
+
+  toggle() {
+    if (!DOM.calcWidget) return;
+    const isOpen = DOM.calcWidget.classList.toggle('active');
+    if (DOM.btnToggleCalculator) {
+      DOM.btnToggleCalculator.classList.toggle('btn-calc-active', isOpen);
+    }
+  },
+
+  open() {
+    if (!DOM.calcWidget) return;
+    DOM.calcWidget.classList.add('active');
+    if (DOM.btnToggleCalculator) {
+      DOM.btnToggleCalculator.classList.add('btn-calc-active');
+    }
+  },
+
+  close() {
+    if (!DOM.calcWidget) return;
+    DOM.calcWidget.classList.remove('active');
+    if (DOM.btnToggleCalculator) {
+      DOM.btnToggleCalculator.classList.remove('btn-calc-active');
+    }
+  },
+
+  updateDisplay() {
+    if (this.displayEl) {
+      this.displayEl.textContent = this.currentExpr || '0';
+    }
+    if (this.historyEl) {
+      this.historyEl.textContent = this.historyText || '';
+    }
+  },
+
+  inputDigit(d) {
+    if (this.currentExpr === '0' || this.currentExpr === 'Error' || this.isCalculated) {
+      if (d === '(' || d === ')') {
+        this.currentExpr = d;
+      } else {
+        this.currentExpr = d;
+      }
+      this.isCalculated = false;
+    } else {
+      if (this.currentExpr.length < 24) {
+        this.currentExpr += d;
+      }
+    }
+    this.updateDisplay();
+  },
+
+  inputDot() {
+    if (this.isCalculated || this.currentExpr === 'Error') {
+      this.currentExpr = '0.';
+      this.isCalculated = false;
+    } else {
+      // Find current active number chunk
+      const tokens = this.currentExpr.split(/[\+\-\*\/\(\)\s]+/);
+      const lastToken = tokens[tokens.length - 1];
+      if (!lastToken.includes('.')) {
+        this.currentExpr += (lastToken === '' ? '0.' : '.');
+      }
+    }
+    this.updateDisplay();
+  },
+
+  inputOp(op) {
+    if (this.currentExpr === 'Error') {
+      this.currentExpr = '0';
+    }
+    this.isCalculated = false;
+
+    const lastChar = this.currentExpr.trim().slice(-1);
+    if (['+', '-', '*', '/', '%'].includes(lastChar)) {
+      this.currentExpr = this.currentExpr.trim().slice(0, -1) + ' ' + op + ' ';
+    } else {
+      this.currentExpr += ' ' + op + ' ';
+    }
+    this.updateDisplay();
+  },
+
+  toggleSign() {
+    if (this.currentExpr === '0' || this.currentExpr === 'Error') return;
+
+    if (this.currentExpr.startsWith('-(') && this.currentExpr.endsWith(')')) {
+      this.currentExpr = this.currentExpr.slice(2, -1);
+    } else if (this.currentExpr.startsWith('-')) {
+      this.currentExpr = this.currentExpr.slice(1);
+    } else {
+      this.currentExpr = '-(' + this.currentExpr + ')';
+    }
+    this.isCalculated = false;
+    this.updateDisplay();
+  },
+
+  sqrt() {
+    try {
+      const val = this.evaluate(this.currentExpr);
+      if (val < 0) {
+        this.historyText = `√(${this.currentExpr})`;
+        this.currentExpr = 'Error';
+      } else {
+        const res = Math.round(Math.sqrt(val) * 100000000) / 100000000;
+        this.historyText = `√(${this.currentExpr}) =`;
+        this.currentExpr = String(res);
+      }
+    } catch {
+      this.currentExpr = 'Error';
+    }
+    this.isCalculated = true;
+    this.updateDisplay();
+  },
+
+  clearAll() {
+    this.currentExpr = '0';
+    this.historyText = '';
+    this.isCalculated = false;
+    this.updateDisplay();
+  },
+
+  backspace() {
+    if (this.isCalculated || this.currentExpr === 'Error') {
+      this.clearAll();
+      return;
+    }
+    let trimmed = this.currentExpr.trim();
+    if (trimmed.length > 1) {
+      if (trimmed.endsWith('+ ') || trimmed.endsWith('- ') || trimmed.endsWith('* ') || trimmed.endsWith('/ ')) {
+        this.currentExpr = trimmed.slice(0, -2);
+      } else {
+        this.currentExpr = trimmed.slice(0, -1);
+      }
+    } else {
+      this.currentExpr = '0';
+    }
+    this.updateDisplay();
+  },
+
+  evaluate(expr) {
+    let sanitized = expr
+      .replace(/×/g, '*')
+      .replace(/÷/g, '/')
+      .replace(/−/g, '-')
+      .replace(/%/g, '* 0.01');
+
+    if (!/^[0-9.\s+\-*/()]+$/.test(sanitized)) {
+      throw new Error('Invalid characters');
+    }
+
+    // Safe mathematical function execution
+    const fn = new Function(`'use strict'; return (${sanitized});`);
+    const res = fn();
+    if (typeof res !== 'number' || isNaN(res) || !isFinite(res)) {
+      throw new Error('Math Error');
+    }
+    return Math.round(res * 100000000) / 100000000;
+  },
+
+  calculate() {
+    try {
+      const raw = this.currentExpr;
+      const res = this.evaluate(raw);
+      this.historyText = `${raw} =`;
+      this.currentExpr = String(res);
+      this.isCalculated = true;
+    } catch {
+      this.historyText = `${this.currentExpr} =`;
+      this.currentExpr = 'Error';
+      this.isCalculated = true;
+    }
+    this.updateDisplay();
+  },
+
+  initDrag() {
+    const header = document.getElementById('calc-header');
+    const widget = document.getElementById('calc-widget');
+    if (!header || !widget) return;
+
+    let isDragging = false;
+    let offsetX = 0, offsetY = 0;
+
+    header.addEventListener('mousedown', (e) => {
+      if (window.innerWidth <= 900) return;
+      if (e.target.closest('#btn-close-calc')) return;
+      isDragging = true;
+      offsetX = e.clientX - widget.getBoundingClientRect().left;
+      offsetY = e.clientY - widget.getBoundingClientRect().top;
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+    });
+
+    function onMouseMove(e) {
+      if (!isDragging) return;
+      widget.style.left = `${e.clientX - offsetX}px`;
+      widget.style.top = `${e.clientY - offsetY}px`;
+      widget.style.bottom = 'auto';
+      widget.style.right = 'auto';
+    }
+
+    function onMouseUp() {
+      isDragging = false;
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    }
+  }
+};
+
+window.Calculator = Calculator;
+
+/* ==========================================================================
+   PAGE INITIALIZATION
+   ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   initDOMReferences();
   initEventListeners();
@@ -167,6 +475,7 @@ function initEventListeners() {
   document.addEventListener('keydown', (e) => {
     if (!DOM.screens.exam.classList.contains('active')) return;
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (DOM.calcWidget && DOM.calcWidget.classList.contains('active')) return;
 
     if (e.key === 'ArrowLeft') {
       if (State.currentIndex > 0) navigateQuestion(State.currentIndex - 1);
@@ -218,176 +527,6 @@ function updateFullscreenUI() {
   DOM.fullscreenText.textContent = isFull ? 'Keluar' : 'Layar Penuh';
   DOM.btnFullscreen.classList.toggle('btn-calc-active', isFull);
 }
-
-/* ==========================================================================
-   🧮 CALCULATOR MODULE
-   ========================================================================== */
-const Calculator = {
-  displayEl: null,
-  historyEl: null,
-  currentVal: '0',
-  prevVal: '',
-  operation: null,
-  resetNext: false,
-
-  init() {
-    this.displayEl = document.getElementById('calc-display');
-    this.historyEl = document.getElementById('calc-history');
-
-    DOM.btnToggleCalculator.addEventListener('click', () => this.toggle());
-    DOM.btnCloseCalc.addEventListener('click', () => this.close());
-    
-    // Dragging support on Desktop
-    this.initDrag();
-  },
-
-  toggle() {
-    const isOpen = DOM.calcWidget.classList.toggle('active');
-    DOM.btnToggleCalculator.classList.toggle('btn-calc-active', isOpen);
-  },
-
-  close() {
-    DOM.calcWidget.classList.remove('active');
-    DOM.btnToggleCalculator.classList.remove('btn-calc-active');
-  },
-
-  updateDisplay() {
-    this.displayEl.textContent = this.currentVal;
-    this.historyEl.textContent = this.operation && this.prevVal ? `${this.prevVal} ${this.operation}` : '';
-  },
-
-  inputDigit(d) {
-    if (this.currentVal === '0' || this.resetNext) {
-      this.currentVal = d;
-      this.resetNext = false;
-    } else {
-      if (this.currentVal.length < 14) {
-        this.currentVal += d;
-      }
-    }
-    this.updateDisplay();
-  },
-
-  inputDot() {
-    if (this.resetNext) {
-      this.currentVal = '0.';
-      this.resetNext = false;
-    } else if (!this.currentVal.includes('.')) {
-      this.currentVal += '.';
-    }
-    this.updateDisplay();
-  },
-
-  toggleSign() {
-    if (this.currentVal !== '0') {
-      if (this.currentVal.startsWith('-')) {
-        this.currentVal = this.currentVal.substring(1);
-      } else {
-        this.currentVal = '-' + this.currentVal;
-      }
-      this.updateDisplay();
-    }
-  },
-
-  inputOp(op) {
-    if (this.operation && !this.resetNext) {
-      this.calculate();
-    }
-    this.prevVal = this.currentVal;
-    this.operation = op;
-    this.resetNext = true;
-    this.updateDisplay();
-  },
-
-  calculate() {
-    if (!this.operation || !this.prevVal) return;
-    const a = parseFloat(this.prevVal);
-    const b = parseFloat(this.currentVal);
-    let result = 0;
-
-    switch (this.operation) {
-      case '+': result = a + b; break;
-      case '-': result = a - b; break;
-      case '*': result = a * b; break;
-      case '/': 
-        if (b === 0) {
-          this.currentVal = 'Error';
-          this.resetNext = true;
-          this.operation = null;
-          this.updateDisplay();
-          return;
-        }
-        result = a / b;
-        break;
-      case '%': result = (a * b) / 100; break;
-    }
-
-    result = Math.round(result * 100000000) / 100000000;
-    this.currentVal = String(result);
-    this.prevVal = '';
-    this.operation = null;
-    this.resetNext = true;
-    this.updateDisplay();
-  },
-
-  sqrt() {
-    const val = parseFloat(this.currentVal);
-    if (val < 0) {
-      this.currentVal = 'Error';
-    } else {
-      this.currentVal = String(Math.round(Math.sqrt(val) * 100000000) / 100000000);
-    }
-    this.resetNext = true;
-    this.updateDisplay();
-  },
-
-  clearAll() {
-    this.currentVal = '0';
-    this.prevVal = '';
-    this.operation = null;
-    this.resetNext = false;
-    this.updateDisplay();
-  },
-
-  backspace() {
-    if (this.currentVal.length > 1) {
-      this.currentVal = this.currentVal.slice(0, -1);
-    } else {
-      this.currentVal = '0';
-    }
-    this.updateDisplay();
-  },
-
-  initDrag() {
-    const header = document.getElementById('calc-header');
-    const widget = DOM.calcWidget;
-    let isDragging = false;
-    let offsetX = 0, offsetY = 0;
-
-    header.addEventListener('mousedown', (e) => {
-      if (window.innerWidth <= 900) return;
-      isDragging = true;
-      offsetX = e.clientX - widget.getBoundingClientRect().left;
-      offsetY = e.clientY - widget.getBoundingClientRect().top;
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener('mouseup', onMouseUp);
-    });
-
-    function onMouseMove(e) {
-      if (!isDragging) return;
-      widget.style.left = `${e.clientX - offsetX}px`;
-      widget.style.top = `${e.clientY - offsetY}px`;
-      widget.style.bottom = 'auto';
-      widget.style.right = 'auto';
-    }
-
-    function onMouseUp() {
-      isDragging = false;
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
-    }
-  }
-};
 
 /* ==========================================================================
    DATA LOADING & EXAM INITIALIZATION
