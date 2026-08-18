@@ -10,7 +10,7 @@
   <style>
 /* ==========================================================================
    SIMULASI TES HAIRIL - MOBILE OPTIMIZED CBT SYSTEM THEME
-   1:1 CAT UI + Fullscreen Mode + Pop-up Calculator Widget + Responsive HP
+   1:1 CAT UI + Fullscreen Mode + Floating Calculator + Responsive HP
    ========================================================================== */
 :root {
   --bppp-navy-dark: #0a1e32;
@@ -53,6 +53,7 @@ body {
   line-height: 1.5;
   user-select: none;
   touch-action: manipulation;
+  position: relative;
 }
 
 .screen {
@@ -869,13 +870,13 @@ body {
   display: none;
   position: fixed;
   bottom: 75px;
-  right: 20px;
-  width: 290px;
-  background: #1e293b;
+  right: 25px;
+  width: 300px;
+  background: #0f172a;
   border: 2px solid #3b82f6;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-  z-index: 1002;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
   flex-direction: column;
   overflow: hidden;
   user-select: none;
@@ -892,9 +893,9 @@ body {
 }
 
 .cat-calc-header {
-  background: #0f172a;
+  background: #1e293b;
   color: #f8fafc;
-  padding: 8px 12px;
+  padding: 10px 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -903,8 +904,8 @@ body {
 }
 
 .cat-calc-header span {
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 800;
   color: #38bdf8;
   letter-spacing: 0.5px;
   display: flex;
@@ -916,14 +917,15 @@ body {
   background: rgba(255, 255, 255, 0.15);
   border: none;
   color: #ffffff;
-  font-size: 0.9rem;
-  width: 24px;
-  height: 24px;
+  font-size: 0.95rem;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.15s;
 }
 
 .cat-calc-btn-close:hover {
@@ -931,16 +933,16 @@ body {
 }
 
 .cat-calc-screen {
-  background: #090e17;
-  padding: 10px 14px;
+  background: #050b14;
+  padding: 12px 14px;
   text-align: right;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid #1e293b;
 }
 
 .cat-calc-history {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: #94a3b8;
-  min-height: 16px;
+  min-height: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -948,13 +950,14 @@ body {
 
 .cat-calc-main-val {
   font-family: "Consolas", monospace;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: 800;
   color: #38bdf8;
   line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  letter-spacing: 0.5px;
 }
 
 .cat-calc-grid {
@@ -962,27 +965,27 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 6px;
   padding: 10px;
-  background: #1e293b;
+  background: #0f172a;
 }
 
 .btn-calc {
-  background: #334155;
+  background: #1e293b;
   color: #ffffff;
-  border: none;
+  border: 1px solid #334155;
   border-radius: 6px;
   padding: 10px 0;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.1s;
-  min-height: 40px;
+  min-height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .btn-calc:hover {
-  background: #475569;
+  background: #334155;
 }
 
 .btn-calc:active {
@@ -990,8 +993,9 @@ body {
 }
 
 .btn-calc.op {
-  background: #1e40af;
+  background: #1e3a8a;
   color: #93c5fd;
+  border-color: #2563eb;
 }
 
 .btn-calc.op:hover {
@@ -1000,8 +1004,9 @@ body {
 }
 
 .btn-calc.clear {
-  background: #991b1b;
+  background: #7f1d1d;
   color: #fca5a5;
+  border-color: #dc2626;
 }
 
 .btn-calc.clear:hover {
@@ -1010,14 +1015,15 @@ body {
 }
 
 .btn-calc.equal {
-  background: #16a34a;
+  background: #15803d;
   color: #ffffff;
   grid-column: span 2;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  border-color: #22c55e;
 }
 
 .btn-calc.equal:hover {
-  background: #22c55e;
+  background: #16a34a;
 }
 
 /* 6. RESULT & REVIEW SCREEN */
@@ -1167,7 +1173,7 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(10, 30, 50, 0.75);
-  z-index: 1005;
+  z-index: 10000;
   align-items: center;
   justify-content: center;
   padding: 1rem;
@@ -1297,7 +1303,7 @@ body {
   }
 
   .btn-topbar-tool span.tool-label {
-    display: none; /* Icon only on small mobile */
+    display: none;
   }
 
   .btn-topbar-daftar-soal {
@@ -1328,7 +1334,6 @@ body {
     display: flex;
   }
 
-  /* Bottom action bar on mobile */
   .cat-action-bottombar {
     position: sticky;
     bottom: 0;
@@ -1357,13 +1362,12 @@ body {
     font-size: 0.78rem;
   }
 
-  /* Pop-up calculator on mobile */
   .cat-calc-widget {
     bottom: 0;
     right: 0;
     left: 0;
     width: 100%;
-    border-radius: 12px 12px 0 0;
+    border-radius: 14px 14px 0 0;
     border: 2px solid #3b82f6;
     border-bottom: none;
   }
@@ -1614,50 +1618,6 @@ body {
         </div>
       </aside>
     </main>
-
-    <!-- ==========================================================================
-         🧮 FLOATING MINI CALCULATOR WIDGET
-         ========================================================================== -->
-    <div class="cat-calc-widget" id="calc-widget">
-      <div class="cat-calc-header" id="calc-header">
-        <span>🧮 Kalkulator Simulasi</span>
-        <button class="cat-calc-btn-close" id="btn-close-calc" title="Tutup Kalkulator">✕</button>
-      </div>
-      <div class="cat-calc-screen">
-        <div class="cat-calc-history" id="calc-history"></div>
-        <div class="cat-calc-main-val" id="calc-display">0</div>
-      </div>
-      <div class="cat-calc-grid">
-        <button class="btn-calc clear" onclick="Calculator.clearAll()">C</button>
-        <button class="btn-calc clear" onclick="Calculator.backspace()">⌫</button>
-        <button class="btn-calc op" onclick="Calculator.inputOp('%')">%</button>
-        <button class="btn-calc op" onclick="Calculator.inputOp('/')">÷</button>
-
-        <button class="btn-calc" onclick="Calculator.inputDigit('7')">7</button>
-        <button class="btn-calc" onclick="Calculator.inputDigit('8')">8</button>
-        <button class="btn-calc" onclick="Calculator.inputDigit('9')">9</button>
-        <button class="btn-calc op" onclick="Calculator.inputOp('*')">×</button>
-
-        <button class="btn-calc" onclick="Calculator.inputDigit('4')">4</button>
-        <button class="btn-calc" onclick="Calculator.inputDigit('5')">5</button>
-        <button class="btn-calc" onclick="Calculator.inputDigit('6')">6</button>
-        <button class="btn-calc op" onclick="Calculator.inputOp('-')">−</button>
-
-        <button class="btn-calc" onclick="Calculator.inputDigit('1')">1</button>
-        <button class="btn-calc" onclick="Calculator.inputDigit('2')">2</button>
-        <button class="btn-calc" onclick="Calculator.inputDigit('3')">3</button>
-        <button class="btn-calc op" onclick="Calculator.inputOp('+')">+</button>
-
-        <button class="btn-calc" onclick="Calculator.toggleSign()">±</button>
-        <button class="btn-calc" onclick="Calculator.inputDigit('0')">0</button>
-        <button class="btn-calc" onclick="Calculator.inputDot()">.</button>
-        <button class="btn-calc op" onclick="Calculator.sqrt()">√</button>
-
-        <button class="btn-calc op" onclick="Calculator.inputDigit('(')">(</button>
-        <button class="btn-calc op" onclick="Calculator.inputDigit(')')">)</button>
-        <button class="btn-calc equal" onclick="Calculator.calculate()">=</button>
-      </div>
-    </div>
   </div>
 
 
@@ -1775,6 +1735,50 @@ body {
     </div>
   </div>
 
-  <script src="app.js?v=4.0"></script>
+  <!-- ==========================================================================
+       🧮 5. FLOATING MINI CALCULATOR WIDGET (TOP LEVEL)
+       ========================================================================== -->
+  <div class="cat-calc-widget" id="calc-widget">
+    <div class="cat-calc-header" id="calc-header">
+      <span>🧮 Kalkulator Simulasi</span>
+      <button class="cat-calc-btn-close" id="btn-close-calc" title="Tutup Kalkulator">✕</button>
+    </div>
+    <div class="cat-calc-screen">
+      <div class="cat-calc-history" id="calc-history"></div>
+      <div class="cat-calc-main-val" id="calc-display">0</div>
+    </div>
+    <div class="cat-calc-grid" id="calc-grid">
+      <button class="btn-calc clear" data-act="clear">C</button>
+      <button class="btn-calc clear" data-act="backspace">⌫</button>
+      <button class="btn-calc op" data-act="op" data-val="%">%</button>
+      <button class="btn-calc op" data-act="op" data-val="/">÷</button>
+
+      <button class="btn-calc" data-act="digit" data-val="7">7</button>
+      <button class="btn-calc" data-act="digit" data-val="8">8</button>
+      <button class="btn-calc" data-act="digit" data-val="9">9</button>
+      <button class="btn-calc op" data-act="op" data-val="*">×</button>
+
+      <button class="btn-calc" data-act="digit" data-val="4">4</button>
+      <button class="btn-calc" data-act="digit" data-val="5">5</button>
+      <button class="btn-calc" data-act="digit" data-val="6">6</button>
+      <button class="btn-calc op" data-act="op" data-val="-">−</button>
+
+      <button class="btn-calc" data-act="digit" data-val="1">1</button>
+      <button class="btn-calc" data-act="digit" data-val="2">2</button>
+      <button class="btn-calc" data-act="digit" data-val="3">3</button>
+      <button class="btn-calc op" data-act="op" data-val="+">+</button>
+
+      <button class="btn-calc" data-act="sign">±</button>
+      <button class="btn-calc" data-act="digit" data-val="0">0</button>
+      <button class="btn-calc" data-act="dot">.</button>
+      <button class="btn-calc op" data-act="sqrt">√</button>
+
+      <button class="btn-calc op" data-act="digit" data-val="(">(</button>
+      <button class="btn-calc op" data-act="digit" data-val=")">)</button>
+      <button class="btn-calc equal" data-act="equal">=</button>
+    </div>
+  </div>
+
+  <script src="app.js?v=4.5"></script>
 </body>
 </html>
