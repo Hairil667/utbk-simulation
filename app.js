@@ -1,278 +1,128 @@
 /**
- * SIMULASI UTBK - SNBT ENGINE (Sistem CAT Resmi BPPP Kemdikbud)
- * Core Logic: Timer, State Management, Question Navigation, Scoring & Review
+ * SIMULASI TES HAIRIL - CBT APPLICATION ENGINE
+ * 1:1 CAT UI + Fullscreen Mode + Floating Calculator + Mobile Ergonomics
  */
 
-// Global State
 const State = {
   examData: null,
+  activeSubtest: null,
   activeQuestions: [],
   currentIndex: 0,
-  userAnswers: {}, // { [index]: { selected: 'A'|'B'|..., doubt: boolean } }
+  userAnswers: {},
+  doubtStatus: {},
+  timeRemainingSeconds: 0,
+  totalTimeAllocatedSeconds: 0,
   timerInterval: null,
-  totalSeconds: 0,
-  remainingSeconds: 0,
-  timeSpentSeconds: 0,
-  fontSize: 'md', // 'sm' | 'md' | 'lg'
-  examActive: false,
-  userProfile: {
+  isFinished: false,
+  fontSizeLevel: 'md',
+  filterReview: 'all',
+  startTime: null,
+  endTime: null,
+  userData: {
     name: 'MUHAMMAD HAIRIL',
-    id: '25-3401-0891-01'
+    id: '25-3401-0891-01',
+    token: 'HAIRIL-2025'
   }
 };
 
-// DOM Elements Cache
-const DOM = {
-  // Screens
-  startScreen: document.getElementById('start-screen'),
-  examScreen: document.getElementById('exam-screen'),
-  resultScreen: document.getElementById('result-screen'),
-  
-  // Start Screen Elements
-  startTitle: document.getElementById('start-title'),
-  startSubtitle: document.getElementById('start-subtitle'),
-  inputUserName: document.getElementById('input-user-name'),
-  inputUserId: document.getElementById('input-user-id'),
-  selectSubtest: document.getElementById('select-subtest'),
-  subtestCountInfo: document.getElementById('subtest-count-info'),
-  inputCustomTime: document.getElementById('input-custom-time'),
-  btnResetTime: document.getElementById('btn-reset-time'),
-  fileJsonInput: document.getElementById('file-json-input'),
-  loadedFileStatus: document.getElementById('loaded-file-status'),
-  btnStartExam: document.getElementById('btn-start-exam'),
+const DOM = {};
 
-  // Exam Screen Elements
-  examHeaderTitle: document.getElementById('exam-header-title'),
-  examHeaderSubtest: document.getElementById('exam-header-subtest'),
-  timerBox: document.getElementById('timer-box'),
-  timerDisplay: document.getElementById('timer-display'),
-  displayUserName: document.getElementById('display-user-name'),
-  displayUserId: document.getElementById('display-user-id'),
-  btnToggleDaftarSoal: document.getElementById('btn-toggle-daftar-soal'),
-
-  // Workspace
-  currentQBadge: document.getElementById('current-q-badge'),
-  workspaceContainer: document.getElementById('workspace-container'),
-  questionText: document.getElementById('question-text'),
-  optionsContainer: document.getElementById('options-container'),
-  btnPrev: document.getElementById('btn-prev'),
-  btnNext: document.getElementById('btn-next'),
-  btnFinishTrigger: document.getElementById('btn-finish-trigger'),
-  checkboxRagu: document.getElementById('checkbox-ragu'),
-  labelRagu: document.getElementById('label-ragu'),
-
-  // Font Size
-  btnFontSm: document.getElementById('btn-font-sm'),
-  btnFontMd: document.getElementById('btn-font-md'),
-  btnFontLg: document.getElementById('btn-font-lg'),
-
-  // Sidebar
-  catSidebar: document.getElementById('cat-sidebar'),
-  questionGrid: document.getElementById('question-grid'),
-  btnCloseSidebar: document.getElementById('btn-close-sidebar'),
-
-  // Modal
-  confirmModal: document.getElementById('confirm-modal'),
-  modalTotalQ: document.getElementById('modal-total-q'),
-  modalAnsweredQ: document.getElementById('modal-answered-q'),
-  modalDoubtQ: document.getElementById('modal-doubt-q'),
-  modalUnansweredQ: document.getElementById('modal-unanswered-q'),
-  modalCheckConfirm: document.getElementById('modal-check-confirm'),
-  btnModalCancel: document.getElementById('btn-modal-cancel'),
-  btnModalConfirm: document.getElementById('btn-modal-confirm'),
-
-  // Result Screen Elements
-  resultUserMeta: document.getElementById('result-user-meta'),
-  resultScoreVal: document.getElementById('result-score-val'),
-  resultFeedbackText: document.getElementById('result-feedback-text'),
-  statCorrectCount: document.getElementById('stat-correct-count'),
-  statWrongCount: document.getElementById('stat-wrong-count'),
-  statEmptyCount: document.getElementById('stat-empty-count'),
-  statTimeSpent: document.getElementById('stat-time-spent'),
-  reviewListContainer: document.getElementById('review-list-container'),
-  btnRetryTest: document.getElementById('btn-retry-test'),
-  btnBackHome: document.getElementById('btn-back-home')
-};
-
-// Initialize Application
 document.addEventListener('DOMContentLoaded', () => {
-  initApp();
-  setupEventListeners();
+  initDOMReferences();
+  initEventListeners();
+  Calculator.init();
+  initFullscreen();
+  loadInitialData();
 });
 
-/**
- * Fetch default questions and setup initial UI
- */
-async function initApp() {
-  try {
-    const response = await fetch('questions.json');
-    if (!response.ok) throw new Error('Gagal memuat bank soal bawaan');
-    const data = await response.json();
-    loadExamData(data);
-  } catch (error) {
-    console.warn('Gagal fetch otomatis questions.json, gunakan fallback data lokal:', error);
-    loadFallbackData();
-  }
+function initDOMReferences() {
+  DOM.screens = {
+    start: document.getElementById('start-screen'),
+    exam: document.getElementById('exam-screen'),
+    result: document.getElementById('result-screen')
+  };
+
+  DOM.startTitle = document.getElementById('start-title');
+  DOM.startSubtitle = document.getElementById('start-subtitle');
+  DOM.inputToken = document.getElementById('input-token');
+  DOM.inputUserName = document.getElementById('input-user-name');
+  DOM.inputUserId = document.getElementById('input-user-id');
+  DOM.selectSubtest = document.getElementById('select-subtest');
+  DOM.subtestCountInfo = document.getElementById('subtest-count-info');
+  DOM.inputCustomTime = document.getElementById('input-custom-time');
+  DOM.btnResetTime = document.getElementById('btn-reset-time');
+  DOM.btnStartExam = document.getElementById('btn-start-exam');
+  DOM.fileJsonInput = document.getElementById('file-json-input');
+  DOM.loadedFileStatus = document.getElementById('loaded-file-status');
+  DOM.dropZone = document.getElementById('drop-zone');
+
+  DOM.examHeaderTitle = document.getElementById('exam-header-title');
+  DOM.examHeaderSubtest = document.getElementById('exam-header-subtest');
+  DOM.timerBox = document.getElementById('timer-box');
+  DOM.timerDisplay = document.getElementById('timer-display');
+  DOM.displayUserName = document.getElementById('display-user-name');
+  DOM.displayUserId = document.getElementById('display-user-id');
+  DOM.btnToggleDaftarSoal = document.getElementById('btn-toggle-daftar-soal');
+  DOM.btnFullscreen = document.getElementById('btn-fullscreen');
+  DOM.fullscreenIcon = document.getElementById('fullscreen-icon');
+  DOM.fullscreenText = document.getElementById('fullscreen-text');
+  DOM.btnToggleCalculator = document.getElementById('btn-toggle-calculator');
+  DOM.calcWidget = document.getElementById('calc-widget');
+  DOM.btnCloseCalc = document.getElementById('btn-close-calc');
+
+  DOM.workspaceContainer = document.getElementById('workspace-container');
+  DOM.currentQBadge = document.getElementById('current-q-badge');
+  DOM.currentQCategory = document.getElementById('current-q-category');
+  DOM.questionText = document.getElementById('question-text');
+  DOM.optionsContainer = document.getElementById('options-container');
+
+  DOM.btnPrev = document.getElementById('btn-prev');
+  DOM.btnNext = document.getElementById('btn-next');
+  DOM.btnFinishTrigger = document.getElementById('btn-finish-trigger');
+  DOM.checkboxRagu = document.getElementById('checkbox-ragu');
+  DOM.labelRagu = document.getElementById('label-ragu');
+
+  DOM.catSidebar = document.getElementById('cat-sidebar');
+  DOM.questionGrid = document.getElementById('question-grid');
+  DOM.btnCloseSidebar = document.getElementById('btn-close-sidebar');
+
+  DOM.btnFontSm = document.getElementById('btn-font-sm');
+  DOM.btnFontMd = document.getElementById('btn-font-md');
+  DOM.btnFontLg = document.getElementById('btn-font-lg');
+
+  DOM.confirmModal = document.getElementById('confirm-modal');
+  DOM.modalTotalQ = document.getElementById('modal-total-q');
+  DOM.modalAnsweredQ = document.getElementById('modal-answered-q');
+  DOM.modalDoubtQ = document.getElementById('modal-doubt-q');
+  DOM.modalUnansweredQ = document.getElementById('modal-unanswered-q');
+  DOM.modalCheckConfirm = document.getElementById('modal-check-confirm');
+  DOM.btnModalCancel = document.getElementById('btn-modal-cancel');
+  DOM.btnModalConfirm = document.getElementById('btn-modal-confirm');
+
+  DOM.resultScoreVal = document.getElementById('result-score-val');
+  DOM.resultUserMeta = document.getElementById('result-user-meta');
+  DOM.resultFeedbackText = document.getElementById('result-feedback-text');
+  DOM.statCorrectCount = document.getElementById('stat-correct-count');
+  DOM.statWrongCount = document.getElementById('stat-wrong-count');
+  DOM.statEmptyCount = document.getElementById('stat-empty-count');
+  DOM.statTimeSpent = document.getElementById('stat-time-spent');
+  DOM.reviewListContainer = document.getElementById('review-list-container');
+  DOM.btnRetryTest = document.getElementById('btn-retry-test');
+  DOM.btnBackHome = document.getElementById('btn-back-home');
 }
 
-/**
- * Load and parse exam data object
- */
-function loadExamData(data) {
-  State.examData = data;
-  
-  if (data.testInfo) {
-    DOM.startTitle.textContent = data.testInfo.title || 'SIMULASI TES HAIRIL';
-    DOM.startSubtitle.textContent = `${data.testInfo.subtitle || 'Platform Evaluasi Pribadi'} • Tahun ${data.testInfo.year || '2025/2026'}`;
-    if (data.testInfo.defaultTimeMinutes) {
-      DOM.inputCustomTime.value = data.testInfo.defaultTimeMinutes;
-    }
-  }
+function initEventListeners() {
+  DOM.btnStartExam.addEventListener('click', handleStartExam);
+  DOM.btnPrev.addEventListener('click', () => navigateQuestion(State.currentIndex - 1));
+  DOM.btnNext.addEventListener('click', () => navigateQuestion(State.currentIndex + 1));
+  DOM.btnFinishTrigger.addEventListener('click', openConfirmModal);
 
-  // Populate subtest options in dropdown
-  DOM.selectSubtest.innerHTML = '';
-  
-  let totalAllQuestions = 0;
-  let totalAllTime = 0;
+  DOM.checkboxRagu.addEventListener('change', handleToggleDoubt);
 
-  if (Array.isArray(data.subtests)) {
-    data.subtests.forEach(sub => {
-      totalAllQuestions += (sub.questions || []).length;
-      totalAllTime += (sub.timeMinutes || 15);
-    });
-
-    const allOption = document.createElement('option');
-    allOption.value = 'all';
-    allOption.textContent = `Semua Subtes (Total ${totalAllQuestions} Soal)`;
-    DOM.selectSubtest.appendChild(allOption);
-
-    data.subtests.forEach((sub, idx) => {
-      const opt = document.createElement('option');
-      opt.value = idx.toString();
-      opt.textContent = `${sub.name} (${(sub.questions || []).length} Soal - ${sub.timeMinutes || 15} Menit)`;
-      DOM.selectSubtest.appendChild(opt);
-    });
-  } else if (Array.isArray(data.questions)) {
-    totalAllQuestions = data.questions.length;
-    const opt = document.createElement('option');
-    opt.value = 'flat';
-    opt.textContent = `Paket Soal (${totalAllQuestions} Soal)`;
-    DOM.selectSubtest.appendChild(opt);
-  }
-
-  updateSubtestCountInfo();
-}
-
-/**
- * Update time and question count when subtest selection changes
- */
-function updateSubtestCountInfo() {
-  if (!State.examData) return;
-
-  const val = DOM.selectSubtest.value;
-  if (val === 'all') {
-    let qCount = 0;
-    let recTime = State.examData.testInfo?.defaultTimeMinutes || 0;
-    
-    if (State.examData.subtests) {
-      State.examData.subtests.forEach(s => {
-        qCount += (s.questions || []).length;
-        if (!State.examData.testInfo?.defaultTimeMinutes) {
-          recTime += (s.timeMinutes || 15);
-        }
-      });
-    }
-    DOM.subtestCountInfo.textContent = `Total: ${qCount} Soal. Durasi standar: ${recTime || 20} menit.`;
-    DOM.inputCustomTime.value = recTime || 20;
-  } else if (val === 'flat') {
-    const qCount = State.examData.questions?.length || 0;
-    DOM.subtestCountInfo.textContent = `Total: ${qCount} Soal.`;
-  } else {
-    const subIdx = parseInt(val, 10);
-    const sub = State.examData.subtests[subIdx];
-    if (sub) {
-      const count = (sub.questions || []).length;
-      DOM.subtestCountInfo.textContent = `Subtes "${sub.name}": ${count} Soal. Durasi standar: ${sub.timeMinutes || 15} menit.`;
-      DOM.inputCustomTime.value = sub.timeMinutes || 15;
-    }
-  }
-}
-
-/**
- * Setup All Event Listeners
- */
-function setupEventListeners() {
-  // Subtest selection change
-  DOM.selectSubtest.addEventListener('change', updateSubtestCountInfo);
-
-  // Reset time button
-  DOM.btnResetTime.addEventListener('click', updateSubtestCountInfo);
-
-  // File Upload (Custom JSON)
-  DOM.fileJsonInput.addEventListener('change', handleFileUpload);
-
-  // Drag & drop support
-  const dropZone = document.getElementById('drop-zone');
-  if (dropZone) {
-    dropZone.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      dropZone.style.borderColor = 'var(--bppp-blue-btn)';
-    });
-    dropZone.addEventListener('dragleave', () => {
-      dropZone.style.borderColor = '#94a3b8';
-    });
-    dropZone.addEventListener('drop', (e) => {
-      e.preventDefault();
-      dropZone.style.borderColor = '#94a3b8';
-      if (e.dataTransfer.files.length > 0) {
-        processJSONFile(e.dataTransfer.files[0]);
-      }
-    });
-  }
-
-  // Start Exam Button
-  DOM.btnStartExam.addEventListener('click', startExam);
-
-  // Navigation Buttons
-  DOM.btnPrev.addEventListener('click', () => {
-    if (State.currentIndex > 0) {
-      jumpToQuestion(State.currentIndex - 1);
-    }
-  });
-
-  DOM.btnNext.addEventListener('click', () => {
-    if (State.currentIndex < State.activeQuestions.length - 1) {
-      jumpToQuestion(State.currentIndex + 1);
-    }
-  });
-
-  // Ragu-ragu checkbox & container
-  DOM.checkboxRagu.addEventListener('change', (e) => {
-    toggleDoubt(e.target.checked);
-  });
-
-  // Finish Trigger
-  DOM.btnFinishTrigger.addEventListener('click', showFinishModal);
-
-  // Modal Checkbox Confirmation
-  DOM.modalCheckConfirm.addEventListener('change', (e) => {
-    DOM.btnModalConfirm.disabled = !e.target.checked;
-    DOM.btnModalConfirm.style.opacity = e.target.checked ? '1' : '0.5';
-    DOM.btnModalConfirm.style.cursor = e.target.checked ? 'pointer' : 'not-allowed';
-  });
-
-  DOM.btnModalCancel.addEventListener('click', hideFinishModal);
-  DOM.btnModalConfirm.addEventListener('click', () => {
-    hideFinishModal();
-    finishExam(false);
-  });
-
-  // Font Size Resizer
   DOM.btnFontSm.addEventListener('click', () => setFontSize('sm'));
   DOM.btnFontMd.addEventListener('click', () => setFontSize('md'));
   DOM.btnFontLg.addEventListener('click', () => setFontSize('lg'));
 
-  // Toggle Daftar Soal Button (Header)
   DOM.btnToggleDaftarSoal.addEventListener('click', () => {
     DOM.catSidebar.classList.toggle('mobile-open');
   });
@@ -280,65 +130,364 @@ function setupEventListeners() {
     DOM.catSidebar.classList.remove('mobile-open');
   });
 
-  // Result Screen Actions
-  DOM.btnRetryTest.addEventListener('click', () => {
-    startExam();
-  });
-  DOM.btnBackHome.addEventListener('click', () => {
-    showScreen('start');
+  DOM.btnResetTime.addEventListener('click', () => {
+    if (State.activeSubtest && State.activeSubtest.timeMinutes) {
+      DOM.inputCustomTime.value = State.activeSubtest.timeMinutes;
+    } else if (State.examData && State.examData.testInfo && State.examData.testInfo.defaultTimeMinutes) {
+      DOM.inputCustomTime.value = State.examData.testInfo.defaultTimeMinutes;
+    }
   });
 
-  // Review Filter Buttons
+  DOM.selectSubtest.addEventListener('change', handleSubtestSelectionChange);
+
+  DOM.btnModalCancel.addEventListener('click', closeConfirmModal);
+  DOM.modalCheckConfirm.addEventListener('change', (e) => {
+    DOM.btnModalConfirm.disabled = !e.target.checked;
+    DOM.btnModalConfirm.style.opacity = e.target.checked ? '1' : '0.5';
+    DOM.btnModalConfirm.style.cursor = e.target.checked ? 'pointer' : 'not-allowed';
+  });
+  DOM.btnModalConfirm.addEventListener('click', handleFinishExam);
+
+  DOM.btnRetryTest.addEventListener('click', resetAndRestartExam);
+  DOM.btnBackHome.addEventListener('click', returnToStartScreen);
+
   document.querySelectorAll('.btn-filter-review').forEach(btn => {
     btn.addEventListener('click', (e) => {
       document.querySelectorAll('.btn-filter-review').forEach(b => b.classList.remove('active'));
       e.target.classList.add('active');
-      renderReview(e.target.dataset.filter);
+      State.filterReview = e.target.dataset.filter;
+      renderReviewList();
     });
   });
 
-  // Keyboard Shortcuts (Arrow Left/Right, 1-5 / A-E, R)
-  window.addEventListener('keydown', (e) => {
-    if (!State.examActive) return;
-    
-    if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+  DOM.fileJsonInput.addEventListener('change', handleCustomJsonUpload);
+  initDropZone();
 
-    if (e.key === 'ArrowLeft' && State.currentIndex > 0) {
-      jumpToQuestion(State.currentIndex - 1);
-    } else if (e.key === 'ArrowRight' && State.currentIndex < State.activeQuestions.length - 1) {
-      jumpToQuestion(State.currentIndex + 1);
-    } else if (['a', 'b', 'c', 'd', 'e', 'A', 'B', 'C', 'D', 'E'].includes(e.key)) {
-      selectOption(e.key.toUpperCase());
-    } else if (e.key.toLowerCase() === 'r') {
-      const curState = State.userAnswers[State.currentIndex]?.doubt || false;
-      toggleDoubt(!curState);
+  // Keyboard navigation shortcuts
+  document.addEventListener('keydown', (e) => {
+    if (!DOM.screens.exam.classList.contains('active')) return;
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    if (e.key === 'ArrowLeft') {
+      if (State.currentIndex > 0) navigateQuestion(State.currentIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      if (State.currentIndex < State.activeQuestions.length - 1) navigateQuestion(State.currentIndex + 1);
+    } else if (['1', '2', '3', '4', '5', 'a', 'b', 'c', 'd', 'e', 'A', 'B', 'C', 'D', 'E'].includes(e.key)) {
+      const map = { '1': 'A', '2': 'B', '3': 'C', '4': 'D', '5': 'E' };
+      const optKey = (map[e.key] || e.key).toUpperCase();
+      const currentQ = State.activeQuestions[State.currentIndex];
+      if (currentQ && currentQ.options && currentQ.options[optKey]) {
+        selectOption(optKey);
+      }
+    } else if (e.key === 'r' || e.key === 'R') {
+      DOM.checkboxRagu.checked = !DOM.checkboxRagu.checked;
+      handleToggleDoubt();
     }
   });
 }
 
-/**
- * Handle custom JSON file upload
- */
-function handleFileUpload(e) {
-  if (e.target.files && e.target.files[0]) {
-    processJSONFile(e.target.files[0]);
+function initFullscreen() {
+  DOM.btnFullscreen.addEventListener('click', toggleFullscreen);
+
+  document.addEventListener('fullscreenchange', updateFullscreenUI);
+  document.addEventListener('webkitfullscreenchange', updateFullscreenUI);
+  document.addEventListener('mozfullscreenchange', updateFullscreenUI);
+  document.addEventListener('MSFullscreenChange', updateFullscreenUI);
+}
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+    const docEl = document.documentElement;
+    if (docEl.requestFullscreen) {
+      docEl.requestFullscreen().catch(() => {});
+    } else if (docEl.webkitRequestFullscreen) {
+      docEl.webkitRequestFullscreen();
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen().catch(() => {});
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
   }
 }
 
-function processJSONFile(file) {
-  if (!file.name.endsWith('.json')) {
-    alert('Harap pilih file dengan ekstensi .json');
-    return;
+function updateFullscreenUI() {
+  const isFull = !!(document.fullscreenElement || document.webkitFullscreenElement);
+  DOM.fullscreenIcon.textContent = isFull ? '🗗' : '⛶';
+  DOM.fullscreenText.textContent = isFull ? 'Keluar' : 'Layar Penuh';
+  DOM.btnFullscreen.classList.toggle('btn-calc-active', isFull);
+}
+
+/* ==========================================================================
+   🧮 CALCULATOR MODULE
+   ========================================================================== */
+const Calculator = {
+  displayEl: null,
+  historyEl: null,
+  currentVal: '0',
+  prevVal: '',
+  operation: null,
+  resetNext: false,
+
+  init() {
+    this.displayEl = document.getElementById('calc-display');
+    this.historyEl = document.getElementById('calc-history');
+
+    DOM.btnToggleCalculator.addEventListener('click', () => this.toggle());
+    DOM.btnCloseCalc.addEventListener('click', () => this.close());
+    
+    // Dragging support on Desktop
+    this.initDrag();
+  },
+
+  toggle() {
+    const isOpen = DOM.calcWidget.classList.toggle('active');
+    DOM.btnToggleCalculator.classList.toggle('btn-calc-active', isOpen);
+  },
+
+  close() {
+    DOM.calcWidget.classList.remove('active');
+    DOM.btnToggleCalculator.classList.remove('btn-calc-active');
+  },
+
+  updateDisplay() {
+    this.displayEl.textContent = this.currentVal;
+    this.historyEl.textContent = this.operation && this.prevVal ? `${this.prevVal} ${this.operation}` : '';
+  },
+
+  inputDigit(d) {
+    if (this.currentVal === '0' || this.resetNext) {
+      this.currentVal = d;
+      this.resetNext = false;
+    } else {
+      if (this.currentVal.length < 14) {
+        this.currentVal += d;
+      }
+    }
+    this.updateDisplay();
+  },
+
+  inputDot() {
+    if (this.resetNext) {
+      this.currentVal = '0.';
+      this.resetNext = false;
+    } else if (!this.currentVal.includes('.')) {
+      this.currentVal += '.';
+    }
+    this.updateDisplay();
+  },
+
+  toggleSign() {
+    if (this.currentVal !== '0') {
+      if (this.currentVal.startsWith('-')) {
+        this.currentVal = this.currentVal.substring(1);
+      } else {
+        this.currentVal = '-' + this.currentVal;
+      }
+      this.updateDisplay();
+    }
+  },
+
+  inputOp(op) {
+    if (this.operation && !this.resetNext) {
+      this.calculate();
+    }
+    this.prevVal = this.currentVal;
+    this.operation = op;
+    this.resetNext = true;
+    this.updateDisplay();
+  },
+
+  calculate() {
+    if (!this.operation || !this.prevVal) return;
+    const a = parseFloat(this.prevVal);
+    const b = parseFloat(this.currentVal);
+    let result = 0;
+
+    switch (this.operation) {
+      case '+': result = a + b; break;
+      case '-': result = a - b; break;
+      case '*': result = a * b; break;
+      case '/': 
+        if (b === 0) {
+          this.currentVal = 'Error';
+          this.resetNext = true;
+          this.operation = null;
+          this.updateDisplay();
+          return;
+        }
+        result = a / b;
+        break;
+      case '%': result = (a * b) / 100; break;
+    }
+
+    result = Math.round(result * 100000000) / 100000000;
+    this.currentVal = String(result);
+    this.prevVal = '';
+    this.operation = null;
+    this.resetNext = true;
+    this.updateDisplay();
+  },
+
+  sqrt() {
+    const val = parseFloat(this.currentVal);
+    if (val < 0) {
+      this.currentVal = 'Error';
+    } else {
+      this.currentVal = String(Math.round(Math.sqrt(val) * 100000000) / 100000000);
+    }
+    this.resetNext = true;
+    this.updateDisplay();
+  },
+
+  clearAll() {
+    this.currentVal = '0';
+    this.prevVal = '';
+    this.operation = null;
+    this.resetNext = false;
+    this.updateDisplay();
+  },
+
+  backspace() {
+    if (this.currentVal.length > 1) {
+      this.currentVal = this.currentVal.slice(0, -1);
+    } else {
+      this.currentVal = '0';
+    }
+    this.updateDisplay();
+  },
+
+  initDrag() {
+    const header = document.getElementById('calc-header');
+    const widget = DOM.calcWidget;
+    let isDragging = false;
+    let offsetX = 0, offsetY = 0;
+
+    header.addEventListener('mousedown', (e) => {
+      if (window.innerWidth <= 900) return;
+      isDragging = true;
+      offsetX = e.clientX - widget.getBoundingClientRect().left;
+      offsetY = e.clientY - widget.getBoundingClientRect().top;
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+    });
+
+    function onMouseMove(e) {
+      if (!isDragging) return;
+      widget.style.left = `${e.clientX - offsetX}px`;
+      widget.style.top = `${e.clientY - offsetY}px`;
+      widget.style.bottom = 'auto';
+      widget.style.right = 'auto';
+    }
+
+    function onMouseUp() {
+      isDragging = false;
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    }
   }
+};
+
+/* ==========================================================================
+   DATA LOADING & EXAM INITIALIZATION
+   ========================================================================== */
+function loadInitialData() {
+  fetch('questions.json?t=' + Date.now())
+    .then(res => {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(data => {
+      loadExamData(data);
+    })
+    .catch(err => {
+      console.warn('Load questions.json fallback:', err);
+      loadFallbackData();
+    });
+}
+
+function loadExamData(data) {
+  State.examData = data;
+  
+  if (data.testInfo) {
+    DOM.startTitle.textContent = data.testInfo.title || 'SIMULASI TES HAIRIL';
+    DOM.startSubtitle.textContent = `${data.testInfo.subtitle || 'Operasi Bilangan'} • Tahun ${data.testInfo.year || '2025/2026'}`;
+    if (data.testInfo.defaultTimeMinutes) {
+      DOM.inputCustomTime.value = data.testInfo.defaultTimeMinutes;
+    }
+  }
+
+  populateSubtestDropdown(data);
+}
+
+function populateSubtestDropdown(data) {
+  DOM.selectSubtest.innerHTML = '';
+  
+  let totalQuestions = 0;
+  if (data.subtests && data.subtests.length > 0) {
+    data.subtests.forEach(st => {
+      totalQuestions += (st.questions ? st.questions.length : 0);
+    });
+
+    const optAll = document.createElement('option');
+    optAll.value = 'all';
+    optAll.textContent = `⭐ Semua Paket Lengkap (${totalQuestions} Soal)`;
+    DOM.selectSubtest.appendChild(optAll);
+
+    data.subtests.forEach((st, idx) => {
+      const opt = document.createElement('option');
+      opt.value = st.id || `subtest-${idx}`;
+      opt.textContent = `${st.name} (${st.questions ? st.questions.length : 0} Soal - ${st.timeMinutes || 15} Menit)`;
+      DOM.selectSubtest.appendChild(opt);
+    });
+
+    DOM.subtestCountInfo.textContent = `Tersedia ${data.subtests.length} paket latihan dengan total ${totalQuestions} soal.`;
+  }
+}
+
+function handleSubtestSelectionChange() {
+  const selectedId = DOM.selectSubtest.value;
+  if (selectedId === 'all') {
+    State.activeSubtest = null;
+    if (State.examData && State.examData.testInfo && State.examData.testInfo.defaultTimeMinutes) {
+      DOM.inputCustomTime.value = State.examData.testInfo.defaultTimeMinutes;
+    }
+  } else {
+    const subtest = State.examData.subtests.find(s => (s.id === selectedId || `subtest-${State.examData.subtests.indexOf(s)}` === selectedId));
+    if (subtest) {
+      State.activeSubtest = subtest;
+      if (subtest.timeMinutes) {
+        DOM.inputCustomTime.value = subtest.timeMinutes;
+      }
+    }
+  }
+}
+
+function handleCustomJsonUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
 
   const reader = new FileReader();
   reader.onload = (event) => {
     try {
-      const parsed = JSON.parse(event.target.result);
-      if (!parsed.subtests && !parsed.questions) {
-        throw new Error('Format JSON tidak sesuai: harus memiliki array "subtests" atau "questions"');
+      const json = JSON.parse(event.target.result);
+      if (!json.subtests && !json.questions) {
+        alert('Format JSON tidak valid. Harus memiliki properti "subtests" atau "questions".');
+        return;
       }
-      loadExamData(parsed);
+      
+      let structuredJson = json;
+      if (json.questions && !json.subtests) {
+        structuredJson = {
+          testInfo: json.testInfo || { title: "SIMULASI TES HAIRIL (KUSTOM)", subtitle: file.name, year: "2025/2026", defaultTimeMinutes: 20 },
+          subtests: [
+            { id: "custom-1", name: "Paket Soal Kustom", timeMinutes: json.timeMinutes || 20, questions: json.questions }
+          ]
+        };
+      }
+
+      loadExamData(structuredJson);
       DOM.loadedFileStatus.style.display = 'block';
       DOM.loadedFileStatus.textContent = `✓ Berhasil memuat: ${file.name}`;
     } catch (err) {
@@ -348,352 +497,304 @@ function processJSONFile(file) {
   reader.readAsText(file);
 }
 
-/**
- * Start Exam Engine
- */
-function startExam() {
-  if (!State.examData) {
-    alert('Bank soal belum siap. Silakan tunggu atau unggah JSON soal.');
-    return;
-  }
+function initDropZone() {
+  DOM.dropZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    DOM.dropZone.style.borderColor = '#1976d2';
+    DOM.dropZone.style.background = '#e2e8f0';
+  });
 
-  // 1. Get User Profile
-  State.userProfile.name = DOM.inputUserName.value.trim() || 'MUHAMMAD HAIRIL';
-  State.userProfile.id = DOM.inputUserId.value.trim() || '25-3401-0891-01';
+  DOM.dropZone.addEventListener('dragleave', (e) => {
+    e.preventDefault();
+    DOM.dropZone.style.borderColor = '#94a3b8';
+    DOM.dropZone.style.background = '#f1f5f9';
+  });
 
-  DOM.displayUserName.textContent = State.userProfile.name;
-  DOM.displayUserId.textContent = State.userProfile.id;
+  DOM.dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    DOM.dropZone.style.borderColor = '#94a3b8';
+    DOM.dropZone.style.background = '#f1f5f9';
+    if (e.dataTransfer.files.length > 0) {
+      DOM.fileJsonInput.files = e.dataTransfer.files;
+      handleCustomJsonUpload({ target: DOM.fileJsonInput });
+    }
+  });
+}
 
-  // 2. Prepare Active Questions list
-  const chosenSubtest = DOM.selectSubtest.value;
+/* ==========================================================================
+   EXAM FLOW & WORKSPACE
+   ========================================================================== */
+function handleStartExam() {
+  State.userData.name = DOM.inputUserName.value.trim() || 'MUHAMMAD HAIRIL';
+  State.userData.id = DOM.inputUserId.value.trim() || '25-3401-0891-01';
+  State.userData.token = DOM.inputToken.value.trim() || 'HAIRIL-2025';
+
+  const selectedSubtestId = DOM.selectSubtest.value;
   State.activeQuestions = [];
 
-  if (chosenSubtest === 'all') {
-    if (State.examData.subtests) {
-      State.examData.subtests.forEach(sub => {
-        (sub.questions || []).forEach(q => {
+  if (selectedSubtestId === 'all') {
+    State.examData.subtests.forEach(st => {
+      if (st.questions) {
+        st.questions.forEach(q => {
           State.activeQuestions.push({
             ...q,
-            subtestName: sub.name
+            subtestName: st.name
           });
         });
-      });
-    } else if (State.examData.questions) {
-      State.activeQuestions = [...State.examData.questions];
-    }
-    DOM.examHeaderSubtest.textContent = 'Semua Subtes (Paket Lengkap)';
-  } else if (chosenSubtest === 'flat') {
-    State.activeQuestions = [...(State.examData.questions || [])];
-    DOM.examHeaderSubtest.textContent = 'Simulasi Soal';
+      }
+    });
+    DOM.examHeaderSubtest.textContent = 'Operasi Bilangan (Paket Lengkap)';
   } else {
-    const subIdx = parseInt(chosenSubtest, 10);
-    const sub = State.examData.subtests[subIdx];
-    if (sub) {
-      State.activeQuestions = (sub.questions || []).map(q => ({
+    const subtest = State.examData.subtests.find(s => (s.id === selectedSubtestId || `subtest-${State.examData.subtests.indexOf(s)}` === selectedSubtestId));
+    if (subtest && subtest.questions) {
+      State.activeQuestions = subtest.questions.map(q => ({
         ...q,
-        subtestName: sub.name
+        subtestName: subtest.name
       }));
-      DOM.examHeaderSubtest.textContent = sub.name;
+      DOM.examHeaderSubtest.textContent = subtest.name;
     }
   }
 
   if (State.activeQuestions.length === 0) {
-    alert('Tidak ada soal pada kategori yang dipilih.');
+    alert('Tidak ada soal yang tersedia pada paket ini.');
     return;
   }
 
-  // 3. Reset Answers & Status
+  // Set user custom time
+  const customMinutes = parseInt(DOM.inputCustomTime.value, 10) || 20;
+  State.totalTimeAllocatedSeconds = customMinutes * 60;
+  State.timeRemainingSeconds = State.totalTimeAllocatedSeconds;
+
+  // Initialize answer states
   State.userAnswers = {};
-  for (let i = 0; i < State.activeQuestions.length; i++) {
-    State.userAnswers[i] = {
-      selected: null,
-      doubt: false
-    };
-  }
-
-  // 4. Time Setup
-  let customMinutes = parseInt(DOM.inputCustomTime.value, 10);
-  if (isNaN(customMinutes) || customMinutes < 1) customMinutes = 20;
-  
-  State.totalSeconds = customMinutes * 60;
-  State.remainingSeconds = State.totalSeconds;
-  State.timeSpentSeconds = 0;
-
-  // 5. Switch to Exam Screen
+  State.doubtStatus = {};
   State.currentIndex = 0;
-  State.examActive = true;
+  State.isFinished = false;
+  State.startTime = new Date();
+
+  // Populate Header profile
+  DOM.displayUserName.textContent = State.userData.name;
+  DOM.displayUserId.textContent = State.userData.id;
+
+  // Switch Screen
   showScreen('exam');
 
-  // 6. Render UI
-  renderQuestion(0);
-  renderQuestionGrid();
+  // Build grid & load first question
+  buildQuestionGrid();
+  loadQuestion(0);
 
-  // 7. Start Countdown Timer
+  // Start Timer
   startTimer();
 }
 
-/**
- * Start & Manage Countdown Timer
- */
+function showScreen(screenKey) {
+  Object.keys(DOM.screens).forEach(k => {
+    DOM.screens[k].classList.remove('active');
+  });
+  DOM.screens[screenKey].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function buildQuestionGrid() {
+  DOM.questionGrid.innerHTML = '';
+  State.activeQuestions.forEach((q, idx) => {
+    const box = document.createElement('button');
+    box.className = 'cat-num-box';
+    box.id = `grid-box-${idx}`;
+    box.textContent = idx + 1;
+    box.title = `Lompat ke Soal Nomor ${idx + 1}`;
+    
+    box.addEventListener('click', () => {
+      navigateQuestion(idx);
+      if (window.innerWidth <= 900) {
+        DOM.catSidebar.classList.remove('mobile-open');
+      }
+    });
+
+    DOM.questionGrid.appendChild(box);
+  });
+  updateGridStatus();
+}
+
+function updateGridStatus() {
+  State.activeQuestions.forEach((q, idx) => {
+    const box = document.getElementById(`grid-box-${idx}`);
+    if (!box) return;
+
+    box.className = 'cat-num-box';
+    const isAnswered = State.userAnswers[idx] !== undefined && State.userAnswers[idx] !== null;
+    const isDoubt = State.doubtStatus[idx] === true;
+    const isCurrent = idx === State.currentIndex;
+
+    if (isCurrent) box.classList.add('is-current');
+    if (isAnswered) box.classList.add('is-answered');
+    if (isDoubt) box.classList.add('is-doubt');
+
+    let tag = box.querySelector('.mini-tag');
+    if (isAnswered) {
+      if (!tag) {
+        tag = document.createElement('span');
+        tag.className = 'mini-tag';
+        box.appendChild(tag);
+      }
+      tag.textContent = State.userAnswers[idx];
+    } else if (tag) {
+      tag.remove();
+    }
+  });
+}
+
+function loadQuestion(index) {
+  State.currentIndex = index;
+  const q = State.activeQuestions[index];
+  if (!q) return;
+
+  DOM.currentQBadge.textContent = `SOAL NOMOR: ${index + 1}`;
+
+  // Category Tag
+  if (q.category) {
+    DOM.currentQCategory.style.display = 'inline-block';
+    DOM.currentQCategory.textContent = q.category;
+  } else {
+    DOM.currentQCategory.style.display = 'none';
+  }
+
+  DOM.questionText.textContent = q.question;
+
+  DOM.optionsContainer.innerHTML = '';
+  const currentAnswer = State.userAnswers[index];
+
+  if (q.options) {
+    const keys = Object.keys(q.options).sort();
+    keys.forEach(key => {
+      const row = document.createElement('div');
+      row.className = 'cat-option-row';
+      if (currentAnswer === key) {
+        row.classList.add('active-selected');
+      }
+
+      row.innerHTML = `
+        <div class="cat-option-circle">${key}</div>
+        <div class="cat-option-content">${q.options[key]}</div>
+      `;
+
+      row.addEventListener('click', () => selectOption(key));
+      DOM.optionsContainer.appendChild(row);
+    });
+  }
+
+  // Doubt checkbox state
+  DOM.checkboxRagu.checked = !!State.doubtStatus[index];
+  DOM.labelRagu.classList.toggle('is-checked', !!State.doubtStatus[index]);
+
+  // Nav buttons state
+  DOM.btnPrev.disabled = (index === 0);
+  
+  const isLast = (index === State.activeQuestions.length - 1);
+  if (isLast) {
+    DOM.btnNext.style.display = 'none';
+    DOM.btnFinishTrigger.style.display = 'flex';
+  } else {
+    DOM.btnNext.style.display = 'flex';
+    DOM.btnFinishTrigger.style.display = 'none';
+  }
+
+  updateGridStatus();
+}
+
+function navigateQuestion(newIndex) {
+  if (newIndex >= 0 && newIndex < State.activeQuestions.length) {
+    loadQuestion(newIndex);
+  }
+}
+
+function selectOption(optionKey) {
+  State.userAnswers[State.currentIndex] = optionKey;
+  
+  const rows = DOM.optionsContainer.querySelectorAll('.cat-option-row');
+  const keys = Object.keys(State.activeQuestions[State.currentIndex].options).sort();
+  rows.forEach((row, idx) => {
+    if (keys[idx] === optionKey) {
+      row.classList.add('active-selected');
+    } else {
+      row.classList.remove('active-selected');
+    }
+  });
+
+  updateGridStatus();
+}
+
+function handleToggleDoubt() {
+  State.doubtStatus[State.currentIndex] = DOM.checkboxRagu.checked;
+  DOM.labelRagu.classList.toggle('is-checked', DOM.checkboxRagu.checked);
+  updateGridStatus();
+}
+
+function setFontSize(level) {
+  State.fontSizeLevel = level;
+  DOM.workspaceContainer.className = `cat-main-card font-${level}`;
+
+  DOM.btnFontSm.classList.toggle('active', level === 'sm');
+  DOM.btnFontMd.classList.toggle('active', level === 'md');
+  DOM.btnFontLg.classList.toggle('active', level === 'lg');
+}
+
+/* ==========================================================================
+   TIMER CONTROLLER
+   ========================================================================== */
 function startTimer() {
   if (State.timerInterval) clearInterval(State.timerInterval);
-
   updateTimerDisplay();
 
   State.timerInterval = setInterval(() => {
-    State.remainingSeconds--;
-    State.timeSpentSeconds++;
-
+    State.timeRemainingSeconds--;
     updateTimerDisplay();
 
-    // Warning state when under 3 minutes (180s)
-    if (State.remainingSeconds <= 180) {
-      DOM.timerBox.classList.add('warning-pulse');
-    } else {
-      DOM.timerBox.classList.remove('warning-pulse');
-    }
-
-    // Time's up!
-    if (State.remainingSeconds <= 0) {
+    if (State.timeRemainingSeconds <= 0) {
       clearInterval(State.timerInterval);
-      State.remainingSeconds = 0;
-      updateTimerDisplay();
-      alert('⏰ WAKTU UJIAN TELAH HABIS!\nJawaban Anda akan otomatis dikumpulkan dan dinilai.');
-      finishExam(true);
+      alert('⏱️ Waktu ujian Anda telah habis! Sistem akan mengumpulkan jawaban secara otomatis.');
+      handleFinishExam();
     }
   }, 1000);
 }
 
 function updateTimerDisplay() {
-  const h = Math.floor(State.remainingSeconds / 3600);
-  const m = Math.floor((State.remainingSeconds % 3600) / 60);
-  const s = State.remainingSeconds % 60;
+  const totalSec = Math.max(0, State.timeRemainingSeconds);
+  const hours = Math.floor(totalSec / 3600);
+  const minutes = Math.floor((totalSec % 3600) / 60);
+  const seconds = totalSec % 60;
 
-  const hh = h.toString().padStart(2, '0');
-  const mm = m.toString().padStart(2, '0');
-  const ss = s.toString().padStart(2, '0');
+  DOM.timerDisplay.textContent = 
+    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
-  DOM.timerDisplay.textContent = `${hh}:${mm}:${ss}`;
-}
-
-/**
- * Render Question at specific index
- */
-function renderQuestion(index) {
-  State.currentIndex = index;
-  const qData = State.activeQuestions[index];
-  if (!qData) return;
-
-  // Header badges
-  DOM.currentQBadge.textContent = `SOAL NOMOR: ${index + 1}`;
-  DOM.examHeaderSubtest.textContent = qData.subtestName || State.examData.testInfo?.title || 'UTBK CAT';
-
-  // Question Text
-  DOM.questionText.textContent = qData.question || 'Pertanyaan tidak tersedia.';
-
-  // Render Options A, B, C, D, E
-  DOM.optionsContainer.innerHTML = '';
-  const currentAnswer = State.userAnswers[index]?.selected;
-
-  if (qData.options) {
-    const keys = Object.keys(qData.options);
-    keys.forEach(key => {
-      const optionVal = qData.options[key];
-      const isSelected = currentAnswer === key;
-
-      const optEl = document.createElement('div');
-      optEl.className = `cat-option-row ${isSelected ? 'active-selected' : ''}`;
-      optEl.dataset.key = key;
-
-      optEl.innerHTML = `
-        <div class="cat-option-circle">${key}</div>
-        <div class="cat-option-content">${escapeHtml(optionVal)}</div>
-      `;
-
-      optEl.addEventListener('click', () => {
-        selectOption(key);
-      });
-
-      DOM.optionsContainer.appendChild(optEl);
-    });
-  }
-
-  // Ragu-ragu state
-  const isDoubt = State.userAnswers[index]?.doubt || false;
-  DOM.checkboxRagu.checked = isDoubt;
-  if (isDoubt) {
-    DOM.labelRagu.classList.add('is-checked');
+  if (totalSec <= 180 && totalSec > 0) {
+    DOM.timerBox.classList.add('warning-pulse');
   } else {
-    DOM.labelRagu.classList.remove('is-checked');
-  }
-
-  // Navigation buttons state
-  DOM.btnPrev.disabled = (index === 0);
-
-  const isLast = (index === State.activeQuestions.length - 1);
-  if (isLast) {
-    DOM.btnNext.style.display = 'none';
-    DOM.btnFinishTrigger.style.display = 'inline-flex';
-  } else {
-    DOM.btnNext.style.display = 'inline-flex';
-    DOM.btnFinishTrigger.style.display = 'none';
-  }
-
-  // Scroll content to top
-  document.getElementById('workspace-content').scrollTop = 0;
-
-  // Update active item in sidebar
-  updateActiveGridButton(index);
-}
-
-/**
- * Select multiple choice option
- */
-function selectOption(key) {
-  if (!State.userAnswers[State.currentIndex]) {
-    State.userAnswers[State.currentIndex] = { selected: null, doubt: false };
-  }
-
-  State.userAnswers[State.currentIndex].selected = key;
-
-  // Highlight option visually
-  document.querySelectorAll('.cat-option-row').forEach(el => {
-    if (el.dataset.key === key) {
-      el.classList.add('active-selected');
-    } else {
-      el.classList.remove('active-selected');
-    }
-  });
-
-  // Update grid button
-  updateSingleGridButton(State.currentIndex);
-}
-
-/**
- * Toggle Ragu-ragu (Doubt) status
- */
-function toggleDoubt(checked) {
-  if (!State.userAnswers[State.currentIndex]) {
-    State.userAnswers[State.currentIndex] = { selected: null, doubt: false };
-  }
-
-  State.userAnswers[State.currentIndex].doubt = checked;
-  DOM.checkboxRagu.checked = checked;
-
-  if (checked) {
-    DOM.labelRagu.classList.add('is-checked');
-  } else {
-    DOM.labelRagu.classList.remove('is-checked');
-  }
-
-  updateSingleGridButton(State.currentIndex);
-}
-
-/**
- * Jump to specific question
- */
-function jumpToQuestion(index) {
-  if (index < 0 || index >= State.activeQuestions.length) return;
-  renderQuestion(index);
-  DOM.catSidebar.classList.remove('mobile-open');
-}
-
-/**
- * Render Right Sidebar Question Grid
- */
-function renderQuestionGrid() {
-  DOM.questionGrid.innerHTML = '';
-
-  State.activeQuestions.forEach((q, idx) => {
-    const btn = document.createElement('div');
-    btn.className = 'cat-num-box';
-    btn.dataset.index = idx;
-    btn.id = `grid-btn-${idx}`;
-
-    btn.addEventListener('click', () => {
-      jumpToQuestion(idx);
-    });
-
-    DOM.questionGrid.appendChild(btn);
-    updateSingleGridButton(idx);
-  });
-
-  updateActiveGridButton(State.currentIndex);
-}
-
-/**
- * Update single grid button state
- */
-function updateSingleGridButton(index) {
-  const btn = document.getElementById(`grid-btn-${index}`);
-  if (!btn) return;
-
-  const ans = State.userAnswers[index];
-  const isAnswered = Boolean(ans && ans.selected);
-  const isDoubt = Boolean(ans && ans.doubt);
-
-  btn.className = 'cat-num-box';
-  btn.innerHTML = `${index + 1}`;
-
-  if (isDoubt) {
-    btn.classList.add('is-doubt');
-  }
-  if (isAnswered) {
-    btn.classList.add('is-answered');
-    const tag = document.createElement('span');
-    tag.className = 'mini-tag';
-    tag.textContent = ans.selected;
-    btn.appendChild(tag);
-  }
-
-  if (index === State.currentIndex) {
-    btn.classList.add('is-current');
+    DOM.timerBox.classList.remove('warning-pulse');
   }
 }
 
-function updateActiveGridButton(index) {
-  document.querySelectorAll('.cat-num-box').forEach(btn => {
-    btn.classList.remove('is-current');
-  });
-  const currentBtn = document.getElementById(`grid-btn-${index}`);
-  if (currentBtn) currentBtn.classList.add('is-current');
-}
-
-/**
- * Font Size Controls
- */
-function setFontSize(size) {
-  State.fontSize = size;
-  DOM.workspaceContainer.className = `cat-main-card font-${size}`;
-
-  DOM.btnFontSm.classList.toggle('active', size === 'sm');
-  DOM.btnFontMd.classList.toggle('active', size === 'md');
-  DOM.btnFontLg.classList.toggle('active', size === 'lg');
-}
-
-/**
- * Finish Modal Handling
- */
-function showFinishModal() {
+/* ==========================================================================
+   CONFIRMATION MODAL & FINISH EXAM
+   ========================================================================== */
+function openConfirmModal() {
+  const total = State.activeQuestions.length;
   let answered = 0;
   let doubt = 0;
-  let unanswered = 0;
-  const total = State.activeQuestions.length;
 
   for (let i = 0; i < total; i++) {
-    const ans = State.userAnswers[i];
-    if (ans && ans.selected) {
+    if (State.userAnswers[i] !== undefined && State.userAnswers[i] !== null) {
       answered++;
-      if (ans.doubt) doubt++;
-    } else {
-      unanswered++;
+    }
+    if (State.doubtStatus[i]) {
+      doubt++;
     }
   }
 
   DOM.modalTotalQ.textContent = total;
   DOM.modalAnsweredQ.textContent = answered;
   DOM.modalDoubtQ.textContent = doubt;
-  DOM.modalUnansweredQ.textContent = unanswered;
+  DOM.modalUnansweredQ.textContent = total - answered;
 
   DOM.modalCheckConfirm.checked = false;
   DOM.btnModalConfirm.disabled = true;
@@ -703,247 +804,174 @@ function showFinishModal() {
   DOM.confirmModal.classList.add('active');
 }
 
-function hideFinishModal() {
+function closeConfirmModal() {
   DOM.confirmModal.classList.remove('active');
 }
 
-/**
- * Finish Exam & Calculate Score
- */
-function finishExam(isAutoTimeout = false) {
-  State.examActive = false;
+function handleFinishExam() {
+  closeConfirmModal();
   if (State.timerInterval) clearInterval(State.timerInterval);
+  State.isFinished = true;
+  State.endTime = new Date();
 
+  // Close calculator if open
+  Calculator.close();
+
+  // Calculate score and breakdown
   let correctCount = 0;
   let wrongCount = 0;
   let emptyCount = 0;
-  const total = State.activeQuestions.length;
 
-  for (let i = 0; i < total; i++) {
-    const q = State.activeQuestions[i];
-    const userSelected = State.userAnswers[i]?.selected;
-
-    if (!userSelected) {
+  State.activeQuestions.forEach((q, idx) => {
+    const userAns = State.userAnswers[idx];
+    if (userAns === undefined || userAns === null) {
       emptyCount++;
-    } else if (userSelected.trim().toUpperCase() === q.correctAnswer.trim().toUpperCase()) {
+    } else if (userAns === q.correctAnswer) {
       correctCount++;
     } else {
       wrongCount++;
     }
-  }
+  });
 
-  // Calculate UTBK Scaled Score (Range 200 - 1000 standard UTBK)
-  const accuracy = (correctCount / total);
-  const utbkScaledScore = Math.round(200 + (accuracy * 800));
+  const total = State.activeQuestions.length;
+  const scaledScore = total > 0 ? Math.round((correctCount / total) * 1000) : 0;
+  const timeSpentSec = State.totalTimeAllocatedSeconds - State.timeRemainingSeconds;
+  const spentMinutes = Math.floor(timeSpentSec / 60);
+  const spentSeconds = timeSpentSec % 60;
 
-  // Render Results Screen
-  DOM.resultUserMeta.textContent = `Peserta: ${State.userProfile.name} | No: ${State.userProfile.id}`;
-  DOM.resultScoreVal.textContent = utbkScaledScore;
-  
-  if (accuracy >= 0.8) {
-    DOM.resultFeedbackText.textContent = '🌟 LUAR BIASA! Nilai simulasi Anda sangat memuaskan dan berpeluang besar lolos di program studi impian.';
-  } else if (accuracy >= 0.5) {
-    DOM.resultFeedbackText.textContent = '👍 BAGUS! Pemahaman materi sudah cukup baik. Pelajari pembahasan nomor yang salah untuk memaksimalkan skor.';
-  } else {
-    DOM.resultFeedbackText.textContent = '💪 TETAP SEMANGAT! Latihan terus setiap hari dan perbanyak membaca kunci & pembahasan di bawah ini.';
-  }
-
+  // Populate Result Screen
+  DOM.resultScoreVal.textContent = scaledScore;
+  DOM.resultUserMeta.textContent = `Peserta: ${State.userData.name} | No: ${State.userData.id}`;
   DOM.statCorrectCount.textContent = correctCount;
   DOM.statWrongCount.textContent = wrongCount;
   DOM.statEmptyCount.textContent = emptyCount;
+  DOM.statTimeSpent.textContent = `${spentMinutes}m ${spentSeconds}s`;
 
-  const mins = Math.floor(State.timeSpentSeconds / 60);
-  const secs = State.timeSpentSeconds % 60;
-  DOM.statTimeSpent.textContent = `${mins}m ${secs}s`;
+  if (scaledScore >= 750) {
+    DOM.resultFeedbackText.textContent = `🌟 Luar biasa! Penguasaan materi operasi bilangan Anda sangat matang (Skor: ${scaledScore}/1000).`;
+  } else if (scaledScore >= 500) {
+    DOM.resultFeedbackText.textContent = `👍 Kerja bagus! Terus asah kecepatan perhitungan dan ketelitian pecahan/desimal (Skor: ${scaledScore}/1000).`;
+  } else {
+    DOM.resultFeedbackText.textContent = `💪 Tetap semangat! Pelajari kembali pembahasan di bawah untuk memahami konsep dasar yang masih keliru.`;
+  }
 
-  renderReview('all');
+  renderReviewList();
   showScreen('result');
 }
 
-/**
- * Render Question Review & Explanations (Pembahasan)
- */
-function renderReview(filter = 'all') {
+function renderReviewList() {
   DOM.reviewListContainer.innerHTML = '';
 
   State.activeQuestions.forEach((q, idx) => {
-    const userSelected = State.userAnswers[idx]?.selected;
-    const correctAns = q.correctAnswer ? q.correctAnswer.trim().toUpperCase() : '-';
-    
-    let status = 'empty';
-    let statusBadgeText = 'Dikosongkan';
-    let cardClass = 'is-empty';
+    const userAns = State.userAnswers[idx];
+    const isCorrect = (userAns === q.correctAnswer);
+    const isEmpty = (userAns === undefined || userAns === null);
+    const isWrong = (!isEmpty && !isCorrect);
 
-    if (userSelected) {
-      if (userSelected.trim().toUpperCase() === correctAns) {
-        status = 'correct';
-        statusBadgeText = 'Jawaban Benar';
-        cardClass = 'is-correct';
-      } else {
-        status = 'wrong';
-        statusBadgeText = 'Jawaban Salah';
-        cardClass = 'is-wrong';
-      }
-    }
+    if (State.filterReview === 'correct' && !isCorrect) return;
+    if (State.filterReview === 'wrong' && !isWrong) return;
+    if (State.filterReview === 'empty' && !isEmpty) return;
 
-    if (filter !== 'all' && status !== filter) {
-      return;
-    }
+    const item = document.createElement('div');
+    item.className = 'cat-review-item';
+    if (isCorrect) item.classList.add('is-correct');
+    else if (isWrong) item.classList.add('is-wrong');
+    else item.classList.add('is-empty');
 
-    const reviewCard = document.createElement('div');
-    reviewCard.className = `cat-review-item ${cardClass}`;
+    const statusBadge = isCorrect 
+      ? '<span style="color:#2e7d32; font-weight:800;">✓ BENAR</span>'
+      : (isEmpty ? '<span style="color:#d97706; font-weight:800;">⚪ DIKOSONGKAN</span>' : '<span style="color:#d32f2f; font-weight:800;">✕ SALAH</span>');
+
+    const categoryText = q.category ? `<span style="background:#e0f2fe; color:#0369a1; padding:2px 6px; border-radius:3px; font-size:0.75rem; margin-right:6px;">${q.category}</span>` : '';
 
     let optionsHtml = '';
     if (q.options) {
-      Object.keys(q.options).forEach(key => {
-        const isUserChoice = (userSelected === key);
-        const isRightAnswer = (correctAns === key);
-
-        let optStyle = 'padding: 6px 12px; margin: 4px 0; border-radius: 4px; font-size: 0.92rem; border: 1px solid #cbd5e1; display: flex; gap: 8px;';
-        let badge = '';
-
-        if (isRightAnswer) {
-          optStyle += ' background: #dcfce7; border-color: #86efac; font-weight: 700; color: #14532d;';
-          badge = '<span style="color:#166534; font-size:0.78rem; margin-left:auto;">✓ Kunci Benar</span>';
-        } else if (isUserChoice && !isRightAnswer) {
-          optStyle += ' background: #fee2e2; border-color: #fca5a5; color: #991b1b;';
-          badge = '<span style="color:#991b1b; font-size:0.78rem; margin-left:auto;">✗ Pilihan Anda</span>';
+      Object.keys(q.options).sort().forEach(k => {
+        let optStyle = "padding: 6px 10px; margin-bottom: 4px; border-radius: 4px; font-size: 0.88rem; background: #f8fafc;";
+        if (k === q.correctAnswer) {
+          optStyle = "padding: 6px 10px; margin-bottom: 4px; border-radius: 4px; font-size: 0.88rem; background: #dcfce7; color: #166534; font-weight: 700; border: 1px solid #86efac;";
+        } else if (k === userAns && !isCorrect) {
+          optStyle = "padding: 6px 10px; margin-bottom: 4px; border-radius: 4px; font-size: 0.88rem; background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5;";
         }
-
-        optionsHtml += `
-          <div style="${optStyle}">
-            <strong>${key}.</strong>
-            <span>${escapeHtml(q.options[key])}</span>
-            ${badge}
-          </div>
-        `;
+        optionsHtml += `<div style="${optStyle}"><strong>${k}.</strong> ${q.options[k]}</div>`;
       });
     }
 
-    reviewCard.innerHTML = `
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+    item.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; border-bottom:1px solid #e2e8f0; padding-bottom:6px;">
         <div>
-          <strong style="color: #15375c; font-size: 1.05rem;">Soal No. ${idx + 1}</strong>
-          <span style="font-size: 0.82rem; color: #64748b; margin-left: 8px;">(${q.subtestName || 'UTBK CAT'})</span>
+          ${categoryText}
+          <strong style="color:var(--bppp-navy);">Soal Nomor ${idx + 1}</strong>
         </div>
-        <span style="font-size: 0.78rem; font-weight: 700; padding: 4px 10px; border-radius: 3px; text-transform: uppercase; ${status === 'correct' ? 'background:#dcfce7; color:#166534;' : status === 'wrong' ? 'background:#fee2e2; color:#991b1b;' : 'background:#fef3c7; color:#92400e;'}">
-          ${statusBadgeText}
-        </span>
+        <div>${statusBadge}</div>
       </div>
-
-      <div style="font-weight: 500; margin-bottom: 0.8rem; line-height: 1.65; white-space: pre-line;">
-        ${escapeHtml(q.question)}
-      </div>
-
-      <div style="margin-bottom: 0.8rem;">
-        ${optionsHtml}
-      </div>
-
+      <p style="white-space:pre-line; margin-bottom:10px; font-weight:500;">${q.question}</p>
+      <div style="margin-bottom:10px;">${optionsHtml}</div>
       <div class="cat-pembahasan-box">
-        <div style="font-weight: 700; color: #15375c; margin-bottom: 0.3rem;">
-          💡 Pembahasan Kunci Jawaban: <strong>Opsi (${correctAns})</strong>
-        </div>
-        <div style="line-height: 1.55; white-space: pre-line;">
-          ${escapeHtml(q.explanation || 'Pembahasan belum ditambahkan.')}
-        </div>
+        <strong style="color:#15375c; display:block; margin-bottom:4px;">💡 Kunci & Pembahasan:</strong>
+        <p style="white-space:pre-line;">${q.explanation || 'Pembahasan belum tersedia untuk butir soal ini.'}</p>
       </div>
     `;
 
-    DOM.reviewListContainer.appendChild(reviewCard);
+    DOM.reviewListContainer.appendChild(item);
   });
-
-  if (DOM.reviewListContainer.children.length === 0) {
-    DOM.reviewListContainer.innerHTML = `
-      <div style="text-align: center; padding: 2rem; color: #64748b;">
-        Tidak ada soal pada kategori filter ini.
-      </div>
-    `;
-  }
 }
 
-/**
- * Screen Switcher Helper
- */
-function showScreen(name) {
-  DOM.startScreen.classList.remove('active');
-  DOM.examScreen.classList.remove('active');
-  DOM.resultScreen.classList.remove('active');
-
-  if (name === 'start') DOM.startScreen.classList.add('active');
-  if (name === 'exam') DOM.examScreen.classList.add('active');
-  if (name === 'result') DOM.resultScreen.classList.add('active');
-
-  window.scrollTo(0, 0);
+function resetAndRestartExam() {
+  handleStartExam();
 }
 
-/**
- * Escape HTML to prevent XSS
- */
-function escapeHtml(str) {
-  if (str === null || str === undefined) return '';
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+function returnToStartScreen() {
+  if (State.timerInterval) clearInterval(State.timerInterval);
+  showScreen('start');
 }
 
-/**
- * Fallback data if fetch questions.json fails
- */
+/* Fallback Offline Data */
 function loadFallbackData() {
   const fallback = {
     testInfo: {
       title: "SIMULASI TES HAIRIL",
-      subtitle: "Pengetahuan Kuantitatif: Operasi Bilangan",
+      subtitle: "Operasi Bilangan: Bilangan Bulat, Pecahan, Persen, Desimal",
       year: "2025 / 2026",
-      defaultTimeMinutes: 20
+      defaultTimeMinutes: 25
     },
     subtests: [
       {
-        id: "pk-operasi-bilangan",
-        name: "Pengetahuan Kuantitatif - Operasi Bilangan",
-        timeMinutes: 20,
+        id: "pk-lengkap",
+        name: "Operasi Bilangan Lengkap (Part 1)",
+        timeMinutes: 25,
         questions: [
           {
             id: 1,
-            question: "Jika didefinisikan operasi khusus ♠ pada bilangan real sebagai:\na ♠ b = (a × b) / (a + b) + 2a\n\nMaka nilai dari 6 ♠ 3 adalah...",
-            options: {
-              A: "12",
-              B: "14",
-              C: "16",
-              D: "18",
-              E: "20"
-            },
+            category: "Bilangan Bulat",
+            question: "Hasil dari (-20) ÷ 5 adalah...",
+            options: { "A": "4", "B": "-4", "C": "-15", "D": "15", "E": "-100" },
             correctAnswer: "B",
-            explanation: "a = 6, b = 3\n6 ♠ 3 = (6 × 3) / (6 + 3) + 2(6) = 18 / 9 + 12 = 2 + 12 = 14."
+            explanation: "(-20) ÷ 5 = -4."
           },
           {
             id: 2,
-            question: "Diberikan operasi bilangan ⊕ dan ⊗ dengan aturan:\nx ⊕ y = 3x - y\na ⊗ b = a² + 2b\n\nNilai dari (2 ⊕ 4) ⊗ 3 adalah...",
-            options: {
-              A: "8",
-              B: "10",
-              C: "12",
-              D: "14",
-              E: "16"
-            },
+            category: "Pecahan",
+            question: "Hasil dari 3/8 + 2/8 adalah...",
+            options: { "A": "5/16", "B": "5/8", "C": "6/8", "D": "1/8", "E": "5/4" },
             correctAnswer: "B",
-            explanation: "2 ⊕ 4 = 3(2) - 4 = 2.\n2 ⊗ 3 = 2² + 2(3) = 4 + 6 = 10."
+            explanation: "3/8 + 2/8 = 5/8."
           },
           {
             id: 3,
-            question: "Hasil perhitungan dari:\n(1 - 1/2) × (1 - 1/3) × (1 - 1/4) × ... × (1 - 1/50)\n\nadalah...",
-            options: {
-              A: "1/25",
-              B: "1/50",
-              C: "2/50",
-              D: "49/50",
-              E: "1/100"
-            },
+            category: "Persen",
+            question: "Berapakah 30% dari 200?",
+            options: { "A": "30", "B": "50", "C": "60", "D": "70", "E": "90" },
+            correctAnswer: "C",
+            explanation: "30% × 200 = 0,30 × 200 = 60."
+          },
+          {
+            id: 4,
+            category: "Desimal",
+            question: "Hasil dari 6,4 ÷ 0,2 adalah...",
+            options: { "A": "3,2", "B": "32", "C": "0,32", "D": "320", "E": "12,8" },
             correctAnswer: "B",
-            explanation: "Pencoretan berantai suku perkalian pecahan menyisakan pembilang suku pertama (1) dan penyebut suku terakhir (50) = 1/50."
+            explanation: "6,4 ÷ 0,2 = 64 ÷ 2 = 32."
           }
         ]
       }
