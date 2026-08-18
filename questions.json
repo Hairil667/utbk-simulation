@@ -1,178 +1,300 @@
 {
   "testInfo": {
     "title": "SIMULASI TES HAIRIL",
-    "subtitle": "Pengetahuan Kuantitatif: Operasi Bilangan & Matematika Dasar",
+    "subtitle": "Materi Khusus: Operasi Bilangan (Bilangan Bulat, Pecahan, Persen, Desimal)",
     "year": "2025 / 2026",
     "defaultTimeMinutes": 20
   },
   "subtests": [
     {
-      "id": "pk-operasi-bilangan",
-      "name": "Pengetahuan Kuantitatif - Operasi Bilangan (Part 1)",
-      "timeMinutes": 20,
+      "id": "paket-lengkap-bilangan",
+      "name": "Paket Lengkap: Operasi Bilangan (Semua Materi)",
+      "timeMinutes": 25,
       "questions": [
         {
           "id": 1,
-          "question": "Jika didefinisikan operasi khusus ♠ pada bilangan real sebagai:\na ♠ b = (a × b) / (a + b) + 2a\n\nMaka nilai dari 6 ♠ 3 adalah...",
+          "category": "Bilangan Bulat",
+          "question": "Hasil dari operasi hitung:\n(-24) ÷ 6 × (-3) + (-15) - (-8)\n\nadalah...",
           "options": {
-            "A": "12",
-            "B": "14",
-            "C": "16",
-            "D": "18",
-            "E": "20"
+            "A": "5",
+            "B": "-5",
+            "C": "29",
+            "D": "-19",
+            "E": "7"
           },
-          "correctAnswer": "B",
-          "explanation": "Gunakan aturan definisi operasi:\na = 6, b = 3\n6 ♠ 3 = (6 × 3) / (6 + 3) + 2(6)\n= 18 / 9 + 12\n= 2 + 12\n= 14.\n\nKunci Jawaban: B."
+          "correctAnswer": "A",
+          "explanation": "Ingat aturan urutan operasi (KABATAKU: Kurung, Kali/Bagi dari kiri ke kanan, lalu Tambah/Kurang):\n1. (-24) ÷ 6 = -4\n2. (-4) × (-3) = +12\n3. 12 + (-15) = 12 - 15 = -3\n4. -3 - (-8) = -3 + 8 = 5.\n\nKunci Jawaban: A (5)."
         },
         {
           "id": 2,
-          "question": "Diberikan operasi bilangan ⊕ dan ⊗ dengan aturan:\nx ⊕ y = 3x - y\na ⊗ b = a² + 2b\n\nNilai dari (2 ⊕ 4) ⊗ 3 adalah...",
+          "category": "Bilangan Bulat",
+          "question": "Hasil dari perhitungan:\n12 - 3 × (-4) + (-20) ÷ 5\n\nadalah...",
           "options": {
-            "A": "8",
-            "B": "10",
-            "C": "12",
-            "D": "14",
+            "A": "20",
+            "B": "-32",
+            "C": "-8",
+            "D": "28",
             "E": "16"
           },
-          "correctAnswer": "B",
-          "explanation": "Langkah 1: Hitung di dalam kurung (2 ⊕ 4)\n2 ⊕ 4 = 3(2) - 4 = 6 - 4 = 2.\n\nLangkah 2: Hitung 2 ⊗ 3\n2 ⊗ 3 = (2)² + 2(3) = 4 + 6 = 10.\n\nKunci Jawaban: B."
+          "correctAnswer": "A",
+          "explanation": "Kerjakan perkalian dan pembagian terlebih dahulu:\n1. 3 × (-4) = -12\n2. (-20) ÷ 5 = -4\n\nMaka:\n12 - (-12) + (-4) = 12 + 12 - 4 = 24 - 4 = 20.\n\nKunci Jawaban: A (20)."
         },
         {
           "id": 3,
-          "question": "Hasil perhitungan dari:\n(1 - 1/2) × (1 - 1/3) × (1 - 1/4) × ... × (1 - 1/50)\n\nadalah...",
+          "category": "Pecahan",
+          "question": "Hasil dari operasi pecahan:\n(3/8 + 2/8) × 4/5 ÷ 1/2\n\nadalah...",
           "options": {
-            "A": "1/25",
-            "B": "1/50",
-            "C": "2/50",
-            "D": "49/50",
-            "E": "1/100"
+            "A": "1/2",
+            "B": "4/5",
+            "C": "1",
+            "D": "5/4",
+            "E": "2"
           },
-          "correctAnswer": "B",
-          "explanation": "Ubah setiap suku pecahan:\n(1/2) × (2/3) × (3/4) × ... × (49/50)\n\nTerjadi pencoretan berantai (telescoping product) antara pembilang dan penyebut suku berikutnya.\nYang tersisa hanya pembilang suku pertama (1) dan penyebut suku terakhir (50).\nHasil = 1/50.\n\nKunci Jawaban: B."
+          "correctAnswer": "C",
+          "explanation": "Langkah 1: Selesaikan penjumlahan dalam kurung (penyebut sudah sama):\n3/8 + 2/8 = 5/8.\n\nLangkah 2: Kalikan dengan 4/5:\n(5/8) × (4/5) = (5 × 4) / (8 × 5) = 20 / 40 = 1/2.\n\nLangkah 3: Bagi dengan 1/2 (dikalikan dengan kebalikan pecahan 2/1):\n(1/2) ÷ (1/2) = (1/2) × (2/1) = 1.\n\nKunci Jawaban: C (1)."
         },
         {
           "id": 4,
-          "question": "Jika x = 0,333... dan y = 0,666..., maka nilai dari (x + y) / (x × y) adalah...",
+          "category": "Pecahan",
+          "question": "Nilai dari:\n2 1/3 + 1 3/4 - 1/2\n\nadalah...",
           "options": {
-            "A": "3/2",
-            "B": "9/2",
-            "C": "2/9",
-            "D": "9",
-            "E": "6"
+            "A": "3 5/12",
+            "B": "3 7/12",
+            "C": "4 1/12",
+            "D": "3 1/6",
+            "E": "4 5/12"
           },
           "correctAnswer": "B",
-          "explanation": "Konversi desimal berulang ke pecahan biasa:\nx = 1/3\ny = 2/3\n\nx + y = 1/3 + 2/3 = 1\nx × y = (1/3) × (2/3) = 2/9\n\nMaka:\n(x + y) / (x × y) = 1 / (2/9) = 9/2 = 4,5.\n\nKunci Jawaban: B."
+          "explanation": "Ubah pecahan campuran ke pecahan biasa atau pisahkan bilangan bulat:\nBilangan bulat: 2 + 1 = 3.\nPecahan: 1/3 + 3/4 - 1/2.\nKPK dari 3, 4, 2 adalah 12:\n= 4/12 + 9/12 - 6/12\n= (4 + 9 - 6) / 12 = 7/12.\n\nGabungkan: 3 + 7/12 = 3 7/12 (atau 43/12).\n\nKunci Jawaban: B."
         },
         {
           "id": 5,
-          "question": "Diberikan:\nP = 2²⁰²⁴ - 2²⁰²³\nQ = 2²⁰²³\n\nHubungan yang benar antara kuantitas P dan Q adalah...",
+          "category": "Persen",
+          "question": "Seorang pembeli mendapatkan diskon 30% untuk sebuah jaket seharga Rp200.000. Berapakah jumlah potongan harga (diskon) yang didapatkan?",
           "options": {
-            "A": "P > Q",
-            "B": "P < Q",
-            "C": "P = Q",
-            "D": "2P = Q",
-            "E": "Informasi tidak cukup untuk menentukan hubungan"
+            "A": "Rp30.000",
+            "B": "Rp50.000",
+            "C": "Rp60.000",
+            "D": "Rp140.000",
+            "E": "Rp70.000"
           },
           "correctAnswer": "C",
-          "explanation": "Sederhanakan kuantitas P:\nP = 2²⁰²⁴ - 2²⁰²³\nFaktorkan suku dengan pangkat terkecil:\nP = 2²⁰²³ × (2¹ - 1)\nP = 2²⁰²³ × (2 - 1)\nP = 2²⁰²³ × 1 = 2²⁰²³.\n\nKarena Q = 2²⁰²³, maka diperoleh P = Q.\n\nKunci Jawaban: C."
+          "explanation": "Perhitungan diskon 30% dari Rp200.000:\nDiskon = 30% × 200.000\n= (30/100) × 200.000\n= 0,30 × 200.000 = Rp60.000.\n(Jika yang ditanyakan harga bayar: 200.000 - 60.000 = Rp140.000).\n\nKunci Jawaban: C (Rp60.000)."
         },
         {
           "id": 6,
-          "question": "Berapakah sisa pembagian 3²⁰²⁵ oleh 5?",
+          "category": "Persen",
+          "question": "Jika 45% dari suatu bilangan x adalah 135, maka nilai dari 60% bilangan x tersebut adalah...",
           "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4",
-            "E": "0"
+            "A": "160",
+            "B": "180",
+            "C": "195",
+            "D": "200",
+            "E": "225"
           },
-          "correctAnswer": "C",
-          "explanation": "Perhatikan pola sisa pembagian perpangkatan 3 oleh 5 (modulo 5):\n3¹ = 3 ≡ 3 (mod 5)\n3² = 9 ≡ 4 (mod 5)\n3³ = 27 ≡ 2 (mod 5)\n3⁴ = 81 ≡ 1 (mod 5)\nPola berulang setiap 4 periode (3, 4, 2, 1).\n\nBagi pangkat 2025 dengan 4:\n2025 = 4 × 506 + 1 (sisa 1).\nKarena bersisa 1, maka nilai sisa pembagian sama dengan pola ke-1 yaitu 3.\n\nKunci Jawaban: C."
+          "correctAnswer": "B",
+          "explanation": "45% × x = 135\n(45/100) × x = 135\nx = 135 × (100/45) = 3 × 100 = 300.\n\nMaka 60% dari x:\n60% × 300 = (60/100) × 300 = 0,60 × 300 = 180.\n\nKunci Jawaban: B (180)."
         },
         {
           "id": 7,
-          "question": "Jika a / b = 3/4 dan b / c = 8/9, maka berapakah nilai dari (a + c) / (b + c)?",
+          "category": "Desimal",
+          "question": "Hasil dari operasi pembagian desimal:\n6,4 ÷ 0,2 + 3,5 × 0,4\n\nadalah...",
           "options": {
-            "A": "5/6",
-            "B": "15/17",
-            "C": "14/17",
-            "D": "12/17",
-            "E": "17/15"
+            "A": "32,14",
+            "B": "33,4",
+            "C": "34,8",
+            "D": "4,6",
+            "E": "32,4"
           },
           "correctAnswer": "B",
-          "explanation": "Samakan nilai perbandingan b:\na : b = 3 : 4 = 6 : 8\nb : c = 8 : 9\nMaka perbandingan a : b : c = 6 : 8 : 9.\n\nMisalkan a = 6k, b = 8k, c = 9k.\n(a + c) / (b + c) = (6k + 9k) / (8k + 9k) = 15k / 17k = 15/17.\n\nKunci Jawaban: B."
+          "explanation": "Langkah 1: Pembagian desimal 6,4 ÷ 0,2\nGeser koma 1 angka ke kanan pada kedua bilangan: 64 ÷ 2 = 32.\n\nLangkah 2: Perkalian desimal 3,5 × 0,4\n35 × 4 = 140, ada 2 angka di belakang koma: 1,40 = 1,4.\n\nLangkah 3: Jumlahkan:\n32 + 1,4 = 33,4.\n\nKunci Jawaban: B (33,4)."
         },
         {
           "id": 8,
-          "question": "Diketahui:\nx = 1/16 + 1/25\ny = √(1/16 + 1/25)\n\nManakah pernyataan yang benar?",
+          "category": "Desimal",
+          "question": "Berapakah hasil dari:\n(0,75 - 0,25) ÷ 0,05 × 0,3\n\n?",
           "options": {
-            "A": "y = 9/20",
-            "B": "y = 41/20",
-            "C": "y = √41 / 20",
-            "D": "y = 1/20",
-            "E": "y = 1/5"
+            "A": "3",
+            "B": "0,3",
+            "C": "30",
+            "D": "0,03",
+            "E": "1,5"
           },
-          "correctAnswer": "C",
-          "explanation": "Samakan penyebut di dalam akar:\n1/16 + 1/25 = (25 + 16) / (16 × 25) = 41 / 400.\n\nMaka nilai y:\ny = √(41 / 400) = (√41) / (√400) = √41 / 20.\n(Ingat: √(a + b) ≠ √a + √b).\n\nKunci Jawaban: C."
+          "correctAnswer": "A",
+          "explanation": "1. 0,75 - 0,25 = 0,50 = 0,5\n2. 0,5 ÷ 0,05 = 50 ÷ 5 = 10\n3. 10 × 0,3 = 3.\n\nKunci Jawaban: A (3)."
         },
         {
           "id": 9,
-          "question": "Operasi bilangan bulat dirumuskan sebagai:\nm # n = m² - 2mn + n\n\nJika 3 # p = 4, maka nilai p yang memenuhi adalah...",
+          "category": "Campuran / Aplikasi",
+          "question": "Bentuk sederhana dari operasi campuran:\n(1/4 + 0,35) × 200 - 15% × 400\n\nadalah...",
           "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4",
-            "E": "5"
+            "A": "60",
+            "B": "70",
+            "C": "80",
+            "D": "90",
+            "E": "100"
           },
           "correctAnswer": "A",
-          "explanation": "Substitusi m = 3 dan n = p ke dalam rumus:\n3 # p = 3² - 2(3)(p) + p\n4 = 9 - 6p + p\n4 = 9 - 5p\n5p = 9 - 4\n5p = 5\np = 1.\n\nKunci Jawaban: A."
+          "explanation": "Konversikan ke bentuk desimal yang mudah:\n1. 1/4 = 0,25\n2. 0,25 + 0,35 = 0,60\n3. 0,60 × 200 = 120\n4. 15% × 400 = (15/100) × 400 = 60\n5. 120 - 60 = 60.\n\nKunci Jawaban: A (60)."
         },
         {
           "id": 10,
-          "question": "Jika diketahui bilangan bulat positif k memenuhi:\n(1 + 1/2)(1 + 1/3)(1 + 1/4)...(1 + 1/k) = 11\n\nMaka nilai k adalah...",
+          "category": "Campuran / Aplikasi",
+          "question": "Jika didefinisikan operasi khusus ⊕ sebagai:\na ⊕ b = (a × b) + (a ÷ b) - 2\n\nMaka nilai dari 8 ⊕ 4 adalah...",
           "options": {
-            "A": "20",
-            "B": "21",
-            "C": "22",
-            "D": "23",
-            "E": "24"
+            "A": "30",
+            "B": "32",
+            "C": "34",
+            "D": "36",
+            "E": "38"
           },
           "correctAnswer": "B",
-          "explanation": "Ubah setiap bentuk perkalian penjumlahan:\n(3/2) × (4/3) × (5/4) × ... × ((k+1)/k) = 11\n\nPencoretan berantai terjadi menyisakan penyebut pertama (2) dan pembilang terakhir (k + 1):\n(k + 1) / 2 = 11\nk + 1 = 22\nk = 21.\n\nKunci Jawaban: B."
+          "explanation": "Substitusi a = 8 dan b = 4:\n8 ⊕ 4 = (8 × 4) + (8 ÷ 4) - 2\n= 32 + 2 - 2\n= 32.\n\nKunci Jawaban: B (32)."
         }
       ]
     },
     {
-      "id": "pu-penalaran-umum",
-      "name": "Kemampuan Penalaran Umum",
+      "id": "subtes-bilangan-bulat",
+      "name": "Subtes 1: Operasi Bilangan Bulat (Penjumlahan, Perkalian & Sifat)",
       "timeMinutes": 15,
       "questions": [
         {
-          "id": 11,
-          "question": "Semua atlet lari maraton memiliki stamina yang kuat. Sebagian orang yang memiliki stamina kuat gemar minum air kelapa muda. Dani adalah seorang atlet lari maraton.\n\nKesimpulan yang paling tepat adalah...",
+          "id": 1,
+          "question": "Hasil dari (-20) ÷ 5 adalah...",
           "options": {
-            "A": "Dani pasti gemar minum air kelapa muda.",
-            "B": "Dani memiliki stamina yang kuat.",
-            "C": "Dani tidak gemar minum air kelapa muda.",
-            "D": "Orang yang gemar minum air kelapa muda pasti atlet lari maraton.",
-            "E": "Dani tidak memiliki stamina yang kuat."
+            "A": "4",
+            "B": "-4",
+            "C": "-15",
+            "D": "15",
+            "E": "-100"
           },
           "correctAnswer": "B",
-          "explanation": "Premis 1: Semua atlet maraton memiliki stamina kuat.\nPremis 2: Dani adalah atlet maraton.\nKesimpulan: Dani memiliki stamina yang kuat."
+          "explanation": "Bilangan negatif dibagi bilangan positif menghasilkan bilangan negatif:\n(-20) ÷ 5 = -4."
         },
         {
-          "id": 12,
-          "question": "Jika harga BBM non-subsidi naik, maka tarif angkutan umum antar kota akan mengalami kenaikan. Jika tarif angkutan umum antar kota naik, maka jumlah penumpang kereta api bertambah.\n\nSaat ini, jumlah penumpang kereta api tidak bertambah. Simpulan yang benar adalah...",
+          "id": 2,
+          "question": "Nilai dari -8 + 15 - (-7) × 2 adalah...",
           "options": {
-            "A": "Harga BBM non-subsidi naik.",
-            "B": "Tarif angkutan umum antar kota naik.",
-            "C": "Harga BBM non-subsidi tidak naik.",
-            "D": "Masyarakat beralih menggunakan kendaraan pribadi.",
-            "E": "Kereta api mengalami penurunan tarif tiket."
+            "A": "21",
+            "B": "7",
+            "C": "-7",
+            "D": "14",
+            "E": "28"
+          },
+          "correctAnswer": "A",
+          "explanation": "1. (-7) × 2 = -14\n2. -8 + 15 - (-14) = 7 + 14 = 21."
+        },
+        {
+          "id": 3,
+          "question": "Sifat distributif yang benar adalah...",
+          "options": {
+            "A": "a × (b + c) = (a × b) + (a × c)",
+            "B": "a + (b + c) = (a + b) + c",
+            "C": "a × b = b × a",
+            "D": "a - (b - c) = (a - b) - c",
+            "E": "a ÷ (b ÷ c) = (a ÷ b) ÷ c"
+          },
+          "correctAnswer": "A",
+          "explanation": "Sifat perkalian terhadap penjumlahan: a × (b + c) = (a × b) + (a × c)."
+        }
+      ]
+    },
+    {
+      "id": "subtes-pecahan",
+      "name": "Subtes 2: Operasi Pecahan (Penjumlahan, Pengurangan & Pembagian)",
+      "timeMinutes": 15,
+      "questions": [
+        {
+          "id": 4,
+          "question": "Hasil dari 3/8 + 2/8 adalah...",
+          "options": {
+            "A": "5/16",
+            "B": "5/8",
+            "C": "6/8",
+            "D": "1/8",
+            "E": "5/4"
+          },
+          "correctAnswer": "B",
+          "explanation": "Karena penyebut sudah sama (8), jumlahkan pembilang: 3/8 + 2/8 = (3+2)/8 = 5/8."
+        },
+        {
+          "id": 5,
+          "question": "Hasil dari 5/6 - 1/4 ÷ 3/4 adalah...",
+          "options": {
+            "A": "1/2",
+            "B": "7/12",
+            "C": "1/3",
+            "D": "2/3",
+            "E": "5/8"
+          },
+          "correctAnswer": "A",
+          "explanation": "1. (1/4) ÷ (3/4) = (1/4) × (4/3) = 1/3\n2. 5/6 - 1/3 = 5/6 - 2/6 = 3/6 = 1/2."
+        }
+      ]
+    },
+    {
+      "id": "subtes-persen",
+      "name": "Subtes 3: Operasi Persen & Konversi Nilai",
+      "timeMinutes": 15,
+      "questions": [
+        {
+          "id": 6,
+          "question": "Berapakah 30% dari 200?",
+          "options": {
+            "A": "30",
+            "B": "50",
+            "C": "60",
+            "D": "70",
+            "E": "90"
           },
           "correctAnswer": "C",
-          "explanation": "Modus Tollens dari silogisme: (p -> q) dan (q -> r) => (p -> r). Karena ~r, maka simpulannya ~p (Harga BBM tidak naik)."
+          "explanation": "30% dari 200 = 0,30 × 200 = 60."
+        },
+        {
+          "id": 7,
+          "question": "Bentuk pecahan biasa paling sederhana dari 45% adalah...",
+          "options": {
+            "A": "9/20",
+            "B": "4/9",
+            "C": "9/25",
+            "D": "45/100",
+            "E": "18/40"
+          },
+          "correctAnswer": "A",
+          "explanation": "45% = 45/100. Bagi pembilang dan penyebut dengan 5 = 9/20."
+        }
+      ]
+    },
+    {
+      "id": "subtes-desimal",
+      "name": "Subtes 4: Operasi Bilangan Desimal (Koma & Pembagian)",
+      "timeMinutes": 15,
+      "questions": [
+        {
+          "id": 8,
+          "question": "Hasil dari 6,4 ÷ 0,2 adalah...",
+          "options": {
+            "A": "3,2",
+            "B": "32",
+            "C": "0,32",
+            "D": "320",
+            "E": "12,8"
+          },
+          "correctAnswer": "B",
+          "explanation": "6,4 ÷ 0,2 = 64 ÷ 2 = 32."
+        },
+        {
+          "id": 9,
+          "question": "Nilai dari 2,75 + 1,25 × 0,4 adalah...",
+          "options": {
+            "A": "1,6",
+            "B": "3,25",
+            "C": "1,85",
+            "D": "4,0",
+            "E": "3,0"
+          },
+          "correctAnswer": "B",
+          "explanation": "1. 1,25 × 0,4 = 0,50 = 0,5\n2. 2,75 + 0,5 = 3,25."
         }
       ]
     }
