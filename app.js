@@ -1070,47 +1070,189 @@ function loadFallbackData() {
   const fallback = {
     testInfo: {
       title: "SIMULASI TES HAIRIL",
-      subtitle: "Operasi Bilangan: Bilangan Bulat, Pecahan, Persen, Desimal",
+      subtitle: "Penalaran Umum (TPS) - Pola dan Hubungan",
       year: "2025 / 2026",
-      defaultTimeMinutes: 25
+      defaultTimeMinutes: 30
     },
     subtests: [
       {
-        id: "pk-lengkap",
-        name: "Operasi Bilangan Lengkap (Part 1)",
-        timeMinutes: 25,
+        id: "pu-pola-hubungan",
+        name: "Penalaran Umum - Pola dan Hubungan",
+        category: "Penalaran Umum",
+        subcategory: "Pola dan Hubungan",
+        timeMinutes: 30,
         questions: [
           {
             id: 1,
-            category: "Bilangan Bulat",
-            question: "Hasil dari (-20) ÷ 5 adalah...",
-            options: { "A": "4", "B": "-4", "C": "-15", "D": "15", "E": "-100" },
-            correctAnswer: "B",
-            explanation: "(-20) ÷ 5 = -4."
+            category: "Pola Angka",
+            question: "Perhatikan barisan bilangan berikut:\n3,  7,  11,  15,  19,  ...\n\nBilangan yang tepat untuk melanjutkan barisan tersebut adalah...",
+            options: { "A": "21", "B": "22", "C": "23", "D": "24", "E": "25" },
+            correctAnswer: "C",
+            explanation: "Pola barisan adalah penjumlahan konstan (+4): 19 + 4 = 23."
           },
           {
             id: 2,
-            category: "Pecahan",
-            question: "Hasil dari 3/8 + 2/8 adalah...",
-            options: { "A": "5/16", "B": "5/8", "C": "6/8", "D": "1/8", "E": "5/4" },
+            category: "Pola Hubungan Objek",
+            question: "DOKTER : STETOSKOP = KOKI : ...",
+            options: { "A": "Restoran", "B": "Pisau Masak", "C": "Makanan", "D": "Celemek", "E": "Pelayan" },
             correctAnswer: "B",
-            explanation: "3/8 + 2/8 = 5/8."
+            explanation: "Hubungan profesi dan alat kerja utamanya: Dokter memakai stetoskop, Koki memakai pisau masak."
           },
           {
             id: 3,
-            category: "Persen",
-            question: "Berapakah 30% dari 200?",
-            options: { "A": "30", "B": "50", "C": "60", "D": "70", "E": "90" },
-            correctAnswer: "C",
-            explanation: "30% × 200 = 0,30 × 200 = 60."
+            category: "Pola Angka",
+            question: "Perhatikan deret angka berikut:\n2,  6,  18,  54,  ...\n\nAngka yang paling tepat untuk mengisi kelanjutan deret di atas adalah...",
+            options: { "A": "108", "B": "144", "C": "152", "D": "162", "E": "172" },
+            correctAnswer: "D",
+            explanation: "Pola barisan adalah perkalian konstan (x3): 54 x 3 = 162."
           },
           {
             id: 4,
-            category: "Desimal",
-            question: "Hasil dari 6,4 ÷ 0,2 adalah...",
-            options: { "A": "3,2", "B": "32", "C": "0,32", "D": "320", "E": "12,8" },
+            category: "Pola Hubungan Hirarki",
+            question: "DETIK : MENIT = MENIT : ...",
+            options: { "A": "Waktu", "B": "Arloji", "C": "Jam", "D": "Hari", "E": "Kalender" },
+            correctAnswer: "C",
+            explanation: "Hubungan satuan ukuran waktu ke tingkat berikutnya: 60 detik = 1 menit, 60 menit = 1 jam."
+          },
+          {
+            id: 5,
+            category: "Pola Pasangan Bilangan",
+            question: "Perhatikan pola hubungan pasangan bilangan berikut:\n(2 -> 5),  (4 -> 9),  (7 -> 15),  (10 -> ...)\n\nBilangan yang tepat untuk melengkapi pasangan terakhir adalah...",
+            options: { "A": "19", "B": "20", "C": "21", "D": "22", "E": "23" },
+            correctAnswer: "C",
+            explanation: "Pola hubungan: y = 2x + 1. Untuk x = 10 -> (10 x 2) + 1 = 21."
+          },
+          {
+            id: 6,
+            category: "Pola Deret Fibonacci",
+            question: "Diberikan barisan bilangan sebagai berikut:\n1,  2,  3,  5,  8,  13,  21,  ...\n\nNilai bilangan selanjutnya pada barisan tersebut adalah...",
+            options: { "A": "29", "B": "31", "C": "34", "D": "36", "E": "42" },
+            correctAnswer: "C",
+            explanation: "Pola deret Fibonacci (jumlah 2 suku sebelumnya): 13 + 21 = 34."
+          },
+          {
+            id: 7,
+            category: "Pola Sebab-Akibat",
+            question: "KEMARAU : KEKERINGAN = HUJAN LEBAT : ...",
+            options: { "A": "Payung", "B": "Mendung", "C": "Banjir", "D": "Dingin", "E": "Petir" },
+            correctAnswer: "C",
+            explanation: "Kemarau menyebabkan kekeringan, hujan lebat menyebabkan banjir."
+          },
+          {
+            id: 8,
+            category: "Pola Deret Berselang",
+            question: "Perhatikan deret angka berselang berikut:\n5,  12,  8,  15,  11,  18,  14,  ...\n\nAngka yang tepat untuk mengisi posisi selanjutnya adalah...",
+            options: { "A": "17", "B": "19", "C": "21", "D": "23", "E": "25" },
+            correctAnswer: "C",
+            explanation: "Larik posisi genap bertambah 3 secara teratur: 12, 15, 18, 21."
+          },
+          {
+            id: 9,
+            category: "Pola Operasi Bangun",
+            question: "Pada sebuah segitiga pertama, angka di ketiga sudutnya adalah 4 (kiri), 5 (kanan), dan 3 (bawah) dengan angka di tengah bernilai 23.\n\nJika pada segitiga kedua berlaku pola operasi yang sama dengan angka sudut 6 (kiri), 7 (kanan), dan 5 (bawah), maka angka di bagian tengah segitiga kedua adalah...",
+            options: { "A": "37", "B": "42", "C": "45", "D": "47", "E": "52" },
+            correctAnswer: "D",
+            explanation: "Tengah = (Sudut Kiri x Sudut Kanan) + Sudut Bawah = (6 x 7) + 5 = 42 + 5 = 47."
+          },
+          {
+            id: 10,
+            category: "Pola Hubungan Bahan Baku",
+            question: "KAYU : MEJA = GANDUM : ...",
+            options: { "A": "Ladang", "B": "Roti", "C": "Beras", "D": "Petani", "E": "Oven" },
             correctAnswer: "B",
-            explanation: "6,4 ÷ 0,2 = 64 ÷ 2 = 32."
+            explanation: "Kayu adalah bahan baku meja; Gandum adalah bahan baku roti."
+          },
+          {
+            id: 11,
+            category: "Pola Huruf Bertingkat",
+            question: "Perhatikan pola barisan huruf berikut:\nB,  D,  G,  K,  P,  ...\n\nHuruf selanjutnya yang tepat untuk melengkapi barisan di atas adalah...",
+            options: { "A": "T", "B": "U", "C": "V", "D": "W", "E": "X" },
+            correctAnswer: "C",
+            explanation: "Lompatan alfabet bertingkat (+2, +3, +4, +5, +6): P (16) + 6 = V (22)."
+          },
+          {
+            id: 12,
+            category: "Pola Matriks / Tabel",
+            question: "Perhatikan susunan bilangan pada tabel berikut:\nBaris 1 :  3    7   ->  20\nBaris 2 :  5    6   ->  22\nBaris 3 :  4    9   ->  ?\n\nJika pola hubungan bilangan pada setiap baris adalah sama, nilai pengganti tanda tanya (?) adalah...",
+            options: { "A": "24", "B": "25", "C": "26", "D": "28", "E": "30" },
+            correctAnswer: "C",
+            explanation: "Hasil = (Kolom 1 + Kolom 2) x 2. Baris 3: (4 + 9) x 2 = 13 x 2 = 26."
+          },
+          {
+            id: 13,
+            category: "Pola Hubungan Kompleks",
+            question: "PILIHAN GANDA : UJIAN : NILAI = ... : ... : ...",
+            options: {
+              "A": "Suara : Pemilu : Pemenang",
+              "B": "Pensil : Kertas : Tulisan",
+              "C": "Bahan : Resep : Masakan",
+              "D": "Roda : Sepeda : Kecepatan",
+              "E": "Pertandingan : Wasit : Skor"
+            },
+            correctAnswer: "A",
+            explanation: "Pilihan ganda digunakan dalam Ujian untuk menghasilkan Nilai; Suara digunakan dalam Pemilu untuk menentukan Pemenang."
+          },
+          {
+            id: 14,
+            category: "Pola Bangun Segiempat",
+            question: "Diberikan bangun segiempat dengan 4 angka di setiap sudutnya (A=kiri atas, B=kanan atas, C=kiri bawah, D=kanan bawah) dan angka di tengahnya:\n• Bangun 1: Sudut (8, 5, 4, 3) -> Tengah = 28\n• Bangun 2: Sudut (9, 6, 5, 4) -> Tengah = 34\n• Bangun 3: Sudut (10, 7, 6, 5) -> Tengah = ?\n\nBerdasarkan pola tersebut, nilai tengah pada Bangun 3 adalah...",
+            options: { "A": "36", "B": "38", "C": "40", "D": "42", "E": "44" },
+            correctAnswer: "C",
+            explanation: "Tengah = (A x B) - (C x D). Bangun 3: (10 x 7) - (6 x 5) = 70 - 30 = 40."
+          },
+          {
+            id: 15,
+            category: "Pola Alfanumerik",
+            question: "Perhatikan pola kombinasi angka dan huruf berikut:\n2A,  5C,  10F,  17J,  ...\n\nPasangan angka dan huruf berikutnya yang tepat adalah...",
+            options: { "A": "24N", "B": "25N", "C": "26O", "D": "26P", "E": "27O" },
+            correctAnswer: "C",
+            explanation: "Angka: 17 + 9 = 26. Huruf: J (10) + 5 = O (15). Hasil = 26O."
+          },
+          {
+            id: 16,
+            category: "Pola Deret Majemuk",
+            question: "Perhatikan barisan bilangan berikut:\n3,  4,  8,  9,  18,  19,  38,  ...\n\nBilangan yang tepat untuk melanjutkan deret tersebut adalah...",
+            options: { "A": "39", "B": "40", "C": "76", "D": "77", "E": "78" },
+            correctAnswer: "A",
+            explanation: "Pola operasi bergantian (+1, x2): 38 + 1 = 39."
+          },
+          {
+            id: 17,
+            category: "Pola Diagram Relasi",
+            question: "Diberikan tiga diagram lingkaran dengan pola bilangan terpusat:\n• Diagram 1: Angka Luar (14, 6, 2) -> Pusat = 10\n• Diagram 2: Angka Luar (25, 15, 4) -> Pusat = 10\n• Diagram 3: Angka Luar (36, 18, 6) -> Pusat = ?\n\nJika aturan operasi bilangan pada ketiga diagram adalah sama, nilai pusat pada Diagram 3 adalah...",
+            options: { "A": "7", "B": "8", "C": "9", "D": "10", "E": "12" },
+            correctAnswer: "C",
+            explanation: "Pusat = (Angka 1 + Angka 2) / Angka 3. Diagram 3: (36 + 18) / 6 = 54 / 6 = 9."
+          },
+          {
+            id: 18,
+            category: "Pola Sebab-Akibat Ganda",
+            question: "VIRUS : INFEKSI : VAKSIN = ... : ... : ...",
+            options: {
+              "A": "Api : Kebakaran : Alat Pemadam",
+              "B": "Air : Banjir : Hujan",
+              "C": "Polusi : Udara : Masker",
+              "D": "Bakteri : Sakit : Dokter",
+              "E": "Minyak : Licin : Sabun"
+            },
+            correctAnswer: "A",
+            explanation: "Virus menyebabkan infeksi yang dicegah dengan vaksin; Api menyebabkan kebakaran yang dipadamkan dengan alat pemadam."
+          },
+          {
+            id: 19,
+            category: "Pola Huruf Dua Arah",
+            question: "Diberikan deret huruf berikut:\nA,  Z,  C,  X,  F,  U,  J,  ...\n\nHuruf yang paling tepat untuk mengisi posisi berikutnya adalah...",
+            options: { "A": "P", "B": "Q", "C": "R", "D": "S", "E": "T" },
+            correctAnswer: "B",
+            explanation: "Larik genap mundur: Z (26) -2 -> X (24) -3 -> U (21) -4 -> Q (17)."
+          },
+          {
+            id: 20,
+            category: "Pola Operasi Silang Analitis",
+            question: "Diberikan dua diagram susunan bilangan dengan pola operasi identik:\n• Diagram A: Empat bilangan di sudutnya adalah 7, 4, 3, dan 5 dengan angka pusat bernilai 43 (didapat dari perkalian silang: [7 x 4] + [3 x 5] = 28 + 15 = 43).\n\nJika pada Diagram B memiliki angka sudut 8, 6, 4, dan 5 dengan aturan pola yang sama, maka angka di pusat Diagram B adalah...",
+            options: { "A": "62", "B": "64", "C": "66", "D": "68", "E": "72" },
+            correctAnswer: "D",
+            explanation: "Pusat = (Sudut 1 x Sudut 2) + (Sudut 3 x Sudut 4) = (8 x 6) + (4 x 5) = 48 + 20 = 68."
           }
         ]
       }
