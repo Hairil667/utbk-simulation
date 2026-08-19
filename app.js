@@ -1329,8 +1329,8 @@ function loadFallbackData() {
     },
     subtests: [
       {
-        id: "pu-pola-hubungan",
-        name: "Penalaran Umum - Pola dan Hubungan",
+        id: "pu-pola-a",
+        name: "Paket A: Pola dan Hubungan (20 Soal)",
         category: "Penalaran Umum",
         subcategory: "Pola dan Hubungan",
         timeMinutes: 30,
@@ -1506,6 +1506,187 @@ function loadFallbackData() {
             options: { "A": "62", "B": "64", "C": "66", "D": "68", "E": "72" },
             correctAnswer: "D",
             explanation: "Pusat = (Sudut 1 x Sudut 2) + (Sudut 3 x Sudut 4) = (8 x 6) + (4 x 5) = 48 + 20 = 68."
+          }
+        ]
+      },
+      {
+        id: "pu-pola-b",
+        name: "Paket B: Pola dan Hubungan Serupa (20 Soal Baru)",
+        category: "Penalaran Umum",
+        subcategory: "Pola dan Hubungan",
+        timeMinutes: 30,
+        questions: [
+          {
+            id: 1,
+            category: "Pola Angka",
+            question: "Perhatikan barisan bilangan berikut:\n4,  9,  14,  19,  24,  ...\n\nBilangan yang tepat untuk melanjutkan barisan tersebut adalah...",
+            options: { "A": "27", "B": "28", "C": "29", "D": "30", "E": "31" },
+            correctAnswer: "C",
+            explanation: "Pola barisan adalah pertambahan tetap (+5): 24 + 5 = 29."
+          },
+          {
+            id: 2,
+            category: "Pola Hubungan Objek",
+            question: "PENULIS : LAPTOP = PELUKIS : ...",
+            options: { "A": "Galeri", "B": "Kuas", "C": "Kanvas", "D": "Patung", "E": "Pameran" },
+            correctAnswer: "B",
+            explanation: "Penulis memakai laptop untuk mengetik; Pelukis memakai kuas untuk melukis."
+          },
+          {
+            id: 3,
+            category: "Pola Angka",
+            question: "Perhatikan deret angka berikut:\n3,  12,  48,  192,  ...\n\nAngka yang paling tepat untuk mengisi kelanjutan deret tersebut adalah...",
+            options: { "A": "576", "B": "648", "C": "724", "D": "768", "E": "812" },
+            correctAnswer: "D",
+            explanation: "Pola geometri perkalian konstan (x4): 192 x 4 = 768."
+          },
+          {
+            id: 4,
+            category: "Pola Hubungan Hirarki",
+            question: "HARI : MINGGU = BULAN : ...",
+            options: { "A": "Abad", "B": "Dasawarsa", "C": "Tahun", "D": "Musim", "E": "Dekade" },
+            correctAnswer: "C",
+            explanation: "7 hari membentuk 1 minggu, 12 bulan membentuk 1 tahun."
+          },
+          {
+            id: 5,
+            category: "Pola Pasangan Bilangan",
+            question: "Perhatikan pola hubungan pasangan bilangan berikut:\n(3 -> 7),  (5 -> 11),  (8 -> 17),  (12 -> ...)\n\nBilangan yang tepat untuk melengkapi pasangan terakhir adalah...",
+            options: { "A": "23", "B": "24", "C": "25", "D": "26", "E": "27" },
+            correctAnswer: "C",
+            explanation: "Pola hubungan: y = 2x + 1. Untuk x = 12 -> (12 x 2) + 1 = 25."
+          },
+          {
+            id: 6,
+            category: "Pola Deret Fibonacci",
+            question: "Diberikan barisan bilangan sebagai berikut:\n2,  3,  5,  8,  13,  21,  34,  ...\n\nNilai bilangan selanjutnya pada barisan tersebut adalah...",
+            options: { "A": "47", "B": "51", "C": "55", "D": "58", "E": "62" },
+            correctAnswer: "C",
+            explanation: "Pola Fibonacci (penjumlahan 2 suku sebelumnya): 21 + 34 = 55."
+          },
+          {
+            id: 7,
+            category: "Pola Sebab-Akibat",
+            question: "GEMPA BUMI : TSUNAMI = GUNUNG MELETUS : ...",
+            options: { "A": "Lahar Panas", "B": "Hujan Es", "C": "Angin Topan", "D": "Gempa Dangkal", "E": "Banjir Bandang" },
+            correctAnswer: "A",
+            explanation: "Gempa bumi memicu tsunami; Letusan gunung api menghasilkan lahar panas."
+          },
+          {
+            id: 8,
+            category: "Pola Deret Berselang",
+            question: "Perhatikan deret angka berselang berikut:\n6,  20,  10,  24,  14,  28,  18,  ...\n\nAngka yang tepat untuk mengisi posisi suku selanjutnya adalah...",
+            options: { "A": "22", "B": "28", "C": "30", "D": "32", "E": "34" },
+            correctAnswer: "D",
+            explanation: "Larik posisi genap bertambah 4 konstan: 20, 24, 28, 32."
+          },
+          {
+            id: 9,
+            category: "Pola Operasi Bangun",
+            question: "Pada sebuah segitiga pertama, angka di ketiga sudutnya adalah 5 (kiri), 4 (kanan), dan 6 (bawah) dengan angka di tengah bernilai 26.\n\nJika pada segitiga kedua berlaku pola operasi yang sama dengan angka sudut 7 (kiri), 8 (kanan), dan 9 (bawah), maka angka di bagian tengah segitiga kedua adalah...",
+            options: { "A": "59", "B": "63", "C": "65", "D": "67", "E": "72" },
+            correctAnswer: "C",
+            explanation: "Tengah = (Sudut Kiri x Sudut Kanan) + Sudut Bawah = (7 x 8) + 9 = 56 + 9 = 65."
+          },
+          {
+            id: 10,
+            category: "Pola Hubungan Bahan Baku",
+            question: "KELAPA SAWIT : MINYAK GORENG = BIJI KOPI : ...",
+            options: { "A": "Minuman Kopi", "B": "Kebun", "C": "Cangkir", "D": "Kafe", "E": "Gula" },
+            correctAnswer: "A",
+            explanation: "Kelapa sawit diolah menjadi minyak goreng; Biji kopi diolah menjadi minuman kopi."
+          },
+          {
+            id: 11,
+            category: "Pola Huruf Bertingkat",
+            question: "Perhatikan pola barisan huruf berikut:\nC,  E,  H,  L,  Q,  ...\n\nHuruf selanjutnya yang tepat untuk melengkapi barisan di atas adalah...",
+            options: { "A": "U", "B": "V", "C": "W", "D": "X", "E": "Y" },
+            correctAnswer: "C",
+            explanation: "Lompatan alfabet (+2, +3, +4, +5, +6): Q (17) + 6 = W (23)."
+          },
+          {
+            id: 12,
+            category: "Pola Matriks / Tabel",
+            question: "Perhatikan susunan bilangan pada tabel berikut:\nBaris 1 :  4    6   ->  30\nBaris 2 :  5    7   ->  36\nBaris 3 :  6    8   ->  ?\n\nJika pola hubungan bilangan pada setiap baris adalah sama, nilai pengganti tanda tanya (?) adalah...",
+            options: { "A": "38", "B": "40", "C": "42", "D": "44", "E": "48" },
+            correctAnswer: "C",
+            explanation: "Hasil = (Kolom 1 + Kolom 2) x 3. Baris 3: (6 + 8) x 3 = 14 x 3 = 42."
+          },
+          {
+            id: 13,
+            category: "Pola Hubungan Kompleks",
+            question: "KERTAS SUARA : PILKADA : BUPATI = ... : ... : ...",
+            options: {
+              "A": "Formulir : Sidang : Hakim",
+              "B": "Tiket : Bioskop : Film",
+              "C": "Surat Suara : Pilpres : Presiden",
+              "D": "Rapor : Sekolah : Guru",
+              "E": "Kwitansi : Toko : Kasir"
+            },
+            correctAnswer: "C",
+            explanation: "Kertas suara di Pilkada untuk memilih Bupati; Surat suara di Pilpres untuk memilih Presiden."
+          },
+          {
+            id: 14,
+            category: "Pola Bangun Segiempat",
+            question: "Diberikan bangun segiempat dengan 4 angka di setiap sudutnya (A=kiri atas, B=kanan atas, C=kiri bawah, D=kanan bawah) dan angka di tengahnya:\n• Bangun 1: Sudut (7, 6, 5, 2) -> Tengah = 32\n• Bangun 2: Sudut (8, 7, 6, 3) -> Tengah = 38\n• Bangun 3: Sudut (9, 8, 7, 4) -> Tengah = ?\n\nBerdasarkan pola tersebut, nilai tengah pada Bangun 3 adalah...",
+            options: { "A": "40", "B": "42", "C": "44", "D": "46", "E": "48" },
+            correctAnswer: "C",
+            explanation: "Tengah = (A x B) - (C x D). Bangun 3: (9 x 8) - (7 x 4) = 72 - 28 = 44."
+          },
+          {
+            id: 15,
+            category: "Pola Alfanumerik",
+            question: "Perhatikan pola kombinasi angka dan huruf berikut:\n3B,  6D,  11G,  18K,  ...\n\nPasangan angka dan huruf berikutnya yang tepat adalah...",
+            options: { "A": "25O", "B": "26O", "C": "27P", "D": "27Q", "E": "28P" },
+            correctAnswer: "C",
+            explanation: "Angka: 18 + 9 = 27. Huruf: K (11) + 5 = P (16). Hasil = 27P."
+          },
+          {
+            id: 16,
+            category: "Pola Deret Majemuk",
+            question: "Perhatikan barisan bilangan berikut:\n4,  6,  12,  14,  28,  30,  60,  ...\n\nBilangan yang tepat untuk melanjutkan deret tersebut adalah...",
+            options: { "A": "62", "B": "64", "C": "120", "D": "122", "E": "124" },
+            correctAnswer: "A",
+            explanation: "Pola operasi bergantian (+2, x2): 60 + 2 = 62."
+          },
+          {
+            id: 17,
+            category: "Pola Diagram Relasi",
+            question: "Diberikan tiga diagram lingkaran dengan pola bilangan terpusat:\n• Diagram 1: Angka Luar (18, 12, 3) -> Pusat = 10\n• Diagram 2: Angka Luar (30, 20, 5) -> Pusat = 10\n• Diagram 3: Angka Luar (42, 28, 7) -> Pusat = ?\n\nJika aturan operasi bilangan pada ketiga diagram adalah sama, nilai pusat pada Diagram 3 adalah...",
+            options: { "A": "8", "B": "9", "C": "10", "D": "11", "E": "12" },
+            correctAnswer: "C",
+            explanation: "Pusat = (Angka 1 + Angka 2) / Angka 3. Diagram 3: (42 + 28) / 7 = 70 / 7 = 10."
+          },
+          {
+            id: 18,
+            category: "Pola Sebab-Akibat Ganda",
+            question: "BATERAI LEMAH : GADGET MATI : CHARGER = ... : ... : ...",
+            options: {
+              "A": "Bahan Bakar Habis : Mobil Mogok : SPBU",
+              "B": "Lapar : Makan : Piring",
+              "C": "Mengantuk : Tidur : Kasur",
+              "D": "Hujan : Basah : Jas Hujan",
+              "E": "Lampu Mati : Gelap : Lilin"
+            },
+            correctAnswer: "A",
+            explanation: "Baterai lemah membuat gadget mati dan diisi ulang dengan charger; Bahan bakar habis membuat mobil mogok dan diisi ulang di SPBU."
+          },
+          {
+            id: 19,
+            category: "Pola Huruf Dua Arah",
+            question: "Diberikan deret huruf berikut:\nB,  Y,  D,  W,  G,  T,  K,  ...\n\nHuruf yang paling tepat untuk mengisi posisi berikutnya adalah...",
+            options: { "A": "N", "B": "O", "C": "P", "D": "Q", "E": "R" },
+            correctAnswer: "C",
+            explanation: "Larik genap mundur: Y (25) -2 -> W (23) -3 -> T (20) -4 -> P (16)."
+          },
+          {
+            id: 20,
+            category: "Pola Operasi Silang Analitis",
+            question: "Diberikan dua diagram susunan bilangan dengan pola operasi identik:\n• Diagram A: Empat bilangan di sudutnya adalah 6, 5, 4, dan 3 dengan angka pusat bernilai 42 (didapat dari perkalian silang: [6 x 5] + [4 x 3] = 30 + 12 = 42).\n\nJika pada Diagram B memiliki angka sudut 9, 7, 5, dan 6 dengan aturan pola yang sama, maka angka di pusat Diagram B adalah...",
+            options: { "A": "83", "B": "88", "C": "91", "D": "93", "E": "97" },
+            correctAnswer: "D",
+            explanation: "Pusat = (Sudut 1 x Sudut 2) + (Sudut 3 x Sudut 4) = (9 x 7) + (5 x 6) = 63 + 30 = 93."
           }
         ]
       }
