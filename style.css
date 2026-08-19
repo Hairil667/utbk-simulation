@@ -1354,3 +1354,88 @@ body {
     border-bottom: none;
   }
 }
+
+/* 7. MISTAKE CHIPS & PRINT STYLES */
+.mistake-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1.5px solid #fca5a5;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mistake-chip:hover {
+  background: #fecaca;
+  border-color: #ef4444;
+  transform: translateY(-1px);
+}
+
+.empty-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1.5px solid #fde68a;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.empty-chip:hover {
+  background: #fde68a;
+  border-color: #f59e0b;
+  transform: translateY(-1px);
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .cat-topbar,
+  .cat-calc-widget,
+  .cat-modal-backdrop,
+  #btn-download-txt,
+  #btn-print-pdf,
+  #btn-download-json,
+  #btn-retry-test,
+  #btn-back-home,
+  .cat-review-nav,
+  .btn-filter-review {
+    display: none !important;
+  }
+
+  .cat-result-wrapper {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .cat-result-header-card {
+    background: #15375c !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    page-break-after: avoid;
+  }
+
+  .cat-review-item {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    border: 1.5px solid #cbd5e1 !important;
+    margin-bottom: 1.2rem !important;
+  }
+}
+
