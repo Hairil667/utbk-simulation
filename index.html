@@ -1372,6 +1372,90 @@ body {
     border-bottom: none;
   }
 }
+
+/* 7. MISTAKE CHIPS & PRINT STYLES */
+.mistake-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1.5px solid #fca5a5;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mistake-chip:hover {
+  background: #fecaca;
+  border-color: #ef4444;
+  transform: translateY(-1px);
+}
+
+.empty-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1.5px solid #fde68a;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.empty-chip:hover {
+  background: #fde68a;
+  border-color: #f59e0b;
+  transform: translateY(-1px);
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .cat-topbar,
+  .cat-calc-widget,
+  .cat-modal-backdrop,
+  #btn-download-txt,
+  #btn-print-pdf,
+  #btn-download-json,
+  #btn-retry-test,
+  #btn-back-home,
+  .cat-review-nav,
+  .btn-filter-review {
+    display: none !important;
+  }
+
+  .cat-result-wrapper {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .cat-result-header-card {
+    background: #15375c !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    page-break-after: avoid;
+  }
+
+  .cat-review-item {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    border: 1.5px solid #cbd5e1 !important;
+    margin-bottom: 1.2rem !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -1661,15 +1745,54 @@ body {
         </div>
       </div>
 
+      <!-- Action Download & Print Bar -->
+      <div style="display: flex; gap: 0.75rem; justify-content: center; margin-bottom: 1.2rem; flex-wrap: wrap;">
+        <button id="btn-download-txt" class="btn-bppp-submit" style="background-color: #0284c7; max-width: 260px; font-size: 0.9rem; padding: 0.65rem 1.2rem; min-height: 42px;">
+          📥 Unduh Laporan & Soal (.TXT)
+        </button>
+        <button id="btn-print-pdf" class="btn-bppp-submit" style="background-color: #475569; max-width: 220px; font-size: 0.9rem; padding: 0.65rem 1.2rem; min-height: 42px;">
+          🖨️ Cetak / Simpan PDF
+        </button>
+        <button id="btn-download-json" class="btn-bppp-submit" style="background-color: #059669; max-width: 220px; font-size: 0.9rem; padding: 0.65rem 1.2rem; min-height: 42px;">
+          💾 Unduh Bank Soal (.JSON)
+        </button>
+      </div>
+
+      <!-- Mistake Analysis Breakdown Card -->
+      <div id="mistake-analysis-card" class="cat-stat-card" style="margin-bottom: 1.2rem; text-align: left; padding: 1.1rem; border-left: 5px solid #d32f2f; background: #fff;">
+        <h3 style="font-size: 1rem; color: #15375c; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px;">
+          🔍 Analisis Tempat Kesalahan Jawaban
+        </h3>
+        <p style="font-size: 0.84rem; color: #475569; margin-bottom: 0.8rem;">
+          Klik nomor soal di bawah untuk langsung meninjau soal yang perlu dipelajari kembali:
+        </p>
+
+        <!-- Wrong Questions Badges -->
+        <div style="margin-bottom: 0.6rem;">
+          <strong style="font-size: 0.82rem; color: #991b1b;">❌ Soal yang Salah:</strong>
+          <div id="list-wrong-chips" style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px;">
+            <span style="font-size: 0.8rem; color: #64748b;">(Tidak ada soal salah)</span>
+          </div>
+        </div>
+
+        <!-- Empty Questions Badges -->
+        <div>
+          <strong style="font-size: 0.82rem; color: #92400e;">⚪ Soal yang Dikosongkan:</strong>
+          <div id="list-empty-chips" style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px;">
+            <span style="font-size: 0.8rem; color: #64748b;">(Tidak ada soal kosong)</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Review & Pembahasan Panel -->
       <div class="cat-review-panel">
         <div class="cat-review-nav">
-          <h3 style="font-size: 1.05rem; color: #15375c;">📖 Pembahasan & Analisis Soal</h3>
+          <h3 style="font-size: 1.05rem; color: #15375c;">📖 Pembahasan & Analisis Soal Lengkap</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap;">
             <button class="btn-filter-review active" data-filter="all">Semua Soal</button>
             <button class="btn-filter-review" data-filter="wrong">Salah</button>
-            <button class="btn-filter-review" data-filter="correct">Benar</button>
             <button class="btn-filter-review" data-filter="empty">Kosong</button>
+            <button class="btn-filter-review" data-filter="correct">Benar</button>
           </div>
         </div>
 
