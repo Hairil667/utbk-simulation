@@ -1,300 +1,297 @@
 {
   "testInfo": {
     "title": "SIMULASI TES HAIRIL",
-    "subtitle": "Materi Khusus: Operasi Bilangan (Bilangan Bulat, Pecahan, Persen, Desimal)",
+    "subtitle": "Penalaran Umum (TPS) - Pola dan Hubungan",
     "year": "2025 / 2026",
-    "defaultTimeMinutes": 20
+    "defaultTimeMinutes": 30
   },
   "subtests": [
     {
-      "id": "paket-lengkap-bilangan",
-      "name": "Paket Lengkap: Operasi Bilangan (Semua Materi)",
-      "timeMinutes": 25,
+      "id": "pu-pola-hubungan",
+      "name": "Penalaran Umum - Pola dan Hubungan",
+      "category": "Penalaran Umum",
+      "subcategory": "Pola dan Hubungan",
+      "timeMinutes": 30,
       "questions": [
         {
           "id": 1,
-          "category": "Bilangan Bulat",
-          "question": "Hasil dari operasi hitung:\n(-24) ÷ 6 × (-3) + (-15) - (-8)\n\nadalah...",
+          "category": "Pola Angka",
+          "question": "Perhatikan barisan bilangan berikut:\n3,  7,  11,  15,  19,  ...\n\nBilangan yang tepat untuk melanjutkan barisan tersebut adalah...",
           "options": {
-            "A": "5",
-            "B": "-5",
-            "C": "29",
-            "D": "-19",
-            "E": "7"
+            "A": "21",
+            "B": "22",
+            "C": "23",
+            "D": "24",
+            "E": "25"
           },
-          "correctAnswer": "A",
-          "explanation": "Ingat aturan urutan operasi (KABATAKU: Kurung, Kali/Bagi dari kiri ke kanan, lalu Tambah/Kurang):\n1. (-24) ÷ 6 = -4\n2. (-4) × (-3) = +12\n3. 12 + (-15) = 12 - 15 = -3\n4. -3 - (-8) = -3 + 8 = 5.\n\nKunci Jawaban: A (5)."
+          "correctAnswer": "C",
+          "explanation": "Pola barisan adalah penjumlahan konstan (+4):\n3 (+4) -> 7 (+4) -> 11 (+4) -> 15 (+4) -> 19 (+4) -> 23.\n\nKunci Jawaban: C (23)."
         },
         {
           "id": 2,
-          "category": "Bilangan Bulat",
-          "question": "Hasil dari perhitungan:\n12 - 3 × (-4) + (-20) ÷ 5\n\nadalah...",
+          "category": "Pola Hubungan Objek",
+          "question": "DOKTER : STETOSKOP = KOKI : ...",
           "options": {
-            "A": "20",
-            "B": "-32",
-            "C": "-8",
-            "D": "28",
-            "E": "16"
+            "A": "Restoran",
+            "B": "Pisau Masak",
+            "C": "Makanan",
+            "D": "Celemek",
+            "E": "Pelayan"
           },
-          "correctAnswer": "A",
-          "explanation": "Kerjakan perkalian dan pembagian terlebih dahulu:\n1. 3 × (-4) = -12\n2. (-20) ÷ 5 = -4\n\nMaka:\n12 - (-12) + (-4) = 12 + 12 - 4 = 24 - 4 = 20.\n\nKunci Jawaban: A (20)."
+          "correctAnswer": "B",
+          "explanation": "Hubungan analogi: Subjek/Profesi dan alat kerja utamanya.\nDokter menggunakan stetoskop untuk memeriksa pasien, sedangkan Koki menggunakan pisau masak untuk mengolah masakan.\n\nKunci Jawaban: B (Pisau Masak)."
         },
         {
           "id": 3,
-          "category": "Pecahan",
-          "question": "Hasil dari operasi pecahan:\n(3/8 + 2/8) × 4/5 ÷ 1/2\n\nadalah...",
+          "category": "Pola Angka",
+          "question": "Perhatikan deret angka berikut:\n2,  6,  18,  54,  ...\n\nAngka yang paling tepat untuk mengisi kelanjutan deret di atas adalah...",
           "options": {
-            "A": "1/2",
-            "B": "4/5",
-            "C": "1",
-            "D": "5/4",
-            "E": "2"
+            "A": "108",
+            "B": "144",
+            "C": "152",
+            "D": "162",
+            "E": "172"
           },
-          "correctAnswer": "C",
-          "explanation": "Langkah 1: Selesaikan penjumlahan dalam kurung (penyebut sudah sama):\n3/8 + 2/8 = 5/8.\n\nLangkah 2: Kalikan dengan 4/5:\n(5/8) × (4/5) = (5 × 4) / (8 × 5) = 20 / 40 = 1/2.\n\nLangkah 3: Bagi dengan 1/2 (dikalikan dengan kebalikan pecahan 2/1):\n(1/2) ÷ (1/2) = (1/2) × (2/1) = 1.\n\nKunci Jawaban: C (1)."
+          "correctAnswer": "D",
+          "explanation": "Pola barisan adalah perkalian konstan (x3):\n2 (x3) -> 6 (x3) -> 18 (x3) -> 54 (x3) -> 162.\n\nKunci Jawaban: D (162)."
         },
         {
           "id": 4,
-          "category": "Pecahan",
-          "question": "Nilai dari:\n2 1/3 + 1 3/4 - 1/2\n\nadalah...",
+          "category": "Pola Hubungan Hirarki",
+          "question": "DETIK : MENIT = MENIT : ...",
           "options": {
-            "A": "3 5/12",
-            "B": "3 7/12",
-            "C": "4 1/12",
-            "D": "3 1/6",
-            "E": "4 5/12"
+            "A": "Waktu",
+            "B": "Arloji",
+            "C": "Jam",
+            "D": "Hari",
+            "E": "Kalender"
           },
-          "correctAnswer": "B",
-          "explanation": "Ubah pecahan campuran ke pecahan biasa atau pisahkan bilangan bulat:\nBilangan bulat: 2 + 1 = 3.\nPecahan: 1/3 + 3/4 - 1/2.\nKPK dari 3, 4, 2 adalah 12:\n= 4/12 + 9/12 - 6/12\n= (4 + 9 - 6) / 12 = 7/12.\n\nGabungkan: 3 + 7/12 = 3 7/12 (atau 43/12).\n\nKunci Jawaban: B."
+          "correctAnswer": "C",
+          "explanation": "Hubungan satuan ukuran waktu ke tingkat berikutnya:\nKumpulan 60 detik membentuk 1 menit, dan kumpulan 60 menit membentuk 1 jam.\n\nKunci Jawaban: C (Jam)."
         },
         {
           "id": 5,
-          "category": "Persen",
-          "question": "Seorang pembeli mendapatkan diskon 30% untuk sebuah jaket seharga Rp200.000. Berapakah jumlah potongan harga (diskon) yang didapatkan?",
+          "category": "Pola Pasangan Bilangan",
+          "question": "Perhatikan pola hubungan pasangan bilangan berikut:\n(2 -> 5),  (4 -> 9),  (7 -> 15),  (10 -> ...)\n\nBilangan yang tepat untuk melengkapi pasangan terakhir adalah...",
           "options": {
-            "A": "Rp30.000",
-            "B": "Rp50.000",
-            "C": "Rp60.000",
-            "D": "Rp140.000",
-            "E": "Rp70.000"
+            "A": "19",
+            "B": "20",
+            "C": "21",
+            "D": "22",
+            "E": "23"
           },
           "correctAnswer": "C",
-          "explanation": "Perhitungan diskon 30% dari Rp200.000:\nDiskon = 30% × 200.000\n= (30/100) × 200.000\n= 0,30 × 200.000 = Rp60.000.\n(Jika yang ditanyakan harga bayar: 200.000 - 60.000 = Rp140.000).\n\nKunci Jawaban: C (Rp60.000)."
+          "explanation": "Pola hubungan fungsi: y = 2x + 1\n• (2 x 2) + 1 = 5\n• (4 x 2) + 1 = 9\n• (7 x 2) + 1 = 15\n• (10 x 2) + 1 = 21.\n\nKunci Jawaban: C (21)."
         },
         {
           "id": 6,
-          "category": "Persen",
-          "question": "Jika 45% dari suatu bilangan x adalah 135, maka nilai dari 60% bilangan x tersebut adalah...",
+          "category": "Pola Deret Fibonacci",
+          "question": "Diberikan barisan bilangan sebagai berikut:\n1,  2,  3,  5,  8,  13,  21,  ...\n\nNilai bilangan selanjutnya pada barisan tersebut adalah...",
           "options": {
-            "A": "160",
-            "B": "180",
-            "C": "195",
-            "D": "200",
-            "E": "225"
+            "A": "29",
+            "B": "31",
+            "C": "34",
+            "D": "36",
+            "E": "42"
           },
-          "correctAnswer": "B",
-          "explanation": "45% × x = 135\n(45/100) × x = 135\nx = 135 × (100/45) = 3 × 100 = 300.\n\nMaka 60% dari x:\n60% × 300 = (60/100) × 300 = 0,60 × 300 = 180.\n\nKunci Jawaban: B (180)."
+          "correctAnswer": "C",
+          "explanation": "Pola barisan Fibonacci (setiap suku merupakan penjumlahan dari dua suku sebelumnya):\n• 1 + 2 = 3\n• 2 + 3 = 5\n• 3 + 5 = 8\n• 5 + 8 = 13\n• 8 + 13 = 21\n• 13 + 21 = 34.\n\nKunci Jawaban: C (34)."
         },
         {
           "id": 7,
-          "category": "Desimal",
-          "question": "Hasil dari operasi pembagian desimal:\n6,4 ÷ 0,2 + 3,5 × 0,4\n\nadalah...",
+          "category": "Pola Sebab-Akibat",
+          "question": "KEMARAU : KEKERINGAN = HUJAN LEBAT : ...",
           "options": {
-            "A": "32,14",
-            "B": "33,4",
-            "C": "34,8",
-            "D": "4,6",
-            "E": "32,4"
+            "A": "Payung",
+            "B": "Mendung",
+            "C": "Banjir",
+            "D": "Dingin",
+            "E": "Petir"
           },
-          "correctAnswer": "B",
-          "explanation": "Langkah 1: Pembagian desimal 6,4 ÷ 0,2\nGeser koma 1 angka ke kanan pada kedua bilangan: 64 ÷ 2 = 32.\n\nLangkah 2: Perkalian desimal 3,5 × 0,4\n35 × 4 = 140, ada 2 angka di belakang koma: 1,40 = 1,4.\n\nLangkah 3: Jumlahkan:\n32 + 1,4 = 33,4.\n\nKunci Jawaban: B (33,4)."
+          "correctAnswer": "C",
+          "explanation": "Hubungan fenomena alam dan dampak langsung yang diakibatkan:\nKemarau berkepanjangan menyebabkan kekeringan, sedangkan hujan lebat yang terus-menerus menyebabkan banjir.\n\nKunci Jawaban: C (Banjir)."
         },
         {
           "id": 8,
-          "category": "Desimal",
-          "question": "Berapakah hasil dari:\n(0,75 - 0,25) ÷ 0,05 × 0,3\n\n?",
+          "category": "Pola Deret Berselang",
+          "question": "Perhatikan deret angka berselang berikut:\n5,  12,  8,  15,  11,  18,  14,  ...\n\nAngka yang tepat untuk mengisi posisi selanjutnya adalah...",
           "options": {
-            "A": "3",
-            "B": "0,3",
-            "C": "30",
-            "D": "0,03",
-            "E": "1,5"
+            "A": "17",
+            "B": "19",
+            "C": "21",
+            "D": "23",
+            "E": "25"
           },
-          "correctAnswer": "A",
-          "explanation": "1. 0,75 - 0,25 = 0,50 = 0,5\n2. 0,5 ÷ 0,05 = 50 ÷ 5 = 10\n3. 10 × 0,3 = 3.\n\nKunci Jawaban: A (3)."
+          "correctAnswer": "C",
+          "explanation": "Pola berselang (dua larik deret):\n• Larik 1 (urutan ganjil): 5 (+3) -> 8 (+3) -> 11 (+3) -> 14\n• Larik 2 (urutan genap): 12 (+3) -> 15 (+3) -> 18 (+3) -> 21.\nSuku berikutnya berada pada posisi genap (ke-8), sehingga nilainya 18 + 3 = 21.\n\nKunci Jawaban: C (21)."
         },
         {
           "id": 9,
-          "category": "Campuran / Aplikasi",
-          "question": "Bentuk sederhana dari operasi campuran:\n(1/4 + 0,35) × 200 - 15% × 400\n\nadalah...",
+          "category": "Pola Operasi Bangun",
+          "question": "Pada sebuah segitiga pertama, angka di ketiga sudutnya adalah 4 (kiri), 5 (kanan), dan 3 (bawah) dengan angka di tengah bernilai 23.\n\nJika pada segitiga kedua berlaku pola operasi yang sama dengan angka sudut 6 (kiri), 7 (kanan), dan 5 (bawah), maka angka di bagian tengah segitiga kedua adalah...",
           "options": {
-            "A": "60",
-            "B": "70",
-            "C": "80",
-            "D": "90",
-            "E": "100"
+            "A": "37",
+            "B": "42",
+            "C": "45",
+            "D": "47",
+            "E": "52"
           },
-          "correctAnswer": "A",
-          "explanation": "Konversikan ke bentuk desimal yang mudah:\n1. 1/4 = 0,25\n2. 0,25 + 0,35 = 0,60\n3. 0,60 × 200 = 120\n4. 15% × 400 = (15/100) × 400 = 60\n5. 120 - 60 = 60.\n\nKunci Jawaban: A (60)."
+          "correctAnswer": "D",
+          "explanation": "Pola operasi segitiga:\nTengah = (Sudut Kiri x Sudut Kanan) + Sudut Bawah\n• Segitiga 1: (4 x 5) + 3 = 20 + 3 = 23 (Sesuai)\n• Segitiga 2: (6 x 7) + 5 = 42 + 5 = 47.\n\nKunci Jawaban: D (47)."
         },
         {
           "id": 10,
-          "category": "Campuran / Aplikasi",
-          "question": "Jika didefinisikan operasi khusus ⊕ sebagai:\na ⊕ b = (a × b) + (a ÷ b) - 2\n\nMaka nilai dari 8 ⊕ 4 adalah...",
+          "category": "Pola Hubungan Bahan Baku",
+          "question": "KAYU : MEJA = GANDUM : ...",
           "options": {
-            "A": "30",
-            "B": "32",
-            "C": "34",
-            "D": "36",
-            "E": "38"
+            "A": "Ladang",
+            "B": "Roti",
+            "C": "Beras",
+            "D": "Petani",
+            "E": "Oven"
           },
           "correctAnswer": "B",
-          "explanation": "Substitusi a = 8 dan b = 4:\n8 ⊕ 4 = (8 × 4) + (8 ÷ 4) - 2\n= 32 + 2 - 2\n= 32.\n\nKunci Jawaban: B (32)."
-        }
-      ]
-    },
-    {
-      "id": "subtes-bilangan-bulat",
-      "name": "Subtes 1: Operasi Bilangan Bulat (Penjumlahan, Perkalian & Sifat)",
-      "timeMinutes": 15,
-      "questions": [
-        {
-          "id": 1,
-          "question": "Hasil dari (-20) ÷ 5 adalah...",
-          "options": {
-            "A": "4",
-            "B": "-4",
-            "C": "-15",
-            "D": "15",
-            "E": "-100"
-          },
-          "correctAnswer": "B",
-          "explanation": "Bilangan negatif dibagi bilangan positif menghasilkan bilangan negatif:\n(-20) ÷ 5 = -4."
+          "explanation": "Hubungan analogi: Bahan baku utama dan produk olahan yang dihasilkan.\nKayu diolah menjadi meja, sedangkan gandum diolah menjadi roti.\n\nKunci Jawaban: B (Roti)."
         },
         {
-          "id": 2,
-          "question": "Nilai dari -8 + 15 - (-7) × 2 adalah...",
+          "id": 11,
+          "category": "Pola Huruf Bertingkat",
+          "question": "Perhatikan pola barisan huruf berikut:\nB,  D,  G,  K,  P,  ...\n\nHuruf selanjutnya yang tepat untuk melengkapi barisan di atas adalah...",
           "options": {
-            "A": "21",
-            "B": "7",
-            "C": "-7",
-            "D": "14",
-            "E": "28"
-          },
-          "correctAnswer": "A",
-          "explanation": "1. (-7) × 2 = -14\n2. -8 + 15 - (-14) = 7 + 14 = 21."
-        },
-        {
-          "id": 3,
-          "question": "Sifat distributif yang benar adalah...",
-          "options": {
-            "A": "a × (b + c) = (a × b) + (a × c)",
-            "B": "a + (b + c) = (a + b) + c",
-            "C": "a × b = b × a",
-            "D": "a - (b - c) = (a - b) - c",
-            "E": "a ÷ (b ÷ c) = (a ÷ b) ÷ c"
-          },
-          "correctAnswer": "A",
-          "explanation": "Sifat perkalian terhadap penjumlahan: a × (b + c) = (a × b) + (a × c)."
-        }
-      ]
-    },
-    {
-      "id": "subtes-pecahan",
-      "name": "Subtes 2: Operasi Pecahan (Penjumlahan, Pengurangan & Pembagian)",
-      "timeMinutes": 15,
-      "questions": [
-        {
-          "id": 4,
-          "question": "Hasil dari 3/8 + 2/8 adalah...",
-          "options": {
-            "A": "5/16",
-            "B": "5/8",
-            "C": "6/8",
-            "D": "1/8",
-            "E": "5/4"
-          },
-          "correctAnswer": "B",
-          "explanation": "Karena penyebut sudah sama (8), jumlahkan pembilang: 3/8 + 2/8 = (3+2)/8 = 5/8."
-        },
-        {
-          "id": 5,
-          "question": "Hasil dari 5/6 - 1/4 ÷ 3/4 adalah...",
-          "options": {
-            "A": "1/2",
-            "B": "7/12",
-            "C": "1/3",
-            "D": "2/3",
-            "E": "5/8"
-          },
-          "correctAnswer": "A",
-          "explanation": "1. (1/4) ÷ (3/4) = (1/4) × (4/3) = 1/3\n2. 5/6 - 1/3 = 5/6 - 2/6 = 3/6 = 1/2."
-        }
-      ]
-    },
-    {
-      "id": "subtes-persen",
-      "name": "Subtes 3: Operasi Persen & Konversi Nilai",
-      "timeMinutes": 15,
-      "questions": [
-        {
-          "id": 6,
-          "question": "Berapakah 30% dari 200?",
-          "options": {
-            "A": "30",
-            "B": "50",
-            "C": "60",
-            "D": "70",
-            "E": "90"
+            "A": "T",
+            "B": "U",
+            "C": "V",
+            "D": "W",
+            "E": "X"
           },
           "correctAnswer": "C",
-          "explanation": "30% dari 200 = 0,30 × 200 = 60."
+          "explanation": "Pola lompatan urutan alfabet bertingkat (+2, +3, +4, +5, +6):\n• B (2) +2 = D (4)\n• D (4) +3 = G (7)\n• G (7) +4 = K (11)\n• K (11) +5 = P (16)\n• P (16) +6 = V (22).\n\nKunci Jawaban: C (V)."
         },
         {
-          "id": 7,
-          "question": "Bentuk pecahan biasa paling sederhana dari 45% adalah...",
+          "id": 12,
+          "category": "Pola Matriks / Tabel",
+          "question": "Perhatikan susunan bilangan pada tabel berikut:\nBaris 1 :  3    7   ->  20\nBaris 2 :  5    6   ->  22\nBaris 3 :  4    9   ->  ?\n\nJika pola hubungan bilangan pada setiap baris adalah sama, nilai pengganti tanda tanya (?) adalah...",
           "options": {
-            "A": "9/20",
-            "B": "4/9",
-            "C": "9/25",
-            "D": "45/100",
-            "E": "18/40"
+            "A": "24",
+            "B": "25",
+            "C": "26",
+            "D": "28",
+            "E": "30"
+          },
+          "correctAnswer": "C",
+          "explanation": "Pola operasi per baris:\nHasil = (Kolom 1 + Kolom 2) x 2\n• Baris 1: (3 + 7) x 2 = 10 x 2 = 20\n• Baris 2: (5 + 6) x 2 = 11 x 2 = 22\n• Baris 3: (4 + 9) x 2 = 13 x 2 = 26.\n\nKunci Jawaban: C (26)."
+        },
+        {
+          "id": 13,
+          "category": "Pola Hubungan Kompleks",
+          "question": "PILIHAN GANDA : UJIAN : NILAI = ... : ... : ...",
+          "options": {
+            "A": "Suara : Pemilu : Pemenang",
+            "B": "Pensil : Kertas : Tulisan",
+            "C": "Bahan : Resep : Masakan",
+            "D": "Roda : Sepeda : Kecepatan",
+            "E": "Pertandingan : Wasit : Skor"
           },
           "correctAnswer": "A",
-          "explanation": "45% = 45/100. Bagi pembilang dan penyebut dengan 5 = 9/20."
-        }
-      ]
-    },
-    {
-      "id": "subtes-desimal",
-      "name": "Subtes 4: Operasi Bilangan Desimal (Koma & Pembagian)",
-      "timeMinutes": 15,
-      "questions": [
-        {
-          "id": 8,
-          "question": "Hasil dari 6,4 ÷ 0,2 adalah...",
-          "options": {
-            "A": "3,2",
-            "B": "32",
-            "C": "0,32",
-            "D": "320",
-            "E": "12,8"
-          },
-          "correctAnswer": "B",
-          "explanation": "6,4 ÷ 0,2 = 64 ÷ 2 = 32."
+          "explanation": "Hubungan analogi 3 komponen:\n(Instrumen/Media masukan) digunakan dalam (Kegiatan/Proses utama) untuk menghasilkan (Hasil akhir/Evaluasi).\nPilihan ganda digunakan dalam Ujian untuk menghasilkan Nilai;\nSuara digunakan dalam Pemilu untuk menentukan Pemenang.\n\nKunci Jawaban: A (Suara : Pemilu : Pemenang)."
         },
         {
-          "id": 9,
-          "question": "Nilai dari 2,75 + 1,25 × 0,4 adalah...",
+          "id": 14,
+          "category": "Pola Bangun Segiempat",
+          "question": "Diberikan bangun segiempat dengan 4 angka di setiap sudutnya (A=kiri atas, B=kanan atas, C=kiri bawah, D=kanan bawah) dan angka di tengahnya:\n• Bangun 1: Sudut (8, 5, 4, 3) -> Tengah = 28\n• Bangun 2: Sudut (9, 6, 5, 4) -> Tengah = 34\n• Bangun 3: Sudut (10, 7, 6, 5) -> Tengah = ?\n\nBerdasarkan pola tersebut, nilai tengah pada Bangun 3 adalah...",
           "options": {
-            "A": "1,6",
-            "B": "3,25",
-            "C": "1,85",
-            "D": "4,0",
-            "E": "3,0"
+            "A": "36",
+            "B": "38",
+            "C": "40",
+            "D": "42",
+            "E": "44"
+          },
+          "correctAnswer": "C",
+          "explanation": "Pola operasi segiempat:\nNilai Tengah = (A x B) - (C x D)\n• Bangun 1: (8 x 5) - (4 x 3) = 40 - 12 = 28\n• Bangun 2: (9 x 6) - (5 x 4) = 54 - 20 = 34\n• Bangun 3: (10 x 7) - (6 x 5) = 70 - 30 = 40.\n\nKunci Jawaban: C (40)."
+        },
+        {
+          "id": 15,
+          "category": "Pola Alfanumerik",
+          "question": "Perhatikan pola kombinasi angka dan huruf berikut:\n2A,  5C,  10F,  17J,  ...\n\nPasangan angka dan huruf berikutnya yang tepat adalah...",
+          "options": {
+            "A": "24N",
+            "B": "25N",
+            "C": "26O",
+            "D": "26P",
+            "E": "27O"
+          },
+          "correctAnswer": "C",
+          "explanation": "Pola terdiri dari dua komponen simultan:\n1. Angka (selisih ganjil bertingkat +3, +5, +7, +9):\n   2 (+3) -> 5 (+5) -> 10 (+7) -> 17 (+9) -> 26.\n2. Huruf (selisih posisi alfabet +2, +3, +4, +5):\n   A (1) +2 -> C (3) +3 -> F (6) +4 -> J (10) +5 -> O (15).\n\nGabungan keduanya menghasilkan 26O.\n\nKunci Jawaban: C (26O)."
+        },
+        {
+          "id": 16,
+          "category": "Pola Deret Majemuk",
+          "question": "Perhatikan barisan bilangan berikut:\n3,  4,  8,  9,  18,  19,  38,  ...\n\nBilangan yang tepat untuk melanjutkan deret tersebut adalah...",
+          "options": {
+            "A": "39",
+            "B": "40",
+            "C": "76",
+            "D": "77",
+            "E": "78"
+          },
+          "correctAnswer": "A",
+          "explanation": "Pola operasi berulang (+1, lalu x2):\n• 3 (+1) = 4\n• 4 (x2) = 8\n• 8 (+1) = 9\n• 9 (x2) = 18\n• 18 (+1) = 19\n• 19 (x2) = 38\n• 38 (+1) = 39.\n\nKunci Jawaban: A (39)."
+        },
+        {
+          "id": 17,
+          "category": "Pola Diagram Relasi",
+          "question": "Diberikan tiga diagram lingkaran dengan pola bilangan terpusat:\n• Diagram 1: Angka Luar (14, 6, 2) -> Pusat = 10\n• Diagram 2: Angka Luar (25, 15, 4) -> Pusat = 10\n• Diagram 3: Angka Luar (36, 18, 6) -> Pusat = ?\n\nJika aturan operasi bilangan pada ketiga diagram adalah sama, nilai pusat pada Diagram 3 adalah...",
+          "options": {
+            "A": "7",
+            "B": "8",
+            "C": "9",
+            "D": "10",
+            "E": "12"
+          },
+          "correctAnswer": "C",
+          "explanation": "Pola operasi diagram lingkaran:\nNilai Pusat = (Angka 1 + Angka 2) / Angka 3\n• Diagram 1: (14 + 6) / 2 = 20 / 2 = 10\n• Diagram 2: (25 + 15) / 4 = 40 / 4 = 10\n• Diagram 3: (36 + 18) / 6 = 54 / 6 = 9.\n\nKunci Jawaban: C (9)."
+        },
+        {
+          "id": 18,
+          "category": "Pola Sebab-Akibat Ganda",
+          "question": "VIRUS : INFEKSI : VAKSIN = ... : ... : ...",
+          "options": {
+            "A": "Api : Kebakaran : Alat Pemadam",
+            "B": "Air : Banjir : Hujan",
+            "C": "Polusi : Udara : Masker",
+            "D": "Bakteri : Sakit : Dokter",
+            "E": "Minyak : Licin : Sabun"
+          },
+          "correctAnswer": "A",
+          "explanation": "Hubungan analogi sebab-dampak-solusi/proteksi:\n(Sumber ancaman) menyebabkan (Kondisi bahaya/gangguan) yang dicegah atau ditangani dengan (Alat proteksi/pemadam).\nVirus menyebabkan infeksi yang dicegah dengan vaksin;\nApi menyebabkan kebakaran yang diatasi/dipadamkan dengan alat pemadam.\n\nKunci Jawaban: A (Api : Kebakaran : Alat Pemadam)."
+        },
+        {
+          "id": 19,
+          "category": "Pola Huruf Dua Arah",
+          "question": "Diberikan deret huruf berikut:\nA,  Z,  C,  X,  F,  U,  J,  ...\n\nHuruf yang paling tepat untuk mengisi posisi berikutnya adalah...",
+          "options": {
+            "A": "P",
+            "B": "Q",
+            "C": "R",
+            "D": "S",
+            "E": "T"
           },
           "correctAnswer": "B",
-          "explanation": "1. 1,25 × 0,4 = 0,50 = 0,5\n2. 2,75 + 0,5 = 3,25."
+          "explanation": "Pola deret berselang dua arah (maju dan mundur):\n• Posisi ganjil (alfabet maju): A (1) +2 -> C (3) +3 -> F (6) +4 -> J (10)\n• Posisi genap (alfabet mundur): Z (26) -2 -> X (24) -3 -> U (21) -4 -> Q (17).\n\nPosisi berikutnya adalah suku genap ke-8, yaitu 21 - 4 = 17 (Huruf Q).\n\nKunci Jawaban: B (Q)."
+        },
+        {
+          "id": 20,
+          "category": "Pola Operasi Silang Analitis",
+          "question": "Diberikan dua diagram susunan bilangan dengan pola operasi identik:\n• Diagram A: Empat bilangan di sudutnya adalah 7, 4, 3, dan 5 dengan angka pusat bernilai 43 (didapat dari perkalian silang: [7 x 4] + [3 x 5] = 28 + 15 = 43).\n\nJika pada Diagram B memiliki angka sudut 8, 6, 4, dan 5 dengan aturan pola yang sama, maka angka di pusat Diagram B adalah...",
+          "options": {
+            "A": "62",
+            "B": "64",
+            "C": "66",
+            "D": "68",
+            "E": "72"
+          },
+          "correctAnswer": "D",
+          "explanation": "Pola operasi silang:\nNilai Pusat = (Sudut 1 x Sudut 2) + (Sudut 3 x Sudut 4)\n• Diagram A: (7 x 4) + (3 x 5) = 28 + 15 = 43\n• Diagram B: (8 x 6) + (4 x 5) = 48 + 20 = 68.\n\nKunci Jawaban: D (68)."
         }
       ]
     }
