@@ -414,6 +414,11 @@ function initDOMReferences() {
   DOM.statWrongCount = document.getElementById('stat-wrong-count');
   DOM.statEmptyCount = document.getElementById('stat-empty-count');
   DOM.statTimeSpent = document.getElementById('stat-time-spent');
+  DOM.btnDownloadTxt = document.getElementById('btn-download-txt');
+  DOM.btnPrintPdf = document.getElementById('btn-print-pdf');
+  DOM.btnDownloadJson = document.getElementById('btn-download-json');
+  DOM.listWrongChips = document.getElementById('list-wrong-chips');
+  DOM.listEmptyChips = document.getElementById('list-empty-chips');
   DOM.reviewListContainer = document.getElementById('review-list-container');
   DOM.btnRetryTest = document.getElementById('btn-retry-test');
   DOM.btnBackHome = document.getElementById('btn-back-home');
@@ -458,6 +463,17 @@ function initEventListeners() {
 
   DOM.btnRetryTest.addEventListener('click', resetAndRestartExam);
   DOM.btnBackHome.addEventListener('click', returnToStartScreen);
+
+  // Download & Print Listeners
+  if (DOM.btnDownloadTxt) {
+    DOM.btnDownloadTxt.addEventListener('click', downloadEvaluationReport);
+  }
+  if (DOM.btnPrintPdf) {
+    DOM.btnPrintPdf.addEventListener('click', () => window.print());
+  }
+  if (DOM.btnDownloadJson) {
+    DOM.btnDownloadJson.addEventListener('click', downloadJsonFile);
+  }
 
   document.querySelectorAll('.btn-filter-review').forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -987,15 +1003,89 @@ function handleFinishExam() {
   DOM.statTimeSpent.textContent = `${spentMinutes}m ${spentSeconds}s`;
 
   if (scaledScore >= 750) {
-    DOM.resultFeedbackText.textContent = `🌟 Luar biasa! Penguasaan materi operasi bilangan Anda sangat matang (Skor: ${scaledScore}/1000).`;
+    DOM.resultFeedbackText.textContent = `🌟 Luar biasa! Penguasaan materi Penalaran Umum Anda sangat matang (Skor: ${scaledScore}/1000).`;
   } else if (scaledScore >= 500) {
-    DOM.resultFeedbackText.textContent = `👍 Kerja bagus! Terus asah kecepatan perhitungan dan ketelitian pecahan/desimal (Skor: ${scaledScore}/1000).`;
+    DOM.resultFeedbackText.textContent = `👍 Kerja bagus! Terus asah kecepatan analisis pola dan hubungan (Skor: ${scaledScore}/1000).`;
   } else {
-    DOM.resultFeedbackText.textContent = `💪 Tetap semangat! Pelajari kembali pembahasan di bawah untuk memahami konsep dasar yang masih keliru.`;
+    DOM.resultFeedbackText.textContent = `💪 Tetap semangat! Pelajari kembali nomor-nomor yang salah pada pembahasan di bawah.`;
   }
+
+  // Populate Mistake Analysis Chips (Soal Salah & Kosong)
+  populateMistakeAnalysis();
 
   renderReviewList();
   showScreen('result');
+}
+
+function populateMistakeAnalysis() {
+  if (!DOM.listWrongChips || !DOM.listEmptyChips) return;
+
+  DOM.listWrongChips.innerHTML = '';
+  DOM.listEmptyChips.innerHTML = '';
+
+  let wrongFound = 0;
+  let emptyFound = 0;
+
+  State.activeQuestions.forEach((q, idx) => {
+    const userAns = State.userAnswers[idx];
+    const isCorrect = (userAns === q.correctAnswer);
+    const isEmpty = (userAns === undefined || userAns === null);
+    const isWrong = (!isEmpty && !isCorrect);
+
+    if (isWrong) {
+      wrongFound++;
+      const chip = document.createElement('button');
+      chip.className = 'mistake-chip';
+      chip.type = 'button';
+      chip.innerHTML = `❌ No. ${idx + 1} (Jwb: ${userAns} ➔ Kunci: ${q.correctAnswer})`;
+      chip.title = `Klik untuk melihat pembahasan Soal No. ${idx + 1}`;
+      chip.addEventListener('click', () => {
+        scrollToReviewItem(idx);
+      });
+      DOM.listWrongChips.appendChild(chip);
+    } else if (isEmpty) {
+      emptyFound++;
+      const chip = document.createElement('button');
+      chip.className = 'empty-chip';
+      chip.type = 'button';
+      chip.innerHTML = `⚪ No. ${idx + 1} (Kunci: ${q.correctAnswer})`;
+      chip.title = `Klik untuk melihat pembahasan Soal No. ${idx + 1}`;
+      chip.addEventListener('click', () => {
+        scrollToReviewItem(idx);
+      });
+      DOM.listEmptyChips.appendChild(chip);
+    }
+  });
+
+  if (wrongFound === 0) {
+    DOM.listWrongChips.innerHTML = '<span style="font-size: 0.82rem; color: #166534; font-weight: 700;">🎉 Hebat! Tidak ada jawaban yang salah.</span>';
+  }
+
+  if (emptyFound === 0) {
+    DOM.listEmptyChips.innerHTML = '<span style="font-size: 0.82rem; color: #166534; font-weight: 700;">✓ Semua soal telah dijawab.</span>';
+  }
+}
+
+function scrollToReviewItem(idx) {
+  // Ensure filter includes this question
+  const targetFilterBtn = document.querySelector('.btn-filter-review[data-filter="all"]');
+  if (targetFilterBtn) {
+    document.querySelectorAll('.btn-filter-review').forEach(b => b.classList.remove('active'));
+    targetFilterBtn.classList.add('active');
+    State.filterReview = 'all';
+    renderReviewList();
+  }
+
+  setTimeout(() => {
+    const el = document.getElementById(`review-item-${idx}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.style.boxShadow = '0 0 0 3px #ef4444';
+      setTimeout(() => {
+        el.style.boxShadow = '';
+      }, 2000);
+    }
+  }, 100);
 }
 
 function renderReviewList() {
@@ -1013,47 +1103,210 @@ function renderReviewList() {
 
     const item = document.createElement('div');
     item.className = 'cat-review-item';
+    item.id = `review-item-${idx}`;
+
     if (isCorrect) item.classList.add('is-correct');
     else if (isWrong) item.classList.add('is-wrong');
     else item.classList.add('is-empty');
 
     const statusBadge = isCorrect 
-      ? '<span style="color:#2e7d32; font-weight:800;">✓ BENAR</span>'
-      : (isEmpty ? '<span style="color:#d97706; font-weight:800;">⚪ DIKOSONGKAN</span>' : '<span style="color:#d32f2f; font-weight:800;">✕ SALAH</span>');
+      ? '<span style="color:#2e7d32; font-weight:800; background:#dcfce7; padding:3px 8px; border-radius:4px; border:1px solid #86efac;">✓ BENAR</span>'
+      : (isEmpty ? '<span style="color:#d97706; font-weight:800; background:#fef3c7; padding:3px 8px; border-radius:4px; border:1px solid #fde68a;">⚪ DIKOSONGKAN</span>' : '<span style="color:#d32f2f; font-weight:800; background:#fee2e2; padding:3px 8px; border-radius:4px; border:1px solid #fca5a5;">❌ SALAH</span>');
 
-    const categoryText = q.category ? `<span style="background:#e0f2fe; color:#0369a1; padding:2px 6px; border-radius:3px; font-size:0.75rem; margin-right:6px;">${q.category}</span>` : '';
+    const categoryText = q.category ? `<span style="background:#e0f2fe; color:#0369a1; padding:3px 8px; border-radius:3px; font-size:0.75rem; font-weight:700; margin-right:6px;">${q.category}</span>` : '';
 
     let optionsHtml = '';
     if (q.options) {
       Object.keys(q.options).sort().forEach(k => {
-        let optStyle = "padding: 6px 10px; margin-bottom: 4px; border-radius: 4px; font-size: 0.88rem; background: #f8fafc;";
+        let optStyle = "padding: 8px 12px; margin-bottom: 6px; border-radius: 4px; font-size: 0.9rem; background: #f8fafc; border: 1px solid #cbd5e1;";
+        let marker = "";
+
         if (k === q.correctAnswer) {
-          optStyle = "padding: 6px 10px; margin-bottom: 4px; border-radius: 4px; font-size: 0.88rem; background: #dcfce7; color: #166534; font-weight: 700; border: 1px solid #86efac;";
-        } else if (k === userAns && !isCorrect) {
-          optStyle = "padding: 6px 10px; margin-bottom: 4px; border-radius: 4px; font-size: 0.88rem; background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5;";
+          optStyle = "padding: 8px 12px; margin-bottom: 6px; border-radius: 4px; font-size: 0.9rem; background: #dcfce7; color: #166534; font-weight: 700; border: 1.5px solid #22c55e;";
+          marker = " <span style='font-size:0.8rem; color:#166534;'>(KUNCI JAWABAN BENAR)</span>";
         }
-        optionsHtml += `<div style="${optStyle}"><strong>${k}.</strong> ${q.options[k]}</div>`;
+        
+        if (k === userAns) {
+          if (!isCorrect) {
+            optStyle = "padding: 8px 12px; margin-bottom: 6px; border-radius: 4px; font-size: 0.9rem; background: #fee2e2; color: #991b1b; font-weight: 700; border: 1.5px solid #ef4444;";
+            marker = " <span style='font-size:0.8rem; color:#991b1b;'>(JAWABAN ANDA - SALAH)</span>";
+          } else {
+            marker = " <span style='font-size:0.8rem; color:#166534;'>(JAWABAN ANDA - BENAR ✓)</span>";
+          }
+        }
+
+        optionsHtml += `<div style="${optStyle}"><strong>${k}.</strong> ${q.options[k]}${marker}</div>`;
       });
     }
 
+    const answerSummary = isEmpty
+      ? `<div style="background:#fffbeb; padding:6px 10px; border-radius:4px; font-size:0.85rem; color:#92400e; margin-bottom:8px; border:1px solid #fde68a;"><strong>Status:</strong> Anda tidak menjawab soal ini • Kunci benar adalah <strong>[ ${q.correctAnswer} ]</strong></div>`
+      : (isCorrect
+        ? `<div style="background:#f0fdf4; padding:6px 10px; border-radius:4px; font-size:0.85rem; color:#166534; margin-bottom:8px; border:1px solid #bbf7d0;"><strong>Status:</strong> Jawaban Anda <strong>[ ${userAns} ]</strong> Tepat ✓</div>`
+        : `<div style="background:#fef2f2; padding:6px 10px; border-radius:4px; font-size:0.85rem; color:#991b1b; margin-bottom:8px; border:1px solid #fecaca;"><strong>Status:</strong> Anda menjawab <strong>[ ${userAns} ]</strong> • Jawaban yang benar adalah <strong>[ ${q.correctAnswer} ]</strong></div>`);
+
     item.innerHTML = `
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; border-bottom:1px solid #e2e8f0; padding-bottom:6px;">
-        <div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; border-bottom:1.5px solid #e2e8f0; padding-bottom:6px;">
+        <div style="display:flex; align-items:center; gap:6px;">
           ${categoryText}
-          <strong style="color:var(--bppp-navy);">Soal Nomor ${idx + 1}</strong>
+          <strong style="color:var(--bppp-navy); font-size:0.95rem;">Soal Nomor ${idx + 1}</strong>
         </div>
         <div>${statusBadge}</div>
       </div>
-      <p style="white-space:pre-line; margin-bottom:10px; font-weight:500;">${q.question}</p>
-      <div style="margin-bottom:10px;">${optionsHtml}</div>
+
+      ${answerSummary}
+
+      <p style="white-space:pre-line; margin-bottom:12px; font-weight:500; font-size:0.95rem; line-height:1.6;">${q.question}</p>
+      <div style="margin-bottom:12px;">${optionsHtml}</div>
+      
       <div class="cat-pembahasan-box">
-        <strong style="color:#15375c; display:block; margin-bottom:4px;">💡 Kunci & Pembahasan:</strong>
-        <p style="white-space:pre-line;">${q.explanation || 'Pembahasan belum tersedia untuk butir soal ini.'}</p>
+        <strong style="color:#15375c; display:block; margin-bottom:4px; font-size:0.92rem;">💡 Pembahasan Lengkap:</strong>
+        <p style="white-space:pre-line; line-height:1.6;">${q.explanation || 'Pembahasan belum tersedia untuk butir soal ini.'}</p>
       </div>
     `;
 
     DOM.reviewListContainer.appendChild(item);
   });
+}
+
+/* ==========================================================================
+   📥 DOWNLOAD EVALUATION REPORT & FILE SOAL
+   ========================================================================== */
+function downloadEvaluationReport() {
+  const total = State.activeQuestions.length;
+  let correctCount = 0;
+  let wrongCount = 0;
+  let emptyCount = 0;
+  const wrongList = [];
+  const emptyList = [];
+
+  State.activeQuestions.forEach((q, idx) => {
+    const userAns = State.userAnswers[idx];
+    if (userAns === undefined || userAns === null) {
+      emptyCount++;
+      emptyList.push({ no: idx + 1, key: q.correctAnswer, category: q.category || 'Penalaran' });
+    } else if (userAns === q.correctAnswer) {
+      correctCount++;
+    } else {
+      wrongCount++;
+      wrongList.push({ no: idx + 1, userAns: userAns, key: q.correctAnswer, category: q.category || 'Penalaran' });
+    }
+  });
+
+  const scaledScore = total > 0 ? Math.round((correctCount / total) * 1000) : 0;
+  const timeSpentSec = State.totalTimeAllocatedSeconds - State.timeRemainingSeconds;
+  const spentMinutes = Math.floor(timeSpentSec / 60);
+  const spentSeconds = timeSpentSec % 60;
+  const nowStr = new Date().toLocaleString('id-ID', { dateStyle: 'full', timeStyle: 'medium' });
+
+  let text = `================================================================================\n`;
+  text += `               LAPORAN HASIL EVALUASI SIMULASI TES HAIRIL\n`;
+  text += `                 SISTEM UJIAN CAT - PENALARAN UMUM (TPS)\n`;
+  text += `================================================================================\n\n`;
+
+  text += `IDENTITAS PESERTA:\n`;
+  text += `• Nama Peserta     : ${State.userData.name}\n`;
+  text += `• Nomor Peserta    : ${State.userData.id}\n`;
+  text += `• Sesi Token       : ${State.userData.token}\n`;
+  text += `• Subtes / Materi  : ${DOM.examHeaderSubtest ? DOM.examHeaderSubtest.textContent : 'Penalaran Umum'}\n`;
+  text += `• Waktu Ujian      : ${nowStr}\n`;
+  text += `• Durasi Pengerjaan: ${spentMinutes} Menit ${spentSeconds} Detik\n\n`;
+
+  text += `RINGKASAN HASIL EVALUASI:\n`;
+  text += `--------------------------------------------------------------------------------\n`;
+  text += `★ SKOR AKHIR       : ${scaledScore} / 1000\n`;
+  text += `• Total Soal       : ${total}\n`;
+  text += `• Jawaban Benar    : ${correctCount} Soal\n`;
+  text += `• Jawaban Salah    : ${wrongCount} Soal\n`;
+  text += `• Dikosongkan      : ${emptyCount} Soal\n`;
+  text += `--------------------------------------------------------------------------------\n\n`;
+
+  text += `================================================================================\n`;
+  text += `📌 BAGIAN 1: DAFTAR TEMPAT KESALAHAN & SOAL YANG PERLU DIPELAJARI KEMBALI\n`;
+  text += `================================================================================\n`;
+
+  if (wrongList.length === 0 && emptyList.length === 0) {
+    text += `(Sempurna! Anda menjawab semua soal dengan benar 100%)\n\n`;
+  } else {
+    if (wrongList.length > 0) {
+      text += `\n❌ DAFTAR SOAL YANG SALAH (${wrongList.length} Soal):\n`;
+      wrongList.forEach(w => {
+        text += `  • Soal Nomor ${w.no} [${w.category}] : Jawaban Anda '${w.userAns}' (SALAH) -> Kunci Benar '${w.key}'\n`;
+      });
+    }
+
+    if (emptyList.length > 0) {
+      text += `\n⚪ DAFTAR SOAL YANG DIKOSONGKAN (${emptyList.length} Soal):\n`;
+      emptyList.forEach(e => {
+        text += `  • Soal Nomor ${e.no} [${e.category}] : Tidak Dijawab -> Kunci Benar '${e.key}'\n`;
+      });
+    }
+    text += `\n`;
+  }
+
+  text += `================================================================================\n`;
+  text += `📖 BAGIAN 2: RINCIAN SELURUH SOAL, KUNCI JAWABAN & PEMBAHASAN LENGKAP\n`;
+  text += `================================================================================\n\n`;
+
+  State.activeQuestions.forEach((q, idx) => {
+    const userAns = State.userAnswers[idx];
+    const isCorrect = (userAns === q.correctAnswer);
+    const isEmpty = (userAns === undefined || userAns === null);
+    const statusText = isCorrect ? 'BENAR ✓' : (isEmpty ? 'DIKOSONGKAN ⚪' : 'SALAH ❌');
+
+    text += `--------------------------------------------------------------------------------\n`;
+    text += `SOAL NOMOR ${idx + 1} [${q.category || 'Penalaran'}] — Status: ${statusText}\n`;
+    text += `--------------------------------------------------------------------------------\n`;
+    text += `Pertanyaan:\n${q.question}\n\n`;
+
+    if (q.options) {
+      text += `Pilihan Jawaban:\n`;
+      Object.keys(q.options).sort().forEach(k => {
+        let tag = "";
+        if (k === q.correctAnswer) tag += " [KUNCI BENAR]";
+        if (k === userAns) tag += " [JAWABAN ANDA]";
+        text += `  ${k}. ${q.options[k]}${tag}\n`;
+      });
+    }
+
+    text += `\n`;
+    text += `• Jawaban Anda    : ${userAns ? userAns : '(Tidak dijawab)'}\n`;
+    text += `• Kunci Jawaban   : ${q.correctAnswer}\n`;
+    text += `\n💡 PEMBAHASAN:\n${q.explanation || 'Pembahasan tidak tersedia.'}\n\n`;
+  });
+
+  text += `================================================================================\n`;
+  text += `                 AKHIR LAPORAN EVALUASI SIMULASI TES HAIRIL\n`;
+  text += `================================================================================\n`;
+
+  // Trigger Download
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `Hasil_Simulasi_Tes_Hairil_${State.userData.name.replace(/\s+/g, '_')}.txt`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function downloadJsonFile() {
+  const dataToExport = State.examData || {
+    testInfo: { title: "SIMULASI TES HAIRIL", year: "2025/2026" },
+    subtests: [{ id: "pu-pola-hubungan", questions: State.activeQuestions }]
+  };
+
+  const jsonStr = JSON.stringify(dataToExport, null, 2);
+  const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `Bank_Soal_Tes_Hairil.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 function resetAndRestartExam() {
