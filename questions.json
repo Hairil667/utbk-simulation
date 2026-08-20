@@ -1,535 +1,498 @@
 {
   "testInfo": {
     "title": "SIMULASI TES HAIRIL",
-    "subtitle": "Penalaran Umum (TPS) - Pola dan Hubungan",
+    "subtitle": "Penalaran Umum (TPS UTBK-SNBT Standar BPPP)",
     "year": "2025 / 2026",
-    "defaultTimeMinutes": 30
+    "defaultTimeMinutes": 60
   },
   "subtests": [
     {
-      "id": "pu-pola-a",
-      "name": "Paket A: Pola dan Hubungan (20 Soal)",
+      "id": "pu-lengkap-40",
+      "name": "Penalaran Umum UTBK Lengkap (40 Soal - 60 Menit)",
       "category": "Penalaran Umum",
-      "subcategory": "Pola dan Hubungan",
-      "timeMinutes": 30,
+      "subcategory": "Deduktif, Induktif, & Kuantitatif",
+      "timeMinutes": 60,
       "questions": [
         {
           "id": 1,
-          "category": "Pola Angka",
-          "question": "Perhatikan barisan bilangan berikut:\n3,  7,  11,  15,  19,  ...\n\nBilangan yang tepat untuk melanjutkan barisan tersebut adalah...",
+          "category": "Penalaran Deduktif",
+          "question": "Jika seorang siswa rajin berlatih soal UTBK setiap hari, maka pemahaman konsepnya akan meningkat secara signifikan. Jika pemahaman konsep meningkat secara signifikan, maka peluang lolos di PTN impian semakin besar.\n\nFakta: Andi rajin berlatih soal UTBK setiap hari.\n\nKesimpulan yang paling tepat adalah...",
           "options": {
-            "A": "21",
-            "B": "22",
-            "C": "23",
-            "D": "24",
-            "E": "25"
+            "A": "Andi pasti diterima di program studi kedokteran.",
+            "B": "Peluang Andi lolos di PTN impian semakin besar.",
+            "C": "Pemahaman konsep Andi tidak mengalami perubahan.",
+            "D": "Andi tidak perlu lagi belajar materi TPS lainnya.",
+            "E": "Andi hanya belajar jika ada ujian simulasi."
           },
-          "correctAnswer": "C",
-          "explanation": "Pola barisan adalah penjumlahan konstan (+4):\n3 (+4) -> 7 (+4) -> 11 (+4) -> 15 (+4) -> 19 (+4) -> 23.\n\nKunci Jawaban: C (23)."
+          "correctAnswer": "B",
+          "explanation": "Berdasarkan prinsip silogisme hipotetis:\nPremis 1: P -> Q\nPremis 2: Q -> R\nKonklusi: P -> R (Jika rajin berlatih, maka peluang lolos PTN semakin besar).\nKarena Andi rajin berlatih (P), maka peluang Andi lolos di PTN impian semakin besar (R).\n\nKunci Jawaban: B."
         },
         {
           "id": 2,
-          "category": "Pola Hubungan Objek",
-          "question": "DOKTER : STETOSKOP = KOKI : ...",
+          "category": "Penalaran Deduktif",
+          "question": "Premis: Jika pasokan beras di pasar melimpah, maka harga beras akan stabil.\nFakta: Saat ini harga beras mengalami lonjakan tinggi (tidak stabil).\n\nSimpulan yang mutlak benar adalah...",
           "options": {
-            "A": "Restoran",
-            "B": "Pisau Masak",
-            "C": "Makanan",
-            "D": "Celemek",
-            "E": "Pelayan"
+            "A": "Pasokan beras di pasar melimpah.",
+            "B": "Pasokan beras di pasar tidak melimpah.",
+            "C": "Petani mengalami gagal panen total.",
+            "D": "Pemerintah mengimpor beras dari luar negeri.",
+            "E": "Daya beli masyarakat mengalami penurunan drastis."
           },
           "correctAnswer": "B",
-          "explanation": "Hubungan analogi: Subjek/Profesi dan alat kerja utamanya.\nDokter menggunakan stetoskop untuk memeriksa pasien, sedangkan Koki menggunakan pisau masak untuk mengolah masakan.\n\nKunci Jawaban: B (Pisau Masak)."
+          "explanation": "Menggunakan aturan Modus Tollens:\nPremis: P -> Q\nFakta: ~Q (Harga beras tidak stabil)\nKesimpulan: ~P (Pasokan beras di pasar tidak melimpah).\n\nKunci Jawaban: B."
         },
         {
           "id": 3,
-          "category": "Pola Angka",
-          "question": "Perhatikan deret angka berikut:\n2,  6,  18,  54,  ...\n\nAngka yang paling tepat untuk mengisi kelanjutan deret di atas adalah...",
+          "category": "Penalaran Deduktif",
+          "question": "Premis 1: Semua atlet pelatnas memiliki stamina fisik yang prima.\nPremis 2: Sebagian atlet pelatnas adalah mahasiswa perguruan tinggi negeri.\n\nKesimpulan yang paling sah adalah...",
           "options": {
-            "A": "108",
-            "B": "144",
-            "C": "152",
-            "D": "162",
-            "E": "172"
+            "A": "Semua mahasiswa perguruan tinggi negeri memiliki stamina fisik yang prima.",
+            "B": "Sebagian mahasiswa perguruan tinggi negeri memiliki stamina fisik yang prima.",
+            "C": "Semua atlet yang memiliki stamina fisik prima adalah mahasiswa.",
+            "D": "Mahasiswa yang bukan atlet tidak memiliki stamina fisik yang prima.",
+            "E": "Tidak ada atlet pelatnas yang bukan mahasiswa."
           },
-          "correctAnswer": "D",
-          "explanation": "Pola barisan adalah perkalian konstan (x3):\n2 (x3) -> 6 (x3) -> 18 (x3) -> 54 (x3) -> 162.\n\nKunci Jawaban: D (162)."
+          "correctAnswer": "B",
+          "explanation": "Kombinasi kuantor universal (Semua) dan partikular (Sebagian):\nSebagian atlet pelatnas adalah mahasiswa. Karena semua atlet pelatnas berstamina prima, maka sebagian mahasiswa perguruan tinggi negeri tersebut memiliki stamina fisik yang prima.\n\nKunci Jawaban: B."
         },
         {
           "id": 4,
-          "category": "Pola Hubungan Hirarki",
-          "question": "DETIK : MENIT = MENIT : ...",
+          "category": "Penalaran Deduktif",
+          "question": "Premis 1: Tidak ada peserta ujian yang diperbolehkan membawa telepon genggam ke dalam ruangan.\nPremis 2: Sebagian orang yang berada di dalam ruangan adalah peserta ujian.\n\nKesimpulan yang benar adalah...",
           "options": {
-            "A": "Waktu",
-            "B": "Arloji",
-            "C": "Jam",
-            "D": "Hari",
-            "E": "Kalender"
+            "A": "Semua orang di dalam ruangan membawa telepon genggam.",
+            "B": "Pengawas ujian dilarang masuk ke dalam ruangan.",
+            "C": "Sebagian orang di dalam ruangan tidak diperbolehkan membawa telepon genggam.",
+            "D": "Semua orang di dalam ruangan tidak membawa telepon genggam.",
+            "E": "Peserta ujian boleh membawa telepon genggam jika dinonaktifkan."
           },
           "correctAnswer": "C",
-          "explanation": "Hubungan satuan ukuran waktu ke tingkat berikutnya:\nKumpulan 60 detik membentuk 1 menit, dan kumpulan 60 menit membentuk 1 jam.\n\nKunci Jawaban: C (Jam)."
+          "explanation": "Karena sebagian orang di dalam ruangan adalah peserta ujian, dan setiap peserta ujian dilarang membawa telepon genggam, maka sebagian orang di dalam ruangan tersebut tidak diperbolehkan membawa telepon genggam.\n\nKunci Jawaban: C."
         },
         {
           "id": 5,
-          "category": "Pola Pasangan Bilangan",
-          "question": "Perhatikan pola hubungan pasangan bilangan berikut:\n(2 -> 5),  (4 -> 9),  (7 -> 15),  (10 -> ...)\n\nBilangan yang tepat untuk melengkapi pasangan terakhir adalah...",
+          "category": "Logika Posisi & Urutan",
+          "question": "Lima orang (A, B, C, D, E) duduk berderet menghadap panggung:\n• B berada tepat di sebelah kanan A.\n• C berada di antara B dan D.\n• E berada di ujung paling kiri.\n\nUrutan posisi duduk mereka dari kiri ke kanan adalah...",
           "options": {
-            "A": "19",
-            "B": "20",
-            "C": "21",
-            "D": "22",
-            "E": "23"
+            "A": "E, A, B, C, D",
+            "B": "E, B, A, C, D",
+            "C": "A, B, C, D, E",
+            "D": "E, A, C, B, D",
+            "E": "E, C, B, A, D"
           },
-          "correctAnswer": "C",
-          "explanation": "Pola hubungan fungsi: y = 2x + 1\n• (2 x 2) + 1 = 5\n• (4 x 2) + 1 = 9\n• (7 x 2) + 1 = 15\n• (10 x 2) + 1 = 21.\n\nKunci Jawaban: C (21)."
+          "correctAnswer": "A",
+          "explanation": "Analisis posisi duduk:\n1. E berada di ujung paling kiri -> Urutan: [E, _, _, _, _]\n2. B di sebelah kanan A -> [A, B]\n3. C di antara B dan D -> [B, C, D]\nDigabungkan: E, A, B, C, D.\n\nKunci Jawaban: A."
         },
         {
           "id": 6,
-          "category": "Pola Deret Fibonacci",
-          "question": "Diberikan barisan bilangan sebagai berikut:\n1,  2,  3,  5,  8,  13,  21,  ...\n\nNilai bilangan selanjutnya pada barisan tersebut adalah...",
+          "category": "Logika Posisi & Urutan",
+          "question": "Dalam sebuah ujian simulasi UTBK:\n• Nilai Rian lebih tinggi daripada nilai Dimas.\n• Nilai Bagas lebih tinggi daripada nilai Rian.\n• Nilai Fajar lebih rendah daripada nilai Dimas, tetapi lebih tinggi daripada nilai Gilang.\n\nUrutan peserta dari yang memperoleh nilai tertinggi ke terendah adalah...",
           "options": {
-            "A": "29",
-            "B": "31",
-            "C": "34",
-            "D": "36",
-            "E": "42"
+            "A": "Bagas, Rian, Dimas, Fajar, Gilang",
+            "B": "Bagas, Dimas, Rian, Fajar, Gilang",
+            "C": "Rian, Bagas, Dimas, Gilang, Fajar",
+            "D": "Bagas, Rian, Fajar, Dimas, Gilang",
+            "E": "Gilang, Fajar, Dimas, Rian, Bagas"
           },
-          "correctAnswer": "C",
-          "explanation": "Pola barisan Fibonacci (setiap suku merupakan penjumlahan dari dua suku sebelumnya):\n• 1 + 2 = 3\n• 2 + 3 = 5\n• 3 + 5 = 8\n• 5 + 8 = 13\n• 8 + 13 = 21\n• 13 + 21 = 34.\n\nKunci Jawaban: C (34)."
+          "correctAnswer": "A",
+          "explanation": "Hubungan pertidaksamaan nilai:\n• Bagas > Rian > Dimas\n• Dimas > Fajar > Gilang\nPenggabungan lengkap: Bagas > Rian > Dimas > Fajar > Gilang.\n\nKunci Jawaban: A."
         },
         {
           "id": 7,
-          "category": "Pola Sebab-Akibat",
-          "question": "KEMARAU : KEKERINGAN = HUJAN LEBAT : ...",
+          "category": "Penalaran Deduktif",
+          "question": "Premis 1: Seseorang yang bepergian ke luar negeri harus menggunakan paspor reguler atau paspor elektronik.\nPremis 2: Farhan bepergian ke luar negeri dan ia tidak menggunakan paspor reguler.\n\nKesimpulan yang paling tepat adalah...",
           "options": {
-            "A": "Payung",
-            "B": "Mendung",
-            "C": "Banjir",
-            "D": "Dingin",
-            "E": "Petir"
+            "A": "Farhan bepergian tanpa dokumen resmi.",
+            "B": "Farhan menggunakan paspor elektronik.",
+            "C": "Farhan ditolak oleh pihak imigrasi bandara.",
+            "D": "Farhan bepergian secara ilegal.",
+            "E": "Farhan memperpanjang paspor lamanya."
           },
-          "correctAnswer": "C",
-          "explanation": "Hubungan fenomena alam dan dampak langsung yang diakibatkan:\nKemarau berkepanjangan menyebabkan kekeringan, sedangkan hujan lebat yang terus-menerus menyebabkan banjir.\n\nKunci Jawaban: C (Banjir)."
+          "correctAnswer": "B",
+          "explanation": "Silogisme Disjungtif: P v Q, ~P, maka Q.\nKarena Farhan tidak menggunakan paspor reguler (~P), maka ia pasti menggunakan paspor elektronik (Q).\n\nKunci Jawaban: B."
         },
         {
           "id": 8,
-          "category": "Pola Deret Berselang",
-          "question": "Perhatikan deret angka berselang berikut:\n5,  12,  8,  15,  11,  18,  14,  ...\n\nAngka yang tepat untuk mengisi posisi selanjutnya adalah...",
+          "category": "Penalaran Deduktif",
+          "question": "Premis: Jika sebuah mobil rutin diservis atau menggunakan bahan bakar berkualitas tinggi, maka mesin mobil tidak mudah rusak.\nFakta: Mesin mobil Pak Budi ternyata mudah rusak.\n\nSimpulan yang benar adalah...",
           "options": {
-            "A": "17",
-            "B": "19",
-            "C": "21",
-            "D": "23",
-            "E": "25"
+            "A": "Mobil Pak Budi rutin diservis tetapi memakai bahan bakar buruk.",
+            "B": "Mobil Pak Budi tidak rutin diservis dan tidak menggunakan bahan bakar berkualitas tinggi.",
+            "C": "Mobil Pak Budi sering digunakan menempuh perjalanan jauh.",
+            "D": "Mobil Pak Budi merupakan keluaran tahun lama.",
+            "E": "Mobil Pak Budi diservis di bengkel tidak resmi."
           },
-          "correctAnswer": "C",
-          "explanation": "Pola berselang (dua larik deret):\n• Larik 1 (urutan ganjil): 5 (+3) -> 8 (+3) -> 11 (+3) -> 14\n• Larik 2 (urutan genap): 12 (+3) -> 15 (+3) -> 18 (+3) -> 21.\nSuku berikutnya berada pada posisi genap (ke-8), sehingga nilainya 18 + 3 = 21.\n\nKunci Jawaban: C (21)."
+          "correctAnswer": "B",
+          "explanation": "Hukum De Morgan & Modus Tollens:\nPremis: (P v Q) -> R\nFakta: ~R (mesin mudah rusak)\nKonklusi: ~(P v Q) = ~P ^ ~Q (Mobil tidak rutin diservis DAN tidak memakai bahan bakar berkualitas tinggi).\n\nKunci Jawaban: B."
         },
         {
           "id": 9,
-          "category": "Pola Operasi Bangun",
-          "question": "Pada sebuah segitiga pertama, angka di ketiga sudutnya adalah 4 (kiri), 5 (kanan), dan 3 (bawah) dengan angka di tengah bernilai 23.\n\nJika pada segitiga kedua berlaku pola operasi yang sama dengan angka sudut 6 (kiri), 7 (kanan), dan 5 (bawah), maka angka di bagian tengah segitiga kedua adalah...",
+          "category": "Penalaran Deduktif Teks",
+          "question": "Kementerian Kesehatan menyatakan bahwa konsumsi gula berlebih merupakan faktor utama pemicu diabetes melitus tipe 2. Namun, individu yang rutin melakukan aktivitas fisik aerobik minimal 150 menit per minggu terbukti memiliki risiko 40% lebih rendah terkena diabetes meskipun sesekali mengonsumsi makanan manis.\n\nBerdasarkan teks tersebut, pernyataan manakah yang PASTI BENAR?",
           "options": {
-            "A": "37",
-            "B": "42",
-            "C": "45",
-            "D": "47",
-            "E": "52"
+            "A": "Semua penderita diabetes tidak pernah berolahraga aerobik.",
+            "B": "Aktivitas fisik aerobik teratur dapat membantu menurunkan risiko terkena diabetes tipe 2.",
+            "C": "Orang yang tidak mengonsumsi gula dijamin 100% bebas dari diabetes.",
+            "D": "Makanan manis tidak berdampak buruk sama sekali jika seseorang berolahraga.",
+            "E": "Usia produktif adalah satu-satunya kelompok yang berisiko terkena diabetes."
           },
-          "correctAnswer": "D",
-          "explanation": "Pola operasi segitiga:\nTengah = (Sudut Kiri x Sudut Kanan) + Sudut Bawah\n• Segitiga 1: (4 x 5) + 3 = 20 + 3 = 23 (Sesuai)\n• Segitiga 2: (6 x 7) + 5 = 42 + 5 = 47.\n\nKunci Jawaban: D (47)."
+          "correctAnswer": "B",
+          "explanation": "Berdasarkan teks secara eksplisit: 'individu yang rutin melakukan aktivitas fisik aerobik... terbukti memiliki risiko 40% lebih rendah terkena diabetes'. Maka pernyataan B pasti benar.\n\nKunci Jawaban: B."
         },
         {
           "id": 10,
-          "category": "Pola Hubungan Bahan Baku",
-          "question": "KAYU : MEJA = GANDUM : ...",
+          "category": "Penalaran Syarat Mutlak",
+          "question": "Aturan: Seorang pelamar kerja dinyatakan lolos seleksi berkas jika dan hanya jika memiliki IPK minimal 3,25 dan melampirkan sertifikat TOEFL dengan skor minimal 500.\n\nFakta: Reza memiliki IPK 3,60 tetapi sertifikat TOEFL miliknya memiliki skor 475.\n\nKesimpulan tentang status Reza adalah...",
           "options": {
-            "A": "Ladang",
-            "B": "Roti",
-            "C": "Beras",
-            "D": "Petani",
-            "E": "Oven"
+            "A": "Reza lolos seleksi berkas karena IPK-nya sangat tinggi.",
+            "B": "Reza tidak lolos seleksi berkas karena syarat skor TOEFL minimal tidak terpenuhi.",
+            "C": "Reza langsung diterima tanpa tes wawancara.",
+            "D": "Reza dapat mengganti skor TOEFL dengan surat rekomendasi.",
+            "E": "Kelulusan seleksi berkas Reza ditunda hingga tahun depan."
           },
           "correctAnswer": "B",
-          "explanation": "Hubungan analogi: Bahan baku utama dan produk olahan yang dihasilkan.\nKayu diolah menjadi meja, sedangkan gandum diolah menjadi roti.\n\nKunci Jawaban: B (Roti)."
+          "explanation": "Syarat menggunakan konjungsi 'DAN' (keduanya wajib terpenuhi). Karena skor TOEFL Reza (475) berada di bawah ambang batas minimal (500), maka Reza tidak lolos seleksi berkas.\n\nKunci Jawaban: B."
         },
         {
           "id": 11,
-          "category": "Pola Huruf Bertingkat",
-          "question": "Perhatikan pola barisan huruf berikut:\nB,  D,  G,  K,  P,  ...\n\nHuruf selanjutnya yang tepat untuk melengkapi barisan di atas adalah...",
+          "category": "Logika Waktu & Jadwal",
+          "question": "Empat orang dokter (dr. Anton, dr. Budi, dr. Citra, dr. Dina) bertugas jaga di klinik dari Senin sampai Kamis (masing-masing 1 hari):\n• dr. Anton bertugas dua hari setelah dr. Citra.\n• dr. Budi bertugas pada hari Senin.\n\nPada hari apakah dr. Dina bertugas jaga?",
           "options": {
-            "A": "T",
-            "B": "U",
-            "C": "V",
-            "D": "W",
-            "E": "X"
+            "A": "Senin",
+            "B": "Selasa",
+            "C": "Rabu",
+            "D": "Kamis",
+            "E": "Jumat"
           },
           "correctAnswer": "C",
-          "explanation": "Pola lompatan urutan alfabet bertingkat (+2, +3, +4, +5, +6):\n• B (2) +2 = D (4)\n• D (4) +3 = G (7)\n• G (7) +4 = K (11)\n• K (11) +5 = P (16)\n• P (16) +6 = V (22).\n\nKunci Jawaban: C (V)."
+          "explanation": "Pemetaan hari:\n• Senin: dr. Budi\n• Tersisa: Selasa, Rabu, Kamis.\n• dr. Anton bertugas 2 hari setelah dr. Citra -> dr. Citra = Selasa, dr. Anton = Kamis.\n• Hari yang tersisa untuk dr. Dina adalah hari Rabu.\n\nKunci Jawaban: C."
         },
         {
           "id": 12,
-          "category": "Pola Matriks / Tabel",
-          "question": "Perhatikan susunan bilangan pada tabel berikut:\nBaris 1 :  3    7   ->  20\nBaris 2 :  5    6   ->  22\nBaris 3 :  4    9   ->  ?\n\nJika pola hubungan bilangan pada setiap baris adalah sama, nilai pengganti tanda tanya (?) adalah...",
+          "category": "Penalaran Deduktif",
+          "question": "Premis 1: Semua mamalia bernapas menggunakan paru-paru.\nPremis 2: Ikan paus adalah mamalia air.\n\nSimpulan yang sah adalah...",
           "options": {
-            "A": "24",
-            "B": "25",
-            "C": "26",
-            "D": "28",
-            "E": "30"
+            "A": "Ikan paus bernapas dengan insang karena hidup di air.",
+            "B": "Ikan paus bernapas menggunakan paru-paru.",
+            "C": "Sebagian mamalia bernapas dengan insang.",
+            "D": "Semua hewan yang hidup di air bernapas dengan paru-paru.",
+            "E": "Ikan paus tidak memerlukan oksigen untuk bertahan hidup."
           },
-          "correctAnswer": "C",
-          "explanation": "Pola operasi per baris:\nHasil = (Kolom 1 + Kolom 2) x 2\n• Baris 1: (3 + 7) x 2 = 10 x 2 = 20\n• Baris 2: (5 + 6) x 2 = 11 x 2 = 22\n• Baris 3: (4 + 9) x 2 = 13 x 2 = 26.\n\nKunci Jawaban: C (26)."
+          "correctAnswer": "B",
+          "explanation": "Silogisme kategori:\nSemua mamalia bernapas dengan paru-paru. Ikan paus adalah mamalia. Maka ikan paus bernapas menggunakan paru-paru.\n\nKunci Jawaban: B."
         },
         {
           "id": 13,
-          "category": "Pola Hubungan Kompleks",
-          "question": "PILIHAN GANDA : UJIAN : NILAI = ... : ... : ...",
+          "category": "Penalaran Deduktif",
+          "question": "Premis 1: Jika curah hujan tinggi, maka debit air sungai meningkat.\nPremis 2: Jika debit air sungai meningkat, maka pintu air bendungan dibuka.\nPremis 3: Jika pintu air bendungan dibuka, maka area hilir tergenang air.\n\nFakta: Area hilir TIDAK tergenang air.\n\nKesimpulan yang paling tepat adalah...",
           "options": {
-            "A": "Suara : Pemilu : Pemenang",
-            "B": "Pensil : Kertas : Tulisan",
-            "C": "Bahan : Resep : Masakan",
-            "D": "Roda : Sepeda : Kecepatan",
-            "E": "Pertandingan : Wasit : Skor"
+            "A": "Curah hujan tinggi.",
+            "B": "Pintu air bendungan tetap dibuka.",
+            "C": "Curah hujan tidak tinggi.",
+            "D": "Debit air sungai meningkat secara drastis.",
+            "E": "Bendungan mengalami kebocoran tanggul."
           },
-          "correctAnswer": "A",
-          "explanation": "Hubungan analogi 3 komponen:\n(Instrumen/Media masukan) digunakan dalam (Kegiatan/Proses utama) untuk menghasilkan (Hasil akhir/Evaluasi).\nPilihan ganda digunakan dalam Ujian untuk menghasilkan Nilai;\nSuara digunakan dalam Pemilu untuk menentukan Pemenang.\n\nKunci Jawaban: A (Suara : Pemilu : Pemenang)."
+          "correctAnswer": "C",
+          "explanation": "Rantai implikasi: Curah hujan tinggi -> Area hilir tergenang.\nFakta: Area hilir TIDAK tergenang air (~R).\nDengan Modus Tollens: Curah hujan TIDAK tinggi (~P).\n\nKunci Jawaban: C."
         },
         {
           "id": 14,
-          "category": "Pola Bangun Segiempat",
-          "question": "Diberikan bangun segiempat dengan 4 angka di setiap sudutnya (A=kiri atas, B=kanan atas, C=kiri bawah, D=kanan bawah) dan angka di tengahnya:\n• Bangun 1: Sudut (8, 5, 4, 3) -> Tengah = 28\n• Bangun 2: Sudut (9, 6, 5, 4) -> Tengah = 34\n• Bangun 3: Sudut (10, 7, 6, 5) -> Tengah = ?\n\nBerdasarkan pola tersebut, nilai tengah pada Bangun 3 adalah...",
+          "category": "Logika Kejujuran & Kebohongan",
+          "question": "Adi dan Beno berbicara tentang hari:\n• Adi berkata jujur pada Senin, Selasa, Rabu; dan berbohong pada hari lainnya.\n• Beno berkata jujur pada Kamis, Jumat, Sabtu; dan berbohong pada hari lainnya.\n\nSuatu hari Adi berkata: 'Kemarin adalah hari di mana aku berbohong.'\nBeno menimpali: 'Kemarin adalah hari di mana aku juga berbohong.'\n\nPada hari apakah percakapan tersebut terjadi?",
           "options": {
-            "A": "36",
-            "B": "38",
-            "C": "40",
-            "D": "42",
-            "E": "44"
+            "A": "Senin",
+            "B": "Rabu",
+            "C": "Kamis",
+            "D": "Jumat",
+            "E": "Minggu"
           },
           "correctAnswer": "C",
-          "explanation": "Pola operasi segiempat:\nNilai Tengah = (A x B) - (C x D)\n• Bangun 1: (8 x 5) - (4 x 3) = 40 - 12 = 28\n• Bangun 2: (9 x 6) - (5 x 4) = 54 - 20 = 34\n• Bangun 3: (10 x 7) - (6 x 5) = 70 - 30 = 40.\n\nKunci Jawaban: C (40)."
+          "explanation": "Analisis hari Kamis:\n• Adi di hari Kamis sedang dalam status berbohong. Pada hari Rabu (kemarin) ia sebenarnya jujur, sehingga ucapan 'kemarin aku berbohong' adalah suatu kebohongan (cocok dengan sifatnya di hari Kamis).\n• Beno di hari Kamis berstatus jujur. Pada hari Rabu (kemarin) ia memang berbohong, sehingga ucapan 'kemarin aku berbohong' adalah pernyataan yang jujur.\nMaka percakapan terjadi pada hari Kamis.\n\nKunci Jawaban: C."
         },
         {
           "id": 15,
-          "category": "Pola Alfanumerik",
-          "question": "Perhatikan pola kombinasi angka dan huruf berikut:\n2A,  5C,  10F,  17J,  ...\n\nPasangan angka dan huruf berikutnya yang tepat adalah...",
+          "category": "Penalaran Induktif Teks",
+          "question": "Sebuah penelitian di bidang pertanian menunjukkan bahwa penggunaan pupuk organik cair dari limbah kulit pisang dapat mempercepat masa panen tanaman cabai rawit sebesar 25% dibandingkan penggunaan pupuk kimia standar.\n\nManakah pernyataan di bawah ini yang jika benar akan PALING MEMPERKUAT hasil penelitian tersebut?",
           "options": {
-            "A": "24N",
-            "B": "25N",
-            "C": "26O",
-            "D": "26P",
-            "E": "27O"
+            "A": "Harga pupuk kimia di pasaran mengalami kenaikan drastis.",
+            "B": "Kulit pisang kaya akan kalium dan fosfor hayati yang merangsang pembelahan sel akar dan pembentukan bunga cabai secara optimal.",
+            "C": "Sebagian petani cabai lebih menyukai pupuk berbentuk butiran padat.",
+            "D": "Tanaman tomat juga memerlukan pasokan kalium dalam jumlah banyak.",
+            "E": "Produksi cabai rawit nasional sempat mengalami penurunan saat musim kemarau."
           },
-          "correctAnswer": "C",
-          "explanation": "Pola terdiri dari dua komponen simultan:\n1. Angka (selisih ganjil bertingkat +3, +5, +7, +9):\n   2 (+3) -> 5 (+5) -> 10 (+7) -> 17 (+9) -> 26.\n2. Huruf (selisih posisi alfabet +2, +3, +4, +5):\n   A (1) +2 -> C (3) +3 -> F (6) +4 -> J (10) +5 -> O (15).\n\nGabungan keduanya menghasilkan 26O.\n\nKunci Jawaban: C (26O)."
+          "correctAnswer": "B",
+          "explanation": "Pilihan B memberikan penjelasan mekanisme biologis dan ilmiah yang membuktikan mengapa pupuk kulit pisang mampu mempercepat panen, sehingga memperkuat argumen hasil penelitian secara signifikan.\n\nKunci Jawaban: B."
         },
         {
           "id": 16,
-          "category": "Pola Deret Majemuk",
-          "question": "Perhatikan barisan bilangan berikut:\n3,  4,  8,  9,  18,  19,  38,  ...\n\nBilangan yang tepat untuk melanjutkan deret tersebut adalah...",
+          "category": "Penalaran Induktif Teks",
+          "question": "Seorang pakar tata kota berpendapat bahwa penerapan tarif parkir progresif yang sangat mahal di pusat kota akan secara otomatis memaksa mayoritas pemilik mobil beralih menggunakan transportasi umum.\n\nManakah pernyataan berikut yang PALING MEMPERLEMAH pendapat pakar tersebut?",
           "options": {
-            "A": "39",
-            "B": "40",
-            "C": "76",
-            "D": "77",
-            "E": "78"
+            "A": "Jumlah armada bus kota telah ditambah sebesar 30%.",
+            "B": "Sebagian besar gedung perkantoran di pusat kota memberikan fasilitas subsidi parkir gratis penuh bagi karyawannya.",
+            "C": "Tingkat polusi udara di pusat kota berkurang pada akhir pekan.",
+            "D": "Tarif transportasi umum saat ini tergolong sangat terjangkau bagi masyarakat.",
+            "E": "Pengendara sepeda motor memilih jalan alternatif untuk menghindari kemacetan."
           },
-          "correctAnswer": "A",
-          "explanation": "Pola operasi berulang (+1, lalu x2):\n• 3 (+1) = 4\n• 4 (x2) = 8\n• 8 (+1) = 9\n• 9 (x2) = 18\n• 18 (+1) = 19\n• 19 (x2) = 38\n• 38 (+1) = 39.\n\nKunci Jawaban: A (39)."
+          "correctAnswer": "B",
+          "explanation": "Jika kantor menyediakan subsidi parkir gratis penuh (Pilihan B), maka mahalnya tarif parkir kota tidak akan dirasakan oleh pemilik mobil, sehingga mereka tidak akan beralih ke transportasi umum. Hal ini melemahkan klaim pakar.\n\nKunci Jawaban: B."
         },
         {
           "id": 17,
-          "category": "Pola Diagram Relasi",
-          "question": "Diberikan tiga diagram lingkaran dengan pola bilangan terpusat:\n• Diagram 1: Angka Luar (14, 6, 2) -> Pusat = 10\n• Diagram 2: Angka Luar (25, 15, 4) -> Pusat = 10\n• Diagram 3: Angka Luar (36, 18, 6) -> Pusat = ?\n\nJika aturan operasi bilangan pada ketiga diagram adalah sama, nilai pusat pada Diagram 3 adalah...",
+          "category": "Penalaran Induktif Teks",
+          "question": "Data asosiasi e-commerce mencatat transaksi belanja daring produk kecantikan melonjak 65% pada kuartal pertama tahun ini. Peningkatan pesat ini didorong oleh maraknya siaran langsung interaktif (live shopping) oleh pembuat konten yang memberikan demonstrasi produk secara langsung kepada calon pembeli.\n\nSimpulan yang PALING MUNGKIN BENAR berdasarkan kutipan di atas adalah...",
           "options": {
-            "A": "7",
-            "B": "8",
-            "C": "9",
-            "D": "10",
-            "E": "12"
+            "A": "Toko kosmetik fisik telah kehilangan seluruh pelanggannya secara permanen.",
+            "B": "Metode promosi interaktif melalui live streaming berkontribusi nyata terhadap peningkatan transaksi produk kecantikan daring.",
+            "C": "Seluruh konsumen kini hanya membeli kosmetik melalui siaran langsung.",
+            "D": "Kualitas kosmetik daring selalu lebih baik daripada kosmetik toko fisik.",
+            "E": "Pembuat konten hanya mempromosikan produk kecantikan merek luar negeri."
           },
-          "correctAnswer": "C",
-          "explanation": "Pola operasi diagram lingkaran:\nNilai Pusat = (Angka 1 + Angka 2) / Angka 3\n• Diagram 1: (14 + 6) / 2 = 20 / 2 = 10\n• Diagram 2: (25 + 15) / 4 = 40 / 4 = 10\n• Diagram 3: (36 + 18) / 6 = 54 / 6 = 9.\n\nKunci Jawaban: C (9)."
+          "correctAnswer": "B",
+          "explanation": "Kutipan menyebutkan lonjakan 65% didorong oleh siaran live shopping. Maka simpulan paling terukur dan akurat adalah bahwa metode promosi interaktif tersebut berkontribusi nyata terhadap peningkatan transaksi.\n\nKunci Jawaban: B."
         },
         {
           "id": 18,
-          "category": "Pola Sebab-Akibat Ganda",
-          "question": "VIRUS : INFEKSI : VAKSIN = ... : ... : ...",
+          "category": "Penalaran Sebab-Akibat",
+          "question": "Perhatikan dua pernyataan berikut:\n(1) Pemerintah kota memperluas jalur sepeda terproteksi dan trotoar pejalan kaki di sepanjang jalan utama.\n(2) Jumlah warga yang bersepeda dan berjalan kaki menuju tempat kerja meningkat signifikan dalam enam bulan terakhir.\n\nHubungan yang paling tepat antara kedua pernyataan adalah...",
           "options": {
-            "A": "Api : Kebakaran : Alat Pemadam",
-            "B": "Air : Banjir : Hujan",
-            "C": "Polusi : Udara : Masker",
-            "D": "Bakteri : Sakit : Dokter",
-            "E": "Minyak : Licin : Sabun"
+            "A": "Pernyataan (1) adalah penyebab dan Pernyataan (2) adalah akibat.",
+            "B": "Pernyataan (2) adalah penyebab dan Pernyataan (1) adalah akibat.",
+            "C": "Pernyataan (1) dan (2) adalah akibat dari suatu penyebab yang sama.",
+            "D": "Pernyataan (1) dan (2) adalah penyebab yang berdiri sendiri.",
+            "E": "Pernyataan (1) dan (2) adalah akibat dari dua faktor yang tidak saling berkaitan."
           },
           "correctAnswer": "A",
-          "explanation": "Hubungan analogi sebab-dampak-solusi/proteksi:\n(Sumber ancaman) menyebabkan (Kondisi bahaya/gangguan) yang dicegah atau ditangani dengan (Alat proteksi/pemadam).\nVirus menyebabkan infeksi yang dicegah dengan vaksin;\nApi menyebabkan kebakaran yang diatasi/dipadamkan dengan alat pemadam.\n\nKunci Jawaban: A (Api : Kebakaran : Alat Pemadam)."
+          "explanation": "Penyediaan fasilitas jalur sepeda dan trotoar yang aman (1) menjadi faktor pemicu/penyebab meningkatnya partisipasi warga bersepeda dan berjalan kaki (2).\n\nKunci Jawaban: A."
         },
         {
           "id": 19,
-          "category": "Pola Huruf Dua Arah",
-          "question": "Diberikan deret huruf berikut:\nA,  Z,  C,  X,  F,  U,  J,  ...\n\nHuruf yang paling tepat untuk mengisi posisi berikutnya adalah...",
+          "category": "Penalaran Sebab-Akibat",
+          "question": "Perhatikan dua pernyataan berikut:\n(1) Harga pakan ternak berbahan dasar jagung impor melonjak sebesar 40%.\n(2) Harga daging ayam potong dan telur ayam di pasar tradisional mengalami kenaikan signifikan.\n\nHubungan antara kedua pernyataan tersebut adalah...",
           "options": {
-            "A": "P",
-            "B": "Q",
-            "C": "R",
-            "D": "S",
-            "E": "T"
+            "A": "Pernyataan (1) adalah akibat dan Pernyataan (2) adalah penyebab.",
+            "B": "Pernyataan (1) adalah penyebab dan Pernyataan (2) adalah akibat.",
+            "C": "Pernyataan (1) dan (2) adalah akibat dari dua faktor yang saling bertentangan.",
+            "D": "Pernyataan (1) dan (2) adalah akibat dari penyebab yang sama yaitu musim hujan.",
+            "E": "Pernyataan (1) dan (2) adalah penyebab yang tidak berhubungan."
           },
           "correctAnswer": "B",
-          "explanation": "Pola deret berselang dua arah (maju dan mundur):\n• Posisi ganjil (alfabet maju): A (1) +2 -> C (3) +3 -> F (6) +4 -> J (10)\n• Posisi genap (alfabet mundur): Z (26) -2 -> X (24) -3 -> U (21) -4 -> Q (17).\n\nPosisi berikutnya adalah suku genap ke-8, yaitu 21 - 4 = 17 (Huruf Q).\n\nKunci Jawaban: B (Q)."
+          "explanation": "Kenaikan biaya pakan ternak (komponen biaya produksi utama peternak) merupakan penyebab langsung naiknya harga jual daging ayam dan telur di pasar (akibat).\n\nKunci Jawaban: B."
         },
         {
           "id": 20,
-          "category": "Pola Operasi Silang Analitis",
-          "question": "Diberikan dua diagram susunan bilangan dengan pola operasi identik:\n• Diagram A: Empat bilangan di sudutnya adalah 7, 4, 3, dan 5 dengan angka pusat bernilai 43 (didapat dari perkalian silang: [7 x 4] + [3 x 5] = 28 + 15 = 43).\n\nJika pada Diagram B memiliki angka sudut 8, 6, 4, dan 5 dengan aturan pola yang sama, maka angka di pusat Diagram B adalah...",
+          "category": "Penalaran Induktif Teks",
+          "question": "Studi psikologi pendidikan menemukan bahwa siswa yang tidur malam secara cukup (7–8 jam) memiliki kemampuan konsentrasi dan pemecahan masalah yang lebih optimal saat ujian dibanding siswa yang menerapkan sistem belajar semalam suntuk (SKS) dengan waktu tidur kurang dari 4 jam.\n\nSimpulan yang tepat berdasarkan kutipan studi di atas adalah...",
           "options": {
-            "A": "62",
-            "B": "64",
-            "C": "66",
-            "D": "68",
-            "E": "72"
-          },
-          "correctAnswer": "D",
-          "explanation": "Pola operasi silang:\nNilai Pusat = (Sudut 1 x Sudut 2) + (Sudut 3 x Sudut 4)\n• Diagram A: (7 x 4) + (3 x 5) = 28 + 15 = 43\n• Diagram B: (8 x 6) + (4 x 5) = 48 + 20 = 68.\n\nKunci Jawaban: D (68)."
-        }
-      ]
-    },
-    {
-      "id": "pu-pola-b",
-      "name": "Paket B: Pola dan Hubungan Serupa (20 Soal Baru)",
-      "category": "Penalaran Umum",
-      "subcategory": "Pola dan Hubungan",
-      "timeMinutes": 30,
-      "questions": [
-        {
-          "id": 1,
-          "category": "Pola Angka",
-          "question": "Perhatikan barisan bilangan berikut:\n4,  9,  14,  19,  24,  ...\n\nBilangan yang tepat untuk melanjutkan barisan tersebut adalah...",
-          "options": {
-            "A": "27",
-            "B": "28",
-            "C": "29",
-            "D": "30",
-            "E": "31"
-          },
-          "correctAnswer": "C",
-          "explanation": "Pola barisan adalah pertambahan tetap (+5):\n4 (+5) -> 9 (+5) -> 14 (+5) -> 19 (+5) -> 24 (+5) -> 29.\n\nKunci Jawaban: C (29)."
-        },
-        {
-          "id": 2,
-          "category": "Pola Hubungan Objek",
-          "question": "PENULIS : LAPTOP = PELUKIS : ...",
-          "options": {
-            "A": "Galeri",
-            "B": "Kuas",
-            "C": "Kanvas",
-            "D": "Patung",
-            "E": "Pameran"
+            "A": "Siswa yang belajar semalam suntuk dipastikan tidak akan lulus ujian.",
+            "B": "Pemenuhan durasi tidur malam yang cukup mendukung kesiapan kognitif siswa dalam menyelesaikan soal ujian.",
+            "C": "Siswa tidak perlu belajar sama sekali asalkan tidur selama 8 jam.",
+            "D": "Semua siswa yang tidur 8 jam pasti mendapatkan nilai tertinggi.",
+            "E": "Kemampuan berpikir hanya ditentukan oleh faktor tidur malam."
           },
           "correctAnswer": "B",
-          "explanation": "Hubungan profesi dan alat kerja utamanya:\nPenulis menggunakan laptop untuk membuat tulisan, Pelukis menggunakan kuas untuk menghasilkan lukisan.\n\nKunci Jawaban: B (Kuas)."
+          "explanation": "Teks menyatakan tidur cukup mengoptimalkan konsentrasi dan pemecahan masalah. Maka simpulan yang tepat dan tidak berlebihan adalah bahwa tidur cukup mendukung kesiapan kognitif siswa.\n\nKunci Jawaban: B."
         },
         {
-          "id": 3,
-          "category": "Pola Angka",
-          "question": "Perhatikan deret angka berikut:\n3,  12,  48,  192,  ...\n\nAngka yang paling tepat untuk mengisi kelanjutan deret tersebut adalah...",
+          "id": 21,
+          "category": "Evaluasi Logika Generalisasi",
+          "question": "Dari 10 orang pengunjung kafe X yang diwawancarai, 8 orang menyatakan lebih menyukai kopi susu aren dibanding kopi hitam. Seorang pengamat kemudian menyimpulkan bahwa seluruh masyarakat Indonesia tidak menyukai kopi hitam.\n\nMengapa simpulan pengamat tersebut dinilai TIDAK VALID?",
           "options": {
-            "A": "576",
-            "B": "648",
-            "C": "724",
-            "D": "768",
-            "E": "812"
+            "A": "Karena kopi hitam mengandung kafein yang dapat meningkatkan fokus.",
+            "B": "Karena jumlah sampel terlalu kecil dan berasal dari satu lokasi sempit sehingga tidak dapat digeneralisasikan untuk seluruh populasi Indonesia.",
+            "C": "Karena harga kopi susu aren umumnya lebih terjangkau daripada kopi hitam.",
+            "D": "Karena pengamat tidak menguji tingkat keasaman kopi yang diminum.",
+            "E": "Karena kafe X baru berdiri dalam waktu kurang dari satu tahun."
+          },
+          "correctAnswer": "B",
+          "explanation": "Kesalahan logika generalisasi tergesa-gesa (hasty generalization): Menarik kesimpulan umum untuk seluruh negara hanya berdasarkan sampel 10 orang di satu kafe.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 22,
+          "category": "Penalaran Induktif Teks",
+          "question": "Kendaraan listrik berbasis baterai tidak menghasilkan emisi gas buang karbon monoksida saat dioperasikan di jalan raya. Namun demikian, proses penambangan nikel dan pembangkitan listrik tenaga uap (batu bara) untuk pengisian daya baterai tetap menyumbang emisi karbon secara tidak langsung.\n\nBerdasarkan teks tersebut, pernyataan manakah yang PASTI SALAH?",
+          "options": {
+            "A": "Pembangkitan listrik batu bara menyumbang emisi karbon tidak langsung pada kendaraan listrik.",
+            "B": "Penambangan nikel menyumbang emisi karbon dalam rantai produksi kendaraan listrik.",
+            "C": "Kendaraan listrik mengeluarkan emisi gas buang karbon monoksida secara langsung dari knalpotnya saat melaju di jalan raya.",
+            "D": "Pengisian daya baterai kendaraan listrik memerlukan pasokan daya listrik.",
+            "E": "Kendaraan listrik tetap memiliki jejak karbon secara tidak langsung."
+          },
+          "correctAnswer": "C",
+          "explanation": "Teks dengan jelas menyatakan bahwa kendaraan listrik TIDAK menghasilkan emisi gas buang karbon monoksida saat dioperasikan di jalan. Maka pernyataan C berlawanan langsung dengan teks (pasti salah).\n\nKunci Jawaban: C."
+        },
+        {
+          "id": 23,
+          "category": "Analisis Asumsi Kebijakan",
+          "question": "Pernyataan: 'Guna mengurangi timbulan sampah anorganik yang mencemari lingkungan, pemerintah daerah melarang penyediaan kantong plastik sekali pakai di seluruh pasar swalayan dan pusat perbelanjaan modern.'\n\nAsumsi dasar yang melandasi kebijakan pemerintah daerah tersebut adalah...",
+          "options": {
+            "A": "Sampah plastik di wilayah tersebut seluruhnya berasal dari toko modern.",
+            "B": "Pelarangan kantong plastik di ritel modern dapat secara efektif menekan volume timbulan sampah plastik sekali pakai di masyarakat.",
+            "C": "Masyarakat menolak membawa kantong belanja guna ulang mandiri.",
+            "D": "Semua pabrik plastik akan segera ditutup dalam waktu dekat.",
+            "E": "Pasar tradisional tidak menghasilkan sampah plastik sama sekali."
+          },
+          "correctAnswer": "B",
+          "explanation": "Kebijakan dibuat dengan asumsi logis bahwa intervensi pelarangan pada sektor ritel modern efektif untuk mengurangi peredaran dan volume sampah plastik sekali pakai di masyarakat.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 24,
+          "category": "Analogi Objek & Fungsi",
+          "question": "INSOMNIA : TIDUR = AMNESIA : ...",
+          "options": {
+            "A": "Mimpi",
+            "B": "Ingatan",
+            "C": "Penglihatan",
+            "D": "Bicara",
+            "E": "Kesadaran"
+          },
+          "correctAnswer": "B",
+          "explanation": "Hubungan analogi gangguan/penyakit dan fungsi yang hilang:\nInsomnia adalah gangguan ketidakmampuan untuk tidur, sedangkan Amnesia adalah gangguan hilangnya ingatan/memori.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 25,
+          "category": "Analogi Sebab & Pencegahan",
+          "question": "ABRASI : MANGROVE = LONGSOR : ...",
+          "options": {
+            "A": "Hutan Gundul",
+            "B": "Terasering",
+            "C": "Hujan Lebat",
+            "D": "Tebing Curam",
+            "E": "Sungai"
+          },
+          "correctAnswer": "B",
+          "explanation": "Hubungan bencana alam dan metode mitigasi/pencegahannya:\nAbrasi pantai dicegah dengan penanaman mangrove, sedangkan Longsor pada lereng perbukitan dicegah dengan pembuatan terasering.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 26,
+          "category": "Analogi Tingkat Intensitas",
+          "question": "HANGAT : PANAS = GERIMIS : ...",
+          "options": {
+            "A": "Awan",
+            "B": "Mendung",
+            "C": "Hujan Deras",
+            "D": "Pelangi",
+            "E": "Embun"
+          },
+          "correctAnswer": "C",
+          "explanation": "Hubungan peningkatan intensitas/derajat:\nHangat meningkat intensitasnya menjadi Panas; Gerimis meningkat intensitasnya menjadi Hujan Deras/Lebat.\n\nKunci Jawaban: C."
+        },
+        {
+          "id": 27,
+          "category": "Analogi Instrumen & Besaran",
+          "question": "BAROMETER : TEKANAN UDARA = TERMOMETER : ...",
+          "options": {
+            "A": "Kalori",
+            "B": "Kecepatan",
+            "C": "Suhu",
+            "D": "Kelembapan",
+            "E": "Arus Listrik"
+          },
+          "correctAnswer": "C",
+          "explanation": "Hubungan alat ukur dan besaran fisik yang diukur:\nBarometer alat ukur tekanan udara, Termometer alat ukur suhu/temperatur.\n\nKunci Jawaban: C."
+        },
+        {
+          "id": 28,
+          "category": "Penalaran Kuantitatif",
+          "question": "Perhatikan deret bilangan berikut:\n3,  5,  9,  15,  23,  33,  ...\n\nBilangan yang tepat untuk melanjutkan deret tersebut adalah...",
+          "options": {
+            "A": "41",
+            "B": "43",
+            "C": "45",
+            "D": "47",
+            "E": "49"
+          },
+          "correctAnswer": "C",
+          "explanation": "Pola selisih bertingkat bilangan genap bertambah (+2, +4, +6, +8, +10, +12):\n• 3 (+2) = 5\n• 5 (+4) = 9\n• 9 (+6) = 15\n• 15 (+8) = 23\n• 23 (+10) = 33\n• 33 (+12) = 45.\n\nKunci Jawaban: C (45)."
+        },
+        {
+          "id": 29,
+          "category": "Penalaran Kuantitatif",
+          "question": "Perhatikan barisan angka berikut:\n2,  10,  6,  30,  18,  90,  54,  ...\n\nNilai suku berikutnya adalah...",
+          "options": {
+            "A": "108",
+            "B": "162",
+            "C": "240",
+            "D": "270",
+            "E": "300"
           },
           "correctAnswer": "D",
-          "explanation": "Pola barisan geometri perkalian konstan (x4):\n3 (x4) -> 12 (x4) -> 48 (x4) -> 192 (x4) -> 768.\n\nKunci Jawaban: D (768)."
+          "explanation": "Pola berselang dua deret geometri (masing-masing dikali 3):\n• Larik ganjil: 2 (x3) -> 6 (x3) -> 18 (x3) -> 54\n• Larik genap: 10 (x3) -> 30 (x3) -> 90 (x3) -> 270.\nSuku ke-8 berada di posisi genap: 90 x 3 = 270.\n\nKunci Jawaban: D (270)."
         },
         {
-          "id": 4,
-          "category": "Pola Hubungan Hirarki",
-          "question": "HARI : MINGGU = BULAN : ...",
+          "id": 30,
+          "category": "Penalaran Kuantitatif",
+          "question": "Perhatikan barisan pecahan berikut:\n1/2,  3/4,  1,  5/4,  3/2,  ...\n\nSuku pecahan berikutnya adalah...",
           "options": {
-            "A": "Abad",
-            "B": "Dasawarsa",
-            "C": "Tahun",
-            "D": "Musim",
-            "E": "Dekade"
+            "A": "6/4",
+            "B": "7/4",
+            "C": "8/4",
+            "D": "9/4",
+            "E": "2"
+          },
+          "correctAnswer": "B",
+          "explanation": "Disamakan penyebutnya menjadi per 4:\n2/4,  3/4,  4/4,  5/4,  6/4,  ...\nSetiap suku bertambah +1/4 secara teratur. Maka suku berikutnya adalah 6/4 + 1/4 = 7/4.\n\nKunci Jawaban: B (7/4)."
+        },
+        {
+          "id": 31,
+          "category": "Penalaran Kuantitatif",
+          "question": "Perhatikan deret huruf berikut:\nA,  C,  F,  J,  O,  ...\n\nHuruf selanjutnya untuk melengkapi deret di atas adalah...",
+          "options": {
+            "A": "S",
+            "B": "T",
+            "C": "U",
+            "D": "V",
+            "E": "W"
           },
           "correctAnswer": "C",
-          "explanation": "Hubungan satuan waktu ke tingkat satuan di atasnya:\nKumpulan 7 hari membentuk 1 minggu, kumpulan 12 bulan membentuk 1 tahun.\n\nKunci Jawaban: C (Tahun)."
+          "explanation": "Pola lompatan urutan abjad bertingkat (+2, +3, +4, +5, +6):\n• A (1) +2 = C (3)\n• C (3) +3 = F (6)\n• F (6) +4 = J (10)\n• J (10) +5 = O (15)\n• O (15) +6 = U (21).\n\nKunci Jawaban: C (U)."
         },
         {
-          "id": 5,
-          "category": "Pola Pasangan Bilangan",
-          "question": "Perhatikan pola hubungan pasangan bilangan berikut:\n(3 -> 7),  (5 -> 11),  (8 -> 17),  (12 -> ...)\n\nBilangan yang tepat untuk melengkapi pasangan terakhir adalah...",
+          "id": 32,
+          "category": "Penalaran Kuantitatif",
+          "question": "Perhatikan deret huruf berselang berikut:\nC,  X,  F,  U,  I,  R,  L,  ...\n\nHuruf berikutnya yang tepat adalah...",
           "options": {
-            "A": "23",
-            "B": "24",
-            "C": "25",
-            "D": "26",
-            "E": "27"
+            "A": "M",
+            "B": "N",
+            "C": "O",
+            "D": "P",
+            "E": "Q"
           },
           "correctAnswer": "C",
-          "explanation": "Pola fungsi hubungan: y = 2x + 1\n• (3 x 2) + 1 = 7\n• (5 x 2) + 1 = 11\n• (8 x 2) + 1 = 17\n• (12 x 2) + 1 = 25.\n\nKunci Jawaban: C (25)."
+          "explanation": "Pola deret berselang dua arah (maju +3 dan mundur -3):\n• Posisi ganjil (maju +3): C (3) -> F (6) -> I (9) -> L (12)\n• Posisi genap (mundur -3): X (24) -> U (21) -> R (18) -> O (15).\nSuku ke-8 berada di posisi genap: 18 - 3 = 15 (Huruf O).\n\nKunci Jawaban: C (O)."
         },
         {
-          "id": 6,
-          "category": "Pola Deret Fibonacci",
-          "question": "Diberikan barisan bilangan sebagai berikut:\n2,  3,  5,  8,  13,  21,  34,  ...\n\nNilai bilangan selanjutnya pada barisan tersebut adalah...",
+          "id": 33,
+          "category": "Penalaran Kuantitatif",
+          "question": "Perhatikan barisan alfanumerik berikut:\n4D,  7G,  11K,  16P,  ...\n\nPasangan angka dan huruf berikutnya yang tepat adalah...",
           "options": {
-            "A": "47",
-            "B": "51",
-            "C": "55",
-            "D": "58",
-            "E": "62"
+            "A": "20U",
+            "B": "21U",
+            "C": "22V",
+            "D": "22W",
+            "E": "23V"
           },
           "correctAnswer": "C",
-          "explanation": "Pola Fibonacci (penjumlahan 2 suku sebelumnya):\n• 2 + 3 = 5\n• 3 + 5 = 8\n• 5 + 8 = 13\n• 8 + 13 = 21\n• 13 + 21 = 34\n• 21 + 34 = 55.\n\nKunci Jawaban: C (55)."
+          "explanation": "Pola bertingkat serentak:\n• Angka: 4 (+3) -> 7 (+4) -> 11 (+5) -> 16 (+6) -> 22.\n• Huruf: D (4) +3 -> G (7) +4 -> K (11) +5 -> P (16) +6 -> V (22).\nGabungan keduanya: 22V.\n\nKunci Jawaban: C (22V)."
         },
         {
-          "id": 7,
-          "category": "Pola Sebab-Akibat",
-          "question": "GEMPA BUMI : TSUNAMI = GUNUNG MELETUS : ...",
+          "id": 34,
+          "category": "Penalaran Kuantitatif",
+          "question": "Pada bangun segitiga pertama, angka di ketiga sudutnya adalah 8 (kiri), 5 (kanan), dan 4 (bawah) dengan angka pusat bernilai 36 (didapat dari: [8 x 5] - 4 = 36).\n\nJika pada segitiga kedua berlaku aturan pola operasi yang sama dengan angka sudut 9 (kiri), 7 (kanan), dan 6 (bawah), maka nilai angka di bagian pusat segitiga kedua adalah...",
           "options": {
-            "A": "Lahar Panas",
-            "B": "Hujan Es",
-            "C": "Angin Topan",
-            "D": "Gempa Dangkal",
-            "E": "Banjir Bandang"
-          },
-          "correctAnswer": "A",
-          "explanation": "Hubungan bencana alam dan material/dampak primer yang dihasilkan:\nGempa bumi di laut memicu tsunami, letusan gunung berapi mengeluarkan lahar panas.\n\nKunci Jawaban: A (Lahar Panas)."
-        },
-        {
-          "id": 8,
-          "category": "Pola Deret Berselang",
-          "question": "Perhatikan deret angka berselang berikut:\n6,  20,  10,  24,  14,  28,  18,  ...\n\nAngka yang tepat untuk mengisi posisi suku selanjutnya adalah...",
-          "options": {
-            "A": "22",
-            "B": "28",
-            "C": "30",
-            "D": "32",
-            "E": "34"
-          },
-          "correctAnswer": "D",
-          "explanation": "Pola berselang (dua larik terpisah):\n• Larik ganjil: 6 (+4) -> 10 (+4) -> 14 (+4) -> 18\n• Larik genap: 20 (+4) -> 24 (+4) -> 28 (+4) -> 32.\nSuku berikutnya berada di posisi genap (ke-8), sehingga nilainya 28 + 4 = 32.\n\nKunci Jawaban: D (32)."
-        },
-        {
-          "id": 9,
-          "category": "Pola Operasi Bangun",
-          "question": "Pada sebuah segitiga pertama, angka di ketiga sudutnya adalah 5 (kiri), 4 (kanan), dan 6 (bawah) dengan angka di tengah bernilai 26.\n\nJika pada segitiga kedua berlaku pola operasi yang sama dengan angka sudut 7 (kiri), 8 (kanan), dan 9 (bawah), maka angka di bagian tengah segitiga kedua adalah...",
-          "options": {
-            "A": "59",
-            "B": "63",
-            "C": "65",
-            "D": "67",
-            "E": "72"
+            "A": "51",
+            "B": "54",
+            "C": "57",
+            "D": "60",
+            "E": "63"
           },
           "correctAnswer": "C",
-          "explanation": "Pola operasi segitiga:\nTengah = (Sudut Kiri x Sudut Kanan) + Sudut Bawah\n• Segitiga 1: (5 x 4) + 6 = 20 + 6 = 26\n• Segitiga 2: (7 x 8) + 9 = 56 + 9 = 65.\n\nKunci Jawaban: C (65)."
+          "explanation": "Pola operasi segitiga:\nPusat = (Sudut Kiri x Sudut Kanan) - Sudut Bawah\n• Segitiga 1: (8 x 5) - 4 = 40 - 4 = 36\n• Segitiga 2: (9 x 7) - 6 = 63 - 6 = 57.\n\nKunci Jawaban: C (57)."
         },
         {
-          "id": 10,
-          "category": "Pola Hubungan Bahan Baku",
-          "question": "KELAPA SAWIT : MINYAK GORENG = BIJI KOPI : ...",
-          "options": {
-            "A": "Minuman Kopi",
-            "B": "Kebun",
-            "C": "Cangkir",
-            "D": "Kafe",
-            "E": "Gula"
-          },
-          "correctAnswer": "A",
-          "explanation": "Hubungan bahan baku utama dan produk olahan:\nKelapa sawit diolah menjadi minyak goreng, biji kopi diolah menjadi minuman kopi.\n\nKunci Jawaban: A (Minuman Kopi)."
-        },
-        {
-          "id": 11,
-          "category": "Pola Huruf Bertingkat",
-          "question": "Perhatikan pola barisan huruf berikut:\nC,  E,  H,  L,  Q,  ...\n\nHuruf selanjutnya yang tepat untuk melengkapi barisan di atas adalah...",
-          "options": {
-            "A": "U",
-            "B": "V",
-            "C": "W",
-            "D": "X",
-            "E": "Y"
-          },
-          "correctAnswer": "C",
-          "explanation": "Pola urutan alfabet bertingkat (+2, +3, +4, +5, +6):\n• C (3) +2 = E (5)\n• E (5) +3 = H (8)\n• H (8) +4 = L (12)\n• L (12) +5 = Q (17)\n• Q (17) +6 = W (23).\n\nKunci Jawaban: C (W)."
-        },
-        {
-          "id": 12,
-          "category": "Pola Matriks / Tabel",
-          "question": "Perhatikan susunan bilangan pada tabel berikut:\nBaris 1 :  4    6   ->  30\nBaris 2 :  5    7   ->  36\nBaris 3 :  6    8   ->  ?\n\nJika pola hubungan bilangan pada setiap baris adalah sama, nilai pengganti tanda tanya (?) adalah...",
-          "options": {
-            "A": "38",
-            "B": "40",
-            "C": "42",
-            "D": "44",
-            "E": "48"
-          },
-          "correctAnswer": "C",
-          "explanation": "Pola operasi baris:\nHasil = (Kolom 1 + Kolom 2) x 3\n• Baris 1: (4 + 6) x 3 = 10 x 3 = 30\n• Baris 2: (5 + 7) x 3 = 12 x 3 = 36\n• Baris 3: (6 + 8) x 3 = 14 x 3 = 42.\n\nKunci Jawaban: C (42)."
-        },
-        {
-          "id": 13,
-          "category": "Pola Hubungan Kompleks",
-          "question": "KERTAS SUARA : PILKADA : BUPATI = ... : ... : ...",
-          "options": {
-            "A": "Formulir : Sidang : Hakim",
-            "B": "Tiket : Bioskop : Film",
-            "C": "Surat Suara : Pilpres : Presiden",
-            "D": "Rapor : Sekolah : Guru",
-            "E": "Kwitansi : Toko : Kasir"
-          },
-          "correctAnswer": "C",
-          "explanation": "Hubungan analogi 3 komponen:\n(Instrumen masukan) digunakan dalam (Ajang pemilihan) untuk memilih (Pejabat yang terpilih).\nKertas suara digunakan dalam Pilkada untuk memilih Bupati;\nSurat suara digunakan dalam Pilpres untuk memilih Presiden.\n\nKunci Jawaban: C (Surat Suara : Pilpres : Presiden)."
-        },
-        {
-          "id": 14,
-          "category": "Pola Bangun Segiempat",
-          "question": "Diberikan bangun segiempat dengan 4 angka di setiap sudutnya (A=kiri atas, B=kanan atas, C=kiri bawah, D=kanan bawah) dan angka di tengahnya:\n• Bangun 1: Sudut (7, 6, 5, 2) -> Tengah = 32\n• Bangun 2: Sudut (8, 7, 6, 3) -> Tengah = 38\n• Bangun 3: Sudut (9, 8, 7, 4) -> Tengah = ?\n\nBerdasarkan pola tersebut, nilai tengah pada Bangun 3 adalah...",
-          "options": {
-            "A": "40",
-            "B": "42",
-            "C": "44",
-            "D": "46",
-            "E": "48"
-          },
-          "correctAnswer": "C",
-          "explanation": "Pola operasi segiempat:\nNilai Tengah = (A x B) - (C x D)\n• Bangun 1: (7 x 6) - (5 x 2) = 42 - 10 = 32\n• Bangun 2: (8 x 7) - (6 x 3) = 56 - 18 = 38\n• Bangun 3: (9 x 8) - (7 x 4) = 72 - 28 = 44.\n\nKunci Jawaban: C (44)."
-        },
-        {
-          "id": 15,
-          "category": "Pola Alfanumerik",
-          "question": "Perhatikan pola kombinasi angka dan huruf berikut:\n3B,  6D,  11G,  18K,  ...\n\nPasangan angka dan huruf berikutnya yang tepat adalah...",
-          "options": {
-            "A": "25O",
-            "B": "26O",
-            "C": "27P",
-            "D": "27Q",
-            "E": "28P"
-          },
-          "correctAnswer": "C",
-          "explanation": "Pola simultan angka dan huruf:\n1. Angka (selisih ganjil +3, +5, +7, +9):\n   3 (+3) -> 6 (+5) -> 11 (+7) -> 18 (+9) -> 27.\n2. Huruf (selisih posisi +2, +3, +4, +5):\n   B (2) +2 -> D (4) +3 -> G (7) +4 -> K (11) +5 -> P (16).\n\nGabungan keduanya: 27P.\n\nKunci Jawaban: C (27P)."
-        },
-        {
-          "id": 16,
-          "category": "Pola Deret Majemuk",
-          "question": "Perhatikan barisan bilangan berikut:\n4,  6,  12,  14,  28,  30,  60,  ...\n\nBilangan yang tepat untuk melanjutkan deret tersebut adalah...",
-          "options": {
-            "A": "62",
-            "B": "64",
-            "C": "120",
-            "D": "122",
-            "E": "124"
-          },
-          "correctAnswer": "A",
-          "explanation": "Pola berulang bergantian (+2, lalu x2):\n• 4 (+2) = 6\n• 6 (x2) = 12\n• 12 (+2) = 14\n• 14 (x2) = 28\n• 28 (+2) = 30\n• 30 (x2) = 60\n• 60 (+2) = 62.\n\nKunci Jawaban: A (62)."
-        },
-        {
-          "id": 17,
-          "category": "Pola Diagram Relasi",
-          "question": "Diberikan tiga diagram lingkaran dengan pola bilangan terpusat:\n• Diagram 1: Angka Luar (18, 12, 3) -> Pusat = 10\n• Diagram 2: Angka Luar (30, 20, 5) -> Pusat = 10\n• Diagram 3: Angka Luar (42, 28, 7) -> Pusat = ?\n\nJika aturan operasi bilangan pada ketiga diagram adalah sama, nilai pusat pada Diagram 3 adalah...",
+          "id": 35,
+          "category": "Penalaran Kuantitatif",
+          "question": "Diberikan dua diagram lingkaran dengan aturan bilangan terpusat yang sama:\n• Diagram 1: Angka Luar (15, 25, 8) -> Pusat = 5 (didapat dari: [15 + 25] / 8 = 40 / 8 = 5).\n• Diagram 2: Angka Luar (32, 28, 6) -> Pusat = ?\n\nNilai pusat pada Diagram 2 adalah...",
           "options": {
             "A": "8",
             "B": "9",
@@ -538,49 +501,77 @@
             "E": "12"
           },
           "correctAnswer": "C",
-          "explanation": "Pola operasi diagram:\nNilai Pusat = (Angka 1 + Angka 2) / Angka 3\n• Diagram 1: (18 + 12) / 3 = 30 / 3 = 10\n• Diagram 2: (30 + 20) / 5 = 50 / 5 = 10\n• Diagram 3: (42 + 28) / 7 = 70 / 7 = 10.\n\nKunci Jawaban: C (10)."
+          "explanation": "Pola operasi diagram:\nPusat = (Angka Luar 1 + Angka Luar 2) / Angka Luar 3\n• Diagram 1: (15 + 25) / 8 = 40 / 8 = 5\n• Diagram 2: (32 + 28) / 6 = 60 / 6 = 10.\n\nKunci Jawaban: C (10)."
         },
         {
-          "id": 18,
-          "category": "Pola Sebab-Akibat Ganda",
-          "question": "BATERAI LEMAH : GADGET MATI : CHARGER = ... : ... : ...",
+          "id": 36,
+          "category": "Penalaran Kuantitatif",
+          "question": "Perhatikan susunan bilangan pada tabel berikut:\nBaris 1 :  5    3    4   ->  19\nBaris 2 :  6    4    5   ->  29\nBaris 3 :  7    5    6   ->  ?\n\nJika pola hubungan bilangan pada setiap baris bersifat sama, nilai pengganti tanda tanya (?) adalah...",
           "options": {
-            "A": "Bahan Bakar Habis : Mobil Mogok : SPBU",
-            "B": "Lapar : Makan : Piring",
-            "C": "Mengantuk : Tidur : Kasur",
-            "D": "Hujan : Basah : Jas Hujan",
-            "E": "Lampu Mati : Gelap : Lilin"
-          },
-          "correctAnswer": "A",
-          "explanation": "Hubungan analogi: (Ketiadaan daya) menyebabkan (Perangkat tidak berfungsi) yang dipulihkan/diisi kembali di (Tempat/alat pengisian).\nBaterai lemah menyebabkan gadget mati yang diisi ulang dengan charger;\nBahan bakar habis menyebabkan mobil mogok yang diisi ulang di SPBU.\n\nKunci Jawaban: A (Bahan Bakar Habis : Mobil Mogok : SPBU)."
-        },
-        {
-          "id": 19,
-          "category": "Pola Huruf Dua Arah",
-          "question": "Diberikan deret huruf berikut:\nB,  Y,  D,  W,  G,  T,  K,  ...\n\nHuruf yang paling tepat untuk mengisi posisi berikutnya adalah...",
-          "options": {
-            "A": "N",
-            "B": "O",
-            "C": "P",
-            "D": "Q",
-            "E": "R"
-          },
-          "correctAnswer": "C",
-          "explanation": "Pola deret berselang dua arah:\n• Larik ganjil (alfabet maju): B (2) +2 -> D (4) +3 -> G (7) +4 -> K (11)\n• Larik genap (alfabet mundur): Y (25) -2 -> W (23) -3 -> T (20) -4 -> P (16).\n\nPosisi berikutnya adalah suku genap ke-8: 20 - 4 = 16 (Huruf P).\n\nKunci Jawaban: C (P)."
-        },
-        {
-          "id": 20,
-          "category": "Pola Operasi Silang Analitis",
-          "question": "Diberikan dua diagram susunan bilangan dengan pola operasi identik:\n• Diagram A: Empat bilangan di sudutnya adalah 6, 5, 4, dan 3 dengan angka pusat bernilai 42 (didapat dari perkalian silang: [6 x 5] + [4 x 3] = 30 + 12 = 42).\n\nJika pada Diagram B memiliki angka sudut 9, 7, 5, dan 6 dengan aturan pola yang sama, maka angka di pusat Diagram B adalah...",
-          "options": {
-            "A": "83",
-            "B": "88",
-            "C": "91",
-            "D": "93",
-            "E": "97"
+            "A": "36",
+            "B": "38",
+            "C": "40",
+            "D": "41",
+            "E": "45"
           },
           "correctAnswer": "D",
-          "explanation": "Pola operasi silang:\nNilai Pusat = (Sudut 1 x Sudut 2) + (Sudut 3 x Sudut 4)\n• Diagram A: (6 x 5) + (4 x 3) = 30 + 12 = 42\n• Diagram B: (9 x 7) + (5 x 6) = 63 + 30 = 93.\n\nKunci Jawaban: D (93)."
+          "explanation": "Pola operasi per baris:\nHasil = (Kolom 1 x Kolom 2) + Kolom 3\n• Baris 1: (5 x 3) + 4 = 15 + 4 = 19\n• Baris 2: (6 x 4) + 5 = 24 + 5 = 29\n• Baris 3: (7 x 5) + 6 = 35 + 6 = 41.\n\nKunci Jawaban: D (41)."
+        },
+        {
+          "id": 37,
+          "category": "Analisis Data & Tabel",
+          "question": "Data Penjualan Toko Elektronik (Unit per Bulan):\n• Produk A: Jan = 40 unit, Feb = 50 unit, Mar = 60 unit\n• Produk B: Jan = 80 unit, Feb = 70 unit, Mar = 60 unit\n• Produk C: Jan = 30 unit, Feb = 45 unit, Mar = 60 unit\n• Produk D: Jan = 50 unit, Feb = 50 unit, Mar = 50 unit\n\nProduk manakah yang mengalami laju persentase pertumbuhan penjualan tertinggi dari bulan Januari ke Februari?",
+          "options": {
+            "A": "Produk A",
+            "B": "Produk B",
+            "C": "Produk C",
+            "D": "Produk D",
+            "E": "Produk A dan C sama besar"
+          },
+          "correctAnswer": "C",
+          "explanation": "Perhitungan persentase pertumbuhan (Jan ke Feb):\n• Produk A = (50 - 40) / 40 x 100% = 10 / 40 = 25%\n• Produk B = Mengalami penurunan (-12,5%)\n• Produk C = (45 - 30) / 30 x 100% = 15 / 30 = 50%\n• Produk D = 0%\nPertumbuhan tertinggi diraih oleh Produk C (50%).\n\nKunci Jawaban: C."
+        },
+        {
+          "id": 38,
+          "category": "Logika Aritmetika Sosial",
+          "question": "Di sebuah toko buku, harga 2 buku tulis dan 1 pensil adalah Rp11.000, sedangkan harga 1 buku tulis dan 3 pensil adalah Rp13.000.\n\nBerapakah total biaya yang harus dibayar jika seseorang membeli 3 buku tulis dan 2 pensil?",
+          "options": {
+            "A": "Rp15.000",
+            "B": "Rp16.500",
+            "C": "Rp18.000",
+            "D": "Rp19.500",
+            "E": "Rp21.000"
+          },
+          "correctAnswer": "C",
+          "explanation": "Sistem Persamaan Linear Dua Variabel:\n1) 2B + P = 11.000 -> P = 11.000 - 2B\n2) B + 3P = 13.000\nSubstitusi: B + 3(11.000 - 2B) = 13.000\nB + 33.000 - 6B = 13.000 -> -5B = -20.000 -> B = Rp4.000\nP = 11.000 - 2(4.000) = Rp3.000\n\nHarga 3B + 2P = 3(4.000) + 2(3.000) = 12.000 + 6.000 = Rp18.000.\n\nKunci Jawaban: C (Rp18.000)."
+        },
+        {
+          "id": 39,
+          "category": "Logika Kecepatan & Waktu",
+          "question": "Mobil X berangkat dari kota A menuju kota B dengan kecepatan rata-rata 60 km/jam pada pukul 07.00. Pada saat bersamaan, mobil Y berangkat dari kota B menuju kota A melalui rute yang sama dengan kecepatan rata-rata 90 km/jam.\n\nJika jarak antara kota A dan kota B adalah 300 km, pada pukul berapakah kedua mobil tersebut akan saling berpapasan di jalan?",
+          "options": {
+            "A": "08.30",
+            "B": "09.00",
+            "C": "09.30",
+            "D": "10.00",
+            "E": "10.30"
+          },
+          "correctAnswer": "B",
+          "explanation": "Waktu berpapasan saat berangkat bersamaan:\nt = Jarak / (V1 + V2) = 300 / (60 + 90) = 300 / 150 = 2 jam.\nWaktu berpapasan = 07.00 + 2 jam = 09.00 WIB.\n\nKunci Jawaban: B (09.00)."
+        },
+        {
+          "id": 40,
+          "category": "Operasi Aritmetika Khusus",
+          "question": "Untuk setiap bilangan bulat positif a dan b, didefinisikan operasi khusus lambang hati (♥) sebagai berikut:\na ♥ b = (a² - b) ÷ (a + 1)\n\nBerapakah nilai dari 5 ♥ 7?",
+          "options": {
+            "A": "2",
+            "B": "3",
+            "C": "4",
+            "D": "5",
+            "E": "6"
+          },
+          "correctAnswer": "B",
+          "explanation": "Substitusi nilai a = 5 dan b = 7:\n5 ♥ 7 = (5² - 7) ÷ (5 + 1)\n= (25 - 7) ÷ 6\n= 18 ÷ 6\n= 3.\n\nKunci Jawaban: B (3)."
         }
       ]
     }
