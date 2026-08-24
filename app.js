@@ -417,6 +417,8 @@ function initDOMReferences() {
   DOM.btnDownloadTxt = document.getElementById('btn-download-txt');
   DOM.btnPrintPdf = document.getElementById('btn-print-pdf');
   DOM.btnDownloadJson = document.getElementById('btn-download-json');
+  DOM.masteryBarsContainer = document.getElementById('mastery-bars-container');
+  DOM.masteryDiagnosisBox = document.getElementById('mastery-diagnosis-box');
   DOM.listWrongChips = document.getElementById('list-wrong-chips');
   DOM.listEmptyChips = document.getElementById('list-empty-chips');
   DOM.reviewListContainer = document.getElementById('review-list-container');
@@ -698,7 +700,7 @@ function handleStartExam() {
         });
       }
     });
-    DOM.examHeaderSubtest.textContent = 'Operasi Bilangan (Paket Lengkap)';
+    DOM.examHeaderSubtest.textContent = 'Penalaran Umum (Paket Lengkap)';
   } else {
     const subtest = State.examData.subtests.find(s => (s.id === selectedSubtestId || `subtest-${State.examData.subtests.indexOf(s)}` === selectedSubtestId));
     if (subtest && subtest.questions) {
@@ -1010,11 +1012,134 @@ function handleFinishExam() {
     DOM.resultFeedbackText.textContent = `💪 Tetap semangat! Pelajari kembali nomor-nomor yang salah pada pembahasan di bawah.`;
   }
 
-  // Populate Mistake Analysis Chips (Soal Salah & Kosong)
+  // Populate Subtest Mastery Chart & Mistake Breakdown
+  populateSubtestMasteryChart();
   populateMistakeAnalysis();
 
   renderReviewList();
   showScreen('result');
+}
+
+function populateSubtestMasteryChart() {
+  if (!DOM.masteryBarsContainer || !DOM.masteryDiagnosisBox) return;
+
+  DOM.masteryBarsContainer.innerHTML = '';
+  DOM.masteryDiagnosisBox.innerHTML = '';
+
+  const categories = {};
+
+  State.activeQuestions.forEach((q, idx) => {
+    const catName = q.category || q.subtestName || 'Penalaran Umum';
+    if (!categories[catName]) {
+      categories[catName] = {
+        total: 0,
+        correct: 0,
+        wrong: 0,
+        empty: 0
+      };
+    }
+    categories[catName].total++;
+
+    const userAns = State.userAnswers[idx];
+    if (userAns === undefined || userAns === null) {
+      categories[catName].empty++;
+    } else if (userAns === q.correctAnswer) {
+      categories[catName].correct++;
+    } else {
+      categories[catName].wrong++;
+    }
+  });
+
+  const catKeys = Object.keys(categories);
+  if (catKeys.length === 0) return;
+
+  let highestCat = null;
+  let lowestCat = null;
+  let highestPct = -1;
+  let lowestPct = 101;
+
+  catKeys.forEach(catName => {
+    const data = categories[catName];
+    const pct = Math.round((data.correct / data.total) * 100);
+
+    if (pct > highestPct) {
+      highestPct = pct;
+      highestCat = catName;
+    }
+    if (pct < lowestPct) {
+      lowestPct = pct;
+      lowestCat = catName;
+    }
+
+    let levelClass = 'med';
+    let badgeText = '👍 Cukup Paham';
+    if (pct >= 80) {
+      levelClass = 'high';
+      badgeText = '🌟 Sangat Paham';
+    } else if (pct < 50) {
+      levelClass = 'low';
+      badgeText = '⚠️ Perlu Pendalaman';
+    }
+
+    const row = document.createElement('div');
+    row.className = 'mastery-bar-row';
+    row.innerHTML = `
+      <div class="mastery-bar-header">
+        <div>
+          <span>${catName}</span>
+          <span style="font-size: 0.78rem; font-weight: 500; color: #64748b; margin-left: 6px;">(${data.correct}/${data.total} Benar)</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="mastery-badge ${levelClass}">${badgeText}</span>
+          <span style="font-size: 0.95rem; font-weight: 800; color: #0f172a; min-width: 40px; text-align: right;">${pct}%</span>
+        </div>
+      </div>
+      <div class="mastery-bar-track">
+        <div class="mastery-bar-fill ${levelClass}" style="width: 0%;"></div>
+      </div>
+    `;
+
+    DOM.masteryBarsContainer.appendChild(row);
+
+    setTimeout(() => {
+      const fillEl = row.querySelector('.mastery-bar-fill');
+      if (fillEl) {
+        fillEl.style.width = `${pct}%`;
+      }
+    }, 150);
+  });
+
+  // Populate Diagnosis Banner
+  const strongCard = document.createElement('div');
+  strongCard.className = 'diagnosis-card strong';
+  strongCard.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 6px; font-weight: 800; margin-bottom: 4px; font-size: 0.88rem;">
+      <span>🏆 Subtes Paling Dikuasai:</span>
+    </div>
+    <div style="font-size: 0.92rem; font-weight: 700; color: #166534; margin-bottom: 2px;">
+      ${highestCat} (${highestPct}%)
+    </div>
+    <div style="font-size: 0.78rem; color: #15803d;">
+      Pertahankan akurasi dan kecepatan Anda pada tipe soal ini!
+    </div>
+  `;
+
+  const weakCard = document.createElement('div');
+  weakCard.className = 'diagnosis-card weak';
+  weakCard.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 6px; font-weight: 800; margin-bottom: 4px; font-size: 0.88rem;">
+      <span>⚠️ Subtes Perlu Peningkatan:</span>
+    </div>
+    <div style="font-size: 0.92rem; font-weight: 700; color: #991b1b; margin-bottom: 2px;">
+      ${lowestCat} (${lowestPct}%)
+    </div>
+    <div style="font-size: 0.78rem; color: #b91c1c;">
+      Fokuskan latihan mandiri dan tinjau kembali konsep pembahasan pada subtes ini.
+    </div>
+  `;
+
+  DOM.masteryDiagnosisBox.appendChild(strongCard);
+  DOM.masteryDiagnosisBox.appendChild(weakCard);
 }
 
 function populateMistakeAnalysis() {
@@ -1220,6 +1345,28 @@ function downloadEvaluationReport() {
   text += `• Jawaban Salah    : ${wrongCount} Soal\n`;
   text += `• Dikosongkan      : ${emptyCount} Soal\n`;
   text += `--------------------------------------------------------------------------------\n\n`;
+
+  // Calculate mastery per subtest / category for report
+  const catReport = {};
+  State.activeQuestions.forEach((q, idx) => {
+    const cName = q.category || q.subtestName || 'Penalaran Umum';
+    if (!catReport[cName]) catReport[cName] = { total: 0, correct: 0 };
+    catReport[cName].total++;
+    if (State.userAnswers[idx] === q.correctAnswer) {
+      catReport[cName].correct++;
+    }
+  });
+
+  text += `================================================================================\n`;
+  text += `📊 ANALISIS TINGKAT PENGUASAAN SUBTES (DIAGNOSTIK):\n`;
+  text += `================================================================================\n`;
+  Object.keys(catReport).forEach(cName => {
+    const cData = catReport[cName];
+    const cPct = Math.round((cData.correct / cData.total) * 100);
+    const statusLabel = cPct >= 80 ? 'SANGAT PAHAM ★★★' : (cPct >= 50 ? 'CUKUP PAHAM ★★' : 'PERLU PENDALAMAN ⚠️');
+    text += `• ${cName.padEnd(25)} : ${cPct}% (${cData.correct}/${cData.total} Benar) [${statusLabel}]\n`;
+  });
+  text += `\n`;
 
   text += `================================================================================\n`;
   text += `📌 BAGIAN 1: DAFTAR TEMPAT KESALAHAN & SOAL YANG PERLU DIPELAJARI KEMBALI\n`;
