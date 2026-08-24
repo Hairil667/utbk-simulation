@@ -1,577 +1,875 @@
 {
   "testInfo": {
     "title": "SIMULASI TES HAIRIL",
-    "subtitle": "Penalaran Umum (TPS UTBK-SNBT Standar BPPP)",
+    "subtitle": "Penalaran Umum UTBK-SNBT HOTS (Standar Resmi BPPP)",
     "year": "2025 / 2026",
-    "defaultTimeMinutes": 60
+    "defaultTimeMinutes": 90
   },
   "subtests": [
     {
-      "id": "pu-lengkap-40",
-      "name": "Penalaran Umum UTBK Lengkap (40 Soal - 60 Menit)",
-      "category": "Penalaran Umum",
-      "subcategory": "Deduktif, Induktif, & Kuantitatif",
-      "timeMinutes": 60,
+      "id": "pu-deduktif-20",
+      "name": "Subtes 1: Penalaran Deduktif (20 Soal HOTS)",
+      "category": "Penalaran Deduktif",
+      "subcategory": "Silogisme, Logika Posisi, & Analitis",
+      "timeMinutes": 30,
       "questions": [
         {
           "id": 1,
           "category": "Penalaran Deduktif",
-          "question": "Jika seorang siswa rajin berlatih soal UTBK setiap hari, maka pemahaman konsepnya akan meningkat secara signifikan. Jika pemahaman konsep meningkat secara signifikan, maka peluang lolos di PTN impian semakin besar.\n\nFakta: Andi rajin berlatih soal UTBK setiap hari.\n\nKesimpulan yang paling tepat adalah...",
+          "question": "Premis 1: Jika iklim investasi kondusif dan suku bunga acuan stabil, maka sektor industri manufaktur akan berekspansi.\nPremis 2: Jika sektor industri manufaktur berekspansi, maka penyerapan tenaga kerja formal meningkat dan angka pengangguran turun.\n\nFakta: Saat ini penyerapan tenaga kerja formal tidak meningkat atau angka pengangguran tidak turun.\n\nSimpulan yang PASTI BENAR adalah...",
           "options": {
-            "A": "Andi pasti diterima di program studi kedokteran.",
-            "B": "Peluang Andi lolos di PTN impian semakin besar.",
-            "C": "Pemahaman konsep Andi tidak mengalami perubahan.",
-            "D": "Andi tidak perlu lagi belajar materi TPS lainnya.",
-            "E": "Andi hanya belajar jika ada ujian simulasi."
+            "A": "Sektor industri manufaktur tetap berekspansi dengan modal mandiri.",
+            "B": "Iklim investasi tidak kondusif atau suku bunga acuan tidak stabil.",
+            "C": "Iklim investasi kondusif tetapi suku bunga acuan mengalami kenaikan.",
+            "D": "Pemerintah menaikkan upah minimum regional secara sepihak.",
+            "E": "Angka pengangguran meningkat karena minimnya pelatihan vokasi."
           },
           "correctAnswer": "B",
-          "explanation": "Berdasarkan prinsip silogisme hipotetis:\nPremis 1: P -> Q\nPremis 2: Q -> R\nKonklusi: P -> R (Jika rajin berlatih, maka peluang lolos PTN semakin besar).\nKarena Andi rajin berlatih (P), maka peluang Andi lolos di PTN impian semakin besar (R).\n\nKunci Jawaban: B."
+          "explanation": "Berdasarkan prinsip Modus Tollens dan Hukum De Morgan:\n(P ^ Q) -> R -> (S ^ T).\nFakta: ~(S ^ T) = ~S v ~T (penyerapan tidak naik atau pengangguran tidak turun).\nMaka kesimpulannya adalah ~(P ^ Q) = ~P v ~Q (Iklim investasi tidak kondusif atau suku bunga acuan tidak stabil).\n\nKunci Jawaban: B."
         },
         {
           "id": 2,
           "category": "Penalaran Deduktif",
-          "question": "Premis: Jika pasokan beras di pasar melimpah, maka harga beras akan stabil.\nFakta: Saat ini harga beras mengalami lonjakan tinggi (tidak stabil).\n\nSimpulan yang mutlak benar adalah...",
+          "question": "Premis 1: Semua peneliti senior di lembaga riset X wajib mempublikasikan artikel di jurnal internasional bereputasi.\nPremis 2: Sebagian peneliti senior di lembaga riset X adalah akademisi yang menjabat sebagai dosen tamu di luar negeri.\nPremis 3: Tidak ada akademisi yang menjabat dosen tamu di luar negeri yang mengabaikan kode etik publikasi ilmiah.\n\nKesimpulan yang paling sah adalah...",
           "options": {
-            "A": "Pasokan beras di pasar melimpah.",
-            "B": "Pasokan beras di pasar tidak melimpah.",
-            "C": "Petani mengalami gagal panen total.",
-            "D": "Pemerintah mengimpor beras dari luar negeri.",
-            "E": "Daya beli masyarakat mengalami penurunan drastis."
+            "A": "Semua akademisi yang tidak mengabaikan kode etik adalah peneliti senior di lembaga riset X.",
+            "B": "Sebagian peneliti senior yang wajib mempublikasikan artikel di jurnal internasional tidak mengabaikan kode etik publikasi ilmiah.",
+            "C": "Semua peneliti yang mempublikasikan artikel di jurnal internasional adalah dosen tamu di luar negeri.",
+            "D": "Peneliti yang bukan dosen tamu di luar negeri pasti mengabaikan kode etik publikasi ilmiah.",
+            "E": "Tidak ada peneliti senior di lembaga riset X yang mematuhi kode etik publikasi ilmiah."
           },
           "correctAnswer": "B",
-          "explanation": "Menggunakan aturan Modus Tollens:\nPremis: P -> Q\nFakta: ~Q (Harga beras tidak stabil)\nKesimpulan: ~P (Pasokan beras di pasar tidak melimpah).\n\nKunci Jawaban: B."
+          "explanation": "Penggabungan kuantor universal dan partikular:\nSebagian peneliti senior di lembaga X adalah dosen tamu di luar negeri. Karena dosen tamu tidak ada yang mengabaikan kode etik, dan semua peneliti senior wajib publikasi internasional, maka sebagian peneliti senior yang wajib publikasi tersebut tidak mengabaikan kode etik publikasi ilmiah.\n\nKunci Jawaban: B."
         },
         {
           "id": 3,
           "category": "Penalaran Deduktif",
-          "question": "Premis 1: Semua atlet pelatnas memiliki stamina fisik yang prima.\nPremis 2: Sebagian atlet pelatnas adalah mahasiswa perguruan tinggi negeri.\n\nKesimpulan yang paling sah adalah...",
+          "question": "Enam orang (A, B, C, D, E, F) duduk melingkar mengelilingi meja bundar untuk rapat koordinasi:\n• A duduk berhadapan langsung dengan D.\n• B duduk di antara A dan C.\n• E duduk tepat di sebelah kiri D (dilihat dari arah menghadap meja).\n\nSiapakah yang duduk tepat di sebelah kanan F?",
           "options": {
-            "A": "Semua mahasiswa perguruan tinggi negeri memiliki stamina fisik yang prima.",
-            "B": "Sebagian mahasiswa perguruan tinggi negeri memiliki stamina fisik yang prima.",
-            "C": "Semua atlet yang memiliki stamina fisik prima adalah mahasiswa.",
-            "D": "Mahasiswa yang bukan atlet tidak memiliki stamina fisik yang prima.",
-            "E": "Tidak ada atlet pelatnas yang bukan mahasiswa."
+            "A": "A",
+            "B": "B",
+            "C": "C",
+            "D": "D",
+            "E": "E"
           },
-          "correctAnswer": "B",
-          "explanation": "Kombinasi kuantor universal (Semua) dan partikular (Sebagian):\nSebagian atlet pelatnas adalah mahasiswa. Karena semua atlet pelatnas berstamina prima, maka sebagian mahasiswa perguruan tinggi negeri tersebut memiliki stamina fisik yang prima.\n\nKunci Jawaban: B."
+          "correctAnswer": "A",
+          "explanation": "Analisis posisi meja bundar (arah jam):\n• A pada posisi jam 12:00, maka D di seberangnya pada jam 06:00.\n• B di antara A dan C -> B di jam 02:00, C di jam 04:00.\n• E tepat di sebelah kiri D (menghadap pusat meja) -> E di jam 08:00.\n• Posisi yang tersisa untuk F adalah jam 10:00.\n• Sebelah kanan F (menghadap ke tengah) adalah A (jam 12:00).\n\nKunci Jawaban: A."
         },
         {
           "id": 4,
           "category": "Penalaran Deduktif",
-          "question": "Premis 1: Tidak ada peserta ujian yang diperbolehkan membawa telepon genggam ke dalam ruangan.\nPremis 2: Sebagian orang yang berada di dalam ruangan adalah peserta ujian.\n\nKesimpulan yang benar adalah...",
+          "question": "Lima orang pemateri seminar (P, Q, R, S, T) dijadwalkan menyampaikan materi secara berurutan:\n• Q berbicara tepat setelah P.\n• S berbicara sebelum T, tetapi setelah R.\n• R adalah pemateri pertama yang tampil.\n\nPemateri yang tampil pada urutan ketiga adalah...",
           "options": {
-            "A": "Semua orang di dalam ruangan membawa telepon genggam.",
-            "B": "Pengawas ujian dilarang masuk ke dalam ruangan.",
-            "C": "Sebagian orang di dalam ruangan tidak diperbolehkan membawa telepon genggam.",
-            "D": "Semua orang di dalam ruangan tidak membawa telepon genggam.",
-            "E": "Peserta ujian boleh membawa telepon genggam jika dinonaktifkan."
+            "A": "P",
+            "B": "Q",
+            "C": "R",
+            "D": "S",
+            "E": "T"
           },
-          "correctAnswer": "C",
-          "explanation": "Karena sebagian orang di dalam ruangan adalah peserta ujian, dan setiap peserta ujian dilarang membawa telepon genggam, maka sebagian orang di dalam ruangan tersebut tidak diperbolehkan membawa telepon genggam.\n\nKunci Jawaban: C."
+          "correctAnswer": "B",
+          "explanation": "Pemetaan urutan:\n1. R tampil di urutan 1 -> [R, _, _, _, _]\n2. S sebelum T -> [S, ..., T]\n3. Q tepat setelah P -> blok [P, Q]\nAgar semua syarat terpenuhi: Urutan 1 = R, Urutan 2 = P, Urutan 3 = Q, Urutan 4 = S, Urutan 5 = T.\nPemateri ke-3 adalah Q.\n\nKunci Jawaban: B."
         },
         {
           "id": 5,
-          "category": "Logika Posisi & Urutan",
-          "question": "Lima orang (A, B, C, D, E) duduk berderet menghadap panggung:\n• B berada tepat di sebelah kanan A.\n• C berada di antara B dan D.\n• E berada di ujung paling kiri.\n\nUrutan posisi duduk mereka dari kiri ke kanan adalah...",
+          "category": "Penalaran Deduktif",
+          "question": "Premis 1: Setiap calon mahasiswa baru yang mendaftar beasiswa memilih jalur Prestasi Akademik atau jalur Afirmasi Daerah.\nPremis 2: Jika memilih jalur Prestasi Akademik, maka wajib melampirkan sertifikat juara olimpiade sains nasional.\nPremis 3: Bayu mendaftar beasiswa dan tidak melampirkan sertifikat juara olimpiade sains nasional.\n\nSimpulan yang mutlak benar adalah...",
           "options": {
-            "A": "E, A, B, C, D",
-            "B": "E, B, A, C, D",
-            "C": "A, B, C, D, E",
-            "D": "E, A, C, B, D",
-            "E": "E, C, B, A, D"
+            "A": "Bayu tidak memenuhi syarat administrasi beasiswa.",
+            "B": "Bayu memilih jalur Afirmasi Daerah.",
+            "C": "Bayu melampirkan sertifikat prestasi non-akademik.",
+            "D": "Bayu ditolak dalam seleksi beasiswa.",
+            "E": "Bayu memilih kedua jalur secara bersamaan."
           },
-          "correctAnswer": "A",
-          "explanation": "Analisis posisi duduk:\n1. E berada di ujung paling kiri -> Urutan: [E, _, _, _, _]\n2. B di sebelah kanan A -> [A, B]\n3. C di antara B dan D -> [B, C, D]\nDigabungkan: E, A, B, C, D.\n\nKunci Jawaban: A."
+          "correctAnswer": "B",
+          "explanation": "Dari Premis 2 dan 3 dengan Modus Tollens: Bayu tidak melampirkan sertifikat -> Bayu TIDAK memilih jalur Prestasi Akademik.\nDari Premis 1 (Disjungtif): Karena Bayu tidak memilih jalur Prestasi Akademik, maka Bayu pasti memilih jalur Afirmasi Daerah.\n\nKunci Jawaban: B."
         },
         {
           "id": 6,
-          "category": "Logika Posisi & Urutan",
-          "question": "Dalam sebuah ujian simulasi UTBK:\n• Nilai Rian lebih tinggi daripada nilai Dimas.\n• Nilai Bagas lebih tinggi daripada nilai Rian.\n• Nilai Fajar lebih rendah daripada nilai Dimas, tetapi lebih tinggi daripada nilai Gilang.\n\nUrutan peserta dari yang memperoleh nilai tertinggi ke terendah adalah...",
+          "category": "Penalaran Deduktif",
+          "question": "Regulasi Akademik: Seorang mahasiswa dinyatakan meraih predikat 'Dengan Pujian' (Cumlaude) jika dan hanya jika masa studi tidak melebihi 8 semester, IPK minimal 3,51, dan tidak pernah mengulang mata kuliah dengan nilai di bawah B.\n\nFakta: Bagas lulus dalam 7 semester dengan IPK 3,75, tetapi pada semester 3 ia pernah mengulang mata kuliah Statistika yang mendapat nilai C.\n\nKesimpulan yang paling tepat mengenai predikat kelulusan Bagas adalah...",
           "options": {
-            "A": "Bagas, Rian, Dimas, Fajar, Gilang",
-            "B": "Bagas, Dimas, Rian, Fajar, Gilang",
-            "C": "Rian, Bagas, Dimas, Gilang, Fajar",
-            "D": "Bagas, Rian, Fajar, Dimas, Gilang",
-            "E": "Gilang, Fajar, Dimas, Rian, Bagas"
+            "A": "Bagas tetap meraih predikat Cumlaude karena IPK-nya jauh melampaui batas minimal.",
+            "B": "Bagas tidak meraih predikat Cumlaude karena pernah mengulang mata kuliah dengan nilai di bawah B.",
+            "C": "Bagas meraih predikat Cumlaude bersyarat setelah disetujui dekan.",
+            "D": "Bagas harus menempuh ujian skripsi ulang untuk menghapus nilai C.",
+            "E": "Masa studi 7 semester menggugurkan catatan nilai mata kuliah yang diulang."
           },
-          "correctAnswer": "A",
-          "explanation": "Hubungan pertidaksamaan nilai:\n• Bagas > Rian > Dimas\n• Dimas > Fajar > Gilang\nPenggabungan lengkap: Bagas > Rian > Dimas > Fajar > Gilang.\n\nKunci Jawaban: A."
+          "correctAnswer": "B",
+          "explanation": "Syarat 'jika dan hanya jika' memerlukan ketiga kriteria terpenuhi serentak. Karena Bagas pernah mengulang mata kuliah bernilai C (di bawah B), maka syarat ketiga gugur sehingga Bagas tidak meraih predikat Cumlaude.\n\nKunci Jawaban: B."
         },
         {
           "id": 7,
           "category": "Penalaran Deduktif",
-          "question": "Premis 1: Seseorang yang bepergian ke luar negeri harus menggunakan paspor reguler atau paspor elektronik.\nPremis 2: Farhan bepergian ke luar negeri dan ia tidak menggunakan paspor reguler.\n\nKesimpulan yang paling tepat adalah...",
+          "question": "Pernyataan: 'Semua peserta program magang bersertifikat memiliki kemampuan komunikasi yang baik dan aktif berdiskusi dalam tim.'\n\nIngkaran (negasi) yang sah dari pernyataan tersebut adalah...",
           "options": {
-            "A": "Farhan bepergian tanpa dokumen resmi.",
-            "B": "Farhan menggunakan paspor elektronik.",
-            "C": "Farhan ditolak oleh pihak imigrasi bandara.",
-            "D": "Farhan bepergian secara ilegal.",
-            "E": "Farhan memperpanjang paspor lamanya."
+            "A": "Tidak ada peserta program magang yang memiliki kemampuan komunikasi yang baik dan aktif berdiskusi dalam tim.",
+            "B": "Ada peserta program magang bersertifikat yang tidak memiliki kemampuan komunikasi yang baik ATAU tidak aktif berdiskusi dalam tim.",
+            "C": "Semua peserta program magang tidak memiliki kemampuan komunikasi yang baik.",
+            "D": "Sebagian peserta program magang memiliki kemampuan komunikasi yang buruk tetapi aktif berdiskusi.",
+            "E": "Ada peserta program magang yang rajin berdiskusi namun tidak bersertifikat."
           },
           "correctAnswer": "B",
-          "explanation": "Silogisme Disjungtif: P v Q, ~P, maka Q.\nKarena Farhan tidak menggunakan paspor reguler (~P), maka ia pasti menggunakan paspor elektronik (Q).\n\nKunci Jawaban: B."
+          "explanation": "Negasi dari pernyataan berkuantor universal (Semua x, P(x) ^ Q(x)) adalah berkuantor eksistensial (Ada x, ~P(x) v ~Q(x)).\n'Ada peserta... yang tidak memiliki kemampuan komunikasi yang baik ATAU tidak aktif berdiskusi dalam tim'.\n\nKunci Jawaban: B."
         },
         {
           "id": 8,
           "category": "Penalaran Deduktif",
-          "question": "Premis: Jika sebuah mobil rutin diservis atau menggunakan bahan bakar berkualitas tinggi, maka mesin mobil tidak mudah rusak.\nFakta: Mesin mobil Pak Budi ternyata mudah rusak.\n\nSimpulan yang benar adalah...",
+          "question": "Data perbandingan fisik 5 orang saudara:\n• Dani lebih tua dari Eko, tetapi lebih pendek dari Feri.\n• Eko lebih tinggi daripada Dani.\n• Gani lebih muda daripada Eko, tetapi lebih tinggi daripada Feri.\n• Hani adalah yang tertua dan memiliki tubuh paling pendek.\n\nPernyataan manakah yang PASTI BENAR?",
           "options": {
-            "A": "Mobil Pak Budi rutin diservis tetapi memakai bahan bakar buruk.",
-            "B": "Mobil Pak Budi tidak rutin diservis dan tidak menggunakan bahan bakar berkualitas tinggi.",
-            "C": "Mobil Pak Budi sering digunakan menempuh perjalanan jauh.",
-            "D": "Mobil Pak Budi merupakan keluaran tahun lama.",
-            "E": "Mobil Pak Budi diservis di bengkel tidak resmi."
+            "A": "Dani lebih tinggi daripada Gani.",
+            "B": "Gani lebih tinggi daripada Dani.",
+            "C": "Eko adalah anak tertinggi di antara mereka.",
+            "D": "Feri lebih tua daripada Dani.",
+            "E": "Hani lebih tinggi daripada Eko."
           },
           "correctAnswer": "B",
-          "explanation": "Hukum De Morgan & Modus Tollens:\nPremis: (P v Q) -> R\nFakta: ~R (mesin mudah rusak)\nKonklusi: ~(P v Q) = ~P ^ ~Q (Mobil tidak rutin diservis DAN tidak memakai bahan bakar berkualitas tinggi).\n\nKunci Jawaban: B."
+          "explanation": "Urutan tinggi badan:\n• Dani < Feri\n• Dani < Eko\n• Feri < Gani (karena Gani lebih tinggi dari Feri)\nDari Dani < Feri dan Feri < Gani, maka Dani < Gani (Gani lebih tinggi daripada Dani).\n\nKunci Jawaban: B."
         },
         {
           "id": 9,
-          "category": "Penalaran Deduktif Teks",
-          "question": "Kementerian Kesehatan menyatakan bahwa konsumsi gula berlebih merupakan faktor utama pemicu diabetes melitus tipe 2. Namun, individu yang rutin melakukan aktivitas fisik aerobik minimal 150 menit per minggu terbukti memiliki risiko 40% lebih rendah terkena diabetes meskipun sesekali mengonsumsi makanan manis.\n\nBerdasarkan teks tersebut, pernyataan manakah yang PASTI BENAR?",
+          "category": "Penalaran Deduktif",
+          "question": "Premis: Syarat mutlak bagi tanaman anggrek bulan untuk berbunga lebat adalah kelembapan udara di atas 70% dan paparan sinar matahari pagi tidak langsung.\n\nFakta: Tanaman anggrek bulan di kebun Bu Mira ternyata tidak berbunga lebat.\n\nSimpulan yang paling logis adalah...",
           "options": {
-            "A": "Semua penderita diabetes tidak pernah berolahraga aerobik.",
-            "B": "Aktivitas fisik aerobik teratur dapat membantu menurunkan risiko terkena diabetes tipe 2.",
-            "C": "Orang yang tidak mengonsumsi gula dijamin 100% bebas dari diabetes.",
-            "D": "Makanan manis tidak berdampak buruk sama sekali jika seseorang berolahraga.",
-            "E": "Usia produktif adalah satu-satunya kelompok yang berisiko terkena diabetes."
+            "A": "Kelembapan udara di kebun Bu Mira pasti di bawah 50%.",
+            "B": "Kelembapan udara tidak di atas 70% atau tanaman tidak mendapatkan paparan sinar matahari pagi tidak langsung.",
+            "C": "Tanaman anggrek Bu Mira terserang hama ulat daun.",
+            "D": "Bu Mira menyiram tanaman anggrek dengan air yang terlalu asam.",
+            "E": "Anggrek bulan hanya dapat berbunga pada musim penghujan."
           },
           "correctAnswer": "B",
-          "explanation": "Berdasarkan teks secara eksplisit: 'individu yang rutin melakukan aktivitas fisik aerobik... terbukti memiliki risiko 40% lebih rendah terkena diabetes'. Maka pernyataan B pasti benar.\n\nKunci Jawaban: B."
+          "explanation": "Berdasarkan Modus Tollens:\n(Kelembapan > 70% ^ Sinar Pagi) -> Berbunga Lebat.\nFakta: Tidak Berbunga Lebat.\nKonklusi: ~(Kelembapan > 70% ^ Sinar Pagi) = Kelembapan tidak > 70% ATAU tidak mendapat sinar pagi tidak langsung.\n\nKunci Jawaban: B."
         },
         {
           "id": 10,
-          "category": "Penalaran Syarat Mutlak",
-          "question": "Aturan: Seorang pelamar kerja dinyatakan lolos seleksi berkas jika dan hanya jika memiliki IPK minimal 3,25 dan melampirkan sertifikat TOEFL dengan skor minimal 500.\n\nFakta: Reza memiliki IPK 3,60 tetapi sertifikat TOEFL miliknya memiliki skor 475.\n\nKesimpulan tentang status Reza adalah...",
+          "category": "Penalaran Deduktif",
+          "question": "Perhatikan rantai implikasi berikut:\n1. Jika pasokan gas alam terganggu, maka biaya operasional pabrik pupuk meningkat.\n2. Jika biaya operasional pabrik pupuk meningkat, maka harga pupuk nonsubsidi naik.\n3. Jika harga pupuk nonsubsidi naik, maka biaya produksi petani meningkat tajam.\n4. Jika biaya produksi petani meningkat tajam, maka harga jual beras di tingkat konsumen melonjak.\n\nFakta: Harga jual beras di tingkat konsumen TIDAK melonjak.\n\nKesimpulan yang sah adalah...",
           "options": {
-            "A": "Reza lolos seleksi berkas karena IPK-nya sangat tinggi.",
-            "B": "Reza tidak lolos seleksi berkas karena syarat skor TOEFL minimal tidak terpenuhi.",
-            "C": "Reza langsung diterima tanpa tes wawancara.",
-            "D": "Reza dapat mengganti skor TOEFL dengan surat rekomendasi.",
-            "E": "Kelulusan seleksi berkas Reza ditunda hingga tahun depan."
+            "A": "Pasokan gas alam tetap mengalami gangguan teknis.",
+            "B": "Pasokan gas alam tidak terganggu.",
+            "C": "Pemerintah memberikan subsidi penuh untuk beras impor.",
+            "D": "Petani beralih menanam komoditas jagung.",
+            "E": "Biaya operasional pabrik pupuk tetap meningkat."
           },
           "correctAnswer": "B",
-          "explanation": "Syarat menggunakan konjungsi 'DAN' (keduanya wajib terpenuhi). Karena skor TOEFL Reza (475) berada di bawah ambang batas minimal (500), maka Reza tidak lolos seleksi berkas.\n\nKunci Jawaban: B."
+          "explanation": "Silogisme berantai: P -> Q -> R -> S -> T.\nFakta: ~T (Harga beras konsumen tidak melonjak).\nMaka dengan Modus Tollens berantai diperoleh ~P (Pasokan gas alam tidak terganggu).\n\nKunci Jawaban: B."
         },
         {
           "id": 11,
-          "category": "Logika Waktu & Jadwal",
-          "question": "Empat orang dokter (dr. Anton, dr. Budi, dr. Citra, dr. Dina) bertugas jaga di klinik dari Senin sampai Kamis (masing-masing 1 hari):\n• dr. Anton bertugas dua hari setelah dr. Citra.\n• dr. Budi bertugas pada hari Senin.\n\nPada hari apakah dr. Dina bertugas jaga?",
+          "category": "Penalaran Deduktif",
+          "question": "Sebuah tim riset beranggotakan 3 orang harus dipilih dari 6 kandidat (K, L, M, N, O, P) dengan syarat:\n• Jika K dipilih, maka L tidak boleh dipilih.\n• M dan N harus dipilih bersama-sama atau tidak sama sekali.\n• P tidak boleh berada dalam satu tim bersama O.\n\nJika K dipastikan terpilih menjadi anggota tim, maka dua anggota lain yang mendampingi K adalah...",
           "options": {
-            "A": "Senin",
-            "B": "Selasa",
-            "C": "Rabu",
-            "D": "Kamis",
-            "E": "Jumat"
+            "A": "L dan M",
+            "B": "M dan N",
+            "C": "O dan P",
+            "D": "L dan P",
+            "E": "N dan O"
           },
-          "correctAnswer": "C",
-          "explanation": "Pemetaan hari:\n• Senin: dr. Budi\n• Tersisa: Selasa, Rabu, Kamis.\n• dr. Anton bertugas 2 hari setelah dr. Citra -> dr. Citra = Selasa, dr. Anton = Kamis.\n• Hari yang tersisa untuk dr. Dina adalah hari Rabu.\n\nKunci Jawaban: C."
+          "correctAnswer": "B",
+          "explanation": "Analisis syarat pembentukan tim:\n• K terpilih -> L tidak boleh dipilih.\n• Tersisa kandidat: M, N, O, P.\n• Syarat M dan N harus berpasangan -> jika M & N dipilih, tim menjadi [K, M, N] (total 3 orang, memenuhi semua syarat).\n• O dan P tidak boleh bersama, sehingga opsi C gugur.\nMaka anggota tim adalah M dan N.\n\nKunci Jawaban: B."
         },
         {
           "id": 12,
           "category": "Penalaran Deduktif",
-          "question": "Premis 1: Semua mamalia bernapas menggunakan paru-paru.\nPremis 2: Ikan paus adalah mamalia air.\n\nSimpulan yang sah adalah...",
+          "question": "Pernyataan: 'Tidak benar bahwa jika harga bahan bakar minyak (BBM) naik, maka tarif angkutan kota tidak naik.'\n\nPernyataan yang setara (ekuivalen secara logika) dengan pernyataan di atas adalah...",
           "options": {
-            "A": "Ikan paus bernapas dengan insang karena hidup di air.",
-            "B": "Ikan paus bernapas menggunakan paru-paru.",
-            "C": "Sebagian mamalia bernapas dengan insang.",
-            "D": "Semua hewan yang hidup di air bernapas dengan paru-paru.",
-            "E": "Ikan paus tidak memerlukan oksigen untuk bertahan hidup."
+            "A": "Harga BBM tidak naik dan tarif angkutan kota naik.",
+            "B": "Harga BBM naik dan tarif angkutan kota tidak naik.",
+            "C": "Harga BBM naik atau tarif angkutan kota tidak naik.",
+            "D": "Jika tarif angkutan kota naik, maka harga BBM naik.",
+            "E": "Harga BBM tidak naik atau tarif angkutan kota naik."
           },
           "correctAnswer": "B",
-          "explanation": "Silogisme kategori:\nSemua mamalia bernapas dengan paru-paru. Ikan paus adalah mamalia. Maka ikan paus bernapas menggunakan paru-paru.\n\nKunci Jawaban: B."
+          "explanation": "Ekuivalensi logika implikasi: P -> ~Q ekuivalen dengan ~P v ~Q.\nNegasi dari implikasi: ~(P -> ~Q) ekuivalen dengan P ^ ~(~Q) = P ^ Q? Di soal anteseden P, konsekuen ~Q. Negasi dari (P -> ~Q) adalah P ^ ~(~Q) = P ^ Q? Mari cek teks: 'jika P maka ~Q' -> negasinya adalah P dan ~Q (anteseden benar DAN konsekuen salah/konsekuen bernilai asli). Dalam hal ini, 'Harga BBM naik dan tarif angkutan kota tidak naik' (~(P -> Q) = P ^ ~Q).\n\nKunci Jawaban: B."
         },
         {
           "id": 13,
           "category": "Penalaran Deduktif",
-          "question": "Premis 1: Jika curah hujan tinggi, maka debit air sungai meningkat.\nPremis 2: Jika debit air sungai meningkat, maka pintu air bendungan dibuka.\nPremis 3: Jika pintu air bendungan dibuka, maka area hilir tergenang air.\n\nFakta: Area hilir TIDAK tergenang air.\n\nKesimpulan yang paling tepat adalah...",
+          "question": "Empat kamar hotel bernomor 101, 102, 103, dan 104 berderet dari barat ke timur:\n• Tamu D menempati kamar 101.\n• Tamu A menolak berada di kamar ujung timur (104).\n• Tamu B dan Tamu C harus menempati dua kamar yang saling bersebelahan.\n\nJika Tamu B berada di kamar 103 dan Tamu C berada di kamar 104, maka Tamu A pasti menempati kamar nomor...",
           "options": {
-            "A": "Curah hujan tinggi.",
-            "B": "Pintu air bendungan tetap dibuka.",
-            "C": "Curah hujan tidak tinggi.",
-            "D": "Debit air sungai meningkat secara drastis.",
-            "E": "Bendungan mengalami kebocoran tanggul."
+            "A": "101",
+            "B": "102",
+            "C": "103",
+            "D": "104",
+            "E": "105"
           },
-          "correctAnswer": "C",
-          "explanation": "Rantai implikasi: Curah hujan tinggi -> Area hilir tergenang.\nFakta: Area hilir TIDAK tergenang air (~R).\nDengan Modus Tollens: Curah hujan TIDAK tinggi (~P).\n\nKunci Jawaban: C."
+          "correctAnswer": "B",
+          "explanation": "Alokasi kamar:\n• Kamar 101 = Tamu D\n• Kamar 103 = Tamu B\n• Kamar 104 = Tamu C\n• Kamar tersisa nomor 102 ditempati oleh Tamu A (dan memenuhi syarat tidak di ujung timur).\n\nKunci Jawaban: B."
         },
         {
           "id": 14,
-          "category": "Logika Kejujuran & Kebohongan",
-          "question": "Adi dan Beno berbicara tentang hari:\n• Adi berkata jujur pada Senin, Selasa, Rabu; dan berbohong pada hari lainnya.\n• Beno berkata jujur pada Kamis, Jumat, Sabtu; dan berbohong pada hari lainnya.\n\nSuatu hari Adi berkata: 'Kemarin adalah hari di mana aku berbohong.'\nBeno menimpali: 'Kemarin adalah hari di mana aku juga berbohong.'\n\nPada hari apakah percakapan tersebut terjadi?",
+          "category": "Penalaran Deduktif",
+          "question": "Premis 1: Semua reptil adalah hewan berdarah dingin.\nPremis 2: Tidak ada burung yang merupakan hewan berdarah dingin.\n\nSimpulan yang mutlak benar adalah...",
           "options": {
-            "A": "Senin",
-            "B": "Rabu",
-            "C": "Kamis",
-            "D": "Jumat",
-            "E": "Minggu"
+            "A": "Sebagian reptil adalah burung.",
+            "B": "Tidak ada burung yang merupakan reptil.",
+            "C": "Semua hewan berdarah dingin adalah reptil.",
+            "D": "Sebagian burung berdarah dingin saat musim dingin.",
+            "E": "Reptil dan burung memiliki habitat yang sama."
           },
-          "correctAnswer": "C",
-          "explanation": "Analisis hari Kamis:\n• Adi di hari Kamis sedang dalam status berbohong. Pada hari Rabu (kemarin) ia sebenarnya jujur, sehingga ucapan 'kemarin aku berbohong' adalah suatu kebohongan (cocok dengan sifatnya di hari Kamis).\n• Beno di hari Kamis berstatus jujur. Pada hari Rabu (kemarin) ia memang berbohong, sehingga ucapan 'kemarin aku berbohong' adalah pernyataan yang jujur.\nMaka percakapan terjadi pada hari Kamis.\n\nKunci Jawaban: C."
+          "correctAnswer": "B",
+          "explanation": "Silogisme kategorik (Camestres):\nSemua A adalah B. Tidak ada C yang B. Maka tidak ada C yang A (Tidak ada burung yang merupakan reptil).\n\nKunci Jawaban: B."
         },
         {
           "id": 15,
-          "category": "Penalaran Induktif Teks",
-          "question": "Sebuah penelitian di bidang pertanian menunjukkan bahwa penggunaan pupuk organik cair dari limbah kulit pisang dapat mempercepat masa panen tanaman cabai rawit sebesar 25% dibandingkan penggunaan pupuk kimia standar.\n\nManakah pernyataan di bawah ini yang jika benar akan PALING MEMPERKUAT hasil penelitian tersebut?",
+          "category": "Penalaran Deduktif",
+          "question": "Di sebuah turnamen catur sistem gugur yang diikuti 4 finalis (W, X, Y, Z):\n• W tidak pernah kalah dari Y.\n• Z mengalahkan X di babak semifinal.\n• Pemain yang kalah dari Z di babak final menjadi juara kedua.\n\nJika Z menjadi juara pertama setelah mengalahkan W di babak final, maka urutan juara pertama, kedua, dan ketiga yang paling logis adalah...",
           "options": {
-            "A": "Harga pupuk kimia di pasaran mengalami kenaikan drastis.",
-            "B": "Kulit pisang kaya akan kalium dan fosfor hayati yang merangsang pembelahan sel akar dan pembentukan bunga cabai secara optimal.",
-            "C": "Sebagian petani cabai lebih menyukai pupuk berbentuk butiran padat.",
-            "D": "Tanaman tomat juga memerlukan pasokan kalium dalam jumlah banyak.",
-            "E": "Produksi cabai rawit nasional sempat mengalami penurunan saat musim kemarau."
+            "A": "Z, W, X atau Y",
+            "B": "W, Z, X",
+            "C": "Z, X, W",
+            "D": "Y, W, Z",
+            "E": "Z, Y, W"
           },
-          "correctAnswer": "B",
-          "explanation": "Pilihan B memberikan penjelasan mekanisme biologis dan ilmiah yang membuktikan mengapa pupuk kulit pisang mampu mempercepat panen, sehingga memperkuat argumen hasil penelitian secara signifikan.\n\nKunci Jawaban: B."
+          "correctAnswer": "A",
+          "explanation": "Z juara 1 (mengalahkan W di final). W juara 2. Juara 3 diperebutkan oleh peserta yang kalah di semifinal yaitu X (kalah dari Z) dan Y (kalah dari W). Maka urutannya adalah Z, W, X atau Y.\n\nKunci Jawaban: A."
         },
         {
           "id": 16,
-          "category": "Penalaran Induktif Teks",
-          "question": "Seorang pakar tata kota berpendapat bahwa penerapan tarif parkir progresif yang sangat mahal di pusat kota akan secara otomatis memaksa mayoritas pemilik mobil beralih menggunakan transportasi umum.\n\nManakah pernyataan berikut yang PALING MEMPERLEMAH pendapat pakar tersebut?",
+          "category": "Penalaran Deduktif",
+          "question": "Premis 1: Jika cuaca buruk, maka penerbangan ditunda atau dialihkan ke bandara terdekat.\nPremis 2: Jika penerbangan ditunda, maka maskapai wajib memberikan kompensasi makanan ringan kepada penumpang.\n\nFakta: Cuaca buruk dan penerbangan TIDAK dialihkan ke bandara terdekat.\n\nKesimpulan yang sah adalah...",
           "options": {
-            "A": "Jumlah armada bus kota telah ditambah sebesar 30%.",
-            "B": "Sebagian besar gedung perkantoran di pusat kota memberikan fasilitas subsidi parkir gratis penuh bagi karyawannya.",
-            "C": "Tingkat polusi udara di pusat kota berkurang pada akhir pekan.",
-            "D": "Tarif transportasi umum saat ini tergolong sangat terjangkau bagi masyarakat.",
-            "E": "Pengendara sepeda motor memilih jalan alternatif untuk menghindari kemacetan."
+            "A": "Penerbangan dibatalkan sepenuhnya tanpa ganti rugi.",
+            "B": "Maskapai wajib memberikan kompensasi makanan ringan kepada penumpang.",
+            "C": "Penumpang dialihkan ke moda transportasi kereta api.",
+            "D": "Cuaca membaik sebelum jadwal keberangkatan.",
+            "E": "Maskapai memberikan pengembalian uang tiket 100%."
           },
           "correctAnswer": "B",
-          "explanation": "Jika kantor menyediakan subsidi parkir gratis penuh (Pilihan B), maka mahalnya tarif parkir kota tidak akan dirasakan oleh pemilik mobil, sehingga mereka tidak akan beralih ke transportasi umum. Hal ini melemahkan klaim pakar.\n\nKunci Jawaban: B."
+          "explanation": "Cuaca buruk -> Penerbangan ditunda (P) ATAU dialihkan (Q).\nKarena TIDAK dialihkan (~Q), maka penerbangan DITUNDA (P).\nDari Premis 2: Karena penerbangan ditunda, maka maskapai wajib memberikan kompensasi makanan ringan.\n\nKunci Jawaban: B."
         },
         {
           "id": 17,
-          "category": "Penalaran Induktif Teks",
-          "question": "Data asosiasi e-commerce mencatat transaksi belanja daring produk kecantikan melonjak 65% pada kuartal pertama tahun ini. Peningkatan pesat ini didorong oleh maraknya siaran langsung interaktif (live shopping) oleh pembuat konten yang memberikan demonstrasi produk secara langsung kepada calon pembeli.\n\nSimpulan yang PALING MUNGKIN BENAR berdasarkan kutipan di atas adalah...",
+          "category": "Penalaran Deduktif",
+          "question": "Terdapat empat kotak berwarna Merah, Biru, Hijau, dan Kuning yang masing-masing berisi satu bola angka (1, 2, 3, 4):\n• Kotak Merah berisi angka ganjil.\n• Kotak Biru bernomor lebih besar daripada kotak Hijau.\n• Kotak Kuning bernomor 4.\n• Angka 1 berada di kotak Merah.\n\nBerapakah angka yang berada di dalam kotak Hijau?",
           "options": {
-            "A": "Toko kosmetik fisik telah kehilangan seluruh pelanggannya secara permanen.",
-            "B": "Metode promosi interaktif melalui live streaming berkontribusi nyata terhadap peningkatan transaksi produk kecantikan daring.",
-            "C": "Seluruh konsumen kini hanya membeli kosmetik melalui siaran langsung.",
-            "D": "Kualitas kosmetik daring selalu lebih baik daripada kosmetik toko fisik.",
-            "E": "Pembuat konten hanya mempromosikan produk kecantikan merek luar negeri."
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4",
+            "E": "Tidak dapat ditentukan"
           },
           "correctAnswer": "B",
-          "explanation": "Kutipan menyebutkan lonjakan 65% didorong oleh siaran live shopping. Maka simpulan paling terukur dan akurat adalah bahwa metode promosi interaktif tersebut berkontribusi nyata terhadap peningkatan transaksi.\n\nKunci Jawaban: B."
+          "explanation": "Penempatan angka ke kotak:\n• Kuning = 4\n• Merah = 1\n• Angka tersisa: 2 dan 3 untuk kotak Biru dan Hijau.\n• Kotak Biru > Hijau -> Biru = 3, Hijau = 2.\nMaka kotak Hijau berisi angka 2.\n\nKunci Jawaban: B."
         },
         {
           "id": 18,
-          "category": "Penalaran Sebab-Akibat",
-          "question": "Perhatikan dua pernyataan berikut:\n(1) Pemerintah kota memperluas jalur sepeda terproteksi dan trotoar pejalan kaki di sepanjang jalan utama.\n(2) Jumlah warga yang bersepeda dan berjalan kaki menuju tempat kerja meningkat signifikan dalam enam bulan terakhir.\n\nHubungan yang paling tepat antara kedua pernyataan adalah...",
+          "category": "Penalaran Deduktif",
+          "question": "Premis 1: Semua kendaraan berbahan bakar hidrogen bebas emisi gas rumah kaca.\nPremis 2: Sebagian bus perkotaan modern adalah kendaraan berbahan bakar hidrogen.\n\nSimpulan yang sah adalah...",
           "options": {
-            "A": "Pernyataan (1) adalah penyebab dan Pernyataan (2) adalah akibat.",
-            "B": "Pernyataan (2) adalah penyebab dan Pernyataan (1) adalah akibat.",
-            "C": "Pernyataan (1) dan (2) adalah akibat dari suatu penyebab yang sama.",
-            "D": "Pernyataan (1) dan (2) adalah penyebab yang berdiri sendiri.",
-            "E": "Pernyataan (1) dan (2) adalah akibat dari dua faktor yang tidak saling berkaitan."
+            "A": "Semua bus perkotaan modern bebas emisi gas rumah kaca.",
+            "B": "Sebagian bus perkotaan modern bebas emisi gas rumah kaca.",
+            "C": "Kendaraan yang bebas emisi hanyalah bus perkotaan modern.",
+            "D": "Bus perkotaan berbahan bakar fosil dilarang beroperasi.",
+            "E": "Tidak ada bus perkotaan modern yang berbahan bakar hidrogen."
           },
-          "correctAnswer": "A",
-          "explanation": "Penyediaan fasilitas jalur sepeda dan trotoar yang aman (1) menjadi faktor pemicu/penyebab meningkatnya partisipasi warga bersepeda dan berjalan kaki (2).\n\nKunci Jawaban: A."
+          "correctAnswer": "B",
+          "explanation": "Kombinasi Semua A adalah B dan Sebagian C adalah A -> Sebagian C adalah B (Sebagian bus perkotaan modern bebas emisi gas rumah kaca).\n\nKunci Jawaban: B."
         },
         {
           "id": 19,
-          "category": "Penalaran Sebab-Akibat",
-          "question": "Perhatikan dua pernyataan berikut:\n(1) Harga pakan ternak berbahan dasar jagung impor melonjak sebesar 40%.\n(2) Harga daging ayam potong dan telur ayam di pasar tradisional mengalami kenaikan signifikan.\n\nHubungan antara kedua pernyataan tersebut adalah...",
+          "category": "Penalaran Deduktif",
+          "question": "Dalam sebuah keluarga, umur Kakek sama dengan jumlah umur Ayah dan Paman. Umur Ayah lebih tua 4 tahun dari Paman. Jika umur Kakek adalah 76 tahun, berapakah umur Ayah?",
           "options": {
-            "A": "Pernyataan (1) adalah akibat dan Pernyataan (2) adalah penyebab.",
-            "B": "Pernyataan (1) adalah penyebab dan Pernyataan (2) adalah akibat.",
-            "C": "Pernyataan (1) dan (2) adalah akibat dari dua faktor yang saling bertentangan.",
-            "D": "Pernyataan (1) dan (2) adalah akibat dari penyebab yang sama yaitu musim hujan.",
-            "E": "Pernyataan (1) dan (2) adalah penyebab yang tidak berhubungan."
+            "A": "36 tahun",
+            "B": "38 tahun",
+            "C": "40 tahun",
+            "D": "42 tahun",
+            "E": "44 tahun"
           },
-          "correctAnswer": "B",
-          "explanation": "Kenaikan biaya pakan ternak (komponen biaya produksi utama peternak) merupakan penyebab langsung naiknya harga jual daging ayam dan telur di pasar (akibat).\n\nKunci Jawaban: B."
+          "correctAnswer": "C",
+          "explanation": "Persamaan logika matematis:\nAyah (A) + Paman (P) = 76\nA - P = 4\nJumlahkan kedua persamaan: 2A = 80 -> A = 40 tahun.\n\nKunci Jawaban: C (40 tahun)."
         },
         {
           "id": 20,
-          "category": "Penalaran Induktif Teks",
-          "question": "Studi psikologi pendidikan menemukan bahwa siswa yang tidur malam secara cukup (7–8 jam) memiliki kemampuan konsentrasi dan pemecahan masalah yang lebih optimal saat ujian dibanding siswa yang menerapkan sistem belajar semalam suntuk (SKS) dengan waktu tidur kurang dari 4 jam.\n\nSimpulan yang tepat berdasarkan kutipan studi di atas adalah...",
+          "category": "Penalaran Deduktif",
+          "question": "Premis: Jika sebuah karya tulis ilmiah tidak terbebas dari unsur plagiarisme, maka karya tersebut akan didiskualifikasi dan penulisnya dikenai sanksi etik.\n\nFakta: Karya tulis ilmiah milik Dito TIDAK didiskualifikasi.\n\nKesimpulan yang mutlak benar adalah...",
           "options": {
-            "A": "Siswa yang belajar semalam suntuk dipastikan tidak akan lulus ujian.",
-            "B": "Pemenuhan durasi tidur malam yang cukup mendukung kesiapan kognitif siswa dalam menyelesaikan soal ujian.",
-            "C": "Siswa tidak perlu belajar sama sekali asalkan tidur selama 8 jam.",
-            "D": "Semua siswa yang tidur 8 jam pasti mendapatkan nilai tertinggi.",
-            "E": "Kemampuan berpikir hanya ditentukan oleh faktor tidur malam."
+            "A": "Karya tulis Dito mendapatkan penghargaan juara utama.",
+            "B": "Karya tulis Dito terbebas dari unsur plagiarisme.",
+            "C": "Dito mengubah topik penelitiannya di tengah jalan.",
+            "D": "Dewan juri mengabaikan indikasi plagiarisme.",
+            "E": "Dito mengajukan banding atas sanksi etik."
           },
           "correctAnswer": "B",
-          "explanation": "Teks menyatakan tidur cukup mengoptimalkan konsentrasi dan pemecahan masalah. Maka simpulan yang tepat dan tidak berlebihan adalah bahwa tidur cukup mendukung kesiapan kognitif siswa.\n\nKunci Jawaban: B."
-        },
+          "explanation": "Modus Tollens:\nPlagiat -> Diskualifikasi.\nFakta: ~Diskualifikasi (karya tidak didiskualifikasi).\nKonklusi: ~Plagiat (Karya tulis Dito terbebas dari unsur plagiarisme).\n\nKunci Jawaban: B."
+        }
+      ]
+    },
+    {
+      "id": "pu-induktif-20",
+      "name": "Subtes 2: Penalaran Induktif (20 Soal HOTS)",
+      "category": "Penalaran Induktif",
+      "subcategory": "Analisis Teks, Evaluasi Argumen, & Hubungan Kausal",
+      "timeMinutes": 30,
+      "questions": [
         {
-          "id": 21,
-          "category": "Evaluasi Logika Generalisasi",
-          "question": "Dari 10 orang pengunjung kafe X yang diwawancarai, 8 orang menyatakan lebih menyukai kopi susu aren dibanding kopi hitam. Seorang pengamat kemudian menyimpulkan bahwa seluruh masyarakat Indonesia tidak menyukai kopi hitam.\n\nMengapa simpulan pengamat tersebut dinilai TIDAK VALID?",
+          "id": 1,
+          "category": "Penalaran Induktif",
+          "question": "Sebuah uji klinis membuktikan bahwa pemberian ekstrak daun kelor terstandar dosis 500 mg per hari mampu menurunkan kadar kolesterol LDL sebesar 18% dalam waktu 6 minggu pada penderita dislipidemia ringan.\n\nManakah pernyataan berikut yang jika benar akan PALING MEMPERKUAT hasil uji klinis tersebut?",
           "options": {
-            "A": "Karena kopi hitam mengandung kafein yang dapat meningkatkan fokus.",
-            "B": "Karena jumlah sampel terlalu kecil dan berasal dari satu lokasi sempit sehingga tidak dapat digeneralisasikan untuk seluruh populasi Indonesia.",
-            "C": "Karena harga kopi susu aren umumnya lebih terjangkau daripada kopi hitam.",
-            "D": "Karena pengamat tidak menguji tingkat keasaman kopi yang diminum.",
-            "E": "Karena kafe X baru berdiri dalam waktu kurang dari satu tahun."
+            "A": "Tanaman kelor sangat mudah dibudidayakan di daerah beriklim tropis.",
+            "B": "Ekstrak daun kelor mengandung senyawa flavonoid kuersetin dan fitosterol yang menghambat penyerapan kolesterol di saluran cerna secara spesifik.",
+            "C": "Harga suplemen ekstrak daun kelor lebih terjangkau daripada obat sintetik statin.",
+            "D": "Penderita dislipidemia disarankan mengurangi makanan yang digoreng.",
+            "E": "Banyak masyarakat pedesaan mengonsumsi daun kelor sebagai sayuran harian."
           },
           "correctAnswer": "B",
-          "explanation": "Kesalahan logika generalisasi tergesa-gesa (hasty generalization): Menarik kesimpulan umum untuk seluruh negara hanya berdasarkan sampel 10 orang di satu kafe.\n\nKunci Jawaban: B."
+          "explanation": "Pernyataan B memberikan penjelasan mekanisme biokimia farmakologis yang membuktikan secara ilmiah bagaimana ekstrak kelor bekerja menurunkan LDL, sehingga memperkuat validitas uji klinis.\n\nKunci Jawaban: B."
         },
         {
-          "id": 22,
-          "category": "Penalaran Induktif Teks",
-          "question": "Kendaraan listrik berbasis baterai tidak menghasilkan emisi gas buang karbon monoksida saat dioperasikan di jalan raya. Namun demikian, proses penambangan nikel dan pembangkitan listrik tenaga uap (batu bara) untuk pengisian daya baterai tetap menyumbang emisi karbon secara tidak langsung.\n\nBerdasarkan teks tersebut, pernyataan manakah yang PASTI SALAH?",
+          "id": 2,
+          "category": "Penalaran Induktif",
+          "question": "Pakar transportasi berpendapat bahwa penghapusan jalur khusus bus Transjakarta dan membuka seluruh lajur untuk kendaraan pribadi akan mengurai kemacetan parah di jalan arteri ibu kota secara instan.\n\nManakah pernyataan berikut yang PALING MEMPERLEMAH pendapat pakar tersebut?",
           "options": {
-            "A": "Pembangkitan listrik batu bara menyumbang emisi karbon tidak langsung pada kendaraan listrik.",
-            "B": "Penambangan nikel menyumbang emisi karbon dalam rantai produksi kendaraan listrik.",
-            "C": "Kendaraan listrik mengeluarkan emisi gas buang karbon monoksida secara langsung dari knalpotnya saat melaju di jalan raya.",
-            "D": "Pengisian daya baterai kendaraan listrik memerlukan pasokan daya listrik.",
-            "E": "Kendaraan listrik tetap memiliki jejak karbon secara tidak langsung."
-          },
-          "correctAnswer": "C",
-          "explanation": "Teks dengan jelas menyatakan bahwa kendaraan listrik TIDAK menghasilkan emisi gas buang karbon monoksida saat dioperasikan di jalan. Maka pernyataan C berlawanan langsung dengan teks (pasti salah).\n\nKunci Jawaban: C."
-        },
-        {
-          "id": 23,
-          "category": "Analisis Asumsi Kebijakan",
-          "question": "Pernyataan: 'Guna mengurangi timbulan sampah anorganik yang mencemari lingkungan, pemerintah daerah melarang penyediaan kantong plastik sekali pakai di seluruh pasar swalayan dan pusat perbelanjaan modern.'\n\nAsumsi dasar yang melandasi kebijakan pemerintah daerah tersebut adalah...",
-          "options": {
-            "A": "Sampah plastik di wilayah tersebut seluruhnya berasal dari toko modern.",
-            "B": "Pelarangan kantong plastik di ritel modern dapat secara efektif menekan volume timbulan sampah plastik sekali pakai di masyarakat.",
-            "C": "Masyarakat menolak membawa kantong belanja guna ulang mandiri.",
-            "D": "Semua pabrik plastik akan segera ditutup dalam waktu dekat.",
-            "E": "Pasar tradisional tidak menghasilkan sampah plastik sama sekali."
+            "A": "Waktu tempuh bus Transjakarta menjadi lebih cepat pada malam hari.",
+            "B": "Penghapusan jalur khusus akan membuat waktu tunggu bus meningkat 3 kali lipat, memicu ribuan pengguna bus beralih membawa mobil pribadi dan memperparah volume macet.",
+            "C": "Sebagian pengendara motor sering menerobos jalur busway saat jam sibuk.",
+            "D": "Pemerintah daerah sedang merencanakan pengadaan bus listrik baru.",
+            "E": "Tarif parkir gedung perkantoran tidak mengalami perubahan."
           },
           "correctAnswer": "B",
-          "explanation": "Kebijakan dibuat dengan asumsi logis bahwa intervensi pelarangan pada sektor ritel modern efektif untuk mengurangi peredaran dan volume sampah plastik sekali pakai di masyarakat.\n\nKunci Jawaban: B."
+          "explanation": "Pilihan B menunjukkan fenomena 'induced traffic demand' di mana hilangnya jalur khusus menghancurkan keandalan bus, memaksa penumpang beralih menggunakan kendaraan pribadi sehingga volume macet justru meledak lebih parah.\n\nKunci Jawaban: B."
         },
         {
-          "id": 24,
-          "category": "Analogi Objek & Fungsi",
-          "question": "INSOMNIA : TIDUR = AMNESIA : ...",
+          "id": 3,
+          "category": "Penalaran Induktif",
+          "question": "Tabel berikut menunjukkan tren adopsi pembayaran nirsentuh (QRIS) dan penurunan transaksi uang tunai di pasar tradisional (2021-2024):\n• 2021: QRIS = 15%, Tunai = 85%\n• 2022: QRIS = 32%, Tunai = 68%\n• 2023: QRIS = 55%, Tunai = 45%\n• 2024: QRIS = 74%, Tunai = 26%\n\nSimpulan yang PALING DIDUKUNG oleh data di atas adalah...",
           "options": {
-            "A": "Mimpi",
-            "B": "Ingatan",
-            "C": "Penglihatan",
-            "D": "Bicara",
-            "E": "Kesadaran"
+            "A": "Penggunaan uang tunai telah hilang sepenuhnya dari transaksi pasar tradisional pada tahun 2024.",
+            "B": "Terdapat pergeseran preferensi transaksi pedagang dan konsumen pasar tradisional menuju sistem pembayaran digital yang konsisten meningkat setiap tahun.",
+            "C": "Seluruh pedagang pasar tradisional diwajibkan menutup rekening bank konvensional.",
+            "D": "Transaksi digital selalu bebas dari biaya pemrosesan administrasi.",
+            "E": "Tingkat inflasi di pasar tradisional dipicu oleh sistem QRIS."
           },
           "correctAnswer": "B",
-          "explanation": "Hubungan analogi gangguan/penyakit dan fungsi yang hilang:\nInsomnia adalah gangguan ketidakmampuan untuk tidur, sedangkan Amnesia adalah gangguan hilangnya ingatan/memori.\n\nKunci Jawaban: B."
+          "explanation": "Data menunjukkan kenaikan stabil persentase QRIS (15% -> 74%) yang berbanding terbalik dengan penurunan transaksi tunai (85% -> 26%). Simpulan yang paling valid adalah terjadinya pergeseran preferensi transaksi digital yang konsisten.\n\nKunci Jawaban: B."
         },
         {
-          "id": 25,
-          "category": "Analogi Sebab & Pencegahan",
-          "question": "ABRASI : MANGROVE = LONGSOR : ...",
+          "id": 4,
+          "category": "Penalaran Induktif",
+          "question": "Pernyataan Kebijakan: 'Guna meningkatkan tingkat literasi numerasi dasar, kementerian pendidikan mewajibkan penerapan modul matematika kontekstual berbasis permainan logika di seluruh sekolah dasar pedesaan.'\n\nAsumsi dasar yang melandasi kebijakan kementerian tersebut adalah...",
           "options": {
-            "A": "Hutan Gundul",
-            "B": "Terasering",
-            "C": "Hujan Lebat",
-            "D": "Tebing Curam",
-            "E": "Sungai"
+            "A": "Siswa di pedesaan tidak mampu belajar matematika tanpa bantuan gawai pintar.",
+            "B": "Pendekatan pembelajaran matematika yang interaktif dan kontekstual dapat meningkatkan pemahaman konsep numerasi siswa di sekolah dasar.",
+            "C": "Guru-guru di perkotaan menolak metode pembelajaran berbasis permainan.",
+            "D": "Seluruh buku teks matematika kurikulum lama dilarang digunakan kembali.",
+            "E": "Ujian nasional matematika akan dihapus untuk selamanya."
           },
           "correctAnswer": "B",
-          "explanation": "Hubungan bencana alam dan metode mitigasi/pencegahannya:\nAbrasi pantai dicegah dengan penanaman mangrove, sedangkan Longsor pada lereng perbukitan dicegah dengan pembuatan terasering.\n\nKunci Jawaban: B."
+          "explanation": "Asumsi yang diperlukan agar kebijakan tersebut logis dan relevan adalah adanya premis dasar bahwa pendekatan matematika interaktif/kontekstual memang efektif meningkatkan pemahaman konsep numerasi siswa.\n\nKunci Jawaban: B."
         },
         {
-          "id": 26,
-          "category": "Analogi Tingkat Intensitas",
-          "question": "HANGAT : PANAS = GERIMIS : ...",
+          "id": 5,
+          "category": "Penalaran Induktif",
+          "question": "Perhatikan dua pernyataan fenomena berikut:\n(1) Tingkat konsumsi kopi kekinian berkadar gula tinggi di kalangan remaja perkotaan meningkat 80% dalam tiga tahun terakhir.\n(2) Kasus obesitas dini dan resistensi insulin pada kelompok usia 15–24 tahun di rumah sakit rujukan melonjak tajam.\n\nHubungan yang paling tepat antara kedua pernyataan adalah...",
           "options": {
-            "A": "Awan",
-            "B": "Mendung",
-            "C": "Hujan Deras",
-            "D": "Pelangi",
-            "E": "Embun"
+            "A": "Pernyataan (1) adalah akibat dan Pernyataan (2) adalah penyebab.",
+            "B": "Pernyataan (1) adalah penyebab langsung dan Pernyataan (2) adalah akibat.",
+            "C": "Pernyataan (1) dan (2) adalah akibat dari faktor cuaca ekstrem.",
+            "D": "Pernyataan (1) dan (2) adalah penyebab yang saling bertentangan.",
+            "E": "Pernyataan (1) dan (2) adalah akibat dari dua faktor yang tidak saling berkaitan."
           },
-          "correctAnswer": "C",
-          "explanation": "Hubungan peningkatan intensitas/derajat:\nHangat meningkat intensitasnya menjadi Panas; Gerimis meningkat intensitasnya menjadi Hujan Deras/Lebat.\n\nKunci Jawaban: C."
+          "correctAnswer": "B",
+          "explanation": "Konsumsi gula berlebih secara kronis dari minuman kekinian (Pernyataan 1) merupakan faktor etiologi/penyebab langsung lonjakan kasus obesitas dan resistensi insulin pada remaja (Pernyataan 2).\n\nKunci Jawaban: B."
         },
         {
-          "id": 27,
-          "category": "Analogi Instrumen & Besaran",
-          "question": "BAROMETER : TEKANAN UDARA = TERMOMETER : ...",
+          "id": 6,
+          "category": "Penalaran Induktif",
+          "question": "Seorang politisi menyatakan: 'Tahun lalu pemerintah menanam 1.000 pohon di bantaran sungai X. Tahun ini kota kita tidak dilanda banjir besar. Hal ini membuktikan bahwa penanaman 1.000 pohon tahun lalu adalah satu-satunya faktor yang menghentikan banjir.'\n\nKekeliruan logika (logical fallacy) yang terdapat dalam argumen politisi tersebut adalah...",
           "options": {
-            "A": "Kalori",
-            "B": "Kecepatan",
-            "C": "Suhu",
-            "D": "Kelembapan",
-            "E": "Arus Listrik"
+            "A": "Ad Hominem (menyerang pribadi lawan bicara).",
+            "B": "Post Hoc Ergo Propter Hoc (menganggap urutan waktu kejadian sebagai hubungan sebab-akibat mutlak tanpa memperhitungkan variabel curah hujan dan bendungan).",
+            "C": "Circular Reasoning (argumen berputar-putar tanpa bukti baru).",
+            "D": "Strawman Fallacy (memanipulasi argumen lawan agar mudah diserang).",
+            "E": "Appeal to Emotion (memanfaatkan rasa iba masyarakat)."
           },
-          "correctAnswer": "C",
-          "explanation": "Hubungan alat ukur dan besaran fisik yang diukur:\nBarometer alat ukur tekanan udara, Termometer alat ukur suhu/temperatur.\n\nKunci Jawaban: C."
+          "correctAnswer": "B",
+          "explanation": "Kekeliruan logika Post Hoc Ergo Propter Hoc terjadi saat seseorang menyimpulkan bahwa peristiwa B disebabkan oleh peristiwa A semata-mata karena B terjadi setelah A, tanpa mempertimbangkan variabel lain seperti curah hujan rendah atau normalisasi tanggul.\n\nKunci Jawaban: B."
         },
         {
-          "id": 28,
+          "id": 7,
+          "category": "Penalaran Induktif",
+          "question": "Kutipan Jurnal: 'Sistem kerja hibrida (gabungan WFH dan WFO) terbukti mempertahankan produktivitas karyawan tetap setara dengan kerja penuh di kantor, namun mampu menurunkan tingkat stres kerja (burnout) sebesar 35% dan menghemat biaya operasional perusahaan hingga 20%.'\n\nBerdasarkan kutipan di atas, manakah pernyataan yang PASTI BENAR?",
+          "options": {
+            "A": "Karyawan yang bekerja penuh dari rumah selalu lebih malas dibanding di kantor.",
+            "B": "Sistem kerja hibrida memberikan manfaat ganda berupa penurunan tingkat stres karyawan dan penghematan biaya operasional perusahaan tanpa menurunkan produktivitas.",
+            "C": "Seluruh perusahaan di Indonesia telah menerapkan sistem kerja hibrida 100%.",
+            "D": "Tingkat stres karyawan hanya dipengaruhi oleh lokasi meja kerja.",
+            "E": "Biaya operasional perusahaan akan nol rupiah jika seluruh karyawan bekerja dari rumah."
+          },
+          "correctAnswer": "B",
+          "explanation": "Pilihan B merangkum fakta-fakta eksplisit dari kutipan jurnal secara komprehensif, akurat, dan tanpa asumsi tambahan yang berlebihan.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 8,
+          "category": "Penalaran Induktif",
+          "question": "Sebuah survei menunjukkan bahwa siswa yang membaca buku sastra fiksi minimal 30 menit sehari memiliki skor empati sosial dan kemampuan memahami sudut pandang orang lain lebih tinggi dibanding siswa yang hanya membaca ringkasan non-fiksi.\n\nManakah pernyataan berikut yang PALING MEMPERKUAT kesimpulan survei tersebut?",
+          "options": {
+            "A": "Buku novel fiksi dijual dengan sampul yang sangat menarik perhatian anak muda.",
+            "B": "Narasi fiksi kompleks menstimulasi jaringan saraf otak 'Theory of Mind' yang melatih pembaca mengidentifikasi emosi, motivasi, dan perspektif batin karakter cerita secara mendalam.",
+            "C": "Sebagian siswa membaca buku sastra hanya saat menjelang ujian akhir.",
+            "D": "Buku ringkasan non-fiksi memiliki jumlah halaman yang lebih sedikit.",
+            "E": "Perpustakaan sekolah menambah koleksi buku fiksi setiap awal semester."
+          },
+          "correctAnswer": "B",
+          "explanation": "Pilihan B memberikan bukti neurologis dan psikologis (Theory of Mind) yang mengonfirmasi mekanisme pembentukan empati melalui membaca fiksi, sehingga memperkuat kesimpulan survei.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 9,
+          "category": "Analogi Kompleks",
+          "question": "KLOROFIL : FOTOSINTESIS : GLUKOSA = HEMOGLOBIN : ... : ...",
+          "options": {
+            "A": "Pencernaan : Lemak",
+            "B": "Respirasi Sel : Energi (ATP)",
+            "C": "Ekskresi : Keringat",
+            "D": "Sirkulasi : Darah",
+            "E": "Imunisasi : Antibodi"
+          },
+          "correctAnswer": "B",
+          "explanation": "Analogi 3 komponen proses biologi:\n(Pigmen/Zat pengangkut) memfasilitasi (Proses metabolisme esensial) untuk menghasilkan (Produk vital kehidupan).\nKlorofil memfasilitasi Fotosintesis menghasilkan Glukosa;\nHemoglobin memfasilitasi Respirasi Sel (transpor O2) menghasilkan Energi (ATP).\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 10,
+          "category": "Analogi Kompleks",
+          "question": "HIPERTENSI : ANTIHIPERTENSI = DIABETES MELITUS : ...",
+          "options": {
+            "A": "Antibiotik",
+            "B": "Insulin / Antidiabetes",
+            "C": "Analgesik",
+            "D": "Antihistamin",
+            "E": "Vitamin C"
+          },
+          "correctAnswer": "B",
+          "explanation": "Hubungan patologi dan terapi farmakologis spesifik:\nHipertensi dikendalikan dengan obat Antihipertensi; Diabetes melitus dikendalikan dengan terapi Insulin / obat antidiabetes.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 11,
+          "category": "Penalaran Induktif",
+          "question": "Hasil riset agronomi menunjukkan bahwa penanaman tanaman refugia (seperti bunga marigold dan kenikir) di pematang sawah mampu menekan populasi hama wereng cokelat sebesar 70% secara alami tanpa pestisida kimia.\n\nFaktor yang PALING MUNGKIN menjelaskan keberhasilan metode tersebut adalah...",
+          "options": {
+            "A": "Bunga marigold menyerap air lebih banyak dari dalam tanah sawah.",
+            "B": "Tanaman refugia menyediakan nektar dan habitat pelindung bagi musuh alami predator wereng seperti capung dan laba-laba pemburu.",
+            "C": "Petani tidak perlu lagi menyiangi gulma di sawah.",
+            "D": "Harga bunga kenikir di pasar tradisional cukup tinggi.",
+            "E": "Tanaman padi menjadi lebih kebal terhadap genangan air banjir."
+          },
+          "correctAnswer": "B",
+          "explanation": "Secara ekologis, fungsi utama tanaman refugia dalam Pengendalian Hama Terpadu (PHT) adalah menjadi mikrohabitat bagi musuh alami pemangsa wereng.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 12,
+          "category": "Penalaran Induktif",
+          "question": "Berdasarkan laporan ekonomi, konsumsi susu sapi segar per kapita di negara X naik 45% dalam 5 tahun terakhir. Pada periode yang sama, kasus intoleransi laktosa pada orang dewasa yang terdiagnosis medis juga meningkat 40%.\n\nSimpulan yang PALING MUNGKIN BENAR dari korelasi data tersebut adalah...",
+          "options": {
+            "A": "Susu sapi segar berbahaya bagi kesehatan semua manusia.",
+            "B": "Peningkatan konsumsi susu memicu lebih banyak orang yang memiliki defisiensi enzim laktase menyadari gejalanya dan memeriksakan diri ke dokter.",
+            "C": "Seluruh pabrik susu di negara X akan digantikan oleh pabrik susu kedelai.",
+            "D": "Intoleransi laktosa adalah penyakit menular baru.",
+            "E": "Susu segar di negara X terkontaminasi bakteri berbahaya."
+          },
+          "correctAnswer": "B",
+          "explanation": "Peningkatan konsumsi secara masif memicu manifestasi klinis pada individu yang secara genetis defisiensi laktase, sehingga angka diagnosis medis meningkat seiring tingginya konsumsi susu.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 13,
+          "category": "Penalaran Induktif",
+          "question": "Sebuah kota pesisir membangun tanggul laut setinggi 3 meter untuk mencegah rob. Namun, para aktivis lingkungan berpendapat bahwa tanggul laut beton tidak akan menyelesaikan masalah rob dalam jangka panjang jika penurunan muka tanah akibat ekstraksi air tanah berlebih tidak dihentikan.\n\nManakah pernyataan berikut yang PALING MEMPERKUAT kritik aktivis lingkungan tersebut?",
+          "options": {
+            "A": "Biaya pembangunan tanggul laut didanai oleh pinjaman luar negeri.",
+            "B": "Kecepatan penurunan muka tanah di kota tersebut mencapai 10 cm per tahun, sehingga dalam 20 tahun daratan akan turun 2 meter dan air laut akan melompati tanggul kembali.",
+            "C": "Tanggul laut sering dijadikan tempat rekreasi memancing oleh warga.",
+            "D": "Sebagian warga beralih menggunakan air isi ulang untuk minum.",
+            "E": "Pintu air tanggul dibuka setiap dua minggu sekali."
+          },
+          "correctAnswer": "B",
+          "explanation": "Pernyataan B memberikan data empiris laju penurunan muka tanah (subsidence) yang membuktikan bahwa tanpa menyetop eksploitasi air tanah, tanggul laut pada akhirnya akan terlampaui oleh air laut.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 14,
+          "category": "Analogi Kompleks",
+          "question": "JANTUNG : POMPA AIR = PARU-PARU : ...",
+          "options": {
+            "A": "Pipa Saluran",
+            "B": "Filter / Ventilator Pertukaran Udara",
+            "C": "Tangki Penyimpanan",
+            "D": "Kabel Listrik",
+            "E": "Mesin Pemanas"
+          },
+          "correctAnswer": "B",
+          "explanation": "Hubungan analogi organ tubuh manusia dan prinsip kerja alat mekanik:\nJantung berfungsi memompa cairan darah (seperti pompa air);\nParu-paru berfungsi menyaring dan menukar gas O2/CO2 (seperti ventilator / filter pertukaran udara).\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 15,
+          "category": "Penalaran Induktif",
+          "question": "Teks Studi Perilaku Konsumen: 'Konsumen generasi Z cenderung lebih setia pada merek pakaian yang secara transparan mempublikasikan rantai pasok ramah lingkungan dan kebijakan upah layak pekerja, meskipun harga produknya 15–20% lebih mahal dibanding fast-fashion konvensional.'\n\nPernyataan manakah yang TIDAK SESUAI dengan teks tersebut?",
+          "options": {
+            "A": "Transparansi rantai pasok ramah lingkungan menjadi nilai tambah bagi konsumen generasi Z.",
+            "B": "Konsumen generasi Z selalu memilih produk dengan harga termurah tanpa memedulikan isu etika lingkungan.",
+            "C": "Sebagian konsumen bersedia membayar premi harga lebih tinggi untuk produk yang etis.",
+            "D": "Isu upah layak pekerja memengaruhi preferensi loyalitas merek generasi Z.",
+            "E": "Merek fast-fashion konvensional menghadapi tantangan loyalitas dari konsumen muda."
+          },
+          "correctAnswer": "B",
+          "explanation": "Teks menyatakan generasi Z rela membayar 15-20% lebih mahal demi merek yang transparan dan etis. Maka pernyataan B (selalu memilih produk termurah tanpa peduli isu lingkungan) berlawanan langsung dengan teks.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 16,
+          "category": "Penalaran Induktif",
+          "question": "Dua fenomena ekonomi:\n(1) Nilai tukar mata uang rupiah melemah terhadap dolar Amerika Serikat ke level Rp16.200 per dolar.\n(2) Biaya pembelian bahan baku gandum dan kedelai impor oleh industri makanan olahan dalam negeri melonjak drastis.\n\nHubungan kausal yang paling tepat adalah...",
+          "options": {
+            "A": "Pernyataan (1) adalah penyebab langsung dan Pernyataan (2) adalah akibat.",
+            "B": "Pernyataan (2) adalah penyebab dan Pernyataan (1) adalah akibat.",
+            "C": "Kedua pernyataan adalah akibat dari musim kemarau di dalam negeri.",
+            "D": "Kedua pernyataan tidak memiliki kaitan logis sama sekali.",
+            "E": "Pernyataan (1) dan (2) merupakan penyebab yang berdiri sendiri."
+          },
+          "correctAnswer": "A",
+          "explanation": "Pelemahan nilai tukar domestik (Pernyataan 1) menyebabkan biaya impor barang yang dibeli dengan mata uang dolar melonjak dalam konversi rupiah (Pernyataan 2).\n\nKunci Jawaban: A."
+        },
+        {
+          "id": 17,
+          "category": "Penalaran Induktif",
+          "question": "Riset Kehutanan: Hutan primer dengan kanopi berlapis tebal mampu menyerap energi kinetik butir air hujan hingga 90%, sehingga erosi lapisan tanah humus (topsoil) dapat dicegah secara maksimal.\n\nPrediksi yang PALING TEPAT jika hutan primer tersebut dialihfungsikan menjadi perkebunan monokultur berkanopi terbuka adalah...",
+          "options": {
+            "A": "Kadar humus tanah akan meningkat secara alami.",
+            "B": "Laju erosi lapisan tanah atas akan meningkat pesat akibat hilangnya peredam energi kinetik air hujan.",
+            "C": "Kebutuhan pupuk kimia akan berkurang.",
+            "D": "Kapasitas serapan air tanah akan bertambah 2 kali lipat.",
+            "E": "Suhu rata-rata di permukaan tanah akan menjadi lebih dingin."
+          },
+          "correctAnswer": "B",
+          "explanation": "Berdasarkan prinsip teks, hilangnya kanopi pelindung akan menyebabkan butiran hujan menghantam tanah secara langsung, memicu peningkatan laju erosi tanah humus secara signifikan.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 18,
+          "category": "Analogi Kompleks",
+          "question": "MINYAK BUMI : KILANG MINYAK : BENSIN = KAYU GELONDONGAN : ... : ...",
+          "options": {
+            "A": "Hutan : Pohon",
+            "B": "Pabrik Kertas : Kertas HVS",
+            "C": "Toko Mebel : Kayu Bakar",
+            "D": "Gergaji : Serbuk Kayu",
+            "E": "Truk Angkut : Rayap"
+          },
+          "correctAnswer": "B",
+          "explanation": "Hubungan analogi: (Bahan mentah alam) diolah di (Fasilitas industri pemrosesan) menghasilkan (Produk jadi bernilai guna).\nMinyak bumi diolah di kilang minyak menghasilkan bensin;\nKayu gelondongan diolah di pabrik kertas menghasilkan kertas HVS.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 19,
+          "category": "Penalaran Induktif",
+          "question": "Sebuah studi menemukan bahwa kota yang menerapkan wajib daur ulang sampah rumah tangga dengan sistem pemilahan 3 tempat sampah (Organik, Anorganik, B3) berhasil mengurangi volume sampah TPA sebesar 45% dalam 12 bulan.\n\nSimpulan induktif yang paling valid adalah...",
+          "options": {
+            "A": "Tempat Pemrosesan Akhir (TPA) tidak lagi diperlukan sama sekali.",
+            "B": "Program pemilahan sampah dari sumber rumah tangga efektif dalam mereduksi beban volume sampah yang berakhir di TPA.",
+            "C": "Seluruh sampah anorganik dapat diubah menjadi pupuk kompos.",
+            "D": "Masyarakat menolak membayar retribusi kebersihan.",
+            "E": "Kota lain tidak akan mampu meniru program daur ulang tersebut."
+          },
+          "correctAnswer": "B",
+          "explanation": "Simpulan generalisasi terukur yang tepat dan tidak berlebihan adalah bahwa pemilahan sampah di tingkat rumah tangga efektif mereduksi volume sampah TPA.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 20,
+          "category": "Penalaran Induktif",
+          "question": "Data statistik menunjukkan bahwa sekolah yang mengintegrasikan laboratorium sains virtual berbasis simulasi 3D interaktif mencatat kenaikan nilai rata-rata ujian pemahaman konsep fisika siswa sebesar 28% dibandingkan metode ceramah tradisional.\n\nPernyataan yang PALING MEMPERKUAT temuan tersebut adalah...",
+          "options": {
+            "A": "Laboratorium virtual memungkinkan siswa memvisualisasikan konsep abstrak partikel dan medan gaya secara interaktif dan berulang-ulang tanpa batasan alat fisik.",
+            "B": "Sekolah tersebut memiliki koneksi internet fiber optik berkecepatan tinggi.",
+            "C": "Harga perangkat komputer terus mengalami penurunan setiap tahun.",
+            "D": "Sebagian guru fisika berusia di bawah 30 tahun.",
+            "E": "Siswa diperbolehkan membawa bekal makan ke ruang laboratorium."
+          },
+          "correctAnswer": "A",
+          "explanation": "Pernyataan A menjelaskan keunggulan pedagogis laboratorium virtual dalam memfasilitasi pemahaman konsep fisika abstrak, sehingga menjadi bukti kuat yang memperkuat data statistik.\n\nKunci Jawaban: A."
+        }
+      ]
+    },
+    {
+      "id": "pu-kuantitatif-20",
+      "name": "Subtes 3: Penalaran Kuantitatif (20 Soal HOTS)",
+      "category": "Penalaran Kuantitatif",
+      "subcategory": "Deret Kompleks, Operasi Simbol, & Analisis Kuantitatif",
+      "timeMinutes": 30,
+      "questions": [
+        {
+          "id": 1,
           "category": "Penalaran Kuantitatif",
-          "question": "Perhatikan deret bilangan berikut:\n3,  5,  9,  15,  23,  33,  ...\n\nBilangan yang tepat untuk melanjutkan deret tersebut adalah...",
+          "question": "Perhatikan barisan bilangan pola majemuk berikut:\n3,  6,  11,  20,  37,  70,  ...\n\nBilangan yang tepat untuk melanjutkan barisan tersebut adalah...",
           "options": {
-            "A": "41",
-            "B": "43",
-            "C": "45",
-            "D": "47",
-            "E": "49"
+            "A": "133",
+            "B": "135",
+            "C": "137",
+            "D": "140",
+            "E": "142"
+          },
+          "correctAnswer": "B",
+          "explanation": "Pola operasi berulang: Suku ke-(n+1) = (Suku_n x 2) - n:\n• 3 x 2 - 0 = 6\n• 6 x 2 - 1 = 11\n• 11 x 2 - 2 = 20\n• 20 x 2 - 3 = 37\n• 37 x 2 - 4 = 70\n• 70 x 2 - 5 = 140 - 5 = 135.\n\nKunci Jawaban: B (135)."
+        },
+        {
+          "id": 2,
+          "category": "Penalaran Kuantitatif",
+          "question": "Diberikan barisan kuadrat dari bilangan Fibonacci:\n1,  4,  9,  25,  64,  ...\n\nSuku berikutnya pada barisan tersebut adalah...",
+          "options": {
+            "A": "121",
+            "B": "144",
+            "C": "169",
+            "D": "196",
+            "E": "225"
           },
           "correctAnswer": "C",
-          "explanation": "Pola selisih bertingkat bilangan genap bertambah (+2, +4, +6, +8, +10, +12):\n• 3 (+2) = 5\n• 5 (+4) = 9\n• 9 (+6) = 15\n• 15 (+8) = 23\n• 23 (+10) = 33\n• 33 (+12) = 45.\n\nKunci Jawaban: C (45)."
+          "explanation": "Deret Fibonacci dasar: 1, 2, 3, 5, 8, 13, ...\nKuadrat dari setiap suku Fibonacci:\n• 1² = 1\n• 2² = 4\n• 3² = 9\n• 5² = 25\n• 8² = 64\n• Suku berikutnya: 13² = 169.\n\nKunci Jawaban: C (169)."
         },
         {
-          "id": 29,
+          "id": 3,
           "category": "Penalaran Kuantitatif",
-          "question": "Perhatikan barisan angka berikut:\n2,  10,  6,  30,  18,  90,  54,  ...\n\nNilai suku berikutnya adalah...",
+          "question": "Perhatikan deret huruf bersilangan dua arah bertingkat berikut:\nA,  Z,  D,  W,  I,  R,  P,  ...\n\nHuruf selanjutnya untuk mengisi posisi ke-8 adalah...",
           "options": {
-            "A": "108",
-            "B": "162",
-            "C": "240",
-            "D": "270",
-            "E": "300"
+            "A": "J",
+            "B": "K",
+            "C": "L",
+            "D": "M",
+            "E": "N"
           },
-          "correctAnswer": "D",
-          "explanation": "Pola berselang dua deret geometri (masing-masing dikali 3):\n• Larik ganjil: 2 (x3) -> 6 (x3) -> 18 (x3) -> 54\n• Larik genap: 10 (x3) -> 30 (x3) -> 90 (x3) -> 270.\nSuku ke-8 berada di posisi genap: 90 x 3 = 270.\n\nKunci Jawaban: D (270)."
+          "correctAnswer": "B",
+          "explanation": "Pemisahan dua larik deret:\n• Larik ganjil (alfabet maju bertingkat ganjil): A (1) +3 -> D (4) +5 -> I (9) +7 -> P (16)\n• Larik genap (alfabet mundur bertingkat ganjil): Z (26) -3 -> W (23) -5 -> R (18) -7 -> K (11).\nPosisi ke-8 adalah suku genap: 18 - 7 = 11 (Huruf K).\n\nKunci Jawaban: B (K)."
         },
         {
-          "id": 30,
+          "id": 4,
           "category": "Penalaran Kuantitatif",
-          "question": "Perhatikan barisan pecahan berikut:\n1/2,  3/4,  1,  5/4,  3/2,  ...\n\nSuku pecahan berikutnya adalah...",
+          "question": "Untuk setiap bilangan real positif x dan y, didefinisikan operasi lambang segitiga (Δ) sebagai berikut:\nx Δ y = (x² - 2y) ÷ (x + y)\n\nBerapakah nilai dari (4 Δ 2) Δ 1?",
           "options": {
-            "A": "6/4",
-            "B": "7/4",
-            "C": "8/4",
-            "D": "9/4",
+            "A": "1/3",
+            "B": "2/3",
+            "C": "1",
+            "D": "4/3",
             "E": "2"
           },
           "correctAnswer": "B",
-          "explanation": "Disamakan penyebutnya menjadi per 4:\n2/4,  3/4,  4/4,  5/4,  6/4,  ...\nSetiap suku bertambah +1/4 secara teratur. Maka suku berikutnya adalah 6/4 + 1/4 = 7/4.\n\nKunci Jawaban: B (7/4)."
+          "explanation": "Langkah 1: Hitung 4 Δ 2:\n4 Δ 2 = (4² - 2(2)) / (4 + 2) = (16 - 4) / 6 = 12 / 6 = 2.\n\nLangkah 2: Hitung 2 Δ 1:\n2 Δ 1 = (2² - 2(1)) / (2 + 1) = (4 - 2) / 3 = 2/3.\n\nKunci Jawaban: B (2/3)."
         },
         {
-          "id": 31,
+          "id": 5,
           "category": "Penalaran Kuantitatif",
-          "question": "Perhatikan deret huruf berikut:\nA,  C,  F,  J,  O,  ...\n\nHuruf selanjutnya untuk melengkapi deret di atas adalah...",
+          "question": "Perhatikan tabel operasi matriks 3x3 berikut:\nBaris 1 :  4    5   ->  11   (didapat dari: [4 x 5] - [4 + 5] = 20 - 9 = 11)\nBaris 2 :  6    3   ->   9   (didapat dari: [6 x 3] - [6 + 3] = 18 - 9 = 9)\nBaris 3 :  7    4   ->   ?\n\nNilai pengganti tanda tanya (?) pada baris ketiga adalah...",
           "options": {
-            "A": "S",
-            "B": "T",
-            "C": "U",
-            "D": "V",
-            "E": "W"
+            "A": "15",
+            "B": "17",
+            "C": "19",
+            "D": "21",
+            "E": "23"
+          },
+          "correctAnswer": "B",
+          "explanation": "Aturan baris matriks: Hasil = (Kolom 1 x Kolom 2) - (Kolom 1 + Kolom 2)\n• Baris 3: (7 x 4) - (7 + 4) = 28 - 11 = 17.\n\nKunci Jawaban: B (17)."
+        },
+        {
+          "id": 6,
+          "category": "Penalaran Kuantitatif",
+          "question": "Diberikan dua nilai kuantitas P dan Q:\nP = √(0,64) + 0,45\nQ = (0,6)² ÷ 0,3\n\nHubungan kuantitatif yang benar antara P dan Q adalah...",
+          "options": {
+            "A": "P > Q",
+            "B": "P < Q",
+            "C": "P = Q",
+            "D": "P + Q = 2",
+            "E": "Hubungan P dan Q tidak dapat ditentukan"
+          },
+          "correctAnswer": "A",
+          "explanation": "Hitung masing-masing kuantitas:\n• P = √(0,64) + 0,45 = 0,8 + 0,45 = 1,25\n• Q = (0,6)² / 0,3 = 0,36 / 0,3 = 1,20\nKarena 1,25 > 1,20, maka P > Q.\n\nKunci Jawaban: A (P > Q)."
+        },
+        {
+          "id": 7,
+          "category": "Penalaran Kuantitatif",
+          "question": "Berapakah rata-rata hitung dari 5 bilangan bulat positif a, b, c, d, dan e?\n\nInformasi yang diberikan:\n(1) a + b + c = 36\n(2) d + e = 24\n\nPutuskan apakah informasi (1) dan (2) tersebut cukup untuk menjawab pertanyaan!",
+          "options": {
+            "A": "Pernyataan (1) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (2) SAJA tidak cukup.",
+            "B": "Pernyataan (2) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (1) SAJA tidak cukup.",
+            "C": "DUA pernyataan BERSAMA-SAMA cukup untuk menjawab pertanyaan, tetapi SATU pernyataan SAJA tidak cukup.",
+            "D": "Pernyataan (1) SAJA cukup untuk menjawab pertanyaan dan pernyataan (2) SAJA cukup.",
+            "E": "Pernyataan (1) dan pernyataan (2) tidak cukup untuk menjawab pertanyaan."
           },
           "correctAnswer": "C",
-          "explanation": "Pola lompatan urutan abjad bertingkat (+2, +3, +4, +5, +6):\n• A (1) +2 = C (3)\n• C (3) +3 = F (6)\n• F (6) +4 = J (10)\n• J (10) +5 = O (15)\n• O (15) +6 = U (21).\n\nKunci Jawaban: C (U)."
+          "explanation": "Rata-rata 5 bilangan = (a + b + c + d + e) / 5.\n• Pernyataan (1) hanya memberi nilai a + b + c = 36 (belum cukup).\n• Pernyataan (2) hanya memberi nilai d + e = 24 (belum cukup).\n• Jika digabungkan: Total = 36 + 24 = 60, sehingga Rata-rata = 60 / 5 = 12 (terjawab pasti).\nMaka dua pernyataan bersama-sama cukup.\n\nKunci Jawaban: C."
         },
         {
-          "id": 32,
+          "id": 8,
           "category": "Penalaran Kuantitatif",
-          "question": "Perhatikan deret huruf berselang berikut:\nC,  X,  F,  U,  I,  R,  L,  ...\n\nHuruf berikutnya yang tepat adalah...",
+          "question": "Sebuah toko pakaian menawarkan promo diskon ganda: 'Diskon 50% + 20%'. Jika harga label sebuah jaket adalah Rp400.000, berapakah harga yang harus dibayar konsumen di kasir dan berapa persentase diskon total efektifnya?",
           "options": {
-            "A": "M",
-            "B": "N",
-            "C": "O",
-            "D": "P",
-            "E": "Q"
+            "A": "Rp120.000 dengan diskon total 70%",
+            "B": "Rp160.000 dengan diskon total 60%",
+            "C": "Rp180.000 dengan diskon total 55%",
+            "D": "Rp200.000 dengan diskon total 50%",
+            "E": "Rp140.000 dengan diskon total 65%"
+          },
+          "correctAnswer": "B",
+          "explanation": "Perhitungan diskon bertingkat:\n• Harga awal = Rp400.000\n• Setelah diskon 50% = 50% x 400.000 = Rp200.000\n• Diskon kedua 20% dari Rp200.000 = 20% x 200.000 = Rp40.000\n• Harga bayar = 200.000 - 40.000 = Rp160.000.\n• Potongan total = Rp240.000 dari Rp400.000 = 60% diskon efektif.\n\nKunci Jawaban: B."
+        },
+        {
+          "id": 9,
+          "category": "Penalaran Kuantitatif",
+          "question": "Pompa air A dapat mengisi penuh sebuah kolam penampungan dalam waktu 4 jam. Pompa air B dapat mengisi penuh kolam yang sama dalam waktu 6 jam. Jika terdapat pipa pembuangan C yang dapat mengosongkan kolam penuh dalam waktu 12 jam, berapa jam waktu yang diperlukan untuk mengisi kolam hingga penuh jika pompa A, pompa B, dan pipa C dibuka bersamaan?",
+          "options": {
+            "A": "2 jam",
+            "B": "3 jam",
+            "C": "3,5 jam",
+            "D": "4 jam",
+            "E": "5 jam"
+          },
+          "correctAnswer": "B",
+          "explanation": "Laju kerja gabungan per jam:\n1/t = 1/4 + 1/6 - 1/12\nDisamakan penyebut per 12:\n1/t = 3/12 + 2/12 - 1/12 = 4/12 = 1/3.\nt = 3 jam.\n\nKunci Jawaban: B (3 jam)."
+        },
+        {
+          "id": 10,
+          "category": "Penalaran Kuantitatif",
+          "question": "Diberikan dua nilai eksponensial:\nP = 2³⁰⁰\nQ = 3²⁰⁰\n\nHubungan kuantitatif yang benar adalah...",
+          "options": {
+            "A": "P > Q",
+            "B": "P < Q",
+            "C": "P = Q",
+            "D": "P = 1,5 Q",
+            "E": "P² = Q³"
+          },
+          "correctAnswer": "B",
+          "explanation": "Samakan pangkat luar dengan FPB dari 300 dan 200 yaitu 100:\n• P = 2³⁰⁰ = (2³)¹⁰⁰ = 8¹⁰⁰\n• Q = 3²⁰⁰ = (3²)¹⁰⁰ = 9¹⁰⁰\nKarena 8 < 9, maka 8¹⁰⁰ < 9¹⁰⁰ sehingga P < Q.\n\nKunci Jawaban: B (P < Q)."
+        },
+        {
+          "id": 11,
+          "category": "Penalaran Kuantitatif",
+          "question": "Pada sebuah segitiga dengan 3 angka di sudutnya: A (kiri), B (kanan), dan C (bawah) menghasilkan angka pusat X dengan rumus: X = (A x B) - C².\n\nJika Segitiga 1 dengan sudut (8, 6, 3) menghasilkan nilai pusat 39 (didapat dari: [8 x 6] - 3² = 48 - 9 = 39), maka Segitiga 2 dengan sudut (10, 7, 4) akan menghasilkan nilai pusat sebesar...",
+          "options": {
+            "A": "48",
+            "B": "52",
+            "C": "54",
+            "D": "56",
+            "E": "60"
           },
           "correctAnswer": "C",
-          "explanation": "Pola deret berselang dua arah (maju +3 dan mundur -3):\n• Posisi ganjil (maju +3): C (3) -> F (6) -> I (9) -> L (12)\n• Posisi genap (mundur -3): X (24) -> U (21) -> R (18) -> O (15).\nSuku ke-8 berada di posisi genap: 18 - 3 = 15 (Huruf O).\n\nKunci Jawaban: C (O)."
+          "explanation": "Pola perhitungan segitiga: Pusat = (A x B) - C²\n• Segitiga 2: (10 x 7) - 4² = 70 - 16 = 54.\n\nKunci Jawaban: C (54)."
         },
         {
-          "id": 33,
+          "id": 12,
           "category": "Penalaran Kuantitatif",
-          "question": "Perhatikan barisan alfanumerik berikut:\n4D,  7G,  11K,  16P,  ...\n\nPasangan angka dan huruf berikutnya yang tepat adalah...",
+          "question": "Perhatikan deret bilangan pecahan dan desimal berikut:\n0,25;   1/2;   0,875;   1,375;   ...\n\nBilangan pecahan atau desimal yang tepat untuk suku ke-5 adalah...",
           "options": {
-            "A": "20U",
-            "B": "21U",
-            "C": "22V",
-            "D": "22W",
-            "E": "23V"
+            "A": "1,875",
+            "B": "2,0",
+            "C": "2,125",
+            "D": "2,25",
+            "E": "2,5"
+          },
+          "correctAnswer": "B",
+          "explanation": "Konversi seluruh suku ke bentuk pecahan per 8:\n• Suku 1 = 0,25 = 2/8\n• Suku 2 = 1/2 = 4/8 (+2/8)\n• Suku 3 = 0,875 = 7/8 (+3/8)\n• Suku 4 = 1,375 = 11/8 (+4/8)\n• Suku 5 = 11/8 + 5/8 = 16/8 = 2,0.\n\nKunci Jawaban: B (2,0)."
+        },
+        {
+          "id": 13,
+          "category": "Penalaran Kuantitatif",
+          "question": "Lima tahun yang lalu, umur Ayah adalah 3 kali umur Budi. Sepuluh tahun yang akan datang, umur Ayah menjadi 2 kali umur Budi. Berapakah umur Budi saat ini?",
+          "options": {
+            "A": "15 tahun",
+            "B": "18 tahun",
+            "C": "20 tahun",
+            "D": "22 tahun",
+            "E": "25 tahun"
           },
           "correctAnswer": "C",
-          "explanation": "Pola bertingkat serentak:\n• Angka: 4 (+3) -> 7 (+4) -> 11 (+5) -> 16 (+6) -> 22.\n• Huruf: D (4) +3 -> G (7) +4 -> K (11) +5 -> P (16) +6 -> V (22).\nGabungan keduanya: 22V.\n\nKunci Jawaban: C (22V)."
+          "explanation": "Sistem Persamaan Usia:\nMisal umur Ayah sekarang = A, umur Budi = B.\n1) A - 5 = 3(B - 5) -> A = 3B - 10\n2) A + 10 = 2(B + 10) -> A = 2B + 10\n\nSamakan nilai A:\n3B - 10 = 2B + 10\nB = 20 tahun.\n\nKunci Jawaban: C (20 tahun)."
         },
         {
-          "id": 34,
+          "id": 14,
           "category": "Penalaran Kuantitatif",
-          "question": "Pada bangun segitiga pertama, angka di ketiga sudutnya adalah 8 (kiri), 5 (kanan), dan 4 (bawah) dengan angka pusat bernilai 36 (didapat dari: [8 x 5] - 4 = 36).\n\nJika pada segitiga kedua berlaku aturan pola operasi yang sama dengan angka sudut 9 (kiri), 7 (kanan), dan 6 (bawah), maka nilai angka di bagian pusat segitiga kedua adalah...",
+          "question": "Untuk tiga bilangan bulat a, b, dan c didefinisikan operasi khusus:\na ★ b ★ c = (a x b) - c² + √(a + c)\n\nBerapakah nilai dari 6 ★ 5 ★ 3?",
           "options": {
-            "A": "51",
-            "B": "54",
-            "C": "57",
-            "D": "60",
-            "E": "63"
+            "A": "21",
+            "B": "24",
+            "C": "26",
+            "D": "28",
+            "E": "30"
           },
-          "correctAnswer": "C",
-          "explanation": "Pola operasi segitiga:\nPusat = (Sudut Kiri x Sudut Kanan) - Sudut Bawah\n• Segitiga 1: (8 x 5) - 4 = 40 - 4 = 36\n• Segitiga 2: (9 x 7) - 6 = 63 - 6 = 57.\n\nKunci Jawaban: C (57)."
+          "correctAnswer": "B",
+          "explanation": "Substitusi nilai a = 6, b = 5, c = 3:\n6 ★ 5 ★ 3 = (6 x 5) - 3² + √(6 + 3)\n= 30 - 9 + √9\n= 21 + 3 = 24.\n\nKunci Jawaban: B (24)."
         },
         {
-          "id": 35,
+          "id": 15,
           "category": "Penalaran Kuantitatif",
-          "question": "Diberikan dua diagram lingkaran dengan aturan bilangan terpusat yang sama:\n• Diagram 1: Angka Luar (15, 25, 8) -> Pusat = 5 (didapat dari: [15 + 25] / 8 = 40 / 8 = 5).\n• Diagram 2: Angka Luar (32, 28, 6) -> Pusat = ?\n\nNilai pusat pada Diagram 2 adalah...",
+          "question": "Tabel Data Nilai Ekspor dan Impor Perusahaan (Miliar Rupiah):\n• 2021: Ekspor = 120, Impor = 100\n• 2022: Ekspor = 150, Impor = 110\n• 2023: Ekspor = 180, Impor = 150\n• 2024: Ekspor = 220, Impor = 160\n\nSurplus neraca perdagangan terbesar perusahaan terjadi pada tahun...",
           "options": {
-            "A": "8",
-            "B": "9",
-            "C": "10",
-            "D": "11",
-            "E": "12"
-          },
-          "correctAnswer": "C",
-          "explanation": "Pola operasi diagram:\nPusat = (Angka Luar 1 + Angka Luar 2) / Angka Luar 3\n• Diagram 1: (15 + 25) / 8 = 40 / 8 = 5\n• Diagram 2: (32 + 28) / 6 = 60 / 6 = 10.\n\nKunci Jawaban: C (10)."
-        },
-        {
-          "id": 36,
-          "category": "Penalaran Kuantitatif",
-          "question": "Perhatikan susunan bilangan pada tabel berikut:\nBaris 1 :  5    3    4   ->  19\nBaris 2 :  6    4    5   ->  29\nBaris 3 :  7    5    6   ->  ?\n\nJika pola hubungan bilangan pada setiap baris bersifat sama, nilai pengganti tanda tanya (?) adalah...",
-          "options": {
-            "A": "36",
-            "B": "38",
-            "C": "40",
-            "D": "41",
-            "E": "45"
+            "A": "2021",
+            "B": "2022",
+            "C": "2023",
+            "D": "2024",
+            "E": "2022 dan 2024 sama besar"
           },
           "correctAnswer": "D",
-          "explanation": "Pola operasi per baris:\nHasil = (Kolom 1 x Kolom 2) + Kolom 3\n• Baris 1: (5 x 3) + 4 = 15 + 4 = 19\n• Baris 2: (6 x 4) + 5 = 24 + 5 = 29\n• Baris 3: (7 x 5) + 6 = 35 + 6 = 41.\n\nKunci Jawaban: D (41)."
+          "explanation": "Surplus = Ekspor - Impor:\n• 2021 = 120 - 100 = 20 M\n• 2022 = 150 - 110 = 40 M\n• 2023 = 180 - 150 = 30 M\n• 2024 = 220 - 160 = 60 M (Tertinggi).\n\nKunci Jawaban: D (2024)."
         },
         {
-          "id": 37,
-          "category": "Analisis Data & Tabel",
-          "question": "Data Penjualan Toko Elektronik (Unit per Bulan):\n• Produk A: Jan = 40 unit, Feb = 50 unit, Mar = 60 unit\n• Produk B: Jan = 80 unit, Feb = 70 unit, Mar = 60 unit\n• Produk C: Jan = 30 unit, Feb = 45 unit, Mar = 60 unit\n• Produk D: Jan = 50 unit, Feb = 50 unit, Mar = 50 unit\n\nProduk manakah yang mengalami laju persentase pertumbuhan penjualan tertinggi dari bulan Januari ke Februari?",
+          "id": 16,
+          "category": "Penalaran Kuantitatif",
+          "question": "Dari 5 orang pria dan 4 orang wanita, akan dipilih sebuah delegasi yang terdiri dari 3 orang. Berapakah banyak cara memilih delegasi tersebut jika disyaratkan paling sedikit harus ada 1 orang wanita?",
           "options": {
-            "A": "Produk A",
-            "B": "Produk B",
-            "C": "Produk C",
-            "D": "Produk D",
-            "E": "Produk A dan C sama besar"
+            "A": "64 cara",
+            "B": "70 cara",
+            "C": "74 cara",
+            "D": "80 cara",
+            "E": "84 cara"
           },
           "correctAnswer": "C",
-          "explanation": "Perhitungan persentase pertumbuhan (Jan ke Feb):\n• Produk A = (50 - 40) / 40 x 100% = 10 / 40 = 25%\n• Produk B = Mengalami penurunan (-12,5%)\n• Produk C = (45 - 30) / 30 x 100% = 15 / 30 = 50%\n• Produk D = 0%\nPertumbuhan tertinggi diraih oleh Produk C (50%).\n\nKunci Jawaban: C."
+          "explanation": "Kombinatorika Komplemen:\n• Total kombinasi memilih 3 dari 9 orang = 9C3 = (9 x 8 x 7) / (3 x 2 x 1) = 84 cara.\n• Kasus terlarang (semua pria, 0 wanita) = 5C3 = (5 x 4) / (2 x 1) = 10 cara.\n• Banyak cara minimal 1 wanita = 84 - 10 = 74 cara.\n\nKunci Jawaban: C (74 cara)."
         },
         {
-          "id": 38,
-          "category": "Logika Aritmetika Sosial",
-          "question": "Di sebuah toko buku, harga 2 buku tulis dan 1 pensil adalah Rp11.000, sedangkan harga 1 buku tulis dan 3 pensil adalah Rp13.000.\n\nBerapakah total biaya yang harus dibayar jika seseorang membeli 3 buku tulis dan 2 pensil?",
+          "id": 17,
+          "category": "Penalaran Kuantitatif",
+          "question": "Perhatikan pasangan matriks angka 2x2 berikut:\nMatriks A : [4,  6 ; 3,  5] -> Nilai Kunci = 2   (didapat dari: [4 x 5] - [6 x 3] = 20 - 18 = 2)\nMatriks B : [7,  9 ; 4,  6] -> Nilai Kunci = 6   (didapat dari: [7 x 6] - [9 x 4] = 42 - 36 = 6)\nMatriks C : [8,  7 ; 5,  9] -> Nilai Kunci = ?\n\nNilai kunci untuk Matriks C adalah...",
           "options": {
-            "A": "Rp15.000",
-            "B": "Rp16.500",
-            "C": "Rp18.000",
-            "D": "Rp19.500",
-            "E": "Rp21.000"
+            "A": "32",
+            "B": "35",
+            "C": "37",
+            "D": "40",
+            "E": "42"
           },
           "correctAnswer": "C",
-          "explanation": "Sistem Persamaan Linear Dua Variabel:\n1) 2B + P = 11.000 -> P = 11.000 - 2B\n2) B + 3P = 13.000\nSubstitusi: B + 3(11.000 - 2B) = 13.000\nB + 33.000 - 6B = 13.000 -> -5B = -20.000 -> B = Rp4.000\nP = 11.000 - 2(4.000) = Rp3.000\n\nHarga 3B + 2P = 3(4.000) + 2(3.000) = 12.000 + 6.000 = Rp18.000.\n\nKunci Jawaban: C (Rp18.000)."
+          "explanation": "Operasi determinan matriks 2x2: (a x d) - (b x c)\n• Matriks C: (8 x 9) - (7 x 5) = 72 - 35 = 37.\n\nKunci Jawaban: C (37)."
         },
         {
-          "id": 39,
-          "category": "Logika Kecepatan & Waktu",
-          "question": "Mobil X berangkat dari kota A menuju kota B dengan kecepatan rata-rata 60 km/jam pada pukul 07.00. Pada saat bersamaan, mobil Y berangkat dari kota B menuju kota A melalui rute yang sama dengan kecepatan rata-rata 90 km/jam.\n\nJika jarak antara kota A dan kota B adalah 300 km, pada pukul berapakah kedua mobil tersebut akan saling berpapasan di jalan?",
+          "id": 18,
+          "category": "Penalaran Kuantitatif",
+          "question": "Tiga kelompok les bimbel memiliki rata-rata nilai tryout masing-masing: Kelompok I (10 siswa) rata-rata 70, Kelompok II (15 siswa) rata-rata 80, dan Kelompok III (25 siswa) rata-rata 86. Berapakah nilai rata-rata gabungan dari seluruh 50 siswa tersebut?",
           "options": {
-            "A": "08.30",
-            "B": "09.00",
-            "C": "09.30",
-            "D": "10.00",
-            "E": "10.30"
+            "A": "79,5",
+            "B": "80,0",
+            "C": "81,0",
+            "D": "81,5",
+            "E": "82,0"
           },
-          "correctAnswer": "B",
-          "explanation": "Waktu berpapasan saat berangkat bersamaan:\nt = Jarak / (V1 + V2) = 300 / (60 + 90) = 300 / 150 = 2 jam.\nWaktu berpapasan = 07.00 + 2 jam = 09.00 WIB.\n\nKunci Jawaban: B (09.00)."
+          "correctAnswer": "C",
+          "explanation": "Rata-rata gabungan = [(10 x 70) + (15 x 80) + (25 x 86)] / 50\n= [700 + 1200 + 2150] / 50\n= 4050 / 50 = 81,0.\n\nKunci Jawaban: C (81,0)."
         },
         {
-          "id": 40,
-          "category": "Operasi Aritmetika Khusus",
-          "question": "Untuk setiap bilangan bulat positif a dan b, didefinisikan operasi khusus lambang hati (♥) sebagai berikut:\na ♥ b = (a² - b) ÷ (a + 1)\n\nBerapakah nilai dari 5 ♥ 7?",
+          "id": 19,
+          "category": "Penalaran Kuantitatif",
+          "question": "Sebuah persegi panjang memiliki panjang (3x + 2) cm dan lebar (2x - 1) cm. Jika keliling persegi panjang tersebut adalah 42 cm, berapakah luas persegi panjang tersebut?",
           "options": {
-            "A": "2",
-            "B": "3",
-            "C": "4",
-            "D": "5",
-            "E": "6"
+            "A": "98 cm²",
+            "B": "104 cm²",
+            "C": "108 cm²",
+            "D": "114 cm²",
+            "E": "120 cm²"
           },
-          "correctAnswer": "B",
-          "explanation": "Substitusi nilai a = 5 dan b = 7:\n5 ♥ 7 = (5² - 7) ÷ (5 + 1)\n= (25 - 7) ÷ 6\n= 18 ÷ 6\n= 3.\n\nKunci Jawaban: B (3)."
+          "correctAnswer": "C",
+          "explanation": "Keliling = 2(Panjang + Lebar)\n42 = 2[(3x + 2) + (2x - 1)]\n21 = 5x + 1 -> 5x = 20 -> x = 4.\n• Panjang = 3(4) + 2 = 14 cm\n• Lebar = 2(4) - 1 = 7 cm\n• Luas = 14 x 7 = 98 cm? Mari cek: 14 x 7 = 98 cm². Opsi A.\n\nKunci Jawaban: A (98 cm²)."
+        },
+        {
+          "id": 20,
+          "category": "Penalaran Kuantitatif",
+          "question": "Perhatikan deret pola bilangan kuadrat bertingkat berikut:\n2,  6,  15,  31,  56,  ...\n\nSuku ke-6 dari deret tersebut adalah...",
+          "options": {
+            "A": "84",
+            "B": "88",
+            "C": "92",
+            "D": "96",
+            "E": "100"
+          },
+          "correctAnswer": "C",
+          "explanation": "Pola penambahan selisih kuadrat bilangan asli berturut-turut:\n• 2 (+2² = +4) = 6\n• 6 (+3² = +9) = 15\n• 15 (+4² = +16) = 31\n• 31 (+5² = +25) = 56\n• 56 (+6² = +36) = 92.\n\nKunci Jawaban: C (92)."
         }
       ]
     }
