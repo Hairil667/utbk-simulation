@@ -1416,6 +1416,98 @@ body {
   transform: translateY(-1px);
 }
 
+/* 8. MASTERY CHART & DIAGNOSIS STYLES */
+.mastery-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mastery-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.mastery-bar-track {
+  width: 100%;
+  height: 14px;
+  background-color: #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.mastery-bar-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mastery-bar-fill.high {
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+}
+
+.mastery-bar-fill.med {
+  background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+}
+
+.mastery-bar-fill.low {
+  background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+}
+
+.mastery-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mastery-badge.high {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.mastery-badge.med {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.mastery-badge.low {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.diagnosis-card {
+  padding: 0.75rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.diagnosis-card.strong {
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  color: #14532d;
+}
+
+.diagnosis-card.weak {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #7f1d1d;
+}
+
+
 @media print {
   body {
     background: #ffffff !important;
@@ -1742,6 +1834,32 @@ body {
         <div class="cat-stat-card c-blue">
           <div class="cat-stat-number" id="stat-time-spent" style="color: #1976d2; font-size: 1.35rem;">00:00</div>
           <div class="cat-stat-title">Waktu Digunakan</div>
+        </div>
+      </div>
+
+      <!-- Subtest Mastery Chart & Diagnosis Card -->
+      <div id="subtest-mastery-card" class="cat-stat-card" style="margin-bottom: 1.2rem; text-align: left; padding: 1.3rem; border-left: 5px solid #1976d2; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; flex-wrap: wrap; gap: 8px;">
+          <h3 style="font-size: 1.05rem; color: #15375c; display: flex; align-items: center; gap: 8px; margin: 0;">
+            📊 Grafik & Analisis Tingkat Penguasaan Subtes
+          </h3>
+          <span style="font-size: 0.78rem; background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 20px; font-weight: 700;">
+            Evaluasi Diagnostik SNBT
+          </span>
+        </div>
+        
+        <p style="font-size: 0.85rem; color: #475569; margin-bottom: 1.2rem;">
+          Visualisasi persentase kebenaran jawaban pada masing-masing subtes untuk mendeteksi materi yang paling dikuasai dan materi yang membutuhkan pendalaman lebih lanjut:
+        </p>
+
+        <!-- Competency Progress Bars Grid -->
+        <div id="mastery-bars-container" style="display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.2rem;">
+          <!-- Dynamically populated bars -->
+        </div>
+
+        <!-- Strongest & Weakest Diagnosis Banner -->
+        <div id="mastery-diagnosis-box" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem;">
+          <!-- Populated dynamically by JavaScript -->
         </div>
       </div>
 
